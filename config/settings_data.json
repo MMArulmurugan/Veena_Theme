@@ -3,6 +3,7 @@
     "logo": "shopify:\/\/shop_images\/n_Veena.png",
     "logo_width": 90,
     "favicon": "shopify:\/\/shop_images\/n_Veena.png",
+<<<<<<< HEAD
     "type_header_font": "harmonia_sans_n7",
     "heading_scale": 100,
     "type_body_font": "harmonia_sans_n4",
@@ -10,12 +11,25 @@
     "page_width": 1750,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 20,
+=======
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+>>>>>>> d6d0de7653829dd01b52167a1eb26a05971d0c89
     "spacing_grid_vertical": 8,
     "animations_reveal_on_scroll": true,
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
+<<<<<<< HEAD
     "buttons_radius": 31,
+=======
+    "buttons_radius": 0,
+>>>>>>> d6d0de7653829dd01b52167a1eb26a05971d0c89
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
