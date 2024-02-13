@@ -3,8 +3,6 @@
   height:auto;
   object-fit: cover;
 }
-
-  
 .slideshow-with-text__position_absolute {
   position: absolute;
   top: 0;
@@ -31,18 +29,15 @@
 .slideshow-with-text__text-wrapper{
   width:40%;
 }
-
 .slideshow-with-text__heading-link a{
   text-decoration: none;
   color:inherit;
   
 }
-
 .slideshow-with-text__heading-link {
   position: relative;
   text-decoration: none;
 }
-
 .slideshow-with-text__heading-link a::before {
   content: "";
   position: absolute;
@@ -53,11 +48,9 @@
   background-color: red;
   transition: width 0.3s ease;
 }
-
 .slideshow-with-text__heading-link a:hover {
   color: red;
 }
-
 .slideshow-with-text__heading-link a:hover::before {
   width: 100%; 
 }
@@ -71,29 +64,67 @@
 .slideshow-with-text__button:hover {
   color:red;
 }
-
 .slideshow-with-text .splide__arrows .splide__arrow--prev{
   top: unset;
   bottom: 0;
   transform:unset;
   background:none;
   cursor: pointer;
-  left: 45%;
+  left: 43%;
 }
-
 .slideshow-with-text .splide__arrows .splide__arrow--prev svg{
   fill:#fff;
 }
-
 .slideshow-with-text .splide__arrows .splide__arrow--next{
   top: unset;
   bottom: 0;
   transform:unset;
   background:none;
   cursor: pointer;
-  right: 45%;
+  right: 43%;
 }
-
 .slideshow-with-text .splide__arrows .splide__arrow--next svg{
   fill:#fff;
+}
+.slideshow-with-text .splide__pagination__page {
+  width: 10px; 
+  height: 10px; 
+  margin: 0 5px; 
+  background-color: transparent;
+  border-radius: 50%; 
+  transition: background-color 0.3s ease;
+  border: 1px solid white;
+}
+.slideshow-with-text .splide__pagination__page {
+  margin: 7px 7px 0px 7px;
+}
+.slideshow-with-text .splide__pagination .is-active{
+  width: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 750px){
+  .slideshow-with-text .splide__arrows .splide__arrow--prev{
+    left: 33%;
+  }
+  .slideshow-with-text .splide__arrows .splide__arrow--next{
+    right: 33%;
+  }
+  .slideshow-with-text .splide__pagination .is-active{
+    width: 15px;
+  }
+  .slideshow-with-text__text-wrapper{
+    width:70%;
+  }
+  .slideshow-with-text__pre-heading{
+    font-size: 5px;
+  }
+  .slideshow-with-text__heading-link{
+    font-size: 12px;
+  }
+  .slideshow-with-text__button{
+    font-size: 10px;
+  }
+  
 }

@@ -18,17 +18,14 @@
 
 <div class="slideshow-with-text padding-{{ section.id }}">
     <div class="page-width">
-        <splide-slider>
-            <script>
-            {
-                "type": "loop",
-                "perPage": 1,
-                "pagination": true,
-                "perMove": 1,
-                "autoplay": true,    
-                "interval": 3000
-            }
-            </script>
+        <splide-slider data-splide-options = '{
+          "type": "loop",
+          "perPage": 1,
+          "pagination": true,
+          "perMove": 1,
+          "autoplay": true,    
+          "interval": 3000
+      }'>
             
             <section class="splide " aria-label="Splide Basic HTML Example">
             <div class="splide__track custom-border-radius">
