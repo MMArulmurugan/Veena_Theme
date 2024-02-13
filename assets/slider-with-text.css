@@ -1,0 +1,19 @@
+.slideshow-with-text__position_relative {
+    position: relative;
+    height: 80vh;
+    object-fit: cover;
+  }
+  
+  .slideshow-with-text__position_absolute {
+    position: absolute;
+  }
+  .hero-content-flex-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+.hero-content-wrapper {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
