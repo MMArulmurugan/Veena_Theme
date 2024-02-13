@@ -13,19 +13,7 @@
   flex-direction: column;
   padding:20px 20px;
 }
- .slideshow-with-text__pre-heading {
-  padding: 0;
-  font-size: 14px;
-  border: 1px solid white;
-  border-radius: 31px;
-  padding: 0 13px 0 30px;
-  display: inline-block;
-  vertical-align: middle;
-  word-break: break-word;
-  list-style-type: disc;
-  color:white;
-  backdrop-filter: blur(10px);
-}
+
 .slideshow-with-text__text-wrapper{
   width:40%;
 }
@@ -70,7 +58,7 @@
   transform:unset;
   background:none;
   cursor: pointer;
-  left: 43%;
+  left: 40%;
 }
 .slideshow-with-text .splide__arrows .splide__arrow--prev svg{
   fill:#fff;
@@ -81,7 +69,7 @@
   transform:unset;
   background:none;
   cursor: pointer;
-  right: 43%;
+  right: 40%;
 }
 .slideshow-with-text .splide__arrows .splide__arrow--next svg{
   fill:#fff;

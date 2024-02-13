@@ -1,0 +1,143 @@
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .animation-heading__button{
+    color: {{ section.settings.button_color }};
+    background :{{ section.settings.button_background }}
+  }
+{% endstyle %}
+
+
+<div class="animation-heading padding-{{ section.id }}">
+    <div class="page-width">
+      <div>
+        {% if section.settings.pre_heading != blank %}
+            <p>{{ section.settings.pre_heading }}</p>
+        {% endif %}     
+
+         {% if section.settings.heading_text != blank %}
+            <div class="h2 ">{{ section.settings.heading_text }}</div>
+         {% endif %} 
+
+         {% if section.settings.button_label != blank %}
+            <a
+                class="button animation-heading__button"
+                href="{{section.settings.button_link }}"
+              >
+                {{ section.settings.button_label }}
+              </a>
+         {% endif %}     
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+"name": "Heading with Animation",
+"tag": "section",
+"settings": [
+      {
+        "type": "header",
+        "content": "customize this section"
+      },
+      {
+        "type": "text",
+        "id": "pre_heading",
+        "label": "Pre Heading",
+        "default": "Pre Heading"
+        },
+        {
+        "type": "color",
+        "id": "pre_heading_color",
+        "label": "Pre Heading color",
+        "default": "#fff"
+        },
+        {
+        "type": "richtext",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "<p>Heading</p>"
+        },
+        {
+        "type": "color",
+        "id": "heading_text_color",
+        "label": "Heading Text color",
+        "default": "#fff"
+        },
+        {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Explore More"
+        },
+        {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+        },
+        {
+        "type": "color",
+        "id": "button_background",
+        "label": "Button background",
+        "default": "#FFFFFF"
+        },
+        {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button color",
+        "default": "#000000"
+        },
+      {
+        "type": "header",
+        "content": "Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+      }
+],
+
+"presets": [
+    {
+    "name": "Heading with Animation"
+    }
+]
+}
+{% endschema %}

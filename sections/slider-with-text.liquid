@@ -21,10 +21,10 @@
         <splide-slider data-splide-options = '{
           "type": "loop",
           "perPage": 1,
-          "pagination": true,
+          "pagination": {{ section.settings.show_pagination }},
           "perMove": 1,
-          "autoplay": true,    
-          "interval": 3000
+          "autoplay": {{ section.settings.autoplay }} ,    
+          "interval": {{ section.settings.autoplay_duration }}
       }'>
             
             <section class="splide " aria-label="Splide Basic HTML Example">
@@ -32,7 +32,7 @@
                 <ul class="splide__list">
                 {% for block in section.blocks %}
                     <li class="splide__slide">
-                        {%- if block.settings.desktop_image != blank or block.settings.mobile_image != blank -%}
+                        {%- if block.settings.desktop_image != blank -%}
                             <div class = "slideshow-with-text__position_relative">
                               {%
                                 render 'image',
@@ -43,7 +43,7 @@
                             <div class="slideshow-with-text__position_absolute slideshow-with-text__content-position-{{block.id}}">
                                 <div class="slideshow-with-text__text-wrapper slideshow-with-text__content-text-alignment-{{ block.id }}">
                                   {% if block.settings.pre_heading  != blank %}
-                                    <ul class="slideshow-with-text__pre-heading">
+                                    <ul class="pre-heading">
                                       <li>{{ block.settings.pre_heading }}</li>
                                     </ul> 
                                   {% endif %}                                                                   
@@ -55,7 +55,7 @@
                                   {% if block.settings.button_label != blank %}
                                     <a
                                       class="button slideshow-with-text__button slideshow-with-text__banner-button-{{ block.id }}"
-                                      href="block.settings.button_link }}"
+                                      href="{{block.settings.button_link }}"
                                     >
                                       {{ block.settings.button_label }}
                                     </a>
@@ -76,14 +76,14 @@
                         color: {{block.settings.heading_text_color}};
                       }                   
                       .slideshow-with-text__banner-button-{{block.id}}{
-                          background:{{ block.settings.button_bg }};
+                          background:{{ block.settings.button_background }};
                           color:{{ block.settings.button_color }};
                       }                            
                   </style>    
                     {% else %}
                         {% for i in (1..3) %}
                             <li class="splide__slide">
-                            {{ 'product-' | append: i | placeholder_svg_tag }}
+                            {{ 'hero-appearal-' | append: i | placeholder_svg_tag }}
                             </li> 
                         {% endfor %}
                         
@@ -96,40 +96,12 @@
 </div>
 
 
-    
-
-
-
-
 {% schema %}
 {
 "name": "Banner Slide Show",
 "tag": "section",
 "settings": [
-    {
-        "type": "header",
-        "content": "Section padding"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding top",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding bottom",
-        "default": 36
-      },
+    
       {
         "type": "header",
         "content": "Slider Options"
@@ -155,6 +127,30 @@
         "unit": "ms",
         "label": "Autoplay Duration",
         "default": 5000
+      },
+      {
+        "type": "header",
+        "content": "Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
       }
 ],
 "blocks": [
@@ -208,7 +204,7 @@
         },
         {
         "type": "color",
-        "id": "button_bg",
+        "id": "button_background",
         "label": "Button background",
         "default": "#FFFFFF"
         },

@@ -347,6 +347,19 @@ h6, .h6 {
 .custom-border-radius{
   border-radius: 16px;
 }
+.pre-heading {
+  padding: 0;
+  font-size: 14px;
+  border: 1px solid white;
+  border-radius: 31px;
+  padding: 0 13px 0 30px;
+  display: inline-block;
+  vertical-align: middle;
+  word-break: break-word;
+  list-style-type: disc;
+  color:white;
+  backdrop-filter: blur(10px);
+}
 
 blockquote {
   font-style: italic;
