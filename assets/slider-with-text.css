@@ -1,14 +1,9 @@
 .slideshow-with-text__position_relative {
   position: relative;
-  height: 80vh;
+  height:auto;
   object-fit: cover;
 }
-.slideshow-with-text__image{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 
-}
   
 .slideshow-with-text__position_absolute {
   position: absolute;
@@ -18,7 +13,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding:20px 30px;
+  padding:20px 20px;
 }
  .slideshow-with-text__pre-heading {
   padding: 0;
@@ -35,4 +30,70 @@
 }
 .slideshow-with-text__text-wrapper{
   width:40%;
+}
+
+.slideshow-with-text__heading-link a{
+  text-decoration: none;
+  color:inherit;
+  
+}
+
+.slideshow-with-text__heading-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.slideshow-with-text__heading-link a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.slideshow-with-text__heading-link a:hover {
+  color: red;
+}
+
+.slideshow-with-text__heading-link a:hover::before {
+  width: 100%; 
+}
+.slideshow-with-text__button{
+  box-sizing: border-box;
+  font-size:16px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  padding: 5px;
+}
+.slideshow-with-text__button:hover {
+  color:red;
+}
+
+.slideshow-with-text .splide__arrows .splide__arrow--prev{
+  top: unset;
+  bottom: 0;
+  transform:unset;
+  background:none;
+  cursor: pointer;
+  left: 45%;
+}
+
+.slideshow-with-text .splide__arrows .splide__arrow--prev svg{
+  fill:#fff;
+}
+
+.slideshow-with-text .splide__arrows .splide__arrow--next{
+  top: unset;
+  bottom: 0;
+  transform:unset;
+  background:none;
+  cursor: pointer;
+  right: 45%;
+}
+
+.slideshow-with-text .splide__arrows .splide__arrow--next svg{
+  fill:#fff;
 }

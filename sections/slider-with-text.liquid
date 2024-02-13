@@ -25,12 +25,12 @@
                 "perPage": 1,
                 "pagination": true,
                 "perMove": 1,
-                {% comment %} "autoplay": true,     {% endcomment %}
+                "autoplay": true,    
                 "interval": 3000
             }
             </script>
             
-            <section class="splide" aria-label="Splide Basic HTML Example">
+            <section class="splide " aria-label="Splide Basic HTML Example">
             <div class="splide__track custom-border-radius">
                 <ul class="splide__list">
                 {% for block in section.blocks %}
@@ -40,8 +40,7 @@
                               {%
                                 render 'image',
                                 desktopImage: block.settings.desktop_image,
-                                mobileImage: block.settings.mobile_image,
-                                class: 'slideshow-with-text__image',
+                                mobileImage: block.settings.mobile_image                                
                             %}
                             </div>
                             <div class="slideshow-with-text__position_absolute slideshow-with-text__content-position-{{block.id}}">
@@ -53,12 +52,12 @@
                                   {% endif %}                                                                   
 
                                   {% if block.settings.heading_text != blank %}
-                                    <div class="h2 slideshow-with-text__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
+                                    <div class="h2 slideshow-with-text__heading-link slideshow-with-text__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
                                   {% endif %} 
                                   
                                   {% if block.settings.button_label != blank %}
                                     <a
-                                      class="button slideshow-with-text__banner-button-{{ block.id }}"
+                                      class="button slideshow-with-text__button slideshow-with-text__banner-button-{{ block.id }}"
                                       href="block.settings.button_link }}"
                                     >
                                       {{ block.settings.button_label }}
