@@ -1,3 +1,4 @@
+{{ 'heading-with-animation.css' |  asset_url |  stylesheet_tag }} 
 
 {% style %}
   .padding-{{ section.id }} {
@@ -11,6 +12,13 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .animation-heading__pre-heading{
+    color: {{ section.settings.pre_heading_color}};
+  }
+  .animation-heading__heading{
+    color: {{ section.settings.heading_text_color }}
+  }
+
   .animation-heading__button{
     color: {{ section.settings.button_color }};
     background :{{ section.settings.button_background }}
@@ -19,14 +27,28 @@
 
 
 <div class="animation-heading padding-{{ section.id }}">
-    <div class="page-width">
-      <div>
+   
+      <div class = "page-width animation-heading__text">
         {% if section.settings.pre_heading != blank %}
-            <p>{{ section.settings.pre_heading }}</p>
+            <p class="animation-heading__pre-heading" >{{ section.settings.pre_heading }}</p>
         {% endif %}     
 
          {% if section.settings.heading_text != blank %}
-            <div class="h2 ">{{ section.settings.heading_text }}</div>
+            <div class="h1 animation-heading__heading">
+              {{ section.settings.heading_text }}
+                <span class="animation-heading__text">
+                  <div class="h1 loading-text ">
+                    <span class="char">L</span>
+                    <span class="char">a</span>
+                    <span class="char">n</span>
+                    <span class="char">g</span>
+                    <span class="char">u</span>
+                    <span class="char">a</span>
+                    <span class="char">g</span>
+                    <span class="char">e</span>
+                  </div>
+                </span>
+            </div>
          {% endif %} 
 
          {% if section.settings.button_label != blank %}
@@ -38,16 +60,8 @@
               </a>
          {% endif %}     
       </div>
-    </div>
+   
 </div>
-
-
-
-
-
-
-
-
 
 
 

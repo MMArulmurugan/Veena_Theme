@@ -37,6 +37,7 @@
 
     {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src = '{{ 'splide.min.js' | asset_url }}' defer ></script>
+    <script src ="{{ "custom-splider.js" |  asset_url }}" defer></script>
 
     {{ content_for_header }}
 

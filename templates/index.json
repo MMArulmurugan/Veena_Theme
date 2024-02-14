@@ -74,14 +74,14 @@
     "heading_with_animation_Xwwdxy": {
       "type": "heading-with-animation",
       "settings": {
-        "pre_heading": "Pre Heading",
-        "pre_heading_color": "#fff",
-        "heading_text": "<p>Heading<\/p>",
-        "heading_text_color": "#fff",
+        "pre_heading": "What You Wear",
+        "pre_heading_color": "#000000",
+        "heading_text": "<p>Fashion Emerges As A Universal <a href=\"#\" title=\"#\">Language<\/a><\/p>",
+        "heading_text_color": "#121212",
         "button_label": "Explore More",
         "button_link": "",
-        "button_background": "#FFFFFF",
-        "button_color": "#000000",
+        "button_background": "#d03c3f",
+        "button_color": "#ffffff",
         "padding_top": 36,
         "padding_bottom": 36
       }
