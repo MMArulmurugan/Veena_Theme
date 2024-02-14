@@ -344,6 +344,29 @@ h5, .h5 {
 h6, .h6 {
   color: rgba(var(--color-foreground), 0.75);
 }
+.justify-start {
+  justify-content: start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.align-start {
+  align-items: start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: end;
+}
 .custom-border-radius{
   border-radius: 16px;
 }

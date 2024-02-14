@@ -34,18 +34,20 @@
         {% endif %}     
 
          {% if section.settings.heading_text != blank %}
+          {% assign AnimateTxt = section.settings.heading_text | split: 'Animate--'  | last |  remove: '</p>' %}
+
+            {% assign charArr =   AnimateTxt | split: ''  %}
+
+
+
             <div class="h1 animation-heading__heading">
-              {{ section.settings.heading_text }}
+              {{section.settings.heading_text | split: 'Animate--'  | first  }}
                 <span class="animation-heading__text">
                   <div class="h1 loading-text ">
-                    <span class="char">L</span>
-                    <span class="char">a</span>
-                    <span class="char">n</span>
-                    <span class="char">g</span>
-                    <span class="char">u</span>
-                    <span class="char">a</span>
-                    <span class="char">g</span>
-                    <span class="char">e</span>
+                   {% for i in charArr %}
+                    <span class="char">{{i}}</span>
+                   {% endfor %}
+                    
                   </div>
                 </span>
             </div>
@@ -91,7 +93,8 @@
         "type": "richtext",
         "id": "heading_text",
         "label": "Heading Text",
-        "default": "<p>Heading</p>"
+        "default": "<p>Heading</p>",
+        "info":"Mention 'Animate--' before the text which part you want to Animate... "
         },
         {
         "type": "color",

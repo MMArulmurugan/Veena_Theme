@@ -10,9 +10,7 @@
     text-decoration: none;
     color:#D03C3F;
 }
-/* .animation-heading__text{
-    display:inline-block;
-} */
+
 
 .loading-text {
     .char {
@@ -70,3 +68,11 @@
     opacity: 1;
     }
 }
+
+@media only screen and (max-width: 750px){
+    .animation-heading__text{
+        text-align: center;
+        width: 80%;
+    }
+}
+  

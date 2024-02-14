@@ -19,28 +19,30 @@
 <div class="slideshow-with-text padding-{{ section.id }}">
     <div class="page-width">
         <splide-slider data-splide-options = '{
-          "type": "loop",
+          "type" : "{{ section.settings.slide_animation }}",
           "perPage": 1,
           "pagination": {{ section.settings.show_pagination }},
           "perMove": 1,
           "autoplay": {{ section.settings.autoplay }} ,    
-          "interval": {{ section.settings.autoplay_duration }}
+          "interval": {{ section.settings.autoplay_duration }},
+          "arrows" : {{  section.settings.slide_arrows }},
+          "rewind" : {{ section.settings.infinite_scroll }}
       }'>
             
             <section class="splide " aria-label="Splide Basic HTML Example">
-            <div class="splide__track custom-border-radius">
-                <ul class="splide__list">
+            <div class="splide__track custom-border-radius ">
+                <ul class="splide__list ">
                 {% for block in section.blocks %}
-                    <li class="splide__slide">
+                    <li class="splide__slide ">
                         {%- if block.settings.desktop_image != blank -%}
                             <div class = "slideshow-with-text__position_relative">
                               {%
                                 render 'image',
                                 desktopImage: block.settings.desktop_image,
                                 mobileImage: block.settings.mobile_image                                
-                            %}
+                              %}
                             </div>
-                            <div class="slideshow-with-text__position_absolute slideshow-with-text__content-position-{{block.id}}">
+                            <div class="slideshow-with-text__position_absolute {{ block.settings.alignment_position }} slideshow-with-text__content-position-{{block.id}}">
                                 <div class="slideshow-with-text__text-wrapper slideshow-with-text__content-text-alignment-{{ block.id }}">
                                   {% if block.settings.pre_heading  != blank %}
                                     <ul class="pre-heading">
@@ -68,17 +70,25 @@
                       .slideshow-with-text__content-text-alignment-{{block.id}}{
                           text-align: {{ block.settings.text_alignment }};
                       }
-                      .slideshow-with-text__content-position-{{block.id}}{
-                          justify-content:  {{block.settings.vertical_alignment }};
-                          align-items: {{block.settings.horizantal_alignment }};
-                      }     
+                      
                       .slideshow-with-text__heading-text-{{block.id}}{
                         color: {{block.settings.heading_text_color}};
                       }                   
                       .slideshow-with-text__banner-button-{{block.id}}{
                           background:{{ block.settings.button_background }};
                           color:{{ block.settings.button_color }};
-                      }                            
+                      }    
+                      @media only screen and (max-width: 750px) {
+                        .slideshow-with-text__content-text-alignment-{{block.id}}{
+                          text-align: {{ block.settings.text_alignment_mobile }};
+                      }
+                      
+                        .slideshow-with-text__content-position-{{block.id}}{
+                          justify-content:  {{block.settings.vertical_alignment }};
+                          align-items: {{block.settings.horizantal_alignment }};
+                        }   
+                      }
+                        
                   </style>    
                     {% else %}
                         {% for i in (1..3) %}
@@ -117,6 +127,37 @@
         "id": "show_pagination",
         "label": "Show Pagination",
         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_arrows",
+        "label": "Show slide arrows",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "infinite_scroll",
+        "label": "Infinite Scroll",
+        "default": true
+      },
+      {
+        "type" : "select",
+        "id": "slide_animation",
+        "label" : "Slide animation",
+        "options" : [
+          {
+            "value" : "loop",
+            "label" : "Loop"
+          },
+          {
+            "value" : "fade",
+            "label" : "Fade"
+          },
+          {
+            "value" : "slide",
+            "label" : "Slide"
+          }
+        ]
       },
       {
         "type": "range",
@@ -234,11 +275,75 @@
         ],
         "default": "left"
         },
+        {
+          "type": "select",
+          "id": "text_alignment_mobile",
+          "label": "Text Alignment (Mobile)",
+          "options": [
+              {
+              "value": "left",
+              "label": "Left"
+              },
+              {
+              "value": "center",
+              "label": "Center"
+              },
+              {
+              "value": "Right",
+              "label": "Right"
+              }
+          ],
+          "default": "center"
+          },
+        {
+          "type" : "select",
+          "id" : "alignment_position",
+          "label" : "Desktop content position",
+          "options" : [
+            {
+              "value" : "align-start justify-start",
+              "label" : "Top left"
+            },
+            {
+              "value" : "align-start justify-center",
+              "label" : "Top center"
+            },
+            {
+              "value" : "align-start justify-end",
+              "label" : "Top right"
+            },
+            {
+              "value" : "align-center justify-start",
+              "label" : "Middle left"
+            },
+            {
+              "value" : "align-center justify-center",
+              "label" : "Middle center"
+            },
+            {
+              "value" : "align-center justify-end",
+              "label" : "Middle right"
+            },
+            {
+              "value" : "align-end justify-start",
+              "label" : "Bottom left"
+            },
+            {
+              "value" : "align-end justify-center",
+              "label" : "Bottom center"
+            },
+            {
+              "value" : "align-end justify-end",
+              "label" : "Bottom end"
+            }
+          ],
+          "default": "align-center justify-center"
+        },
 
         {
         "type": "select",
         "id": "vertical_alignment",
-        "label": "Vertical alignment",
+        "label": "Vertical alignment (Mobile)",
         "options": [
             {
             "value": "start",
@@ -258,7 +363,7 @@
         {
         "type": "select",
         "id": "horizantal_alignment",
-        "label": "Horizantal alignment",
+        "label": "Horizantal alignment (Mobile)",
         "options": [
             {
             "value": "start",

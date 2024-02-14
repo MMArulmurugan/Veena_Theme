@@ -17,6 +17,8 @@
             "button_background": "#ffffff",
             "button_color": "#121212",
             "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "alignment_position": "align-center justify-center",
             "vertical_alignment": "center",
             "horizantal_alignment": "center"
           }
@@ -35,8 +37,10 @@
             "button_background": "#ffffff",
             "button_color": "#000000",
             "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "alignment_position": "align-center justify-start",
             "vertical_alignment": "center",
-            "horizantal_alignment": "start"
+            "horizantal_alignment": "center"
           }
         },
         "slide_eneB3F": {
@@ -53,8 +57,10 @@
             "button_background": "#ffffff",
             "button_color": "#000000",
             "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "alignment_position": "align-center justify-start",
             "vertical_alignment": "center",
-            "horizantal_alignment": "start"
+            "horizantal_alignment": "center"
           }
         }
       },
@@ -66,6 +72,9 @@
       "settings": {
         "autoplay": true,
         "show_pagination": true,
+        "slide_arrows": true,
+        "infinite_scroll": true,
+        "slide_animation": "loop",
         "autoplay_duration": 5000,
         "padding_top": 36,
         "padding_bottom": 36
@@ -76,7 +85,7 @@
       "settings": {
         "pre_heading": "What You Wear",
         "pre_heading_color": "#000000",
-        "heading_text": "<p>Fashion Emerges As A Universal <a href=\"#\" title=\"#\">Language<\/a><\/p>",
+        "heading_text": "<p>Fashion Emerges As A Universal <\/p><p>Animate--Language<\/p>",
         "heading_text_color": "#121212",
         "button_label": "Explore More",
         "button_link": "",
