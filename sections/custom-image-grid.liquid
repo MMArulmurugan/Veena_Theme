@@ -19,13 +19,15 @@
         <div class="grid grid--1-col grid--2-col-desktop">
            {% for block in section.blocks %}
                 {% if block.settings.image != blank %}
-                    <div class="grid__item custom-border-radius custom-image-grid__position_relative custom-image-grid__card">  
+                    <div class="grid__item custom-border-radius custom-image-grid__position_relative ">  
                         {% if block.settings.image != blank %}
-                            {% render 'image', 
-                                class: 'media media--landscape custom-border-radius custom-image-grid__image',
-                                desktopImage: block.settings.image,
-                                mobileImage: block.settings.mobile_image
-                            %}
+                            <div class = "custom-image-grid__image">
+                                {% render 'image', 
+                                    class: 'media media--landscape custom-border-radius ',
+                                    desktopImage: block.settings.image,
+                                    mobileImage: block.settings.mobile_image
+                                %}
+                            </div>
                         {% else %}
                             <div class="media media--landscape custom-border-radius">
                                 {{ 'detailed-apparel-1' | placeholder_svg_tag }}
@@ -43,7 +45,7 @@
                                 {% endif %} 
                                 {% if block.settings.button_label != blank %}
                                     <a
-                                    class="button custom-image-grid__button custom-image-grid__button-{{block.id}}"
+                                    class="button custom-image-grid__button-{{block.id}}"
                                     href="{{block.settings.button_link }}"
                                     >
                                     {{ block.settings.button_label }}
@@ -65,6 +67,14 @@
                         background:{{ block.settings.button_background }};
                         color:{{ block.settings.button_color }};
                     }    
+                    .custom-image-grid__button-{{block.id}}:hover{
+                        color:#D03C3F;
+                        background-position: -100% 0;
+                        background-image: linear-gradient(to right, transparent 50%, #e8e6e6 50%);
+                        background-size: 200% 100%;
+                        transition: background-position 0.3s ease-in-out;
+                        
+                    }
                     @media only screen and (max-width: 750px) {
                         .custom-image-grid__text-alignment-{{block.id}}{
                             text-align: {{ block.settings.text_alignment_mobile }};

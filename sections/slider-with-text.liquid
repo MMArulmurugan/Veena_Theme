@@ -45,7 +45,7 @@
                             <div class="slideshow-with-text__position_absolute {{ block.settings.alignment_position }} slideshow-with-text__content-position-{{block.id}}">
                                 <div class="slideshow-with-text__text-wrapper slideshow-with-text__content-text-alignment-{{ block.id }}">
                                   {% if block.settings.pre_heading  != blank %}
-                                    <ul class="pre-heading-blur">
+                                    <ul class="pre-heading">
                                       <li>{{ block.settings.pre_heading }}</li>
                                     </ul> 
                                   {% endif %}                                                                   
@@ -78,6 +78,14 @@
                           background:{{ block.settings.button_background }};
                           color:{{ block.settings.button_color }};
                       }    
+                      .slideshow-with-text__banner-button-{{ block.id }}:hover{
+                        color:#D03C3F;
+                        background-position: -100% 0;
+                        background-image: linear-gradient(to right, transparent 50%, #e8e6e6 50%);
+                        background-size: 200% 100%;
+                        transition: background-position 0.3s ease-in-out;
+                        
+                    }
                       @media only screen and (max-width: 750px) {
                         .slideshow-with-text__content-text-alignment-{{block.id}}{
                           text-align: {{ block.settings.text_alignment_mobile }};
