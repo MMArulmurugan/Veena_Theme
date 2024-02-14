@@ -1,4 +1,5 @@
 {{ 'heading-with-animation.css' |  asset_url |  stylesheet_tag }} 
+<script src = "{{ 'custom-rich-text.js' |asset_url }}" defer></script>
 
 {% style %}
 .padding-{{ section.id }} {
@@ -35,20 +36,8 @@
         {% endif %}     
 
          {% if section.settings.heading_text != blank %}
-          {% assign AnimateTxt = section.settings.heading_text | split: 'Animate--'  | last |  remove: '</p>' %}
-
-            {% assign charArr =   AnimateTxt | split: ''  %}
-
-            <div class="h1 animation-heading__heading">
-              {{section.settings.heading_text | split: 'Animate--'  | first  }}
-                <span class="animation-heading__text">
-                  <div class="h1 loading-text ">
-                   {% for i in charArr %}
-                    <span class="char">{{i}}</span>
-                   {% endfor %}
-                    
-                  </div>
-                </span>
+            <div class = "hxl richtext h1 animation-heading__heading">
+              {{ section.settings.heading_text  }}
             </div>
          {% endif %} 
 
@@ -94,7 +83,7 @@
         "id": "heading_text",
         "label": "Heading Text",
         "default": "<p>Heading</p>",
-        "info":"Mention 'Animate--' before the text which part you want to Animate... "
+        "info":"Make the text as Link which part you want to Animate..."
         },
         {
         "type": "color",

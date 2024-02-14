@@ -3552,3 +3552,12 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+.richtext p{
+  margin:0;
+}
+.hxl{
+  font-size:52px;
+}
+.hl{
+  font-size:32px;
+}
