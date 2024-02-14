@@ -1,8 +1,10 @@
 .custom-image-grid__card{
     box-sizing: border-box;
     overflow: hidden;
-   
     text-align: center;
+}
+.custom-image-grid__pre-heading{
+    margin-bottom: 5px;
 }
 .custom-image-grid__image{
     transition: transform 0.3s ease-in-out;
@@ -13,9 +15,23 @@
 }
 .custom-image-grid__position_relative {
     position: relative;
-  }
+
+ }
 .custom-image-grid__position_absolute {
     position: absolute;
-    top: 25%;
-    left:20%;
+    top: 0;
+    left:25%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-image-grid__button:hover{
+    color:#D03C3F;
+}
+@media only screen and (max-width: 750px){
+    
+    .custom-image-grid__button{
+        font-size:12px;
+    }
 }

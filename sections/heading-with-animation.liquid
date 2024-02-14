@@ -1,28 +1,29 @@
 {{ 'heading-with-animation.css' |  asset_url |  stylesheet_tag }} 
 
 {% style %}
+.padding-{{ section.id }} {
+  padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+}
+
+@media only screen and (min-width: 750px) {
   .padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+}
+.animation-heading__pre-heading{
+  color: {{ section.settings.pre_heading_color}};
+}
+.animation-heading__heading{
+  color: {{ section.settings.heading_text_color }}
+}
 
-  @media only screen and (min-width: 750px) {
-    .padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-  .animation-heading__pre-heading{
-    color: {{ section.settings.pre_heading_color}};
-  }
-  .animation-heading__heading{
-    color: {{ section.settings.heading_text_color }}
-  }
+.animation-heading__button{
+  color: {{ section.settings.button_color }};
+  background :{{ section.settings.button_background }}
+}
 
-  .animation-heading__button{
-    color: {{ section.settings.button_color }};
-    background :{{ section.settings.button_background }}
-  }
 {% endstyle %}
 
 
@@ -60,6 +61,7 @@
               >
                 {{ section.settings.button_label }}
               </a>
+              
          {% endif %}     
       </div>
    
