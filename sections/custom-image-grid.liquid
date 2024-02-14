@@ -18,8 +18,8 @@
     <div class="page-width">
         <div class="grid grid--1-col grid--2-col-desktop">
            {% for block in section.blocks %}
-                {% if block.settings.image!= blank %}
-                    <div class="grid__item custom-border-radius custom-image-grid__position_relative  custom-image-grid__card">  
+                {% if block.settings.image != blank %}
+                    <div class="grid__item custom-border-radius custom-image-grid__position_relative custom-image-grid__card">  
                         {% if block.settings.image != blank %}
                             {% render 'image', 
                                 class: 'media media--landscape custom-border-radius custom-image-grid__image',
@@ -31,29 +31,27 @@
                                 {{ 'detailed-apparel-1' | placeholder_svg_tag }}
                             </div>
                         {% endif %}
-                    </div>
-                    <div class="custom-image-grid__position_absolute  custom-image-grid__text-alignment-{{block.id}}">
-                        <div class="custom-image-grid__text-alignment-{{block.id}}">
-                          {% if block.settings.pre_heading  != blank %}
-                            <ul class="pre-heading-blur">
-                                <li>{{ block.settings.pre_heading }}</li>
-                            </ul> 
-                          {% endif %}                                                                   
-
-                          {% if block.settings.heading_text != blank %}
-                                <div class="h2 custom-image-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
-                          {% endif %} 
-                          
-                          {% if block.settings.button_label != blank %}
-                                <a
-                                class="button custom-image-grid__button-{{block.id}}"
-                                href="{{block.settings.button_link }}"
-                                >
-                                {{ block.settings.button_label }}
-                                </a>
-                            {% endif %}
+                        <div class="custom-image-grid__position_absolute custom-image-grid__text-alignment-{{block.id}}">
+                            <div class="custom-image-grid__text-alignment-{{block.id}}">
+                                {% if block.settings.pre_heading  != blank %}
+                                    <ul class="pre-heading">
+                                        <li>{{ block.settings.pre_heading }}</li>
+                                    </ul> 
+                                {% endif %}                                                                   
+                                {% if block.settings.heading_text != blank %}
+                                    <div class="h2 custom-image-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
+                                {% endif %} 
+                                {% if block.settings.button_label != blank %}
+                                    <a
+                                    class="button custom-image-grid__button-{{block.id}}"
+                                    href="{{block.settings.button_link }}"
+                                    >
+                                    {{ block.settings.button_label }}
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                      </div>
+                    </div>
                 {% endif %}
                 <style>
                     .custom-image-grid__text-alignment-{{block.id}}{
@@ -78,6 +76,7 @@
         </div>
     </div>
 </div>
+
 
 {% schema %}
 {

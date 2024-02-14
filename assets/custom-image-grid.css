@@ -1,7 +1,7 @@
 .custom-image-grid__card{
     box-sizing: border-box;
     overflow: hidden;
-    /* padding:24px; */
+   
     text-align: center;
 }
 .custom-image-grid__image{
@@ -11,12 +11,11 @@
 .custom-image-grid__image:hover{
     transform: scale(1.1);
 }
-/* .custom-image-grid__position_relative {
+.custom-image-grid__position_relative {
     position: relative;
   }
 .custom-image-grid__position_absolute {
     position: absolute;
-    top: 0;
-    left: 0;
-    
-} */
+    top: 25%;
+    left:20%;
+}
