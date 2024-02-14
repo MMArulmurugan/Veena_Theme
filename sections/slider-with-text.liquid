@@ -45,7 +45,7 @@
                             <div class="slideshow-with-text__position_absolute {{ block.settings.alignment_position }} slideshow-with-text__content-position-{{block.id}}">
                                 <div class="slideshow-with-text__text-wrapper slideshow-with-text__content-text-alignment-{{ block.id }}">
                                   {% if block.settings.pre_heading  != blank %}
-                                    <ul class="pre-heading">
+                                    <ul class="pre-heading-blur">
                                       <li>{{ block.settings.pre_heading }}</li>
                                     </ul> 
                                   {% endif %}                                                                   
@@ -108,285 +108,283 @@
 
 {% schema %}
 {
-"name": "Banner Slide Show",
-"tag": "section",
-"settings": [
-    
-      {
-        "type": "header",
-        "content": "Slider Options"
-      },
-      {
-        "type": "checkbox",
-        "id": "autoplay",
-        "label": "Autoplay",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_pagination",
-        "label": "Show Pagination",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "slide_arrows",
-        "label": "Show slide arrows",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "infinite_scroll",
-        "label": "Infinite Scroll",
-        "default": true
-      },
-      {
-        "type" : "select",
-        "id": "slide_animation",
-        "label" : "Slide animation",
-        "options" : [
-          {
-            "value" : "loop",
-            "label" : "Loop"
-          },
-          {
-            "value" : "fade",
-            "label" : "Fade"
-          },
-          {
-            "value" : "slide",
-            "label" : "Slide"
-          }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "autoplay_duration",
-        "min": 1000,
-        "max": 9000,
-        "step": 1000,
-        "unit": "ms",
-        "label": "Autoplay Duration",
-        "default": 5000
-      },
-      {
-        "type": "header",
-        "content": "Section padding"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding top",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding bottom",
-        "default": 36
-      }
-],
-"blocks": [
+  "name": "Banner Slide Show",
+  "tag": "section",
+  "settings": [
     {
-    "name": "Slide",
-    "type": "slide",
-    "settings": [
+      "type": "header",
+      "content": "Slider Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_arrows",
+      "label": "Show slide arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_scroll",
+      "label": "Infinite Scroll",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "slide_animation",
+      "label": "Slide animation",
+      "options": [
         {
-        "type": "image_picker",
-        "id": "desktop_image",
-        "label": "Desktop image"
+          "value": "loop",
+          "label": "Loop"
         },
         {
-        "type": "image_picker",
-        "id": "mobile_image",
-        "label": "Mobile image"
+          "value": "fade",
+          "label": "Fade"
         },
         {
-        "type": "text",
-        "id": "pre_heading",
-        "label": "Pre Heading",
-        "default": "Pre Heading"
+          "value": "slide",
+          "label": "Slide"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "default": 5000
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop image"
         },
         {
-        "type": "color",
-        "id": "pre_heading_color",
-        "label": "Pre Heading color",
-        "default": "#fff"
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image"
         },
         {
-        "type": "richtext",
-        "id": "heading_text",
-        "label": "Heading Text"
+          "type": "text",
+          "id": "pre_heading",
+          "label": "Pre Heading",
+          "default": "Pre Heading"
         },
         {
-        "type": "color",
-        "id": "heading_text_color",
-        "label": "Heading Text color",
-        "default": "#fff"
+          "type": "color",
+          "id": "pre_heading_color",
+          "label": "Pre Heading color",
+          "default": "#fff"
         },
         {
-        "type": "text",
-        "id": "button_label",
-        "label": "Button label",
-        "default": "Explore More"
+          "type": "richtext",
+          "id": "heading_text",
+          "label": "Heading Text"
         },
         {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
+          "type": "color",
+          "id": "heading_text_color",
+          "label": "Heading Text color",
+          "default": "#fff"
         },
         {
-        "type": "color",
-        "id": "button_background",
-        "label": "Button background",
-        "default": "#FFFFFF"
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Explore More"
         },
         {
-        "type": "color",
-        "id": "button_color",
-        "label": "Button color",
-        "default": "#000000"
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
         },
         {
-        "type": "select",
-        "id": "text_alignment",
-        "label": "Text Alignment",
-        "options": [
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button color",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text Alignment",
+          "options": [
             {
-            "value": "left",
-            "label": "Left"
+              "value": "left",
+              "label": "Left"
             },
             {
-            "value": "center",
-            "label": "Center"
+              "value": "center",
+              "label": "Center"
             },
             {
-            "value": "Right",
-            "label": "Right"
+              "value": "Right",
+              "label": "Right"
             }
-        ],
-        "default": "left"
+          ],
+          "default": "left"
         },
         {
           "type": "select",
           "id": "text_alignment_mobile",
           "label": "Text Alignment (Mobile)",
           "options": [
-              {
+            {
               "value": "left",
               "label": "Left"
-              },
-              {
+            },
+            {
               "value": "center",
               "label": "Center"
-              },
-              {
+            },
+            {
               "value": "Right",
               "label": "Right"
-              }
+            }
           ],
           "default": "center"
-          },
+        },
         {
-          "type" : "select",
-          "id" : "alignment_position",
-          "label" : "Desktop content position",
-          "options" : [
+          "type": "select",
+          "id": "alignment_position",
+          "label": "Desktop content position",
+          "options": [
             {
-              "value" : "align-start justify-start",
-              "label" : "Top left"
+              "value": "align-start justify-start",
+              "label": "Top left"
             },
             {
-              "value" : "align-start justify-center",
-              "label" : "Top center"
+              "value": "align-start justify-center",
+              "label": "Top center"
             },
             {
-              "value" : "align-start justify-end",
-              "label" : "Top right"
+              "value": "align-start justify-end",
+              "label": "Top right"
             },
             {
-              "value" : "align-center justify-start",
-              "label" : "Middle left"
+              "value": "align-center justify-start",
+              "label": "Middle left"
             },
             {
-              "value" : "align-center justify-center",
-              "label" : "Middle center"
+              "value": "align-center justify-center",
+              "label": "Middle center"
             },
             {
-              "value" : "align-center justify-end",
-              "label" : "Middle right"
+              "value": "align-center justify-end",
+              "label": "Middle right"
             },
             {
-              "value" : "align-end justify-start",
-              "label" : "Bottom left"
+              "value": "align-end justify-start",
+              "label": "Bottom left"
             },
             {
-              "value" : "align-end justify-center",
-              "label" : "Bottom center"
+              "value": "align-end justify-center",
+              "label": "Bottom center"
             },
             {
-              "value" : "align-end justify-end",
-              "label" : "Bottom end"
+              "value": "align-end justify-end",
+              "label": "Bottom end"
             }
           ],
           "default": "align-center justify-center"
         },
-
         {
-        "type": "select",
-        "id": "vertical_alignment",
-        "label": "Vertical alignment (Mobile)",
-        "options": [
+          "type": "select",
+          "id": "vertical_alignment",
+          "label": "Vertical alignment (Mobile)",
+          "options": [
             {
-            "value": "start",
-            "label": "Top"
+              "value": "start",
+              "label": "Top"
             },
             {
-            "value": "center",
-            "label": "Center"
+              "value": "center",
+              "label": "Center"
             },
             {
-            "value": "end",
-            "label": "End"
+              "value": "end",
+              "label": "End"
             }
-        ],
-        "default": "center"
+          ],
+          "default": "center"
         },
         {
-        "type": "select",
-        "id": "horizantal_alignment",
-        "label": "Horizantal alignment (Mobile)",
-        "options": [
+          "type": "select",
+          "id": "horizantal_alignment",
+          "label": "Horizantal alignment (Mobile)",
+          "options": [
             {
-            "value": "start",
-            "label": "Left"
+              "value": "start",
+              "label": "Left"
             },
             {
-            "value": "center",
-            "label": "Center"
+              "value": "center",
+              "label": "Center"
             },
             {
-            "value": "end",
-            "label": "Right"
+              "value": "end",
+              "label": "Right"
             }
-        ],
-        "default": "center"
+          ],
+          "default": "center"
         }
-    ]
+      ]
     }
-],
-"presets": [
+  ],
+  "presets": [
     {
-    "name": "Banner Slide Show"
+      "name": "Banner Slide Show"
     }
-]
+  ]
 }
 {% endschema %}

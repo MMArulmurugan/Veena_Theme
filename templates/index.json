@@ -94,10 +94,58 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "custom_image_grid_Ta8HWP": {
+      "type": "custom-image-grid",
+      "blocks": {
+        "grid_items_Pi3AjG": {
+          "type": "grid-items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_4264.png",
+            "image_mobile": "shopify:\/\/shop_images\/Rectangle_4264.png",
+            "pre_heading": "Women's",
+            "pre_heading_color": "#ffffff",
+            "heading_text": "<p>Women's Clothing Collection<\/p>",
+            "heading_text_color": "#000000",
+            "button_label": "Explore More",
+            "button_link": "",
+            "button_background": "#ffffff",
+            "button_color": "#000000",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "grid_items_wQnUtp": {
+          "type": "grid-items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_4265.png",
+            "image_mobile": "shopify:\/\/shop_images\/Rectangle_4265_da39f931-9c8c-4e24-8cb6-32d4cfd506d7.png",
+            "pre_heading": "Fashion",
+            "pre_heading_color": "#121212",
+            "heading_text": "<p>Women's Sustainable Style Hub<\/p>",
+            "heading_text_color": "#000000",
+            "button_label": "Explore More",
+            "button_link": "",
+            "button_background": "#ffffff",
+            "button_color": "#000000",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "grid_items_Pi3AjG",
+        "grid_items_wQnUtp"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "slider_with_text_A7YJW9",
-    "heading_with_animation_Xwwdxy"
+    "heading_with_animation_Xwwdxy",
+    "custom_image_grid_Ta8HWP"
   ]
 }

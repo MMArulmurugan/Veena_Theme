@@ -1,0 +1,223 @@
+{{ 'custom-image-grid.css' |  asset_url |  stylesheet_tag }} 
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+{% endstyle %}
+
+<div class="custom-image-grid padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="grid grid--1-col grid--2-col-desktop">
+           {% for block in section.blocks %}
+                {% if block.settings.image!= blank %}
+                    <div class="grid__item custom-border-radius custom-image-grid__position_relative  custom-image-grid__card">  
+                        {% if block.settings.image != blank %}
+                            {% render 'image', 
+                                class: 'media media--landscape custom-border-radius custom-image-grid__image',
+                                desktopImage: block.settings.image,
+                                mobileImage: block.settings.mobile_image
+                            %}
+                        {% else %}
+                            <div class="media media--landscape custom-border-radius">
+                                {{ 'detailed-apparel-1' | placeholder_svg_tag }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="custom-image-grid__position_absolute  custom-image-grid__text-alignment-{{block.id}}">
+                        <div class="custom-image-grid__text-alignment-{{block.id}}">
+                          {% if block.settings.pre_heading  != blank %}
+                            <ul class="pre-heading-blur">
+                                <li>{{ block.settings.pre_heading }}</li>
+                            </ul> 
+                          {% endif %}                                                                   
+
+                          {% if block.settings.heading_text != blank %}
+                                <div class="h2 custom-image-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
+                          {% endif %} 
+                          
+                          {% if block.settings.button_label != blank %}
+                                <a
+                                class="button custom-image-grid__button-{{block.id}}"
+                                href="{{block.settings.button_link }}"
+                                >
+                                {{ block.settings.button_label }}
+                                </a>
+                            {% endif %}
+                        </div>
+                      </div>
+                {% endif %}
+                <style>
+                    .custom-image-grid__text-alignment-{{block.id}}{
+                        text-align: {{ block.settings.text_alignment }};
+                    }
+                    
+                    .custom-image-grid__heading-text-{{block.id}}{
+                      color: {{block.settings.heading_text_color}};
+                    }                   
+                    .custom-image-grid__button-{{block.id}}{
+                        background:{{ block.settings.button_background }};
+                        color:{{ block.settings.button_color }};
+                    }    
+                    @media only screen and (max-width: 750px) {
+                        .custom-image-grid__text-alignment-{{block.id}}{
+                            text-align: {{ block.settings.text_alignment_mobile }};
+                        }
+                    }
+                      
+                </style> 
+           {% endfor %} 
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image with Grids",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Adjust Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid-items",
+      "name": "Grid Items",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Desktop Image Suggested Size 1240*550"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile)",
+          "info": "Mobile Image Suggested Size 450*450"
+        },
+        {
+            "type": "text",
+            "id": "pre_heading",
+            "label": "Pre Heading",
+            "default": "Pre Heading"
+          },
+          {
+            "type": "color",
+            "id": "pre_heading_color",
+            "label": "Pre Heading color",
+            "default": "#fff"
+          },
+          {
+            "type": "richtext",
+            "id": "heading_text",
+            "label": "Heading Text"
+          },
+          {
+            "type": "color",
+            "id": "heading_text_color",
+            "label": "Heading Text color",
+            "default": "#fff"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "Explore More"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          },
+          {
+            "type": "color",
+            "id": "button_background",
+            "label": "Button background",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button color",
+            "default": "#000000"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text Alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "Right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment_mobile",
+            "label": "Text Alignment (Mobile)",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "Right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image with Grids"
+    }
+  ]
+}
+{% endschema %}
