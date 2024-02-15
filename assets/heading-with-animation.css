@@ -35,17 +35,6 @@
     margin-top:30px;
 }
 
-.custom-richtext__button:hover{
-    background-position: -100% 0;
-   background-image: linear-gradient(to right, transparent 50%, black 50%);
-   background-size: 200% 100%;
-   transition: background-position 0.3s ease-in-out;
-}
-
-.custom-richtext__heading a {
- opacity: 0;
- color: red;
-}
 .letter {
  display: inline-block;
  position: relative;
@@ -70,6 +59,7 @@
     background-size: 200% 100%;
     transition: background-position 0.3s ease-in-out;
 }
+
 
 @media only screen and (max-width: 750px){
     .animation-heading__text{
