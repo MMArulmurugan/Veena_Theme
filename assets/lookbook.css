@@ -56,3 +56,9 @@
     margin-top:15px;
     line-height: normal;
 }
+
+@media only screen and (max-width: 750px){
+    .lookbook__small{
+        margin-bottom: 25px;
+    }
+}
