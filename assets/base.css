@@ -3552,6 +3552,8 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+/* <--------------------------------------my custom base css ------------------------------------------> */
 .richtext p{
   margin:0;
 }
@@ -3560,4 +3562,142 @@ details-disclosure > details {
 }
 .hl{
   font-size:32px;
+}
+
+.position-relative{
+  position: relative;
+}
+.position-absolute{
+  position: absolute;
+}
+
+.custom-button-primary {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #000;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+ .custom-button-primary:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: #fff;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-primary:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #F5F5F5;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-primary:hover {
+	 color: #d03c3f;
+}
+ .custom-button-primary:hover:before {
+	 width: 100%;
+}
+
+.custom-button-secondary {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+ .custom-button-secondary:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: #d03c3f;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-secondary:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #000;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-secondary:hover {
+	 color: #fff;
+}
+ .custom-button-secondary:hover:before {
+	 width: 100%;
+}
+
+.custom-button-secondary_color {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+ .custom-button-secondary_color:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: #000;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-secondary_color:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #d03c3f;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-secondary_color:hover {
+	 color: #fff;
+}
+ .custom-button-secondary_color:hover:before {
+	 width: 100%;
 }

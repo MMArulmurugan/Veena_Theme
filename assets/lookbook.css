@@ -1,0 +1,57 @@
+.lookbook__dot{
+    display:flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color:black;
+}
+.lookbook__dot-simpol{
+    height: 2.4rem;
+    width: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: white;
+    margin-right:10px;
+    cursor:pointer;
+}
+.lookbook__product-card{
+    background: #fff;
+    padding: 8px;
+    display:flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 75%;
+}  
+.lookbook__product-image{
+    width: 80px;
+    height:auto;
+    margin-right:5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lookbok__button:hover {
+    background-position: -100% 0;
+    background-image: linear-gradient(to right, transparent 50%, #D03C3F 50%);
+    background-size: 200% 100%;
+    transition: background-position 0.3s ease-in-out;
+}
+.lookbook__product {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateX(5%);
+}
+.lookbook__dot-simpol:hover{
+    transform: scale(1.1);
+}
+.lookbook__dot-simpol:hover + .lookbook__product {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.lookbook__content{
+    margin-top:15px;
+    line-height: normal;
+}

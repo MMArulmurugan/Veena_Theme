@@ -1,0 +1,260 @@
+{{ 'lookbook.css' |  asset_url |  stylesheet_tag }} 
+
+{% style %}
+    .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+   {% for block in section.blocks %}
+        .lookbookdot__position__one-{{ block.id }}{
+            top:{{ block.settings.top_position_one }}%;
+            left: {{ block.settings.left_position_one }}%;
+        }
+        .lookbookdot__position__two-{{ block.id }}{
+            top:{{ block.settings.top_position_two }}%;
+            left: {{ block.settings.left_position_two }}%;
+        }
+    {% endfor %}
+{% endstyle %}  
+
+<div class="lookbook padding-{{ section.id }}">
+    <div class="page-width">
+    <div class="grid grid--1-col grid--3-col-desktop grid--3-col-tablet">
+        {% if section.blocks.size > 0 %}   
+                {% for block in section.blocks %}  
+                    {% if block.settings.image %}
+                            <div class="grid__item ">
+                                <div class = "lookbook__image position-relative">
+                                    <div class = "media media--portrait custom-border-radius">
+                                        {% render 'image', 
+                                            class: 'media media--landscape custom-border-radius ',
+                                            desktopImage: block.settings.image,
+                                            mobileImage: block.settings.mobile_image
+                                        %}
+                                    </div>
+                                    {% assign product1 = all_products[block.settings.product1] %}
+                                    <a href = "{{ product1.url }}" class = "lookbook__dot position-absolute lookbookdot__position__one-{{ block.id }}"> 
+                                        <div class = "lookbook__dot-simpol">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 11 11" fill="none" class="icon-circle">
+                                                <circle class="icon-circle" cx="5.5" cy="5.5" r="5.5" fill="currentColor"></circle>
+                                            </svg>
+                                        </div>    
+                                        <div class = "lookbook__product">
+                                            {% if product1 %}
+                                                <div class = "custom-border-radius lookbook__product-card">
+                                                    <div class = "lookbook__product-image">
+                                                        {% render 'image' desktopImage:product1.featured_image, class: "media media--square custom-border-radius" %}
+                                                    </div>    
+                                                    <div class = "lookbook__product-details">
+                                                        <div class="h5">{{ product1.title }}</div>
+                                                        <div class="h6">{{ product1.price |  money_without_trailing_zeros}}</div> 
+                                                        <s class="h6">{{ product1.compare_at_price | money_without_trailing_zeros }}</s>
+                                                    </div>
+                                                </div>    
+                                                
+                                            {% endif %}    
+                                        </div>
+                                    </a>    
+                                    {% assign product2 = all_products[block.settings.product2] %}
+                                    <a href = "{{ product2.url }}" class = "lookbook__dot position-absolute lookbookdot__position__two-{{ block.id }}"> 
+                                        <div class = "lookbook__dot-simpol">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 11 11" fill="none" class="icon-circle">
+                                                <circle class="icon-circle" cx="5.5" cy="5.5" r="5.5" fill="currentColor"></circle>
+                                            </svg>
+                                        </div>    
+                                        <div class = "lookbook__product">
+                                            {% if product2 %}
+                                                <div class = "custom-border-radius lookbook__product-card">
+                                                    <div class = "lookbook__product-image">
+                                                        {% render 'image' desktopImage:product2.featured_image, class: "media media--square custom-border-radius" %}
+                                                    </div>    
+                                                    <div class = "lookbook__product-details">
+                                                        <div class="h5">{{ product2.title }}</div>
+                                                        <div class="h6">{{ product2.price |  money_without_trailing_zeros}}</div> 
+                                                        <s class="h6">{{ product2.compare_at_price | money_without_trailing_zeros }}</s>
+                                                    </div>
+                                                </div>   
+                                            {% endif %}    
+                                        </div>
+                                    </a>    
+                                </div>
+                                <div class = "lookbook__content">                                  
+                                    {% if block.settings.block_title_text %}
+                                        <div class = "h2">{{ block.settings.block_title_text }}</div>
+                                    {% endif %}    
+                                    {% if block.settings.block_description_text  %}
+                                        <p>{{ block.settings.block_description_text }}</p>
+                                    {% endif %}  
+                                    {% if block.settings.block_button_text %}
+                                        <a
+                                            class="button custom-button-secondary_color"
+                                            href="{{block.settings.block_button_link }}"
+                                            >
+                                            {{ block.settings.block_button_text }}
+                                        </a>
+                                    {% endif %}                                      
+                                </div>
+                            </div>
+                        {% else %}   
+                            <div class="grid__item">
+                                <div class="media media--portrait">
+                                    {{ 'product-1'  | placeholder_svg_tag }}
+                                </div>
+                            </div> 
+                        {% endif %}    
+                {% endfor %}    
+            {% else %}
+                {% for i in (1..3) %}
+                    <div class="grid__item">
+                        {{  'collection-' | append: i | placeholder_svg_tag }}
+                    </div>
+                {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Look Book",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "lookbook-content",
+      "name": "Lookbook Content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Desktop Image Suggested Settings 1240*650"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile)",
+          "info": "Mobile Image Suggested Settings 450*450"
+        },
+        {
+          "type": "header",
+          "content": "Look Book 1"
+        },
+        {
+          "type": "product",
+          "id": "product1",
+          "label": "Choose Product 1"
+        },
+        {
+          "type": "range",
+          "id": "left_position_one",
+          "label": "Distance from the Left for Look Book 1",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 20,
+          "info": "The distance is measured in percentage"
+        },
+        {
+          "type": "range",
+          "id": "top_position_one",
+          "label": "Distance from the Top for Look Book 1",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 20,
+          "info": "The distance is measured in percentage"
+        },
+        {
+          "type": "header",
+          "content": "Look Book 2"
+        },
+        {
+          "type": "product",
+          "id": "product2",
+          "label": "Choose Product 2"
+        },
+        {
+          "type": "range",
+          "id": "left_position_two",
+          "label": "Distance from the Left for Look Book 1",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 20,
+          "info": "The distance is measured in percentage"
+        },
+        {
+          "type": "range",
+          "id": "top_position_two",
+          "label": "Distance from the Top for Look Book 1",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 20,
+          "info": "The distance is measured in percentage"
+        },
+        {
+          "type": "text",
+          "id": "block_title_text",
+          "label": "Title Text",
+          "default": "Women's Winter Clothes"
+        },
+        {
+          "type": "richtext",
+          "id": "block_description_text",
+          "label": "Description",
+          "default": "<p>Welcome the season in style with our Women's Winter Clothes Collection – where warmth meets sophistication</p>"
+        },
+        {
+          "type": "text",
+          "id": "block_button_text",
+          "default": "Discover More",
+          "label": "Button Text"
+        },
+         {
+          "type": "url",
+          "id": "block_button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Look Book"
+    }
+  ]
+}
+{% endschema %}

@@ -103,8 +103,6 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_4264.png",
             "image_mobile": "shopify:\/\/shop_images\/Rectangle_4264.png",
-            "pre_heading": "Women's",
-            "pre_heading_color": "#ffffff",
             "heading_text": "<p>Women's Clothing Collection<\/p>",
             "heading_text_color": "#ffffff",
             "button_label": "Explore More",
@@ -120,8 +118,6 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_4265.png",
             "image_mobile": "shopify:\/\/shop_images\/Rectangle_4265_da39f931-9c8c-4e24-8cb6-32d4cfd506d7.png",
-            "pre_heading": "Fashion",
-            "pre_heading_color": "#121212",
             "heading_text": "<p>Women's Sustainable Style Hub<\/p>",
             "heading_text_color": "#ffffff",
             "button_label": "Explore More",
@@ -197,12 +193,78 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "lookbook_Ffyy9U": {
+      "type": "lookbook",
+      "blocks": {
+        "lookbook_content_mgFdzt": {
+          "type": "lookbook-content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_86583ec4-835c-45cd-999c-b7e8b1bdc86e.webp",
+            "image_mobile": "shopify:\/\/shop_images\/1_86583ec4-835c-45cd-999c-b7e8b1bdc86e.webp",
+            "product1": "olive-overdye-oxford-shirt",
+            "left_position_one": 30,
+            "top_position_one": 65,
+            "product2": "denim-chore-coat-black",
+            "left_position_two": 28,
+            "top_position_two": 27,
+            "block_title_text": "Women's Winter Clothes",
+            "block_description_text": "<p>Welcome the season in style with our Women's Winter Clothes Collection – where warmth meets sophistication<\/p>",
+            "block_button_text": "Discover More",
+            "block_button_link": ""
+          }
+        },
+        "lookbook_content_Wphx4t": {
+          "type": "lookbook-content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_a11b3061-4da9-4c80-ad4a-2ed8e9b0280f.webp",
+            "image_mobile": "shopify:\/\/shop_images\/2_a11b3061-4da9-4c80-ad4a-2ed8e9b0280f.webp",
+            "product1": "classic-leather-jacket",
+            "left_position_one": 27,
+            "top_position_one": 22,
+            "product2": "lean-dean-plain-stone",
+            "left_position_two": 14,
+            "top_position_two": 61,
+            "block_title_text": "Our Men's Winter Clothes",
+            "block_description_text": "<p>welcome to our Men's Winter Clothes Collection, where every piece is a statement in comfort and style.<\/p>",
+            "block_button_text": "Discover More",
+            "block_button_link": ""
+          }
+        },
+        "lookbook_content_pMpU6n": {
+          "type": "lookbook-content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_e98fbf29-76ef-498a-837a-517c37dafb8d.webp",
+            "image_mobile": "shopify:\/\/shop_images\/3_e98fbf29-76ef-498a-837a-517c37dafb8d.webp",
+            "product1": "white-cotton-shirt",
+            "left_position_one": 35,
+            "top_position_one": 70,
+            "product2": "floral-white-top",
+            "left_position_two": 32,
+            "top_position_two": 12,
+            "block_title_text": "Women's Outdoor Clothes Collection",
+            "block_description_text": "<p>Embrace the beauty of nature with gear that complements your adventurous spirit.<\/p>",
+            "block_button_text": "Discover More",
+            "block_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "lookbook_content_mgFdzt",
+        "lookbook_content_Wphx4t",
+        "lookbook_content_pMpU6n"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
     "slider_with_text_A7YJW9",
     "heading_with_animation_Xwwdxy",
     "custom_image_grid_Ta8HWP",
-    "custom_usp_nXBVQy"
+    "custom_usp_nXBVQy",
+    "lookbook_Ffyy9U"
   ]
 }
