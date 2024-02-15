@@ -18,18 +18,18 @@
 
 <div class="custom-usp padding-{{ section.id }}">
     <div class="page-width">
-        <div class="grid grid--1-col grid--4-col-desktop color-{{ section.settings.color_scheme }}">
+        <div class="grid grid--1-col grid--4-col-desktop grid--4-col-tablet color-{{ section.settings.color_scheme }}">
            {% for block in section.blocks %}
                 {% if block.settings.svg_tag != blank %}
-                    <div class="grid__item custom-usp__text-alignment-{{block.id}}">
+                    <div class="grid__item custom-usp__card custom-usp__text-alignment-{{block.id}}">
                         {% if block.settings.svg_tag != blank %}
                             <div class = "custom-usp__icon">{{ block.settings.svg_tag }}</div>
                         {% endif %}  
                         {% if block.settings.heading != blank %}
-                            <div class = "h3 custom-usp__heading-{{block.id}}">{{ block.settings.heading }}</div>
+                            <div class = "h3">{{ block.settings.heading }}</div>
                         {% endif %}  
                         {% if block.settings.description != blank %}
-                            <p class = " custom-usp__description-{{block.id}}">{{ block.settings.description }}</p>
+                            <p >{{ block.settings.description }}</p>
                         {% endif %}  
                     </div>
                 {% else %}     
@@ -40,23 +40,9 @@
                     </div>
                 {% endif %}  
                 <style>
-                    .custom-usp__icon {
-                        transition: transform 0.3s ease;
-                      }
-                
-                      .custom-usp__icon:hover {
-                        transform: scaleX(-1);
-                      }
                     .custom-usp__text-alignment-{{block.id}}{
                         text-align: {{ block.settings.text_alignment }};
-                    }
-                    
-                    .custom-usp__heading-{{block.id}}{
-                      color: {{block.settings.heading_text_color}};
-                    }    
-                    .custom-usp__description-{{block.id}}{
-                        color: {{block.settings.description_color}};
-                      }                     
+                    }                  
                     @media only screen and (max-width: 750px) {
                         .custom-usp__text-alignment-{{block.id}}{
                             text-align: {{ block.settings.text_alignment_mobile }};
@@ -79,11 +65,6 @@
 
 
 
-
-
-
-
-
 {% schema %}
 {
   "name": "Custom USP Section",
@@ -91,7 +72,7 @@
     {
         "type": "color_scheme",
         "id": "color_scheme",
-        "default": "scheme_2",
+        "default": "Scheme 2",
         "label": "Color Scheme"
     },
     {
@@ -136,24 +117,11 @@
             "default": "Daily deals"
           },
           {
-            "type": "color",
-            "id": "heading_color",
-            "label": "Heading color",
-            "default": "#000000"
-          },
-          {
             "type": "richtext",
             "id": "description",
             "label": "Description",
             "default": "<p>that bring a touch of excitement to your everyday shopping experience.</p>"
-          },
-          {
-            "type": "color",
-            "id": "description_color",
-            "label": "Description color",
-            "default": "#000000"
-          },
-          
+          },          
           {
             "type": "select",
             "id": "text_alignment",
