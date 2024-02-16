@@ -37,7 +37,8 @@
             {% for product in section.settings.product_list %}
                 {% if product.featured_image %}
                     <div class="grid__item">
-                        {% render 'image' desktopImage:product.featured_image, class: "media media--square custom-border-radius" %}
+                        {% render 'product-card', product: product, section_id: section.id %}
+                       
                     </div>
                 {% else %}
                     <div class="grid__item">

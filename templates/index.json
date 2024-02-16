@@ -263,13 +263,12 @@
       "type": "custom-featured-collection",
       "settings": {
         "product_list": [
-
+          "men-winter-jacket"
         ],
         "section_heading": "Featured Collection",
         "button_text": "Discover More",
         "button_link": "",
         "slider_enable": false,
-        "grid_enable": false,
         "layout_type": "grid",
         "padding_top": 36,
         "padding_bottom": 36
