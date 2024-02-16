@@ -39,7 +39,7 @@
                                         %}
                                     </div>
                                     {% assign product1 = all_products[block.settings.product1] %}
-                                    <a href = "{{ product1.url }}" class = "lookbook__dot position-absolute lookbookdot__position__one-{{ block.id }}"> 
+                                    <div class = "lookbook__dot position-absolute lookbookdot__position__one-{{ block.id }}"> 
                                         <div class = "lookbook__dot-simpol">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 11 11" fill="none" class="icon-circle">
                                                 <circle class="icon-circle" cx="5.5" cy="5.5" r="5.5" fill="currentColor"></circle>
@@ -52,17 +52,17 @@
                                                         {% render 'image' desktopImage:product1.featured_image, class: "media media--square custom-border-radius" %}
                                                     </div>    
                                                     <div class = "lookbook__product-details">
-                                                        <div class="h5">{{ product1.title }}</div>
-                                                        <div class="h6">{{ product1.price |  money_without_trailing_zeros}}</div> 
+                                                        <a href = "{{ product1.url }}" class="h5 lookbook__product-title">{{ product1.title }}</a>
+                                                        <div class="h3">{{ product1.price |  money_without_trailing_zeros}}</div> 
                                                         <s class="h6">{{ product1.compare_at_price | money_without_trailing_zeros }}</s>
                                                     </div>
                                                 </div>    
                                                 
                                             {% endif %}    
                                         </div>
-                                    </a>    
+                                      </div>    
                                     {% assign product2 = all_products[block.settings.product2] %}
-                                    <a href = "{{ product2.url }}" class = "lookbook__dot position-absolute lookbookdot__position__two-{{ block.id }}"> 
+                                    <div  class = "lookbook__dot position-absolute lookbookdot__position__two-{{ block.id }}"> 
                                         <div class = "lookbook__dot-simpol">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 11 11" fill="none" class="icon-circle">
                                                 <circle class="icon-circle" cx="5.5" cy="5.5" r="5.5" fill="currentColor"></circle>
@@ -75,14 +75,14 @@
                                                         {% render 'image' desktopImage:product2.featured_image, class: "media media--square custom-border-radius" %}
                                                     </div>    
                                                     <div class = "lookbook__product-details">
-                                                        <div class="h5">{{ product2.title }}</div>
-                                                        <div class="h6">{{ product2.price |  money_without_trailing_zeros}}</div> 
+                                                        <a href = "{{ product2.url }}" class="h5 lookbook__product-title">{{ product2.title }}</a>
+                                                        <div class="h3">{{ product2.price |  money_without_trailing_zeros}}</div> 
                                                         <s class="h6">{{ product2.compare_at_price | money_without_trailing_zeros }}</s>
                                                     </div>
                                                 </div>   
                                             {% endif %}    
                                         </div>
-                                    </a>    
+                                      </div>    
                                 </div>
                                 <div class = "lookbook__content">                                  
                                     {% if block.settings.block_title_text %}
