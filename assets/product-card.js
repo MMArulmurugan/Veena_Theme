@@ -46,6 +46,27 @@ class ProductCard extends HTMLElement {
       
       this.variantData = JSON.parse(this.querySelector('script').textContent);
       this.addEventListener('change', this.onOptionChange);
+      
+      this.addEventListener('change', event => {
+        console.log("Hey", event.target);
+        if (event.target.name == "id") this.variantChange();
+    })
+    }
+
+    variantChange() {
+
+        this.selectedVariantId = this.querySelector('[name="id"]').value;
+        let variantUrl = `/products/${this.dataset.productHandle}?view=card&variant=${this.selectedVariantId}`;
+
+        //Change the DOM Elements
+        fetch(variantUrl)
+            .then((response) => response.text())
+            .then((responseText) => {
+                const html = new DOMParser().parseFromString(responseText, 'text/html');
+                const responseCard = html.querySelector('custom-product-card');
+
+                this.innerHTML = responseCard.innerHTML;
+            });
     }
   
     onOptionChange() {

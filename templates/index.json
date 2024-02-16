@@ -263,7 +263,14 @@
       "type": "custom-featured-collection",
       "settings": {
         "product_list": [
-          "men-winter-jacket"
+          "men-winter-jacket",
+          "mens-half-sleeve-t-shirt",
+          "mens-winter-hooded-jacket",
+          "womens-oversized-hoodie",
+          "womens-casual-sweaters",
+          "womens-casual-jacket",
+          "women-solid-casual-jacket",
+          "men-solid-casual-jacket"
         ],
         "section_heading": "Featured Collection",
         "button_text": "Discover More",
