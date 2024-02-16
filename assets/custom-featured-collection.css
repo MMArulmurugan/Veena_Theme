@@ -1,0 +1,16 @@
+.product-list__header{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:30px;
+}
+
+@media only screen and (max-width: 750px){
+    .product-list__header{
+        display:flex;
+        flex-direction:column;
+        margin-bottom:20px;
+    }
+    .product-list__button {
+        display:inline-block;
+    }
+}

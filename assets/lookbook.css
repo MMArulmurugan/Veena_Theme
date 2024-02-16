@@ -4,7 +4,7 @@
     text-decoration: none;
     color:black;
 }
-.lookbook__dot-simpol{
+.lookbook__dot-simpel{
     height: 2.4rem;
     width: 2.4rem;
     display: flex;
@@ -38,12 +38,14 @@
     opacity: 0;
     transform: translateX(5%);
 }
-.lookbook__dot-simpol:hover{
+.lookbook__dot-simpel:hover{
     transform: scale(1.1);
 }
 .lookbook__dot:hover .lookbook__product {
     opacity: 1;
     transform: translateX(0);
+    pointer-events: unset;
+    visibility: unset;
 }
 
 .lookbook__content{

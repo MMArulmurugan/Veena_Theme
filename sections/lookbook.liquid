@@ -38,13 +38,14 @@
                                             mobileImage: block.settings.mobile_image
                                         %}
                                     </div>
-                                    {% assign product1 = all_products[block.settings.product1] %}
+                                    
                                     <div class = "lookbook__dot position-absolute lookbookdot__position__one-{{ block.id }}"> 
-                                        <div class = "lookbook__dot-simpol">
+                                        <div class = "lookbook__dot-simpel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 11 11" fill="none" class="icon-circle">
                                                 <circle class="icon-circle" cx="5.5" cy="5.5" r="5.5" fill="currentColor"></circle>
                                             </svg>
-                                        </div>    
+                                        </div>  
+                                        {% assign product1 = all_products[block.settings.product1] %}  
                                         <div class = "lookbook__product">
                                             {% if product1 %}
                                                 <div class = "custom-border-radius lookbook__product-card">
@@ -61,13 +62,14 @@
                                             {% endif %}    
                                         </div>
                                       </div>    
-                                    {% assign product2 = all_products[block.settings.product2] %}
+                                    
                                     <div  class = "lookbook__dot position-absolute lookbookdot__position__two-{{ block.id }}"> 
-                                        <div class = "lookbook__dot-simpol">
+                                        <div class = "lookbook__dot-simpel">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 11 11" fill="none" class="icon-circle">
                                                 <circle class="icon-circle" cx="5.5" cy="5.5" r="5.5" fill="currentColor"></circle>
                                             </svg>
                                         </div>    
+                                        {% assign product2 = all_products[block.settings.product2] %}
                                         <div class = "lookbook__product">
                                             {% if product2 %}
                                                 <div class = "custom-border-radius lookbook__product-card">

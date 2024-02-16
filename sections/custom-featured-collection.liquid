@@ -1,0 +1,150 @@
+{{ 'custom-featured-collection.css' |  asset_url |  stylesheet_tag }} 
+
+{% style %}
+    .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+{% endstyle %} 
+
+
+<div class="product-list padding-{{ section.id }}">
+    <div class="page-width">
+      <div class = "product-list__header">
+        {% if section.settings.section_heading %}
+            <h2 class="product-list__heading">{{ section.settings.section_heading }}</h2>
+          {% endif %}
+          <div class = "product-list__button">
+            {% if section.settings.button_text  %}
+                <a
+                    class="button  custom-button-secondary"
+                    href="{{section.settings.button_link }}"
+                    >
+                    {{ section.settings.button_text }}
+                </a>
+             {% endif %}
+          </div>  
+      </div>
+  
+      <div class="grid grid--2-col grid--2-col-tablet grid--4-col-desktop">
+        {% if section.settings.product_list != blank %}
+            {% for product in section.settings.product_list %}
+                {% if product.featured_image %}
+                    <div class="grid__item">
+                        {% render 'image' desktopImage:product.featured_image, class: "media media--square custom-border-radius" %}
+                    </div>
+                {% else %}
+                    <div class="grid__item">
+                        <div class="media media--portrait">
+                            {{ 'product-1'  | placeholder_svg_tag }}
+                        </div>
+                    </div> 
+                {% endif %}
+            {% endfor %}
+        {% else %}
+          {% for i in (1..4) %}
+            <div class="grid__item">
+              <div class="media media--square">
+                {{ 'product-' | append: i | placeholder_svg_tag }}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}  
+      </div>
+    </div>
+</div>
+
+
+
+
+{% schema %}
+{
+    "name": "Custom Product List",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Custamize this section"
+      },
+      {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Products",
+        "limit": 8
+      },
+      {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Title Text",
+        "default": "Featured Collection"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "Discover More",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_enable",
+        "label": "Enable Slider"
+      },
+      {
+        "type": "select",
+        "id": "layout_type",
+        "label": "Layout Type",
+        "options": [
+          {
+            "value": "slider",
+            "label": "Slider"
+          },
+          {
+            "value": "grid",
+            "label": "Grid"
+          }
+        ],
+        "default": "grid"
+      },
+      {
+        "type": "header",
+        "content": "Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Product List"
+      }
+    ]
+  }
+{% endschema %}
