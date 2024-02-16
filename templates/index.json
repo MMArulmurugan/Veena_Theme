@@ -280,6 +280,79 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "color_swatch_tXXYqi": {
+      "type": "color-swatch",
+      "blocks": {
+        "color_settings_gChpcY": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "Moccasin",
+            "color_code": "#ffe4b5"
+          }
+        },
+        "color_settings_rptc36": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "Black",
+            "color_code": "#000000"
+          }
+        },
+        "color_settings_HRmid6": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "coral",
+            "color_code": "#ff7f50"
+          }
+        },
+        "color_settings_6ymQVn": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "FireBrick",
+            "color_code": "#b22222"
+          }
+        },
+        "color_settings_yqLnYw": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "SaddleBrown",
+            "color_code": "#8b4513"
+          }
+        },
+        "color_settings_NbWLMY": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "DarkSlateGray",
+            "color_code": "#2f4f4f"
+          }
+        },
+        "color_settings_PAqGNF": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "Cornsilk",
+            "color_code": "#fff8dc"
+          }
+        },
+        "color_settings_yB7UKx": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "Blue",
+            "color_code": "#33a2eb"
+          }
+        }
+      },
+      "block_order": [
+        "color_settings_gChpcY",
+        "color_settings_rptc36",
+        "color_settings_HRmid6",
+        "color_settings_6ymQVn",
+        "color_settings_yqLnYw",
+        "color_settings_NbWLMY",
+        "color_settings_PAqGNF",
+        "color_settings_yB7UKx"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -288,6 +361,7 @@
     "custom_image_grid_Ta8HWP",
     "custom_usp_nXBVQy",
     "lookbook_Ffyy9U",
-    "custom_featured_collection_CbPxMX"
+    "custom_featured_collection_CbPxMX",
+    "color_swatch_tXXYqi"
   ]
 }
