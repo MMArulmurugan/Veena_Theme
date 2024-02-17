@@ -265,12 +265,12 @@
         "product_list": [
           "men-winter-jacket",
           "mens-half-sleeve-t-shirt",
-          "mens-winter-hooded-jacket",
           "womens-oversized-hoodie",
           "womens-casual-sweaters",
           "womens-casual-jacket",
           "women-solid-casual-jacket",
-          "men-solid-casual-jacket"
+          "full-sleeve-high-neck-t-shirt-1",
+          "full-sleeve-high-neck-t-shirt"
         ],
         "section_heading": "Featured Collection",
         "button_text": "Discover More",
@@ -339,6 +339,41 @@
             "title": "Blue",
             "color_code": "#33a2eb"
           }
+        },
+        "color_settings_iqy7HT": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "Navy",
+            "color_code": "#000080"
+          }
+        },
+        "color_settings_gCV6hh": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "LightGray",
+            "color_code": "#d3d3d3"
+          }
+        },
+        "color_settings_khtJJ8": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "DarkGreen",
+            "color_code": "#006400"
+          }
+        },
+        "color_settings_A9wyDm": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "IndianRed",
+            "color_code": "#cd5c5c"
+          }
+        },
+        "color_settings_FJzmmD": {
+          "type": "colorSettings",
+          "settings": {
+            "title": "Yellow",
+            "color_code": "#f1e33c"
+          }
         }
       },
       "block_order": [
@@ -349,7 +384,12 @@
         "color_settings_yqLnYw",
         "color_settings_NbWLMY",
         "color_settings_PAqGNF",
-        "color_settings_yB7UKx"
+        "color_settings_yB7UKx",
+        "color_settings_iqy7HT",
+        "color_settings_gCV6hh",
+        "color_settings_khtJJ8",
+        "color_settings_A9wyDm",
+        "color_settings_FJzmmD"
       ],
       "settings": {
       }

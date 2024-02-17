@@ -65,33 +65,40 @@
         font-size:12px;
         padding: 5px;
     }
-    .product-card__color-dot{
-        margin-right:10px;
-        border-radius: 50%;
-        cursor:pointer;
-        height: 30px;
-        width: 30px;
-    }
-
-    /* Hide the default radio input */
-    input[type="radio"] {
+    
+    .product-card__color-dot > input[type="radio"] {
         display: none;
     }
-
-    /* Style the label to act as a replacement for the radio button */
     .product-card__color-dot label {
-        width: 20px; /* Set the width and height according to your design */
+        width: 20px; 
         height: 20px;
-        background-color: #000; /* Set the background color you want */
         display: inline-block;
         cursor: pointer;
         border-radius: 50%;
+       
+        margin-right: 10px; 
     }
 
-    /* Add a border or any other styling to indicate the selected state */
+    .product-card__color-dot label:hover{
+       border: 2px solid red;
+    }
+    .image-hover-swap .image-secondary-hidden {
+        display: none;
+    }
+
+    .image-hover-swap:hover .image-secondary-hidden {
+        display: block;
+    }
+
+    .image-hover-swap:hover .image-featured-hidden {
+        display: none;
+    }
+    .product-card__form{
+      height: 40px;
+      display:flex;
+      justify-content:center;
+    }
     
-
-
    
   {% endstyle %}
   
@@ -102,12 +109,17 @@
   >
     <a href="{{ product.url }}" class="product-card__link position-relative">
       
-        {% render 'image' desktopImage:featured_image, class: "media media--portrait custom-border-radius  media--transparent media--hover-effect " %} 
+      <div class="image-hover-swap">
+        {% render 'image' desktopImage:featured_image, class: "media media--portrait custom-border-radius media--transparent media--hover-effect image-featured-hidden" %}
+        {% render 'image' desktopImage:secondary_image, class: "media media--portrait custom-border-radius media--transparent media--hover-effect image-secondary-hidden" %}
+      </div>
       
        <div class="product-card__quick-view position-absolute">
         {% form 'product', product %}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
-          <button type="submit" class="button quick-view-button custom-button-secondary_color">Quick View</button>
+          <button type="submit" class="button quick-view-button custom-button-secondary_color">
+            Quick View
+         </button>
         {% endform %}
       </div>
       
@@ -131,38 +143,40 @@
     </a>
   
     <div class="product-card__info">
-          
+
         <div class="product-card__form">
-            {% form 'product', product %}   
-            <input type="hidden" name="id" value="{{ current_variant.id }}">  
-                {% unless product.has_only_default_variant %}
-                    <div class="product-card__options"> 
-                    {% for product_option in product.options_with_values %}
-                        {%  if product_option.name == "Color" %}                           
-                            <div class="product-card__option"> 
-                                <ul class = "product-card__list item-swatch">
-                                    {% for option_value in product_option.values %}
-                                        <li data-value={{option_value}} class = "product-card__color-dot" >
-                                            <input 
-                                                id = "{{ current_variant.id | append: option_value }}"
-                                                type="radio" 
-                                                name="option-{{ product_option.name | handleize }}" 
-                                                value="{{ option_value }}"
-                                                
-                                                {% if product_option.selected_value == option_value %}checked{% endif %}
-                                            >
-                                            <label data-value="{{ option_value }}" for = "{{ current_variant.id | append: option_value }}"> </label>    
-                                            
-                                        </li>                                    
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        {% endif %} 
-                    {% endfor %}
-                    </div>
-                {% endunless %}          
-            {% endform %}
+          {% form 'product', product %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">          
+              {% if product.options_with_values %}
+                  <div class="product-card__options">
+                      {% for product_option in product.options_with_values %}
+                          {% if product_option.name == "Color" %}
+                              <div class="product-card__option">
+                                  <ul class="product-card__list">
+                                      {% for option_value in product_option.values %}
+                                          <li data-value={{option_value}} class="product-card__color-dot item-swatch">
+                                              <input 
+                                                  id="{{ current_variant.id | append: option_value }}"
+                                                  type="radio" 
+                                                  name="option-{{ product_option.name | handleize }}" 
+                                                  value="{{ option_value }}"
+                                                  
+                                                  {% if product_option.selected_value == option_value %}checked{% endif %}
+                                              >
+                                              <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label>
+                                          </li>
+                                      {% endfor %}
+                                  </ul>
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </div>
+              {% endif %}
+
+          
+          {% endform %}
         </div>
+
 
         
         <span>{{ product.vendor }}</span>
@@ -182,14 +196,12 @@
                 {% endif %}
         </div>
        
-      {% if current_variant.inventory_quantity > 10 %}
-        <span class = "product-card__max-stock">{{ current_variant.inventory_quantity }}  in stock</span>
-      {% else %} 
-        <span class = "product-card__min-stock">Only {{ current_variant.inventory_quantity }}  units left</span>
-      {% endif %}  
-      
-      
-      
+        {% if current_variant.inventory_quantity > 10 %}
+          <span class = "product-card__max-stock">{{ current_variant.inventory_quantity }}  in stock</span>
+        {% else %} 
+          <span class = "product-card__min-stock">Only {{ current_variant.inventory_quantity }}  units left</span>
+        {% endif %}  
+          
       
     </div>
   
@@ -198,4 +210,4 @@
     </script>
   </product-card>
 
-  <script src="{{ 'product-card.js' | asset_url }}" defer></script>
+  
