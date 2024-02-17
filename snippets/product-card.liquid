@@ -1,3 +1,5 @@
+{{ 'product-card.css' |  asset_url |  stylesheet_tag }} 
+
 {% liquid
     assign current_variant = product.selected_or_first_available_variant
     assign featured_image = current_variant.image | default: product.featured_image
@@ -6,97 +8,23 @@
     assign discountPercentage = discountAmount | times: 100 | divided_by: current_variant.compare_at_price
   %}
 
-
+  
   {% style %}
-    .relative-container {
-        position: relative;
-    }
+  .new-mobile-button {
+      display: none; /* Show the new button on mobile */
+      color:black;
+      
+   }
 
-    .product-card__quick-view {
-        top: 10px; 
-        right: 10px; 
-    }
-    .product-card__info{
-        text-align:center;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        line-height: 28.8px;
-    }
-    .product-card__form{
-        margin-bottom:0;
-    }
-    .product-card__title{
-        text-decoration:none;
-    }
-    .product-card__title:hover{
-        color:#d03c3f;
-    }
-    .product-card__list{
-        list-style-type:none;
-        display:flex;
-    }
-    .product-card__max-stock{
-        color:green;
-    }
-    .product-card__min-stock{
-        color:red;
-    }
-    .product-card_badge-container{
-        top: 0;
-        left:0;
-        display:flex;
-        flex-direction:column;
-        padding:10px;
-        
-    }
-    .product-card_badge{
-        background: green;
-        margin: 5px;
-        color: white;
-    }
-    .product-card__dicound{
-        background:#d03c3f;
-        color: white;
-        margin: 5px;
-    }
-    .quick-view-button {
-        font-size:12px;
-        padding: 5px;
-    }
-    
-    .product-card__color-dot > input[type="radio"] {
-        display: none;
-    }
-    .product-card__color-dot label {
-        width: 20px; 
-        height: 20px;
-        display: inline-block;
-        cursor: pointer;
-        border-radius: 50%;
-       
-        margin-right: 10px; 
-    }
+    @media screen and (max-width: 767px) {
+        /* Styles for mobile view */
 
-    .product-card__color-dot label:hover{
-       border: 2px solid red;
-    }
-    .image-hover-swap .image-secondary-hidden {
-        display: none;
-    }
-
-    .image-hover-swap:hover .image-secondary-hidden {
-        display: block;
-    }
-
-    .image-hover-swap:hover .image-featured-hidden {
-        display: none;
-    }
-    .product-card__form{
-      height: 40px;
-      display:flex;
-      justify-content:center;
+        .new-mobile-button {
+            display: inline-block; /* Show the new button on mobile */
+        }
+        .quick-view-button{
+            display:none;
+        }
     }
     
    
@@ -119,6 +47,17 @@
           <input type="hidden" name="id" value="{{ current_variant.id }}">
           <button type="submit" class="button quick-view-button custom-button-secondary_color">
             Quick View
+         </button>
+         <button  class="new-mobile-button">
+          <svg viewBox="0 0 511.999 511.999"><path d="M508.745,246.041c-4.574-6.257-113.557-153.206-252.748-153.206S7.818,239.784,3.249,246.035
+            c-4.332,5.936-4.332,13.987,0,19.923c4.569,6.257,113.557,153.206,252.748,153.206s248.174-146.95,252.748-153.201
+            C513.083,260.028,513.083,251.971,508.745,246.041z M255.997,385.406c-102.529,0-191.33-97.533-217.617-129.418
+            c26.253-31.913,114.868-129.395,217.617-129.395c102.524,0,191.319,97.516,217.617,129.418
+            C447.361,287.923,358.746,385.406,255.997,385.406z"></path>
+            <path d="M255.997,154.725c-55.842,0-101.275,45.433-101.275,101.275s45.433,101.275,101.275,101.275
+            s101.275-45.433,101.275-101.275S311.839,154.725,255.997,154.725z M255.997,323.516c-37.23,0-67.516-30.287-67.516-67.516
+            s30.287-67.516,67.516-67.516s67.516,30.287,67.516,67.516S293.227,323.516,255.997,323.516z"></path>
+          </svg> 
          </button>
         {% endform %}
       </div>
