@@ -369,6 +369,7 @@ h6, .h6 {
 }
 .custom-border-radius{
   border-radius: 16px;
+  overflow: hidden;
 }
 .pre-heading-blur {
   padding: 0;

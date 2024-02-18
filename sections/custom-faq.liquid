@@ -1,0 +1,144 @@
+{{ 'custom-faq.css' | asset_url |stylesheet_tag }}
+
+{% style %}
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top}}px;
+        padding-bottom:{{section.settings.padding_bottom}}px;
+    }
+    .faq-section{
+        background:{{section.settings.background_color}};
+        padding:30px 0px;
+    }
+    @media screen and (min-width:749px){
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top}}px;
+        padding-bottom:{{section.settings.padding_bottom}}px;
+    }
+    
+    }
+    {%  for block in section.blocks %}
+        .plus-and-minus{{ block.id }}::before {
+            content: "+";
+            font-weight:bold;
+            font-size:25px;
+            display: inline-block;
+            text-align: center;
+        }
+        details[open] .plus-and-minus{{ block.id }}::before {
+            content: "-";
+        }
+  {% endfor %}
+{% endstyle %}
+
+
+<div class="faq-section padding-{{ section.id }}">
+        <div class="page-width">
+            <div class="faq-secttion_title-and-description color-{{ section.settings.color_scheme }}">
+                {% if section.settings.section_title !=blank or section.settings.section_title !=blank  %}
+                    <div class="h1 faq-section__title">{{ section.settings.section_title}}</div>
+                    <p class=" faq-section__description">{{ section.settings.section_description }}</p>
+                {% endif %}
+            </div>
+            <div class="faq-section__block-container">
+                {% for block in section.blocks %}   
+                    <div class="faq-section__block">
+                        {% if block.settings.block_heading != blank and block.settings.block_description !=blank %}
+                            <details id="block{{ block.id }}">
+                                <summary class="faq-section__block-question-and-symbol color-{{ section.settings.color_scheme }}">
+                                    <div class="faq-section__block-count-and-question">
+                                        <div class="h3 faq-section__block-count">{{ forloop.index }}.</div>
+                                        <div class='h3 faq-section__block-question'>{{block.settings.block_heading }}</div>
+                                    </div>
+                                    <p class="plus-and-minus{{ block.id }}"> </p>
+                                </summary>
+                                <div class="faq-section__block-answer color-{{ section.settings.color_scheme }}">{{ block.settings.block_description }}</div>
+                            </details>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+
+
+{% schema %}
+    {
+        "name":"Custom faq",
+        "tag":"section",
+        "settings":[
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background color",
+                "default": "#F5F5F5"
+            },
+            {
+                "type": "richtext",
+                "id": "section_title",
+                "label": "Title",
+                "default":"<p>FAQ</p>"
+            },
+            {
+                "type": "text",
+                "id": "section_description",
+                "label": "Description",
+                "default": "Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations."
+            },
+          {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme"
+          },
+            {
+                "type":"header",
+                "content":"Section padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top",
+                "default": 16
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom",
+                "default": 16
+            }
+        ],
+        "blocks":[
+            {
+                "type":"faq-with-ans",
+                "name":"Faq",
+                "settings":[
+                    {
+                        "type": "richtext",
+                        "id": "block_heading",
+                        "label": "Question",
+                        "default":"<p> How can I track my order ?</p>"
+                    },
+                    {
+                        "type": "text",
+                        "id": "block_description",
+                        "label": "Description",
+                        "default": "Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website."
+                    }
+                ]
+            }
+        ],
+        "presets":[
+            {
+                "name":"Custom faq"
+            }
+        ]
+    }
+{% endschema %}
+

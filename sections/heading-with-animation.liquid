@@ -31,17 +31,17 @@
 <div class="animation-heading padding-{{ section.id }}">
    
       <div class = "page-width animation-heading__text">
-        {% if section.settings.pre_heading != blank %}
+        {% if section.settings.pre_heading %}
             <p class="animation-heading__pre-heading" >{{ section.settings.pre_heading }}</p>
         {% endif %}     
 
-         {% if section.settings.heading_text != blank %}
+         {% if section.settings.heading_text  %}
             <div class = "hxl richtext h1 animation-heading__heading">
               {{ section.settings.heading_text  }}
             </div>
          {% endif %} 
 
-         {% if section.settings.button_label != blank %}
+         {% if section.settings.button_label %}
             <a
                 class="button animation-heading__button"
                 href="{{section.settings.button_link }}"

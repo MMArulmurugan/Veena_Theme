@@ -136,6 +136,99 @@
         "padding_bottom": 36
       }
     },
+    "custom_collections_list_NzKM47": {
+      "type": "custom-collections-list",
+      "blocks": {
+        "collection_blocks_HaLcPJ": {
+          "type": "collection-blocks",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/6.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/6.jpg",
+            "heading": "Person Name",
+            "section_button_text": "View All",
+            "section_button_link": "",
+            "slide_animation": "loop"
+          }
+        },
+        "collection_blocks_VDNgbE": {
+          "type": "collection-blocks",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/4.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/4.jpg",
+            "heading": "Person Name",
+            "section_button_text": "View All",
+            "section_button_link": "",
+            "slide_animation": "loop"
+          }
+        },
+        "collection_blocks_3MwGnB": {
+          "type": "collection-blocks",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/1.jpg",
+            "heading": "Person Name",
+            "section_button_text": "View All",
+            "section_button_link": "",
+            "slide_animation": "loop"
+          }
+        },
+        "collection_blocks_EU6ed9": {
+          "type": "collection-blocks",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/hand-bag-collection.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hand-bag-collection.jpg",
+            "heading": "Person Name",
+            "section_button_text": "View All",
+            "section_button_link": "",
+            "slide_animation": "loop"
+          }
+        },
+        "collection_blocks_dGXGbQ": {
+          "type": "collection-blocks",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/5.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/5.jpg",
+            "heading": "Person Name",
+            "section_button_text": "View All",
+            "section_button_link": "",
+            "slide_animation": "loop"
+          }
+        },
+        "collection_blocks_UNYG7k": {
+          "type": "collection-blocks",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/8.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/8.jpg",
+            "heading": "Person Name",
+            "section_button_text": "View All",
+            "section_button_link": "",
+            "slide_animation": "loop"
+          }
+        }
+      },
+      "block_order": [
+        "collection_blocks_HaLcPJ",
+        "collection_blocks_VDNgbE",
+        "collection_blocks_3MwGnB",
+        "collection_blocks_EU6ed9",
+        "collection_blocks_dGXGbQ",
+        "collection_blocks_UNYG7k"
+      ],
+      "settings": {
+        "section_heading": "Captivating Collection",
+        "section_button_text": "View All",
+        "section_button_link": "",
+        "slider_autoplay": false,
+        "slide_dots": false,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slider_autoplay_duration": 3,
+        "text_alignment": "center",
+        "alignment_position": "align-center justify-center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "custom_image_square_grid_UHhbrm": {
       "type": "custom-image-square-grid",
       "blocks": {
@@ -508,9 +601,8 @@
     },
     "custom_single_image_grid_gwzQcY": {
       "type": "custom-single-image-grid",
+      "disabled": true,
       "settings": {
-        "image_orientation_desktop": "custom-image-square",
-        "image_orientation_mobile": "custom-image-landscape",
         "image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
         "mobile_image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
         "pre_heading": "Introduce",
@@ -520,7 +612,131 @@
         "button_link": "",
         "padding_top": 36,
         "padding_bottom": 36,
-        "alignment_position": "align-center justify-center"
+        "alignment_position": "align-end justify-center"
+      }
+    },
+    "custom_testimonial_X6KUVi": {
+      "type": "custom-testimonial",
+      "blocks": {
+        "testimonia_blocks_fQBJ6W": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_2db38707-707e-4fd6-ab12-35397e8935de.jpg",
+            "heading": "Emma Watson",
+            "designation": "Fashion Blogger",
+            "comment": "<p>\"Absolutely love the trendy collection! The quality is unmatched, and each piece tells a unique style story. My followers can't get enough. His empathy, patience and expertise in fostering a positive environment is truly commendable.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_KY7N4D": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_0b300886-b49e-4ef1-a786-f0b7f7ab2f2d.jpg",
+            "heading": "James Harper",
+            "designation": "Fashion Editor",
+            "comment": "<p>\"As a fashion editor, I've seen it all. This store stands out with its curated selection and attention to detail. The clothing is not just fashion; it's art in motion. His effective communication and ability to motivate and guide the sales team is second to none.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_pnJJ4p": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_b85a25e7-eff6-49ab-9fc7-ecdf71bb4ef1.jpg",
+            "heading": "Sarah Mitchell",
+            "designation": "Stylist",
+            "comment": "<p>\"A go-to destination for my clients. The diversity in styles is impressive, catering to every taste. The quality and elegance never disappoint. Her quick response and innovative solutions make him an invaluable asset to our team.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_4eLQcY": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_e6c9abf8-cab4-4c51-8b5c-b87f6878ea97.jpg",
+            "heading": "Alex Rodriguez",
+            "designation": "Fashion Enthusiast",
+            "comment": "<p> \"Being a fashion enthusiast, I'm always on the lookout for unique pieces. This store exceeds expectations with its exceptional customer service. Her attention to detail, and ability to meet deadlines have made every project a success.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_RNDVWY": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_8692d143-4fac-48d0-9ba7-4bf86ec25a15.jpg",
+            "heading": "Grace Turner",
+            "designation": "Fashion Enthusiast",
+            "comment": "<p> \"Being a fashion enthusiast, I'm always on the lookout for unique pieces. This store exceeds expectations with its exceptional customer service. Her attention to detail, and ability to meet deadlines have made every project a success.\"<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonia_blocks_fQBJ6W",
+        "testimonia_blocks_KY7N4D",
+        "testimonia_blocks_pnJJ4p",
+        "testimonia_blocks_4eLQcY",
+        "testimonia_blocks_RNDVWY"
+      ],
+      "settings": {
+        "section_heading": "Our Customers Review",
+        "slider_autoplay": false,
+        "slide_dots": false,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slide_animation": "slide",
+        "slider_autoplay_duration": 3000,
+        "text_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_faq_Ff38m7": {
+      "type": "custom-faq",
+      "blocks": {
+        "faq_with_ans_HbD4tt": {
+          "type": "faq-with-ans",
+          "settings": {
+            "block_heading": "<p> How can I track my order ?<\/p>",
+            "block_description": "Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website."
+          }
+        },
+        "faq_with_ans_GRaMkV": {
+          "type": "faq-with-ans",
+          "settings": {
+            "block_heading": "<p> What is your return policy?<\/p>",
+            "block_description": "We offer a hassle-free return policy. If you're not completely satisfied with your purchase, you can return it within 30 days for a full refund or exchange. Please visit our Returns & Exchanges page for more details on the process and any eligibility criteria."
+          }
+        },
+        "faq_with_ans_ndQ6kQ": {
+          "type": "faq-with-ans",
+          "settings": {
+            "block_heading": "<p> Are the product images accurate representations of the items?<\/p>",
+            "block_description": "Yes, we strive to provide accurate and high-quality images of our products. However, please note that colors may vary slightly due to differences in monitor settings. If you have any specific questions about a product, feel free to contact our customer support team."
+          }
+        },
+        "faq_with_ans_bYw8cE": {
+          "type": "faq-with-ans",
+          "settings": {
+            "block_heading": "<p>How do I determine my size?<br\/><\/p>",
+            "block_description": "To find the right size, please refer to our detailed size guide available on each product page. Measurements may vary by product, so it's essential to check the specific sizing information provided. If you have further questions or need assistance, our customer support team is here to help."
+          }
+        },
+        "faq_with_ans_78GGHp": {
+          "type": "faq-with-ans",
+          "settings": {
+            "block_heading": "<p>What payment methods do you accept?<\/p>",
+            "block_description": "We accept a variety of payment methods, including major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment options. During the checkout process, you can choose the payment method that suits you best."
+          }
+        }
+      },
+      "block_order": [
+        "faq_with_ans_HbD4tt",
+        "faq_with_ans_GRaMkV",
+        "faq_with_ans_ndQ6kQ",
+        "faq_with_ans_bYw8cE",
+        "faq_with_ans_78GGHp"
+      ],
+      "settings": {
+        "background_color": "#F5F5F5",
+        "section_title": "<p>FAQ<\/p>",
+        "section_description": "Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations.",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
@@ -528,12 +744,15 @@
     "slider_with_text_A7YJW9",
     "heading_with_animation_Xwwdxy",
     "custom_image_grid_Ta8HWP",
+    "custom_collections_list_NzKM47",
     "custom_image_square_grid_UHhbrm",
     "custom_usp_nXBVQy",
     "lookbook_Ffyy9U",
     "custom_featured_brands_EBPcUN",
     "custom_featured_collection_CbPxMX",
     "color_swatch_tXXYqi",
-    "custom_single_image_grid_gwzQcY"
+    "custom_single_image_grid_gwzQcY",
+    "custom_testimonial_X6KUVi",
+    "custom_faq_Ff38m7"
   ]
 }

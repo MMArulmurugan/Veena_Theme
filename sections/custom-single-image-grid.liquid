@@ -20,38 +20,43 @@
 <div class="custom-single-image-grid padding-{{ section.id }}">
     <div class="page-width">
             <div class = "grid grid--1-col">
-                <div class = "grid__item  {{ section.settings.image_orientation_desktop }}">                    
-                        <div class = "position-relative custom-single-image-grid__image media media--landscape">
-                            {% render 'image', 
-                                class: ' custom-border-radius ',
-                                desktopImage: section.settings.image,
-                                mobileImage: section.settings.mobile_image
-                            %}
-                            <div class="position-absolute custom-single-image-grid__text-container {{ section.settings.alignment_position }}">
-                                <div class="">
-                                    {% if section.settings.pre_heading %}
-                                        <ul class="pre-heading custom-image-grid__pre-heading">
-                                            <li>{{ section.settings.pre_heading }}</li>
-                                        </ul> 
-                                    {% endif %}                                                                   
-                                    {% if section.settings.heading %}
-                                        <div class="h2 richtext hl custom-image-grid__heading ">{{ section.settings.heading }}</div>
-                                    {% endif %} 
-                                    {% if section.settings.description %}
-                                        <p class=" richtext  custom-image-grid__heading ">{{ section.settings.description}}</p>
-                                    {% endif %}                
-    
-                                    {% if section.settings.button_text  %}
-                                        <a
-                                        class="custom-button-primary-transparent"
-                                        href="{{section.settings.button_link }}"
-                                        >
-                                        {{section.settings.button_text }}
-                                        </a>
-                                    {% endif %}
+                <div class = "grid__item  ">                    
+                        <div class = "position-relative custom-single-image-grid__wrapper custom-border-radius">
+                            {% if section.settings.image%}    
+                                {% render 'image', 
+                                    class: 'media media--landscape custom-single-image-grid__image custom-border-radius',
+                                    desktopImage: section.settings.image,
+                                    mobileImage: section.settings.mobile_image
+                                %}
+                                <div class="position-absolute custom-single-image-grid__text-container {{ section.settings.alignment_position }}">
+                                    <div class="">
+                                        {% if section.settings.pre_heading %}
+                                            <ul class="pre-heading custom-image-grid__pre-heading">
+                                                <li>{{ section.settings.pre_heading }}</li>
+                                            </ul> 
+                                        {% endif %}                                                                   
+                                        {% if section.settings.heading %}
+                                            <div class="h2 richtext hl ">{{ section.settings.heading }}</div>
+                                        {% endif %} 
+                                        {% if section.settings.description %}
+                                            <p class=" richtext ">{{ section.settings.description}}</p>
+                                        {% endif %}                
+        
+                                        {% if section.settings.button_text  %}
+                                            <a
+                                            class="custom-button-primary-transparent"
+                                            href="{{section.settings.button_link }}"
+                                            >
+                                            {{section.settings.button_text }}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div> 
+                            {% else %}
+                                <div class="media media--landscape custom-border-radius">
+                                    {{ 'detailed-apparel-1' | placeholder_svg_tag }}
                                 </div>
-                            </div> 
-                        
+                            {% endif %}
                         </div>    
                     
                         
@@ -66,46 +71,6 @@
     "name": "Image With Text Grid",
     "tag" : "section",
     "settings": [
-      {
-        "type": "select",
-        "id": "image_orientation_desktop",
-        "label": "Image orientation for Desktop",
-        "options": [
-          {
-            "value": "custom-image-square",
-            "label": "Square"
-          },
-          {
-            "value": "custom-image-landscape",
-            "label": "Landscape"
-          },
-          {
-            "value": "custom-image-potrait",
-            "label": "Potrait"
-          }
-        ],
-        "default": "custom-image-landscape"
-      },
-      {
-        "type": "select",
-        "id": "image_orientation_mobile",
-        "label": "Image orientation for Mobile",
-        "options": [
-          {
-            "value": "custom-image-square",
-            "label": "Square"
-          },
-          {
-            "value": "custom-image-landscape",
-            "label": "Landscape"
-          },
-          {
-            "value": "custom-image-potrait",
-            "label": "Potrait"
-          }
-        ],
-        "default": "custom-image-landscape"
-      },
       {
         "type" : "image_picker",
         "id" : "image",

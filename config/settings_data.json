@@ -131,6 +131,11 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "color-swatch": {
+        "type": "color-swatch",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
