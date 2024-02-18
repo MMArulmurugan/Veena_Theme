@@ -108,8 +108,6 @@
             "heading_text_color": "#ffffff",
             "button_label": "Explore More",
             "button_link": "",
-            "button_background": "#ffffff",
-            "button_color": "#000000",
             "text_alignment": "center",
             "text_alignment_mobile": "center"
           }
@@ -124,8 +122,6 @@
             "heading_text_color": "#ffffff",
             "button_label": "Explore More",
             "button_link": "",
-            "button_background": "#ffffff",
-            "button_color": "#000000",
             "text_alignment": "center",
             "text_alignment_mobile": "center"
           }
@@ -134,6 +130,47 @@
       "block_order": [
         "grid_items_Pi3AjG",
         "grid_items_wQnUtp"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_image_square_grid_UHhbrm": {
+      "type": "custom-image-square-grid",
+      "blocks": {
+        "grid_items_WpKzi6": {
+          "type": "grid-items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_55.png",
+            "image_mobile": "shopify:\/\/shop_images\/Rectangle_55.png",
+            "pre_heading": "Men's",
+            "heading_text": "<p>Introducing Our Distinguished Men's Clothing Collection<\/p>",
+            "heading_text_color": "#ffffff",
+            "button_label": "Explore",
+            "button_link": "",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "grid_items_7TBEci": {
+          "type": "grid-items",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_56.png",
+            "image_mobile": "shopify:\/\/shop_images\/Rectangle_56.png",
+            "pre_heading": "Women's",
+            "heading_text": "<p>Elevate Your Wardrobe With Our Women's Clothing Collection<\/p>",
+            "heading_text_color": "#ffffff",
+            "button_label": "Explore",
+            "button_link": "",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "grid_items_WpKzi6",
+        "grid_items_7TBEci"
       ],
       "settings": {
         "padding_top": 36,
@@ -259,6 +296,79 @@
       "settings": {
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "custom_featured_brands_EBPcUN": {
+      "type": "custom-featured-brands",
+      "blocks": {
+        "featured_brands_Hcf4wW": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_cd395017-1471-444b-a792-aee354390d67.png"
+          }
+        },
+        "featured_brands_yFjec9": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_26caca81-ef1b-413a-b2e8-dacb4042a47f.png"
+          }
+        },
+        "featured_brands_e7pMt9": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_526ac6af-9bcf-4f5a-a1f0-3b004c6d93b3.png"
+          }
+        },
+        "featured_brands_gFkyK9": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5.png"
+          }
+        },
+        "featured_brands_dNWdN8": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6.png"
+          }
+        },
+        "featured_brands_WPVqKY": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8.png"
+          }
+        },
+        "featured_brands_JpTKjc": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7.png"
+          }
+        },
+        "featured_brands_wGxfUj": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_97056f97-b5a0-46f5-aa2e-d315f39f0bde.png"
+          }
+        }
+      },
+      "block_order": [
+        "featured_brands_Hcf4wW",
+        "featured_brands_yFjec9",
+        "featured_brands_e7pMt9",
+        "featured_brands_gFkyK9",
+        "featured_brands_dNWdN8",
+        "featured_brands_WPVqKY",
+        "featured_brands_JpTKjc",
+        "featured_brands_wGxfUj"
+      ],
+      "settings": {
+        "autoplay": true,
+        "show_pagination": false,
+        "slide_arrows": false,
+        "infinite_scroll": false,
+        "slide_animation": "loop",
+        "autoplay_duration": 5000,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "custom_featured_collection_CbPxMX": {
@@ -395,15 +505,34 @@
       ],
       "settings": {
       }
+    },
+    "custom_single_image_grid_gwzQcY": {
+      "type": "custom-single-image-grid",
+      "settings": {
+        "image_orientation_desktop": "custom-image-landscape",
+        "image_orientation_mobile": "custom-image-landscape",
+        "image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
+        "pre_heading": "Introduce",
+        "heading": "Heading",
+        "description": "<p>Heading<\/p><p><\/p>",
+        "button_text": "Shop Now",
+        "button_link": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "slider_with_text_A7YJW9",
     "heading_with_animation_Xwwdxy",
     "custom_image_grid_Ta8HWP",
+    "custom_image_square_grid_UHhbrm",
     "custom_usp_nXBVQy",
     "lookbook_Ffyy9U",
+    "custom_featured_brands_EBPcUN",
     "custom_featured_collection_CbPxMX",
-    "color_swatch_tXXYqi"
+    "color_swatch_tXXYqi",
+    "custom_single_image_grid_gwzQcY"
   ]
 }

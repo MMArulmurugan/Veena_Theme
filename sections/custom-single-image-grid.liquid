@@ -1,0 +1,145 @@
+{{ "custom-single-image-grid.css" | asset_url | stylesheet_tag }}
+
+
+{% style %}
+  .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | divided_by: 2  }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+
+    @media (min-width: 750px) {
+      .padding-{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+{% endstyle %}
+
+
+<div class="custom-single-image-grid padding-{{ section.id }}">
+  <div class="page-width">
+    {% render 'image', 
+        class: 'media media--landscape custom-border-radius ',
+        desktopImage: section.settings.image,
+        mobileImage: section.settings.mobile_image
+    %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image With Text Grid",
+    "tag" : "section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "image_orientation_desktop",
+        "label": "Image orientation for Desktop",
+        "options": [
+          {
+            "value": "custom-image-square",
+            "label": "Square"
+          },
+          {
+            "value": "custom-image-landscape",
+            "label": "Landscape"
+          },
+          {
+            "value": "custom-image-potrait",
+            "label": "Potrait"
+          }
+        ],
+        "default": "custom-image-landscape"
+      },
+      {
+        "type": "select",
+        "id": "image_orientation_mobile",
+        "label": "Image orientation for Mobile",
+        "options": [
+          {
+            "value": "custom-image-square",
+            "label": "Square"
+          },
+          {
+            "value": "custom-image-landscape",
+            "label": "Landscape"
+          },
+          {
+            "value": "custom-image-potrait",
+            "label": "Potrait"
+          }
+        ],
+        "default": "custom-image-landscape"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "image",
+        "label" : "Desktop Image"
+      },
+      {
+        "type" : "image_picker",
+        "id" : "mobile_image",
+        "label" : "Mobile Image"
+      },
+      {
+        "type" : "text",
+        "id" : "pre_heading",
+        "label" : "Pre Heading",
+        "default" : "Pre Heading"
+      },
+      {
+        "type" : "text",
+        "id" : "heading",
+        "label" : "Heading",
+        "default" : "Heading"
+      },
+      {
+        "type" : "richtext",
+        "id" : "description",
+        "label" : "Description",
+        "default" : "<p>Heading<p>"
+      },
+      {
+        "type" : "text",
+        "id" : "button_text",
+        "label" : "Button text",
+        "default" : "Shop Now"
+      },
+      {
+        "type" : "url",
+        "id" : "button_link",
+        "label" : "Button Link"
+      },
+      {
+      "type" : "header",
+      "content" : "Section padding settings"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Section padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Section padding bottom",
+        "default": 36
+      }
+    ],
+    "presets" : [
+      {
+        "name" : "Image With Text Grid"
+      }
+    ]
+  }
+{% endschema %}

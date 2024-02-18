@@ -1211,6 +1211,28 @@ img{
   }
 }
 
+.custom-image-square{
+  padding-bottom: 100%;
+}
+
+.custom-image-landscape{
+  padding-bottom: 70%;
+}
+
+.custom-image-potrait{
+  padding-bottom: 120%;
+}
+
+@media screen and (min-width: 750px){
+  .custom-image-landscape{
+  padding-bottom: 45%;
+  }
+  
+  .custom-image-potrait{
+    padding-bottom: 110%;
+  }
+}
+
 deferred-media {
   display: block;
 }
@@ -3577,12 +3599,14 @@ details-disclosure > details {
 }
 
 .custom-button-primary {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px 20px;
   border-radius: 10rem;
   color: #000;
   text-transform: capitalize;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
