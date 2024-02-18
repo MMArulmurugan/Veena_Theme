@@ -57,7 +57,7 @@
                                       
                                       {% if block.settings.button_label != blank %}
                                         <a
-                                          class="button slideshow-with-text__button slideshow-with-text__banner-button-{{ block.id }}"
+                                          class="custom-button-primary"
                                           href="{{block.settings.button_link }}"
                                         >
                                           {{ block.settings.button_label }}
@@ -79,18 +79,7 @@
                           .slideshow-with-text__heading-text-{{block.id}}{
                             color: {{block.settings.heading_text_color}};
                           }                   
-                          .slideshow-with-text__banner-button-{{block.id}}{
-                              background:{{ block.settings.button_background }};
-                              color:{{ block.settings.button_color }};
-                          }    
-                          .slideshow-with-text__banner-button-{{ block.id }}:hover{
-                            color:#D03C3F;
-                            background-position: -100% 0;
-                            background-image: linear-gradient(to right, transparent 50%, #e8e6e6 50%);
-                            background-size: 200% 100%;
-                            transition: background-position 0.3s ease-in-out;
-                            
-                        }
+                          
                           @media only screen and (max-width: 750px) {
                             .slideshow-with-text__content-text-alignment-{{block.id}}{
                               text-align: {{ block.settings.text_alignment_mobile }};
@@ -256,18 +245,6 @@
           "type": "url",
           "id": "button_link",
           "label": "Button link"
-        },
-        {
-          "type": "color",
-          "id": "button_background",
-          "label": "Button background",
-          "default": "#FFFFFF"
-        },
-        {
-          "type": "color",
-          "id": "button_color",
-          "label": "Button color",
-          "default": "#000000"
         },
         {
           "type": "select",
