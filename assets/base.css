@@ -3732,3 +3732,48 @@ details-disclosure > details {
  .custom-button-secondary_color:hover:before {
 	 width: 100%;
 }
+
+
+.custom-button-primary-transparent {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  border: 1px solid #fff;
+  text-decoration: none;
+}
+ .custom-button-primary-transparent:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: none;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-primary-transparent:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #F5F5F5;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-primary-transparent:hover {
+	 color: #d03c3f;
+}
+ .custom-button-primary-transparent:hover:before {
+	 width: 100%;
+}

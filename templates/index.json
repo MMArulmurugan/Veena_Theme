@@ -509,7 +509,7 @@
     "custom_single_image_grid_gwzQcY": {
       "type": "custom-single-image-grid",
       "settings": {
-        "image_orientation_desktop": "custom-image-landscape",
+        "image_orientation_desktop": "custom-image-square",
         "image_orientation_mobile": "custom-image-landscape",
         "image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
         "mobile_image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
@@ -519,7 +519,8 @@
         "button_text": "Shop Now",
         "button_link": "",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "alignment_position": "align-center justify-center"
       }
     }
   },

@@ -18,13 +18,47 @@
 
 
 <div class="custom-single-image-grid padding-{{ section.id }}">
-  <div class="page-width">
-    {% render 'image', 
-        class: 'media media--landscape custom-border-radius ',
-        desktopImage: section.settings.image,
-        mobileImage: section.settings.mobile_image
-    %}
-  </div>
+    <div class="page-width">
+            <div class = "grid grid--1-col">
+                <div class = "grid__item  {{ section.settings.image_orientation_desktop }}">                    
+                        <div class = "position-relative custom-single-image-grid__image media media--landscape">
+                            {% render 'image', 
+                                class: ' custom-border-radius ',
+                                desktopImage: section.settings.image,
+                                mobileImage: section.settings.mobile_image
+                            %}
+                            <div class="position-absolute custom-single-image-grid__text-container {{ section.settings.alignment_position }}">
+                                <div class="">
+                                    {% if section.settings.pre_heading %}
+                                        <ul class="pre-heading custom-image-grid__pre-heading">
+                                            <li>{{ section.settings.pre_heading }}</li>
+                                        </ul> 
+                                    {% endif %}                                                                   
+                                    {% if section.settings.heading %}
+                                        <div class="h2 richtext hl custom-image-grid__heading ">{{ section.settings.heading }}</div>
+                                    {% endif %} 
+                                    {% if section.settings.description %}
+                                        <p class=" richtext  custom-image-grid__heading ">{{ section.settings.description}}</p>
+                                    {% endif %}                
+    
+                                    {% if section.settings.button_text  %}
+                                        <a
+                                        class="custom-button-primary-transparent"
+                                        href="{{section.settings.button_link }}"
+                                        >
+                                        {{section.settings.button_text }}
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div> 
+                        
+                        </div>    
+                    
+                        
+                </div>  
+            </div>
+        
+    </div>
 </div>
 
 {% schema %}
@@ -98,7 +132,7 @@
         "type" : "richtext",
         "id" : "description",
         "label" : "Description",
-        "default" : "<p>Heading<p>"
+        "default" : "<p>Description<p>"
       },
       {
         "type" : "text",
@@ -134,6 +168,50 @@
         "unit": "px",
         "label": "Section padding bottom",
         "default": 36
+      },
+      {
+        "type" : "select",
+        "id" : "alignment_position",
+        "label" : "Desktop content position",
+        "options" : [
+          {
+            "value" : "align-start justify-start",
+            "label" : "Top left"
+          },
+          {
+            "value" : "align-start justify-center",
+            "label" : "Top center"
+          },
+          {
+            "value" : "align-start justify-end",
+            "label" : "Top right"
+          },
+          {
+            "value" : "align-center justify-start",
+            "label" : "Middle left"
+          },
+          {
+            "value" : "align-center justify-center",
+            "label" : "Middle center"
+          },
+          {
+            "value" : "align-center justify-end",
+            "label" : "Middle right"
+          },
+          {
+            "value" : "align-end justify-start",
+            "label" : "Bottom left"
+          },
+          {
+            "value" : "align-end justify-center",
+            "label" : "Bottom center"
+          },
+          {
+            "value" : "align-end justify-end",
+            "label" : "Bottom end"
+          }
+        ],
+        "default": "align-center justify-center"
       }
     ],
     "presets" : [
