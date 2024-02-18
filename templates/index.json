@@ -103,6 +103,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_4264.png",
             "image_mobile": "shopify:\/\/shop_images\/Rectangle_4264.png",
+            "pre_heading": "Women's",
             "heading_text": "<p>Women's Clothing Collection<\/p>",
             "heading_text_color": "#ffffff",
             "button_label": "Explore More",
@@ -118,6 +119,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_4265.png",
             "image_mobile": "shopify:\/\/shop_images\/Rectangle_4265_da39f931-9c8c-4e24-8cb6-32d4cfd506d7.png",
+            "pre_heading": "Fashion",
             "heading_text": "<p>Women's Sustainable Style Hub<\/p>",
             "heading_text_color": "#ffffff",
             "button_label": "Explore More",

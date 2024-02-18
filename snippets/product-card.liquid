@@ -10,25 +10,7 @@
 
   
   {% style %}
-  .new-mobile-button {
-      display: none;
-      color:black;     
-      border-radius:50%;
-      padding: 4px 7px; 
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-   }
-
-    @media screen and (max-width: 767px) {
-
-        .new-mobile-button {
-            display: inline-block;
-        }
-        .quick-view-button{
-            display:none;
-        }
-    }
+  
     
    
   {% endstyle %}
@@ -48,10 +30,10 @@
        <div class="product-card__quick-view position-absolute">
         {% form 'product', product %}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
-          <button type="submit" class="button quick-view-button custom-button-secondary_color">
+          <button type="submit" class="button product-card__quick-view-button custom-button-secondary_color">
             Quick View
          </button>
-         <button  class=" custom-button-secondary_color new-mobile-button">
+         <button  class=" custom-button-secondary_color product-card__new-mobile-button">
           <svg viewBox="0 0 511.999 511.999" width="18" height="18" fill="#ffffff"> <!-- Set width and height to 15px and fill to white -->
             <path d="M508.745,246.041c-4.574-6.257-113.557-153.206-252.748-153.206S7.818,239.784,3.249,246.035
               c-4.332,5.936-4.332,13.987,0,19.923c4.569,6.257,113.557,153.206,252.748,153.206s248.174-146.95,252.748-153.201
