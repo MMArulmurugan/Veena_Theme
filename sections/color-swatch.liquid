@@ -11,6 +11,8 @@
     .color-swatch-enabled[data-tag="{{ block.settings.title | downcase }}"] span,
     .color-swatch-enabled[data-tag="{{ block.settings.title | capitalize }}"] span {
       background-color: {{ block.settings.color_code }} !important;
+      border: 2px solid white!important;
+      margin: 1px !important;
     }
     {% endfor %}
   </style>

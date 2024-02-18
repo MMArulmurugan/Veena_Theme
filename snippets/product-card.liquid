@@ -11,16 +11,19 @@
   
   {% style %}
   .new-mobile-button {
-      display: none; /* Show the new button on mobile */
-      color:black;
-      
+      display: none;
+      color:black;     
+      border-radius:50%;
+      padding: 4px 7px; 
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
    }
 
     @media screen and (max-width: 767px) {
-        /* Styles for mobile view */
 
         .new-mobile-button {
-            display: inline-block; /* Show the new button on mobile */
+            display: inline-block;
         }
         .quick-view-button{
             display:none;
@@ -48,16 +51,18 @@
           <button type="submit" class="button quick-view-button custom-button-secondary_color">
             Quick View
          </button>
-         <button  class="new-mobile-button">
-          <svg viewBox="0 0 511.999 511.999"><path d="M508.745,246.041c-4.574-6.257-113.557-153.206-252.748-153.206S7.818,239.784,3.249,246.035
-            c-4.332,5.936-4.332,13.987,0,19.923c4.569,6.257,113.557,153.206,252.748,153.206s248.174-146.95,252.748-153.201
-            C513.083,260.028,513.083,251.971,508.745,246.041z M255.997,385.406c-102.529,0-191.33-97.533-217.617-129.418
-            c26.253-31.913,114.868-129.395,217.617-129.395c102.524,0,191.319,97.516,217.617,129.418
-            C447.361,287.923,358.746,385.406,255.997,385.406z"></path>
+         <button  class=" custom-button-secondary_color new-mobile-button">
+          <svg viewBox="0 0 511.999 511.999" width="18" height="18" fill="#ffffff"> <!-- Set width and height to 15px and fill to white -->
+            <path d="M508.745,246.041c-4.574-6.257-113.557-153.206-252.748-153.206S7.818,239.784,3.249,246.035
+              c-4.332,5.936-4.332,13.987,0,19.923c4.569,6.257,113.557,153.206,252.748,153.206s248.174-146.95,252.748-153.201
+              C513.083,260.028,513.083,251.971,508.745,246.041z M255.997,385.406c-102.529,0-191.33-97.533-217.617-129.418
+              c26.253-31.913,114.868-129.395,217.617-129.395c102.524,0,191.319,97.516,217.617,129.418
+              C447.361,287.923,358.746,385.406,255.997,385.406z"></path>
             <path d="M255.997,154.725c-55.842,0-101.275,45.433-101.275,101.275s45.433,101.275,101.275,101.275
-            s101.275-45.433,101.275-101.275S311.839,154.725,255.997,154.725z M255.997,323.516c-37.23,0-67.516-30.287-67.516-67.516
-            s30.287-67.516,67.516-67.516s67.516,30.287,67.516,67.516S293.227,323.516,255.997,323.516z"></path>
-          </svg> 
+              s101.275-45.433,101.275-101.275S311.839,154.725,255.997,154.725z M255.997,323.516c-37.23,0-67.516-30.287-67.516-67.516
+              s30.287-67.516,67.516-67.516s67.516,30.287,67.516,67.516S293.227,323.516,255.997,323.516z"></path>
+          </svg>
+
          </button>
         {% endform %}
       </div>
@@ -93,17 +98,17 @@
                               <div class="product-card__option">
                                   <ul class="product-card__list">
                                       {% for option_value in product_option.values %}
-                                          <li data-value={{option_value}} class="product-card__color-dot item-swatch">
-                                              <input 
-                                                  id="{{ current_variant.id | append: option_value }}"
-                                                  type="radio" 
-                                                  name="option-{{ product_option.name | handleize }}" 
-                                                  value="{{ option_value }}"
-                                                  
-                                                  {% if product_option.selected_value == option_value %}checked{% endif %}
-                                              >
-                                              <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label>
-                                          </li>
+                                        <li data-value={{option_value}} class="product-card__color-dot  item-swatch" style="{% if product_option.selected_value == option_value %}border: 1px solid red;{% endif %}">
+                                          <input 
+                                              id="{{ current_variant.id | append: option_value }}"
+                                              type="radio" 
+                                              name="option-{{ product_option.name | handleize }}" 
+                                              value="{{ option_value }}"
+                                              
+                                              {% if product_option.selected_value == option_value %}checked{% endif %}
+                                          >
+                                          <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label>
+                                         </li>
                                       {% endfor %}
                                   </ul>
                               </div>

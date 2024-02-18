@@ -29,3 +29,6 @@ class ProductCard extends HTMLElement {
   }
   
   customElements.define('product-card', ProductCard);
+
+
+  

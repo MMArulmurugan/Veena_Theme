@@ -2978,13 +2978,18 @@ details-disclosure > details {
   display: inline-block;
   font-size: 12px;
   letter-spacing: 0.1rem;
-  
-  padding: 2px 5px ;
+
+  padding: 2px 5px;
   text-align: center;
   background-color: rgb(var(--color-badge-background));
   border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
   color: rgb(var(--color-badge-foreground));
   word-break: break-word;
+}
+@media screen and (max-width: 767px){
+  .badge {
+    font-size: 8px;
+  }
 }
 
 .gradient {
