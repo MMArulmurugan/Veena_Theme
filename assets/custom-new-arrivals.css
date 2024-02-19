@@ -101,7 +101,7 @@
     bottom:0;
     height: 100%;
     width: 100%;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
 
   
@@ -109,7 +109,7 @@
 .new-arrivals__sidebar{
     width: 30%;
     height: auto;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     object-fit: cover;
 }
 .new-arrivals__sidebar-slider{
