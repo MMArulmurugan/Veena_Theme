@@ -766,6 +766,22 @@
         "padding_bottom": 36
       }
     },
+    "custom_article_page_ay4QiF": {
+      "type": "custom-article-page",
+      "settings": {
+        "slider_autoplay": false,
+        "slide_dots": false,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slider_autoplay_duration": 3,
+        "section_heading": "Let You Know",
+        "section_button_text": "Read All",
+        "section_button_link": "",
+        "blog": "let-you-know-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "custom_faq_Ff38m7": {
       "type": "custom-faq",
       "blocks": {
@@ -837,6 +853,7 @@
     "color_swatch_tXXYqi",
     "custom_single_image_grid_qG8yYa",
     "custom_testimonial_X6KUVi",
+    "custom_article_page_ay4QiF",
     "custom_faq_Ff38m7"
   ]
 }
