@@ -353,6 +353,18 @@
         "padding_bottom": 36
       }
     },
+    "custom_timer_QN36kC": {
+      "type": "custom-timer",
+      "settings": {
+        "heading": "Our Women's Clothing Collection.",
+        "description": "<p>where fashion meets flair, and every outfit becomes a statement.<\/p>",
+        "button_label": "View All",
+        "button_link": "",
+        "text_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "custom_featured_collection_CbPxMX": {
       "type": "custom-featured-collection",
       "settings": {
@@ -846,6 +858,7 @@
     "custom_new_arrivals_8Bktm7",
     "custom_loop_text_p4fjjB",
     "custom_image_square_grid_UHhbrm",
+    "custom_timer_QN36kC",
     "custom_featured_collection_CbPxMX",
     "custom_usp_nXBVQy",
     "lookbook_Ffyy9U",

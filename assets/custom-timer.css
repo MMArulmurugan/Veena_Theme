@@ -1,0 +1,20 @@
+.custom-timer__time-wrapper{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.custom-timer__card{
+    background: hsla(260,11%,85%,1);
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.custom-timer__time{
+    font-weight: 400;
+}
