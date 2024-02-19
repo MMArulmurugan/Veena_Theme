@@ -43,15 +43,17 @@
         "arrows" : {{ section.settings.slide_arrows }},
         "rewind" : {{ section.settings.infinite_scroll }},
         "breakpoints" : {
-            "750" : {"perPage" : 1}
+            "750" : {"perPage" : 1 ,
+                 "destroy" : true
+            }
         }
       }'>
       <section class="splide" aria-label="Testimonial Splide" >
         <div class="splide__track">
-          <ul class="splide__list ">
+          <ul class="splide__list custom-article__unorded-list">
              {% if section.settings.blog.articles %}               
                 {% for article in section.settings.blog.articles %}
-                    <li class="splide__slide custom-article__slide custom-border-radius">                        
+                    <li class="splide__slide custom-article__slide custom-border-radius ">                        
                         {% if article.image %}
                             <div class="custom-article__image media media--sqaure custom-border-radius"> 
                                 {% render "image", 
@@ -107,63 +109,6 @@
       </section>
     </splide-slider>
 
-    <div class = "custom-article__mobile">
-        <div class="grid grid--1-col">
-            {% if section.settings.blog.articles %}               
-                {% for article in section.settings.blog.articles %}
-                    <div class="grid__item custom-article__slide custom-article__slide-grid custom-border-radius">                        
-                        {% if article.image %}
-                            <div class="custom-article__image custom-article__image-grid media media--sqaure custom-border-radius"> 
-                                {% render "image", 
-                                    desktopImage: article.image, 
-                                    mobileImage: article.image,
-                                    class : "media media--sqaure" %}
-                            </div>
-                        {% else %}   
-                           <div class="custom-border-radius">  
-                              {{ 'product-3' | placeholder_svg_tag }}
-                           </div>
-                        {% endif %}
-                        <div class="custom-article__content">  
-                            <div>
-                                {% for tag in article.tags -%}
-                                    <span class = "custom-article__tags"> {{ tag }} </span>
-                                {%- endfor %}
-                            </div>
-                            {% if article.title %}
-                                <a href="{{ article.url }}" class = "h2 custom-article__title">{{ article.title }} </a>
-                            {% endif %}
-                            {% if article.author %}
-                                <div class = "h5 custom-article__author"> Publish by:{{ article.author }}</div>
-                            {% endif %}
-                            {% if article.excerpt %}
-                                <p class = "h5 custom-article__excert">{{ article.excerpt}}</p>
-                            {% endif %}
-
-                            <hr class = "custom-hr">
-                            <div class ="custom-article__bottom">
-                                {% if article.image %}
-                                    <a href="{{ article.url }}" class="custom-article__button">
-                                        Read More
-                                    </a>
-                                {% endif %}
-                                {% if article.image %}
-                                     <span>{{ article.created_at | date: '%B %d, %Y' }}</span>
-                                {% endif %}
-                            </div>
-                        </div> 
-                        
-                    </div>
-                {% endfor %} 
-            {% else %}
-                {% for i in (1..3) %}
-                    <div class="grid__item">
-                        {{ 'product-' | append: i | placeholder_svg_tag }}
-                    </div> 
-                {% endfor %}            
-            {%- endif -%}     
-          </div>
-    </div>    
 
   </div>
 </div>
