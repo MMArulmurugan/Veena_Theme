@@ -12,6 +12,7 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+    
 
 {% endstyle %}
 
@@ -35,11 +36,11 @@
     </div>
     <div class="new-arrivals__flex-wrapper">
         <div class="position-relative new-arrivals__sidebar custom-border-radius ">
-            <div class = "img-full">
+            <div class="new-arrivals__sidebar-image custom-border-radius">
                 {% render "image",  
                     desktopImage: section.settings.sidebar_desktop_image,
                     mobileImage: section.settings.sidebar_mobile_image,
-                    class:"media media--portrait " %}
+                     %}
             </div>
             <div class = "new-arrivals__sidebar-content position-absolute">
                 {% if section.settings.pre_heading  %}

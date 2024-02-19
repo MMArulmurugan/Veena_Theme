@@ -18,9 +18,9 @@
 
 
 <div class="custom-single-image-grid padding-{{ section.id }}">
-    <div class="page-width">
-            <div class = "grid grid--1-col">
-                <div class = "grid__item  ">                    
+    <div class="page-width custom-border-radius">
+            <div class = "grid grid--1-col custom-border-radius">
+                <div class = "grid__item custom-border-radius ">                    
                         <div class = "position-relative custom-single-image-grid__wrapper custom-border-radius">
                             {% if section.settings.image%}    
                                 {% render 'image', 
@@ -31,12 +31,12 @@
                                 <div class="position-absolute custom-single-image-grid__text-container {{ section.settings.alignment_position }}">
                                     <div class="">
                                         {% if section.settings.pre_heading %}
-                                            <ul class="pre-heading custom-image-grid__pre-heading">
-                                                <li>{{ section.settings.pre_heading }}</li>
-                                            </ul> 
+                                            <span class="custom-image-grid__pre-heading">
+                                                {{ section.settings.pre_heading }}
+                                            </span> 
                                         {% endif %}                                                                   
                                         {% if section.settings.heading %}
-                                            <div class="h2 richtext hl ">{{ section.settings.heading }}</div>
+                                            <div class="h2 richtext hl hl-white ">{{ section.settings.heading }}</div>
                                         {% endif %} 
                                         {% if section.settings.description %}
                                             <p class=" richtext ">{{ section.settings.description}}</p>

@@ -5,6 +5,8 @@
     height:100%;
     display:flex;
     color:#ffffff;
+    text-align: center;
+    padding: 20px;
 }
 
 .custom-single-image-grid__image img{
@@ -12,15 +14,22 @@
     object-fit: cover;
     object-position: center;
 }    
-.custom-single-image-grid__wrapper{
-    height: 80vh;
+.custom-single-image-grid__wrapper img{
+    height: 60vh;
     box-sizing:border-box;
     overflow: hidden;
-    padding: 20px;
     
 }
 .custom-single-image-grid__wrapper:hover{
    .custom-single-image-grid__image img{
      transform: scale(1.1);
    }
+}
+.hl-white{
+    color:white;
+}
+@media only screen and (max-width: 750px){
+    .custom-single-image-grid__wrapper img{
+        height: 150vh;
+    }    
 }
