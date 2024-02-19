@@ -3798,3 +3798,7 @@ details-disclosure > details {
  .custom-button-primary-transparent:hover:before {
 	 width: 100%;
 }
+.align-left{
+  text-align: left;
+  align-items: start;
+}

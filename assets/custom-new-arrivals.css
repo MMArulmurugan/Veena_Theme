@@ -97,26 +97,30 @@
   object-fit: cover;
   object-position: center;
   height: 100%;
+  
 }
   .new-arrivals__sidebar-content{
-    
     bottom:0;
     height: 100%;
     width: 100%;
-    /* border: 2px solid blue; */
+    display:flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    text-align:center;
+    padding: 10px;
   }
 
   
 
 .new-arrivals__sidebar{
-    width: 20%;
+    width: 25%;
     height: auto;
-    /* border: 2px solid red; */
     object-fit: cover;
     margin-right: 20px;
 }
 .new-arrivals__sidebar-slider{
-    width: 80%;
+    width: 75%;
 }
 .new-arrivals__flex-wrapper{
   display:flex;

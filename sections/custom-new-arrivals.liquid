@@ -36,24 +36,25 @@
     </div>
     <div class="new-arrivals__flex-wrapper">
         <div class="position-relative new-arrivals__sidebar custom-border-radius ">
-            <div class="new-arrivals__sidebar-image custom-border-radius">
+            <div class="new-arrivals__sidebar-image custom-border-radius media media--portrait">
                 {% render "image",  
                     desktopImage: section.settings.sidebar_desktop_image,
                     mobileImage: section.settings.sidebar_mobile_image,
-                     %}
+                    class : "media media--portrait"
+                 %}
             </div>
             <div class = "new-arrivals__sidebar-content position-absolute">
                 {% if section.settings.pre_heading  %}
-                    <ul class="pre-heading custom-image-grid__pre-heading">
+                    <ul class="pre-heading custom-image-grid__pre-heading align-left">
                         <li>{{ section.settings.pre_heading }}</li>
                     </ul> 
                 {% endif %}                                                                   
                 {% if section.settings.sidebar_heading %}
-                    <div class="h4 richtext hl new-arrivals__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
+                    <div class="h2 richtext  new-arrivals__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
                 {% endif %} 
                 {% if section.settings.sidebar_button_text %}
                     <a
-                    class="button custom-button-primary"
+                    class="button custom-button-primary align-left"
                     href="{{section.settings.sidebar_button_link }}"
                     >
                     {{ section.settings.sidebar_button_text }}
