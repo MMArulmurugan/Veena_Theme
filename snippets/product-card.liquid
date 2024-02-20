@@ -138,7 +138,9 @@
                   assign rating_decimal = 1
                 endif
               %}
-              <div
+              <div class='jdgm-widget jdgm-preview-badge'>
+                  {{ card_product.metafields.judgeme.badge }}
+                </div>  <div
                 class="rating"
                 role="img"
                 aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
@@ -151,7 +153,7 @@
               </div>
               <p class="rating-text caption">
                 <span aria-hidden="true">
-                  {{-product.metafields.reviews.rating.value }} /
+                  {{- product.metafields.reviews.rating.value }} /
                   {{ product.metafields.reviews.rating.value.scale_max -}}
                 </span>
               </p>
@@ -162,7 +164,7 @@
                   {{ 'accessibility.total_reviews' | t -}}
                 </span>
               </p>
-            {%- endif -%}  
+            {%- endif -%}
       
     </div>
   
