@@ -161,7 +161,7 @@
 }
 
 .facets {
-  display: block;
+  /* display: block; */
   grid-column-start: span 2;
 }
 
@@ -1092,6 +1092,9 @@ input.mobile-facets__checkbox {
   .facets-vertical-form {
     display: flex;
     justify-content: flex-end;
+    background:#00000004;
+    padding: 10px;
+    
   }
   .facets-vertical-form__layout-icons{
     flex-grow: 1;
