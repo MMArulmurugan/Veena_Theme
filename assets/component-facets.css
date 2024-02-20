@@ -1106,6 +1106,27 @@ input.mobile-facets__checkbox {
     margin-left: 3.5rem;
     position: relative;
   }
+  .main-collection-product-grid__menu-container{
+    background:#00000004;
+    padding: 8px 25px 8px 15px;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+.main-collection-product-grid__menu-container-link{
+  text-decoration: none;
+  color:black
+} 
+.main-collection-product-grid__menu-container-link:hover{
+  color:#D03C3F;
+} 
+ 
+.main-collection-product-grid__menu-container a{  
+  text-decoration: none;
+  color:black
+}
+.main-collection-product-grid__menu-container:hover a{
+  color:#D03C3F;
+}
 
   .facets-vertical .active-facets__button-wrapper {
     margin-bottom: 2rem;

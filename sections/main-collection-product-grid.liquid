@@ -41,28 +41,46 @@
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >  
-          
-        <ul class="parent">
+
+        <div class="parent">
           {% for link in section.settings.menu.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a>
-          {% if link.links != blank %}
-            <ul class="child">
-              {% for child_link in link.links %}  
-              <li><a href= "{{ child_link.url }}">{{ child_link.title }}</a>
-              {% if child_link.links != blank %}
-                <ul class="grandchild">
-                {% for grandchild_link in child_link.links %}  
-                  <li><a href= "{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
-                {% endfor %}
-                </ul>
-              {% endif %}   
-              </li>
-              {% endfor %}
-            </ul> 
-          {% endif %} 
-          </li>
-          {% endfor %}
-          </ul>
+            {% if link.links != blank %}
+              <details class = "main-collection-product-grid__menu-container custom-border-radius">
+                <summary>
+                  <span class="icon-caret-svg">
+                    <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                    </svg>
+                  </span>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </summary>
+                {% for child_link in link.links %}
+                  {% if child_link.links != blank %}
+                    <details class = "main-collection-product-grid__menu-container custom-border-radius">
+                      <summary>
+                        <span class="icon-caret-svg">
+                          <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                          </svg>
+                        </span>
+                        <a href= "{{ child_link.url }}">{{ child_link.title }}</a>
+                      </summary>
+                      <div class="grandchild">
+                        {% for grandchild_link in child_link.links %}
+                          <div><a href= "{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></div>
+                        {% endfor %}
+                      </div>
+                    </details>
+                  {% else %}  
+                    <div><a href= "{{ child_link.url }}">{{ child_link.title }}</a></div>
+                  {%  endif %}  
+                {% endfor %}  
+              </details>
+            {% else %}
+              <a href="{{ link.url }}" class = "main-collection-product-grid__menu-container-link"  ><div class = "main-collection-product-grid__menu-container custom-border-radius">{{ link.title }}</div></a>
+            {% endif %}  
+          {% endfor %}  
+        </div>
 
 
           {% render 'facets',
