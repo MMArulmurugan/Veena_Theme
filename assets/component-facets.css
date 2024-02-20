@@ -1099,6 +1099,9 @@ input.mobile-facets__checkbox {
   .facets-vertical-form__layout-icons{
     flex-grow: 1;
   }
+  .change-button{
+    margin-left: 15px;
+  }
   .product-count-vertical {
     margin-left: 3.5rem;
     position: relative;
