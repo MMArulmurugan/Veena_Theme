@@ -14,7 +14,7 @@
 }
 
 .rating-star {
-  --color-rating-star: goldenrod;
+  --color-rating-star: yellow;
   --percent: calc(
     (
         var(--rating) / var(--rating-max) + var(--rating-decimal) * var(--font-size) /
@@ -31,7 +31,7 @@
 
 .rating-star::before {
   content: '★★★★★';
-  background:goldenrod;
+  background:yellow;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
