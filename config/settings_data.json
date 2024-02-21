@@ -134,6 +134,18 @@
       },
       "color-swatch": {
         "type": "color-swatch",
+        "blocks": {
+          "color_settings_hCfV7h": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "darkblue",
+              "color_code": "#00008b"
+            }
+          }
+        },
+        "block_order": [
+          "color_settings_hCfV7h"
+        ],
         "settings": {
         }
       }

@@ -274,10 +274,10 @@
 
                                 {% endif %}
                                 {% if  filter_name == "color" %}                                
-                                  <div class="fects-card__swatch-container" style="border : 1px solid {{ swatch_color }};background-image: url({{ swatch_image }}); background-color: {{ swatch_color }};" >
+                                  <div class="fects-card__swatch-container item-swatch" style="border : 1px solid {{ swatch_color }};" >
                                     <span
-                                      class="fects-card__swatch"
-                                      style="background-color: {{ swatch_color }};background-image: url({{ swatch_image }});"
+                                      class="fects-card__swatch "
+                                      data-value="{{ swatch_color }}"
                                     ></span>
                                   </div>                                   
                                 {% endif %}
