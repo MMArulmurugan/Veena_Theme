@@ -3805,3 +3805,124 @@ details-disclosure > details {
   text-align: left;
   align-items: start;
 }
+
+/*---------------------------------------------------------product-card.css------------------------------------------------------------*/
+.relative-container {
+  position: relative;
+}
+
+.product-card__quick-view {
+  top: 10px; 
+  right: 10px; 
+}
+.product-card__info{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  line-height: 28.8px;
+}
+.product-card__form{
+  margin-bottom:0;
+}
+.product-card__title{
+  text-decoration:none;
+}
+.product-card__title:hover{
+  color:#d03c3f;
+}
+.product-card__list{
+  list-style-type:none;
+  display:flex;
+}
+.product-card__max-stock{
+  color:green;
+}
+.product-card__min-stock{
+  color:red;
+}
+.product-card_badge-container{
+  top: 0;
+  left:0;
+  display: inline-flex;
+  flex-direction:column;
+  padding:10px;    
+}
+.product-card_badge{
+  background: green;
+  margin: 3px;
+  color: white;
+  width: 40px;
+}
+.product-card__dicound{
+  background:#d03c3f;
+  color: white;
+  margin: 3px;
+}
+.product-card__sold-out{
+  background:lightgray;
+  margin: 3px;
+}
+.quick-view-button {
+  font-size:12px;
+  padding: 5px;
+}
+
+.product-card__color-dot > input[type="radio"] {
+  display: none;
+}
+.product-card__color-dot label {
+  width: 20px; 
+  height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;   
+  margin-right: 10px; 
+}
+.product-card__color-dot{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;  
+  margin-right: 5px;
+}
+
+.image-hover-swap .image-secondary-hidden {
+  display: none;
+}
+
+.image-hover-swap:hover .image-secondary-hidden {
+  display: block;
+}
+
+.image-hover-swap:hover .image-featured-hidden {
+  display: none;
+}
+.product-card__form{
+height: 40px;
+display:flex;
+justify-content:center;
+}
+.product-card__new-mobile-button {
+  display: none;
+  color:black;     
+  border-radius:50%;
+  padding: 4px 7px; 
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+@media screen and (max-width: 767px) {
+
+  .product-card__new-mobile-button {
+      display: inline-block;
+  }
+  .product-card__quick-view-button{
+      display:none;
+  }
+}
+
+
+/*---------------------------------------------------------product-card.css------------------------------------------------------------*/
