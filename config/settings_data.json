@@ -141,10 +141,106 @@
               "title": "darkblue",
               "color_code": "#00008b"
             }
+          },
+          "color_settings_wcJNBR": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "black",
+              "color_code": "#000000"
+            }
+          },
+          "color_settings_aRqPJj": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "green",
+              "color_code": "#008000"
+            }
+          },
+          "color_settings_rEix8i": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "blue",
+              "color_code": "#0000ff"
+            }
+          },
+          "color_settings_mhiAYN": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "limegreen",
+              "color_code": "#32cd32"
+            }
+          },
+          "color_settings_UADL3g": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "deeppink",
+              "color_code": "#ff1493"
+            }
+          },
+          "color_settings_JHfigq": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "moccasin",
+              "color_code": "#ffe4b5"
+            }
+          },
+          "color_settings_KLLLfE": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "deepskyblue",
+              "color_code": "#00bfff"
+            }
+          },
+          "color_settings_9JXUPH": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "orange",
+              "color_code": "#ffa500"
+            }
+          },
+          "color_settings_CWWXeG": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "floralwhite",
+              "color_code": "#fffaf0"
+            }
+          },
+          "color_settings_nbMqMx": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "purple",
+              "color_code": "#800080"
+            }
+          },
+          "color_settings_WTjfpU": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "red",
+              "color_code": "#ff0000"
+            }
+          },
+          "color_settings_q7rWUQ": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "red\/black",
+              "color_code": "#c60808"
+            }
           }
         },
         "block_order": [
-          "color_settings_hCfV7h"
+          "color_settings_hCfV7h",
+          "color_settings_wcJNBR",
+          "color_settings_aRqPJj",
+          "color_settings_rEix8i",
+          "color_settings_mhiAYN",
+          "color_settings_UADL3g",
+          "color_settings_JHfigq",
+          "color_settings_KLLLfE",
+          "color_settings_9JXUPH",
+          "color_settings_CWWXeG",
+          "color_settings_nbMqMx",
+          "color_settings_WTjfpU",
+          "color_settings_q7rWUQ"
         ],
         "settings": {
         }

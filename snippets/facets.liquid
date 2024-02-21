@@ -238,32 +238,31 @@
                                 {% assign swatch_image = value.label | escape | append: '.jpg' | file_url %}
                                 {% assign swatch_color = value.label | handleize | escape %}
 
-                                  <svg
+                                <svg
                                     width="1.6rem"
                                     height="1.6rem"
                                     viewBox="0 0 16 16"
                                     aria-hidden="true"
                                     focusable="false"
                                     {% if filter_name == "color" %}
-                                        style="display: none;"
-                                    {% endif %}   
-                                   >
-                                    <circle cx="8" cy="8" r="7" stroke="currentColor" fill="none" stroke-width="1"></circle>
+                                      style="display: none;"
+                                  {% endif %} 
+                                  >
+                                    <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
                                   </svg>
 
-                                   
-                                  <svg
+                                  <svg 
                                     aria-hidden="true"
                                     class="icon icon-checkmark"
                                     width="1.1rem"
                                     height="0.7rem"
                                     viewBox="0 0 11 7"
-                                    fill="block"
+                                    fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    {% if  filter_name == "color" %}
+                                    {% if filter_name == "color" %}
                                       style="display: none;"
-                                    {% endif %}  
-                                    >
+                                    {% endif %} 
+                                  >
                                     <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
                                       stroke="currentColor"
                                       stroke-width="1.75"
@@ -271,14 +270,16 @@
                                       stroke-linejoin="round" />
                                   </svg>
 
+                                  
+
 
                                 {% endif %}
                                 {% if  filter_name == "color" %}                                
-                                  <div class="fects-card__swatch-container item-swatch" style="border : 1px solid {{ swatch_color }};" >
-                                    <span
+                                  <div class="fects-card__swatch-container item-swatch" style="border : 1px solid {{ swatch_color }}; background-color: {{ swatch_color }};" data-value="{{ swatch_color }}"  >
+                                    {% comment %} <span
                                       class="fects-card__swatch "
                                       data-value="{{ swatch_color }}"
-                                    ></span>
+                                    ></span> {% endcomment %}
                                   </div>                                   
                                 {% endif %}
 
