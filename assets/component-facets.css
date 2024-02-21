@@ -342,11 +342,13 @@
 
 .facet-checkbox {
   padding: 1rem 2rem 1rem 0;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   position: relative;
   font-size: 1.4rem;
   display: flex;
-  word-break: break-word;
+  justify-content: center;
+  align-items: center;
+  /* word-break: break-word; */
 }
 
 /* Hover, active, and focus states */
@@ -1217,5 +1219,6 @@ input.mobile-facets__checkbox {
   .facets-vertical .active-facets__button-remove {
     padding: 0 1rem 1rem;
   }
+
 }
 
