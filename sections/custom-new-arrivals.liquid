@@ -1,4 +1,4 @@
-{{ "custom-new-arrivals.css" | asset_url | stylesheet_tag }}
+{{ 'custom-new-arrivals.css' | asset_url | stylesheet_tag }}
 
 {% style %}
   .padding-{{ section.id }} {
@@ -12,307 +12,307 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
-    
-
 {% endstyle %}
-
 
 <div class="new-arrivals padding-{{ section.id }}">
   <div class="page-width">
-    <div class="new-arrivals__heading-section ">
-      <div class="h1 "> {{ section.settings.section_heading }} </div>
-      <div>
-        {% if section.settings.section_button_text %}
-           <a class="custom-button-secondary" 
-              {% if section.settings.section_button_link == blank %}
-                  role="link" aria-disabled="true"
-                {% else %}
-                  href="{{ section.settings.section_button_link }}"
-              {% endif %}>
-            {{ section.settings.section_button_text }}
-          </a>
-        {% endif %}  
-      </div>
-    </div>
-    <div class="new-arrivals__flex-wrapper">
-        <div class="position-relative new-arrivals__sidebar custom-border-radius ">
-            <div class="new-arrivals__sidebar-image custom-border-radius media media--portrait">
-                {% render "image",  
-                    desktopImage: section.settings.sidebar_desktop_image,
-                    mobileImage: section.settings.sidebar_mobile_image,
-                    class : "media media--portrait"
-                 %}
-            </div>
-            <div class = "new-arrivals__sidebar-content position-absolute">
-                {% if section.settings.pre_heading  %}
-                    <ul class="pre-heading custom-image-grid__pre-heading align-left">
-                        <li>{{ section.settings.pre_heading }}</li>
-                    </ul> 
-                {% endif %}                                                                   
-                {% if section.settings.sidebar_heading %}
-                    <div class="h2 richtext  new-arrivals__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
-                {% endif %} 
-                {% if section.settings.sidebar_button_text %}
-                    <a
-                    class="custom-button-primary align-left"
-                    href="{{section.settings.sidebar_button_link }}"
-                    >
-                    {{ section.settings.sidebar_button_text }}
-                    </a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="new-arrivals__sidebar-slider">
-            <splide-slider data-splide-options = '{
-                "autoplay" : {{ section.settings.slider_autoplay }},
-                "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
-                "type" : "{{ section.settings.slide_animation }}",
-                "pagination": {{ section.settings.slide_dots }},
-                "gap": "20px",
-                "perPage": 3,
-                "arrows" : {{ section.settings.slide_arrows }},
-                "rewind" : {{ section.settings.infinite_scroll }},
-                "breakpoints" : {
-                    "750" : {"perPage" : 2}
-                }
-              }'>
-              <section class="splide" aria-label="Testimonial Splide" >
-                <div class="splide__track">
-                  <ul class="splide__list ">
-                    {% if section.settings.product_list != blank %}
-                        {% for product in section.settings.product_list %}
-                            {% if product.featured_image %}
-                                <li class="splide__slide custom-border-radius">
-                                    {% render 'product-card', product: product, section_id: section.id %}
-                                   
-                                </li>
-                            {% else %}
-                            <li class="splide__slide custom-border-radius">
-                                        {{ 'product-1'  | placeholder_svg_tag }}
-                                    </li>
-                            {% endif %}
-                        {% endfor %}
-                    {% else %}
-                      {% for i in (1..4) %}
-                        <li class="splide__slide custom-border-radius">
-                            {{ 'product-' | append: i | placeholder_svg_tag }}
-                          </li>
-                      {% endfor %}
-                    {% endif %}         
-                  </ul>
-                </div>
-              </section>
-            </splide-slider>
-        
-        </div>
-        
+    <div class="new-arrivals__heading-section">
+      {% if section.settings.section_heading != blank %}
+        <h2>{{ section.settings.section_heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.section_button_text %}
+        <a
+          class="button custom-button-secondary"
+          {% if section.settings.section_button_link == blank %}
+            role="link" aria-disabled="true"
+          {% else %}
+            href="{{ section.settings.section_button_link }}"
+          {% endif %}
+        >
+          {{ section.settings.section_button_text }}
+        </a>
+      {% endif %}
     </div>
 
-    
+    <div class="new-arrivals__flex-wrapper">
+      <div class="position-relative new-arrivals__sidebar custom-border-radius ">
+        <div class="new-arrivals__sidebar-image custom-border-radius">
+          {% render 'image',
+            desktopImage: section.settings.sidebar_desktop_image,
+            mobileImage: section.settings.sidebar_mobile_image,
+            class: 'media media--portrait'
+          %}
+        </div>
+        <div class="new-arrivals__sidebar-content position-absolute">
+          {% if section.settings.pre_heading %}
+            <ul class="pre-heading custom-image-grid__pre-heading align-left">
+              <li>{{ section.settings.pre_heading }}</li>
+            </ul>
+          {% endif %}
+          {% if section.settings.sidebar_heading %}
+            <div class="h2 richtext  new-arrivals__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
+          {% endif %}
+          {% if section.settings.sidebar_button_text %}
+            <a
+              class="custom-button-primary align-left"
+              href="{{section.settings.sidebar_button_link }}"
+            >
+              {{ section.settings.sidebar_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="new-arrivals__sidebar-slider">
+        <splide-slider
+          data-splide-options='
+            {
+              "autoplay" : {{ section.settings.slider_autoplay }},
+              "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
+              "type" : "{{ section.settings.slide_animation }}",
+              "pagination": {{ section.settings.slide_dots }},
+              "gap": "20px",
+              "perPage": 3,
+              "arrows" : {{ section.settings.slide_arrows }},
+              "rewind" : {{ section.settings.infinite_scroll }},
+              "breakpoints" : {
+                  "750" : {"perPage" : 2}
+              }
+            }
+          '
+        >
+          <section class="splide" aria-label="Testimonial Splide">
+            <div class="splide__track">
+              <ul class="splide__list ">
+                {% if section.settings.product_list != blank %}
+                  {% for product in section.settings.product_list %}
+                    {% if product.featured_image %}
+                      <li class="splide__slide custom-border-radius">
+                        {% render 'product-card', product: product, section_id: section.id %}
+                      </li>
+                    {% else %}
+                      <li class="splide__slide custom-border-radius">
+                        {{ 'product-1' | placeholder_svg_tag }}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% else %}
+                  {% for i in (1..4) %}
+                    <li class="splide__slide custom-border-radius">
+                      {{ 'product-' | append: i | placeholder_svg_tag }}
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+          </section>
+        </splide-slider>
+      </div>
+    </div>
   </div>
 </div>
 
-
 {% schema %}
-  {
-    "name": "Custom New Arrivals",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "section_heading",
-        "label": "Section heading",
-        "default": "New Arrivals"
+{
+  "name": "Custom New Arrivals",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "text",
+      "id": "section_button_text",
+      "label": "Section button text",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "section_button_link",
+      "label": "Section button link"
+    },
+    {
+      "type" : "header",
+      "content" : "Sidebar Image Card"
+    },
+    {
+      "type": "image_picker",
+      "id": "sidebar_desktop_image",
+      "label": "Image"
       },
       {
-        "type": "text",
-        "id": "section_button_text",
-        "label": "Section button text",
-        "default": "View All"
+          "type": "image_picker",
+          "id": "sidebar_mobile_image",
+          "label": "Image (Mobile)"
       },
       {
-        "type": "url",
-        "id": "section_button_link",
-        "label": "Section button link"
-      },
-      {
-        "type" : "header",
-        "content" : "Sidebar Image Card"
-      },
-      {
-        "type": "image_picker",
-        "id": "sidebar_desktop_image",
-        "label": "Image"
-        },
-        {
-            "type": "image_picker",
-            "id": "sidebar_mobile_image",
-            "label": "Image (Mobile)"
-        },
-        {
-            "type" : "text",
-            "id" : "pre_heading",
-            "label" : "Pre Heading",
-            "default" : "Pre Heading"
-          },
-        {
-        "type": "text",
-        "id": "sidebar_heading",
-        "label": "Heading",
-        "default": "Sidebar Heading"
-        },
-        {
-        "type": "text",
-        "id": "sidebar_button_text",
-        "label": "Section button text",
-        "default": "Explore"
-        },
-        {
-        "type": "url",
-        "id": "sidebar_button_link",
-        "label": "Section button link"
+          "type" : "text",
+          "id" : "pre_heading",
+          "label" : "Pre Heading",
+          "default" : "Pre Heading"
         },
       {
-        "type" : "header",
-        "content" : "Slider settings"
+      "type": "text",
+      "id": "sidebar_heading",
+      "label": "Heading",
+      "default": "Sidebar Heading"
       },
       {
-        "type": "checkbox",
-        "id": "slider_autoplay",
-        "label": "Slide autoplay",
-        "default": true
+      "type": "text",
+      "id": "sidebar_button_text",
+      "label": "Section button text",
+      "default": "Explore"
       },
       {
-        "type": "checkbox",
-        "id": "slide_dots",
-        "label": "Show slide dots",
-        "default": true
+      "type": "url",
+      "id": "sidebar_button_link",
+      "label": "Section button link"
       },
-      {
-        "type": "checkbox",
-        "id": "slide_arrows",
-        "label": "Show slide arrows",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "infinite_scroll",
-        "label": "Infinite scroll",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "slider_autoplay_duration",
-        "label": "Slider autoplay duration",
-        "min" : 1,
-        "step":1,
-        "max" : 10,
-        "default": 3,
-        "unit": "sec"
-      },
-      {
-        "type": "product_list",
-        "id": "product_list",
-        "label": "Products",
-        "limit": 8
-      },
-      {
-        "type" : "header",
-        "content" : "Alignment Settings"
-      },
-      {
-        "type": "select",
-        "id": "text_alignment",
-        "label": "Text Alignment",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
-        "default": "center"
-      },
-      {
-        "type" : "select",
-        "id" : "alignment_position",
-        "label" : "Desktop content position",
-        "options" : [
-          {
-            "value" : "align-start justify-start",
-            "label" : "Top left"
-          },
-          {
-            "value" : "align-start justify-center",
-            "label" : "Top center"
-          },
-          {
-            "value" : "align-start justify-end",
-            "label" : "Top right"
-          },
-          {
-            "value" : "align-center justify-start",
-            "label" : "Middle left"
-          },
-          {
-            "value" : "align-center justify-center",
-            "label" : "Middle center"
-          },
-          {
-            "value" : "align-center justify-end",
-            "label" : "Middle right"
-          },
-          {
-            "value" : "align-end justify-start",
-            "label" : "Bottom left"
-          },
-          {
-            "value" : "align-end justify-center",
-            "label" : "Bottom center"
-          },
-          {
-            "value" : "align-end justify-end",
-            "label" : "Bottom end"
-          }
-        ],
-        "default": "align-center justify-center"
-      },
-      {
-        "type" : "header",
-        "content" : "Section padding settings"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Section padding top",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Section padding bottom",
-        "default": 36
-      }
-    ],
-    "presets": [
-      {
-        "name": "Custom New Arrivals"
-      }
-    ]
-  }
+    {
+      "type" : "header",
+      "content" : "Slider settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay",
+      "label": "Slide autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_dots",
+      "label": "Show slide dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_arrows",
+      "label": "Show slide arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_scroll",
+      "label": "Infinite scroll",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slider_autoplay_duration",
+      "label": "Slider autoplay duration",
+      "min" : 1,
+      "step":1,
+      "max" : 10,
+      "default": 3,
+      "unit": "sec"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Products",
+      "limit": 8
+    },
+    {
+      "type" : "header",
+      "content" : "Alignment Settings"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type" : "select",
+      "id" : "alignment_position",
+      "label" : "Desktop content position",
+      "options" : [
+        {
+          "value" : "align-start justify-start",
+          "label" : "Top left"
+        },
+        {
+          "value" : "align-start justify-center",
+          "label" : "Top center"
+        },
+        {
+          "value" : "align-start justify-end",
+          "label" : "Top right"
+        },
+        {
+          "value" : "align-center justify-start",
+          "label" : "Middle left"
+        },
+        {
+          "value" : "align-center justify-center",
+          "label" : "Middle center"
+        },
+        {
+          "value" : "align-center justify-end",
+          "label" : "Middle right"
+        },
+        {
+          "value" : "align-end justify-start",
+          "label" : "Bottom left"
+        },
+        {
+          "value" : "align-end justify-center",
+          "label" : "Bottom center"
+        },
+        {
+          "value" : "align-end justify-end",
+          "label" : "Bottom end"
+        }
+      ],
+      "default": "align-center justify-center"
+    },
+    {
+      "type" : "header",
+      "content" : "Section padding settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom New Arrivals"
+    }
+  ]
+}
 {% endschema %}
