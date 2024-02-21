@@ -276,7 +276,9 @@
                                 {% if  filter_name == "color" %}                                
                                   <div class="fects-card__swatch-container" style="border : 1px solid {{ swatch_color }};" >
                                     <span
-                                      class="fects-card__swatch"
+                                    
+                                      class="fects-card__swatch item-swatch"
+                                      data-value="{{ swatch_color }}"
                                     ></span>
                                   </div>                                   
                                 {% endif %}
