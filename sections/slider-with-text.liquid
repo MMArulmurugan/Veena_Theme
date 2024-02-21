@@ -12,22 +12,25 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-
   }
 {% endstyle %}
 
+{% capture slideshow-with-text__slider-settings %}
+{
+  "type" : "{{ section.settings.slide_animation }}",
+  "perPage": 1,
+  "pagination": {{ section.settings.show_pagination }},
+  "perMove": 1,
+  "autoplay": {{ section.settings.autoplay }} ,    
+  "interval": {{ section.settings.autoplay_duration }},
+  "arrows" : {{  section.settings.slide_arrows }},
+  "rewind" : {{ section.settings.infinite_scroll }}
+}
+{% endcapture %}
+
 <div class="slideshow-with-text padding-{{ section.id }}">
     <div class="page-width">
-        <splide-slider data-splide-options = '{
-          "type" : "{{ section.settings.slide_animation }}",
-          "perPage": 1,
-          "pagination": {{ section.settings.show_pagination }},
-          "perMove": 1,
-          "autoplay": {{ section.settings.autoplay }} ,    
-          "interval": {{ section.settings.autoplay_duration }},
-          "arrows" : {{  section.settings.slide_arrows }},
-          "rewind" : {{ section.settings.infinite_scroll }}
-      }'>
+        <splide-slider data-splide-options = '{{ slideshow-with-text__slider-settings }}'>
             
             <section class="splide " aria-label="Splide Basic HTML Example">
             <div class="splide__track custom-border-radius ">
@@ -52,7 +55,7 @@
                                       {% endif %}                                                                   
 
                                       {% if block.settings.heading_text != blank %}
-                                        <h2 class="h1 slideshow-with-text__heading-link slideshow-with-text__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h2>
+                                        <h2 class="h1 h1x slideshow-with-text__heading-link slideshow-with-text__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h2>
                                       {% endif %} 
                                       
                                       {% if block.settings.button_label != blank %}
@@ -91,9 +94,7 @@
                             }   
                           }
                             
-                      </style>    
-                        
-                            
+                      </style>           
                     {% endfor %}
                   {% else %}
                     {% for i in (1..3) %}

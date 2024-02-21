@@ -14,7 +14,7 @@
     }
 {% endstyle %}
 
-{% capture slider_settings %}
+{% capture new-arrivals__slider-settings %}
   {
     "autoplay" : {{ section.settings.slider_autoplay }},
     "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
@@ -81,7 +81,7 @@
       </div>
       
       <div class="new-arrivals__sidebar-slider">
-        <splide-slider data-splide-options='{{ slider_settings }}'>
+        <splide-slider data-splide-options='{{ new-arrivals__slider-settings }}'>
           <section class="splide" aria-label="Testimonial Splide">
             <div class="splide__track">
               <ul class="splide__list ">                
