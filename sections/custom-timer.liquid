@@ -20,14 +20,14 @@
         <div class="grid grid--1-col grid--2-col-desktop">
             <div class="grid__item custom-timer__text-wrapper">
                 {% if section.settings.heading  %}
-                   <div class = "h2">{{ section.settings.heading }}</div>
+                   <h2 class = "h1">{{ section.settings.heading }}</h2>
                 {% endif %}
                 {% if section.settings.description  %}
                    <p class = "custom-timer__description">{{ section.settings.description }}</p>
                 {% endif %}
                 {% if section.settings.button_label  %}
                     <a
-                        class="custom-button-secondary_color"
+                        class="button custom-button-secondary_color"
                         href="{{section.settings.button_link }}"
                         >
                         {{ section.settings.button_label }}
@@ -41,7 +41,7 @@
                 </div>
                 <span class = "h1 custom-timer__colon">:</span>
                 <div class = "custom-timer__card custom-border-radius">
-                    <span class = "h1 custom-timer__time" id="hours">00</span>
+                    <h2 class = "h1 custom-timer__time" id="hours">00</h2>
                     <span class = "h4">Hours</span>
                 </div>
                 <span class = "h1 custom-timer__colon">:</span>

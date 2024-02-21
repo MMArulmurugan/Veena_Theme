@@ -13,7 +13,7 @@
   
   <product-card 
     class="product-card"
-    data-product-handle="{{ product.handle }}" 
+    data-product-handle="{{ product.url | within: collection }}" 
     data-section-id="{{ section_id }}"
   >
     <a href="{{ product.url }}" class="product-card__link position-relative">

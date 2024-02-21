@@ -23,7 +23,7 @@ class ProductCard extends HTMLElement {
   }
 
   getUpdatedCard() {
-    const url = `/products/${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
+    const url = `${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
 
     fetch(url)
       .then((response) => response.text())
@@ -37,3 +37,4 @@ class ProductCard extends HTMLElement {
 }
 
 customElements.define("product-card", ProductCard);
+
