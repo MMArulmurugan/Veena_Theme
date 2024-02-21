@@ -52,12 +52,12 @@
                                       {% endif %}                                                                   
 
                                       {% if block.settings.heading_text != blank %}
-                                        <div class="h2 slideshow-with-text__heading-link slideshow-with-text__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
+                                        <h2 class="h1 slideshow-with-text__heading-link slideshow-with-text__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h2>
                                       {% endif %} 
                                       
                                       {% if block.settings.button_label != blank %}
                                         <a
-                                          class="custom-button-primary"
+                                          class="button custom-button-primary"
                                           href="{{block.settings.button_link }}"
                                         >
                                           {{ block.settings.button_label }}

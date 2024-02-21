@@ -54,7 +54,7 @@
   transform:unset;
   background:none;
   cursor: pointer;
-  left: 40%;
+  left: 43%;
 }
 .slideshow-with-text .splide__arrows .splide__arrow--prev svg{
   fill:#fff;
@@ -65,7 +65,7 @@
   transform:unset;
   background:none;
   cursor: pointer;
-  right: 40%;
+  right: 43%;
 }
 .slideshow-with-text .splide__arrows .splide__arrow--next svg{
   fill:#fff;
