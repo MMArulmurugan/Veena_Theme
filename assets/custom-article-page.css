@@ -4,7 +4,6 @@
 
 .custom-article__heading-section {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 20px;
 }
@@ -166,4 +165,7 @@
     height: 60%;
     margin-top: 20%;
   } */
+  .custom-article__heading-section{
+    flex-direction: column;
+  }
 }

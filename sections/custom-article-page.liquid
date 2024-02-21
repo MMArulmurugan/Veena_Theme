@@ -20,18 +20,18 @@
   <div class="page-width">
     <div class="custom-article__heading-section ">
       <div class="h1 "> {{ section.settings.section_heading }} </div>
-      <div>
-        {% if section.settings.section_button_text %}
-           <a class="custom-button-secondary" 
-              {% if section.settings.section_button_link == blank %}
-                  role="link" aria-disabled="true"
-                {% else %}
-                  href="{{ section.settings.section_button_link }}"
-              {% endif %}>
-            {{ section.settings.section_button_text }}
-          </a>
-        {% endif %}  
-      </div>
+        <div>
+          {% if section.settings.section_button_text %}
+            <a class="custom-button-secondary" 
+                {% if section.settings.section_button_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ section.settings.section_button_link }}"
+                {% endif %}>
+              {{ section.settings.section_button_text }}
+            </a>
+          {% endif %}  
+        </div>
     </div>
     <splide-slider class = "custom-article__descktop" data-splide-options = '{
         "autoplay" : {{ section.settings.slider_autoplay }},
