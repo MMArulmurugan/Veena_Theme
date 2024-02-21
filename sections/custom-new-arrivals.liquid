@@ -14,6 +14,22 @@
     }
 {% endstyle %}
 
+{% capture slider_settings %}
+  {
+    "autoplay" : {{ section.settings.slider_autoplay }},
+    "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
+    "type" : "{{ section.settings.slide_animation }}",
+    "pagination": {{ section.settings.slide_dots }},
+    "gap": "20px",
+    "perPage": 3,
+    "arrows" : {{ section.settings.slide_arrows }},
+    "rewind" : {{ section.settings.infinite_scroll }},
+    "breakpoints" : {
+        "750" : {"perPage" : 2}
+    }
+  }
+{% endcapture %}
+
 <div class="new-arrivals padding-{{ section.id }}">
   <div class="page-width">
     <div class="new-arrivals__heading-section">
@@ -65,45 +81,21 @@
       </div>
       
       <div class="new-arrivals__sidebar-slider">
-        <splide-slider
-          data-splide-options='
-            {
-              "autoplay" : {{ section.settings.slider_autoplay }},
-              "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
-              "type" : "{{ section.settings.slide_animation }}",
-              "pagination": {{ section.settings.slide_dots }},
-              "gap": "20px",
-              "perPage": 3,
-              "arrows" : {{ section.settings.slide_arrows }},
-              "rewind" : {{ section.settings.infinite_scroll }},
-              "breakpoints" : {
-                  "750" : {"perPage" : 2}
-              }
-            }
-          '
-        >
+        <splide-slider data-splide-options='{{ slider_settings }}'>
           <section class="splide" aria-label="Testimonial Splide">
             <div class="splide__track">
-              <ul class="splide__list ">
-                {% if section.settings.product_list != blank %}
-                  {% for product in section.settings.product_list %}
-                    {% if product.featured_image %}
-                      <li class="splide__slide custom-border-radius">
-                        {% render 'product-card', product: product, section_id: section.id %}
-                      </li>
-                    {% else %}
-                      <li class="splide__slide custom-border-radius">
-                        {{ 'product-1' | placeholder_svg_tag }}
-                      </li>
-                    {% endif %}
-                  {% endfor %}
+              <ul class="splide__list ">                
+                {% for product in section.settings.product_list %}                  
+                  <li class="splide__slide custom-border-radius">
+                    {% render 'product-card', product: product, section_id: section.id %}
+                  </li>                  
                 {% else %}
                   {% for i in (1..4) %}
                     <li class="splide__slide custom-border-radius">
                       {{ 'product-' | append: i | placeholder_svg_tag }}
                     </li>
                   {% endfor %}
-                {% endif %}
+                {% endfor %}         
               </ul>
             </div>
           </section>
