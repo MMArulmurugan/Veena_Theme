@@ -38,7 +38,7 @@
     {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src = '{{ 'splide.min.js' | asset_url }}' defer ></script>
     <script src ="{{ "custom-splider.js" |  asset_url }}" defer></script>
-    {% section 'color-swatch' %}
+  
     <script src="{{ 'product-card.js' | asset_url }}" defer></script>
     {{ content_for_header }}
 
@@ -295,7 +295,7 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-
+    {% section 'color-swatch' %}
     {% sections 'header-group' %}
     
     <div class = "breadcrum-margin-left">{% render 'breadcrumbs' %}</div>
