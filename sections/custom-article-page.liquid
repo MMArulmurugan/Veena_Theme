@@ -15,6 +15,23 @@
 
 {% endstyle %}
 
+{% capture custom-article__slider-settings %}
+{
+  "autoplay" : {{ section.settings.slider_autoplay }},
+  "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
+  "type" : "{{ section.settings.slide_animation }}",
+  "pagination": {{ section.settings.slide_dots }},
+  "gap": "20px",
+  "perPage": 2,
+  "arrows" : {{ section.settings.slide_arrows }},
+  "rewind" : {{ section.settings.infinite_scroll }},
+  "breakpoints" : {
+      "750" : {"perPage" : 1 ,
+           "destroy" : true
+      }
+  }
+}
+{% endcapture %}
 
 <div class="custom-article padding-{{ section.id }}">
   <div class="page-width">
@@ -33,21 +50,7 @@
           {% endif %}  
         </div>
     </div>
-    <splide-slider class = "custom-article__descktop" data-splide-options = '{
-        "autoplay" : {{ section.settings.slider_autoplay }},
-        "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
-        "type" : "{{ section.settings.slide_animation }}",
-        "pagination": {{ section.settings.slide_dots }},
-        "gap": "20px",
-        "perPage": 2,
-        "arrows" : {{ section.settings.slide_arrows }},
-        "rewind" : {{ section.settings.infinite_scroll }},
-        "breakpoints" : {
-            "750" : {"perPage" : 1 ,
-                 "destroy" : true
-            }
-        }
-      }'>
+    <splide-slider class = "custom-article__descktop" data-splide-options = '{{ custom-article__slider-settings }}'>
       <section class="splide" aria-label="Testimonial Splide" >
         <div class="splide__track">
           <ul class="splide__list custom-article__unorded-list">

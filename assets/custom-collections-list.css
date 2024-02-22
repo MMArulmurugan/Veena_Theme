@@ -11,6 +11,10 @@
 }
 .collections-list__heading{
   color:#fff;
+  cursor: pointer;
+}
+.collections-list__heading:hover{
+  color:#D03C3F;
 }
 .collections-list__content{
   position: absolute;

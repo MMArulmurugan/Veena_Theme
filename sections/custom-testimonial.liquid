@@ -15,26 +15,30 @@
 
 {% endstyle %}
 
+{% capture testimonial__slider-settings %}
+{
+  "autoplay" : {{ section.settings.slider_autoplay }},
+  "interval" : {{ section.settings.slider_autoplay_duration }},
+  "type" : "{{ section.settings.slide_animation }}",
+  "pagination": {{ section.settings.slide_dots }},
+  "gap": "20px",
+  "perPage": 3,
+  "arrows" : {{ section.settings.slide_arrows }},
+  "rewind" : {{ section.settings.infinite_scroll }},
+  "perMove": 1,
+  "breakpoints" : {
+      "750" : {"perPage" : 1}
+  }
+}
+{% endcapture %}
+
 
 <div class="testimonial padding-{{ section.id }}">
   <div class="page-width">
     <div class="testimonial__heading-section">
       <h2 class = "h1x">{{ section.settings.section_heading }} </h2>
     </div>
-    <splide-slider data-splide-options = '{
-        "autoplay" : {{ section.settings.slider_autoplay }},
-        "interval" : {{ section.settings.slider_autoplay_duration }},
-        "type" : "{{ section.settings.slide_animation }}",
-        "pagination": {{ section.settings.slide_dots }},
-        "gap": "20px",
-        "perPage": 3,
-        "arrows" : {{ section.settings.slide_arrows }},
-        "rewind" : {{ section.settings.infinite_scroll }},
-        "perMove": 1,
-        "breakpoints" : {
-            "750" : {"perPage" : 1}
-        }
-      }'>
+    <splide-slider data-splide-options = '{{ testimonial__slider-settings }}'>
       <section class="splide" aria-label="Testimonial Splide">
         <div class="splide__track">
           <ul class="splide__list">
