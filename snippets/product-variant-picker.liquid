@@ -67,7 +67,7 @@
             {%- if picker_type == 'swatch_dropdown' -%}
               <span
                 data-selected-dropdown-swatch="options[{{ option.name | escape }}]"
-                class="dropdown-swatch"
+                class="dropdown-swatch "
               >
                 {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
               </span>

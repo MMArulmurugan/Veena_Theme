@@ -89,14 +89,22 @@ variant-selects {
   box-shadow: var(--variant-pills-shadow-horizontal-offset) var(--variant-pills-shadow-vertical-offset)
     var(--variant-pills-shadow-blur-radius) rgba(var(--color-shadow), var(--variant-pills-shadow-opacity));
 }
+.product-variant-options__color-swatch{
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
+  border: 1px solid white;
+}
 
 .product-form__input--pill input[type='radio'] + label:hover {
   border-color: rgb(var(--color-foreground));
 }
 
 .product-form__input--pill input[type='radio']:checked + label {
-  background-color: rgb(var(--color-foreground));
-  color: rgb(var(--color-background));
+  background-color: white;
+  color: black;
+  border: 1px solid red;
 }
 
 @media screen and (forced-colors: active) {

@@ -79,22 +79,22 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            class="product-form__submit button custom-button-secondary_color"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
           >
-            <span>
+            <span >
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                {{ 'products.product.sold_out' | t }}
+                {{ 'products.product.sold_out' | t }} 
               {%- else -%}
-                {{ 'products.product.add_to_cart' | t }}
+                {{ 'products.product.add_to_cart' | t }} {{ product.selected_or_first_available_variant.price | money }}
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
           </button>
           {%- if show_dynamic_checkout -%}
-            {{ form | payment_button }}
+            {{ form | payment_button }} 
           {%- endif -%}
         </div>
       {%- endform -%}
@@ -108,7 +108,7 @@
           class="product-form__submit button button--full-width button--primary"
           disabled
         >
-          {{ 'products.product.sold_out' | t }}
+          {{ 'products.product.sold_out' | t }} 
         </button>
       </div>
     </div>
@@ -137,7 +137,7 @@
           <div class="pickup-availability-info">
             <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
             <button class="pickup-availability-button link link--text underlined-link">
-              {{ 'products.product.pickup_availability.refresh' | t }}
+              {{ 'products.product.pickup_availability.refresh' | t }} 
             </button>
           </div>
         </pickup-availability-preview>
