@@ -294,7 +294,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .h1x{
    font-weight: 600;
-   font-size:34px;
+   font-size: 34px;
+   letter-spacing: 0.3px;
+   color:rgb(0, 0, 0);
 }
 
 @media only screen and (min-width: 768px) {

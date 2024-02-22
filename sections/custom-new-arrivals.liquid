@@ -34,7 +34,7 @@
   <div class="page-width">
     <div class="new-arrivals__heading-section">
       {% if section.settings.section_heading != blank %}
-        <h2>{{ section.settings.section_heading }}</h2>
+        <h2 class = "h1x">{{ section.settings.section_heading }}</h2>
       {% endif %}
 
       {% if section.settings.section_button_text %}
@@ -53,7 +53,7 @@
 
     <div class="new-arrivals__flex-wrapper">
       <div class="position-relative new-arrivals__sidebar custom-border-radius ">
-        <div class="new-arrivals__sidebar-image custom-border-radius">
+        <div class="new-arrivals__sidebar-image custom-border-radius media media--portrait">
           {% render 'image',
             desktopImage: section.settings.sidebar_desktop_image,
             mobileImage: section.settings.sidebar_mobile_image,

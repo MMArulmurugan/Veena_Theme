@@ -227,8 +227,8 @@
       "type": "custom-new-arrivals",
       "settings": {
         "section_heading": "New Arrivals",
-        "section_button_text": "View All",
-        "section_button_link": "",
+        "section_button_text": "See all product",
+        "section_button_link": "#",
         "sidebar_desktop_image": "shopify:\/\/shop_images\/1_c1c7fe9b-15a8-43a4-8d1a-c53818eda179.jpg",
         "sidebar_mobile_image": "shopify:\/\/shop_images\/1_c1c7fe9b-15a8-43a4-8d1a-c53818eda179.jpg",
         "pre_heading": "Pre Heading",
