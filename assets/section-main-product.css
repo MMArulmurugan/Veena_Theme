@@ -1498,3 +1498,25 @@ a.product__text {
     border: none;
   }
 }
+
+
+.icon {
+  width: 3.125em;
+}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+.main-product__checkout-icons{
+  display:flex;
+  justify-content:space-between;
+  border: 1px solid lightgray;
+  padding: 10px;
+}

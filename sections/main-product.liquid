@@ -419,30 +419,7 @@
               
                {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
               
-               {%  render 'custom-usp' %}
-
-               <style>
-                .icon {
-                  width: 3.125em;
-                }
-                .visuallyhidden {
-                  border: 0;
-                  clip: rect(0 0 0 0);
-                  height: 1px;
-                  margin: -1px;
-                  overflow: hidden;
-                  padding: 0;
-                  position: absolute;
-                  width: 1px;
-                  white-space: nowrap;
-                }
-                .main-product__checkout-icons{
-                  display:flex;
-                  justify-content:space-between;
-                  border: 1px solid lightgray;
-                  padding: 10px;
-                }
-                </style>
+               {%  render 'custom-usp', product: product %}
                 
                 {%- unless shop.enabled_payment_types == empty -%}
                   <span class="visuallyhidden">Supported payment methods</span>

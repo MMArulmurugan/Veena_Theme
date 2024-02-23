@@ -1,5 +1,13 @@
 {{ 'custom-usp.css' |  asset_url |  stylesheet_tag }} 
 
+{% liquid
+        assign current_variant = product.selected_or_first_available_variant
+        assign discountAmount = current_variant.compare_at_price | minus: current_variant.price
+        assign discountPercentage = discountAmount | times: 100 | divided_by: current_variant.compare_at_price
+%}
+    
+
+
 <div class="custom-usp-snippet">
         <div class="grid grid--4-col grid--4-col-desktop grid--4-col-tablet color-{{ section.settings.color_scheme }}">
            <div class="grid__item custom-usp__icon-with-text">
@@ -20,6 +28,23 @@
            </div>
         </div>
 </div>
+<div>
+        <h2 class = "h4">Available Offers</h2>
+        {% if discountPercentage %}
+        <div class="custom-usp-snippet__offers">
+             <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="green" d="M22.194,9.023L13.177,.006,4.9,.903l.215,1.988,7.325-.793,8.34,8.339c.296,.296,.296,.777-.012,1.084l-.962,.994L11.099,3.808,1.962,5.057,.953,14.18l9.013,9.012c.521,.521,1.213,.808,1.95,.808s1.43-.287,1.962-.819l6.244-6.449c.665-.665,.916-1.588,.759-2.451l1.314-1.357c1.075-1.076,1.075-2.826,0-3.901Zm-16.194,.977c-.552,0-1-.448-1-1,0-.552,.448-1,1-1,.552,0,1,.448,1,1s-.448,1-1,1Z"></path>                  
+             </svg>
+             <span><p>Instant {{discountPercentage}}% Discount On Win Banks Credit/Debit Cards EMI and CreditCard</p></span>
+        </div>
+       {% endif %}
 
+        <div class="custom-usp-snippet__offers">
+             <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="green" d="M22.194,9.023L13.177,.006,4.9,.903l.215,1.988,7.325-.793,8.34,8.339c.296,.296,.296,.777-.012,1.084l-.962,.994L11.099,3.808,1.962,5.057,.953,14.18l9.013,9.012c.521,.521,1.213,.808,1.95,.808s1.43-.287,1.962-.819l6.244-6.449c.665-.665,.916-1.588,.759-2.451l1.314-1.357c1.075-1.076,1.075-2.826,0-3.901Zm-16.194,.977c-.552,0-1-.448-1-1,0-.552,.448-1,1-1,.552,0,1,.448,1,1s-.448,1-1,1Z"></path>                  
+             </svg>
+            <span><p>Fastest Delivery Tomorrow With Vip DealOrder within 1 hr 8 mins.</p></span>
+        </div>
+     </div>
 
 
