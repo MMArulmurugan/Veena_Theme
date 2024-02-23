@@ -61,7 +61,7 @@
   {%- endcapture -%}
 
   {%- capture label_unavailable %}
-    <span class="visually-hidden label-unavailable">
+    <span class="visually-hidden label-unavailable ">
       {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
     </span>
   {%- endcapture %}
@@ -98,11 +98,19 @@
     >
      {% assign optionName = option.name | handleize %}
       
-    <label for="{{ input_id }}" {% if  optionName  == "color" %} class="product-variant-options__color-swatch" style = "background-color: {{ value }}" {%  endif %}  >
+    <label for="{{ input_id }}"
+       {% if  optionName  == "color" %} 
+          class="product-variant-options__color-swatch" style = "background-color: {{ value }}" 
+       {%  endif %}  
+      >
       {% if  optionName  != "color" %}
         {{ value | slice: 0, 1 -}} 
         {{ label_unavailable }}
     {%  endif %}
+      <span {% if option_disabled %}
+            class="product-variant-options__line-through"
+        {% endif %}  >
+      </span>
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option

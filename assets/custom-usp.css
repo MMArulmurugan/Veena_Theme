@@ -8,3 +8,15 @@
 .custom-usp__card:hover .custom-usp__icon {
    transform: scaleX(-1);
 }
+
+.custom-usp-snippet{
+    margin-top:35px;
+    margin-bottom: 35px;
+}
+.custom-usp__icon-with-text{
+    text-align: center;
+}
+.custom-usp__icon-with-text img{
+    height: 32px;
+    width: 32px;
+}

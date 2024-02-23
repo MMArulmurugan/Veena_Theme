@@ -14,60 +14,62 @@
    }
 {% endstyle %}
 
-<div class="custom-text-grid padding-{{ section.id }}">
-    <div class="page-width">
-        <div class="grid grid--1-col grid--2-col-desktop">
-          {% if section.blocks.size > 0  %}
-            {% for block in section.blocks %}
-                <div class="grid__item custom-border-radius custom-text-grid__text-container">
-                    <div class="custom-text-grid__text-alignment-{{block.id}}">                                                                
-                        {% if block.settings.heading_text != blank %}
-                            <h2 class="h3 custom-text-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h2>
-                        {% endif %} 
 
-                        {% if block.settings.description  != blank %}
-                            <p>{{ block.settings.description }}</p>
-                        {% endif %}   
+{% if section.blocks.size > 0  %}
+  <div class="custom-text-grid padding-{{ section.id }}">
+      <div class="page-width">
+          <div class="grid grid--1-col grid--2-col-desktop">
+            {% if section.blocks.size > 0  %}
+              {% for block in section.blocks %}
+                  <div class="grid__item custom-border-radius custom-text-grid__text-container">
+                      <div class="custom-text-grid__text-alignment-{{block.id}}">                                                                
+                          {% if block.settings.heading_text != blank %}
+                              <h2 class="h3 custom-text-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h2>
+                          {% endif %} 
 
-                        {% if block.settings.button_label != blank %}
-                            <a
-                            class="button custom-button-secondary_color"
-                            href="{{block.settings.button_link }}"
-                            >
-                            {{ block.settings.button_label }}
-                            </a>
-                        {% endif %}
-                    </div>
-                </div>
-                  <style>
-                      .custom-text-grid__text-alignment-{{block.id}}{
-                          text-align: {{ block.settings.text_alignment }};
-                      }
-                      
-                      .custom-text-grid__heading-text-{{block.id}}{
-                        color: {{block.settings.heading_text_color}};
-                      }
-                      @media only screen and (max-width: 750px) {
-                          .custom-text-grid__text-alignment-{{block.id}}{
-                              text-align: {{ block.settings.text_alignment_mobile }};
-                          }
-                      }
-                        
-                  </style> 
-            {% endfor %} 
-          {% else %}
-              {% for i in (1..2) %}
-                  <div class="grid__item">
-                      <div class="media media--square custom-border-radius">
-                        {{ 'product-' | append: i | placeholder_svg_tag }}
+                          {% if block.settings.description  != blank %}
+                              <p>{{ block.settings.description }}</p>
+                          {% endif %}   
+
+                          {% if block.settings.button_label != blank %}
+                              <a
+                              class="button custom-button-secondary_color"
+                              href="{{block.settings.button_link }}"
+                              >
+                              {{ block.settings.button_label }}
+                              </a>
+                          {% endif %}
                       </div>
-                    </div>
-              {% endfor %}
-         {% endif %} 
-        </div>
-    </div>
-</div>
-
+                  </div>
+                    <style>
+                        .custom-text-grid__text-alignment-{{block.id}}{
+                            text-align: {{ block.settings.text_alignment }};
+                        }
+                        
+                        .custom-text-grid__heading-text-{{block.id}}{
+                          color: {{block.settings.heading_text_color}};
+                        }
+                        @media only screen and (max-width: 750px) {
+                            .custom-text-grid__text-alignment-{{block.id}}{
+                                text-align: {{ block.settings.text_alignment_mobile }};
+                            }
+                        }
+                          
+                    </style> 
+              {% endfor %} 
+            {% else %}
+                {% for i in (1..2) %}
+                    <div class="grid__item">
+                        <div class="media media--square custom-border-radius">
+                          {{ 'product-' | append: i | placeholder_svg_tag }}
+                        </div>
+                      </div>
+                {% endfor %}
+          {% endif %} 
+          </div>
+      </div>
+  </div>
+{% endif %} 
 
 {% schema %}
 {
