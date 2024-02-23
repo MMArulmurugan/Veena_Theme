@@ -1,0 +1,21 @@
+.custom-text-grid{
+    background: #F5F5F5;
+}
+.custom-text-grid__text-container{
+    padding: 25px;
+    background: #ffffff;
+}
+
+@media only screen and (max-width: 750px){
+    .custom-text-grid__pre-heading{
+        margin-bottom: 5px;
+    }
+    
+    .custom-text-grid__button{
+        font-size:12px;
+    }
+    .custom-text-grid__heading{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+}

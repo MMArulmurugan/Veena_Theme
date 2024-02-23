@@ -1,0 +1,185 @@
+{{ 'custom-text-grid.css' |  asset_url |  stylesheet_tag }} 
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+{% endstyle %}
+
+<div class="custom-text-grid padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="grid grid--1-col grid--2-col-desktop">
+          {% if section.blocks.size > 0  %}
+            {% for block in section.blocks %}
+                <div class="grid__item custom-border-radius custom-text-grid__text-container">
+                    <div class="custom-text-grid__text-alignment-{{block.id}}">                                                                
+                        {% if block.settings.heading_text != blank %}
+                            <h2 class="h3 custom-text-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h2>
+                        {% endif %} 
+
+                        {% if block.settings.description  != blank %}
+                            <p>{{ block.settings.description }}</p>
+                        {% endif %}   
+
+                        {% if block.settings.button_label != blank %}
+                            <a
+                            class="button custom-button-secondary_color"
+                            href="{{block.settings.button_link }}"
+                            >
+                            {{ block.settings.button_label }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                  <style>
+                      .custom-text-grid__text-alignment-{{block.id}}{
+                          text-align: {{ block.settings.text_alignment }};
+                      }
+                      
+                      .custom-text-grid__heading-text-{{block.id}}{
+                        color: {{block.settings.heading_text_color}};
+                      }
+                      @media only screen and (max-width: 750px) {
+                          .custom-text-grid__text-alignment-{{block.id}}{
+                              text-align: {{ block.settings.text_alignment_mobile }};
+                          }
+                      }
+                        
+                  </style> 
+            {% endfor %} 
+          {% else %}
+              {% for i in (1..2) %}
+                  <div class="grid__item">
+                      <div class="media media--square custom-border-radius">
+                        {{ 'product-' | append: i | placeholder_svg_tag }}
+                      </div>
+                    </div>
+              {% endfor %}
+         {% endif %} 
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom Text Grids",
+  "tag" : "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Adjust Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid-items",
+      "name": "Grid Items",
+      "settings": [
+          {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Heading Text",
+            "default": "Heading"
+          },
+          {
+            "type": "color",
+            "id": "heading_text_color",
+            "label": "Heading Text color",
+            "default": "#fff"
+          },
+          {
+            "type" : "richtext",
+            "id" : "description",
+            "label" : "Description",
+            "default" : "<p>Description</p>"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "Explore More"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text Alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "Right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment_mobile",
+            "label": "Text Alignment (Mobile)",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "Right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Text Grids"
+    }
+  ]
+}
+{% endschema %}
