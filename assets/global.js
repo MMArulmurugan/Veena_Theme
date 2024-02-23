@@ -1102,7 +1102,7 @@ class VariantSelects extends HTMLElement {
 
   onVariantChange(event) {
     this.updateOptions();
-    this.updateMasterId();
+    this.updateMasterId(); //Imp
     this.updateSelectedSwatchValue(event);
     this.toggleAddButton(true, "", false);
     this.updatePickupAvailability();
@@ -1113,10 +1113,10 @@ class VariantSelects extends HTMLElement {
       this.toggleAddButton(true, "", true);
       this.setUnavailable();
     } else {
-      this.updateMedia();
+      this.updateMedia(); //Imp
       this.updateURL();
       this.updateVariantInput();
-      this.renderProductInfo();
+      this.renderProductInfo(); //Imp
       this.updateShareUrl();
     }
   }
@@ -1441,6 +1441,9 @@ class VariantSelects extends HTMLElement {
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
+    const price = document.getElementById(`price-${this.dataset.section}`);
+    const currentPrice= price.querySelector('.price-item').textContent;
+
     if (!addButton) return;
 
     if (disable) {
@@ -1448,7 +1451,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute("disabled");
-      addButtonText.textContent = window.variantStrings.addToCart;
+      addButtonText.textContent = window.variantStrings.addToCart + " " + currentPrice;
     }
 
     if (!modifyClass) return;

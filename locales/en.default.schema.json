@@ -2317,6 +2317,15 @@
             },
             "heading_3": {
               "label": "Third heading"
+            },
+            "icon_4": {
+              "label": "Third icon"
+            },
+            "image_4": {
+              "label": "Third image"
+            },
+            "heading_4": {
+              "label": "Third heading"
             }
           }
         }

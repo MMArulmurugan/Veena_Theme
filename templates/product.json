@@ -32,6 +32,14 @@
             "swatch_shape": "circle"
           }
         },
+        "inventory_kLQxUV": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -42,6 +50,24 @@
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
+          }
+        },
+        "icon_with_text_pKUxGH": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify:\/\/shop_images\/1.svg",
+            "heading_1": "<strong>Daily deals<\/strong>",
+            "icon_2": "return",
+            "image_2": "shopify:\/\/shop_images\/2.svg",
+            "heading_2": "<strong>Return policy<\/strong>",
+            "icon_3": "truck",
+            "image_3": "shopify:\/\/shop_images\/3.svg",
+            "heading_3": "<strong>secure payment<\/strong>",
+            "icon_4": "perfume",
+            "image_4": "shopify:\/\/shop_images\/4.svg",
+            "heading_4": "<strong>Help center 24\/7<\/strong>"
           }
         },
         "description": {
@@ -62,8 +88,10 @@
         "title",
         "price",
         "variant_picker",
+        "inventory_kLQxUV",
         "quantity_selector",
         "buy_buttons",
+        "icon_with_text_pKUxGH",
         "description",
         "share"
       ],
