@@ -419,20 +419,6 @@
               
                {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
               
-               {%  render 'custom-usp', product: product %}
-                
-                {%- unless shop.enabled_payment_types == empty -%}
-                  <span class="visuallyhidden">Supported payment methods</span>
-                
-                  <div class = "main-product__checkout-icons custom-border-radius">
-                      <span>Secure checkout with</span>
-                    {%- for type in shop.enabled_payment_types -%}
-                      <span>
-                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                      </span>
-                    {%- endfor -%}
-                  </div>
-                {%- endunless -%}
 
                 
             {%- when 'rating' -%}
@@ -556,6 +542,21 @@
               {% render 'icon-with-text',
                 block: block
               %}
+              {%  render 'custom-usp', product: product %}
+              
+              {%- unless shop.enabled_payment_types == empty -%}
+                <span class="visuallyhidden">Supported payment methods</span>
+              
+                <div class = "main-product__checkout-icons custom-border-radius">
+                    <span>Secure checkout with</span>
+                  {%- for type in shop.enabled_payment_types -%}
+                    <span>
+                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                    </span>
+                  {%- endfor -%}
+                </div>
+              {%- endunless -%}
+
           {%- endcase -%}
         {%- endfor -%}
         <a href="{{ product.url }}" class="link product__view-details animate-arrow">

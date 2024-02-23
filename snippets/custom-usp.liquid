@@ -6,28 +6,6 @@
         assign discountPercentage = discountAmount | times: 100 | divided_by: current_variant.compare_at_price
 %}
     
-
-
-<div class="custom-usp-snippet">
-        <div class="grid grid--4-col grid--4-col-desktop grid--4-col-tablet color-{{ section.settings.color_scheme }}">
-           <div class="grid__item custom-usp__icon-with-text">
-            <img src="//veena-theme-fashion.myshopify.com/cdn/shop/files/1.svg?v=1707133983" role="presentation" height="10" width="10" loading="lazy">
-            <div class="h5 inline-richtext">Daily deals</div>
-           </div>
-           <div class="grid__item custom-usp__icon-with-text">
-            <img src="//veena-theme-fashion.myshopify.com/cdn/shop/files/2.svg?v=1707134003" role="presentation" height="auto" width="auto" loading="lazy">
-            <div class="h5 inline-richtext">Return policy</div>
-           </div>
-           <div class="grid__item custom-usp__icon-with-text">
-            <img src="//veena-theme-fashion.myshopify.com/cdn/shop/files/3.svg?v=1707134014" role="presentation" height="auto" width="auto" loading="lazy">
-            <div class="h5 inline-richtext">secure payment</div>              
-           </div>
-           <div class="grid__item custom-usp__icon-with-text">
-            <img src="//veena-theme-fashion.myshopify.com/cdn/shop/files/4.svg?v=1707134024" role="presentation" height="auto" width="auto" loading="lazy">
-            <div class="h5 inline-richtext">Help center 24/7</div>
-           </div>
-        </div>
-</div>
 <div>
         <h2 class = "h4">Available Offers</h2>
         {% if discountPercentage %}
