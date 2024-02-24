@@ -848,103 +848,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "custom_media_grid_Jxfndx": {
-      "type": "custom-media-grid",
-      "blocks": {
-        "media_8rbi79": {
-          "type": "media",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1_d1ac205b-b4a5-40db-a149-92f268adee32.jpg",
-            "subheading": "SOUND SYSTEMS",
-            "subheading_color": "#ffffff",
-            "heading": "Amazing sound. At your command.",
-            "heading_text_color": "#000000",
-            "description": "<p>hihelloq<\/p>",
-            "description_text_color": "#000000",
-            "button_label": "Explore More",
-            "button_link": "",
-            "column_span": "2",
-            "row_span": "2",
-            "column_span_mobile": "1",
-            "overlay_color_rgb": "#ffffff",
-            "text_alignment": "left",
-            "text_alignment_mobile": "center",
-            "alignment_position": "align-end justify-end"
-          }
-        },
-        "media_YDzqgj": {
-          "type": "media",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/3_5f501b6a-db8f-4b53-b9ca-c2aa1ee96dd3.jpg",
-            "subheading": "SOUND SYSTEMS",
-            "subheading_color": "#121212",
-            "heading": "Amazing sound. At your command.",
-            "heading_text_color": "#000000",
-            "description": "",
-            "description_text_color": "#000000",
-            "button_label": "Explore More",
-            "button_link": "",
-            "column_span": "2",
-            "row_span": "1",
-            "column_span_mobile": "1",
-            "overlay_color_rgb": "#000000",
-            "text_alignment": "left",
-            "text_alignment_mobile": "center",
-            "alignment_position": "align-center justify-center"
-          }
-        },
-        "media_mpxgFj": {
-          "type": "media",
-          "settings": {
-            "subheading": "SOUND SYSTEMS",
-            "subheading_color": "#000000",
-            "heading": "Amazing sound. At your command.",
-            "heading_text_color": "#000000",
-            "description": "",
-            "description_text_color": "#000000",
-            "button_label": "Explore More",
-            "button_link": "",
-            "column_span": "1",
-            "row_span": "1",
-            "column_span_mobile": "1",
-            "overlay_color_rgb": "#ffffff",
-            "text_alignment": "left",
-            "text_alignment_mobile": "center",
-            "alignment_position": "align-center justify-center"
-          }
-        },
-        "media_bXzULj": {
-          "type": "media",
-          "settings": {
-            "subheading": "SOUND SYSTEMS",
-            "subheading_color": "#000000",
-            "heading": "Amazing sound. At your command.",
-            "heading_text_color": "#000000",
-            "description": "",
-            "description_text_color": "#000000",
-            "button_label": "Explore More",
-            "button_link": "",
-            "column_span": "1",
-            "row_span": "1",
-            "column_span_mobile": "1",
-            "overlay_color_rgb": "#ffffff",
-            "text_alignment": "left",
-            "text_alignment_mobile": "center",
-            "alignment_position": "align-center justify-center"
-          }
-        }
-      },
-      "block_order": [
-        "media_8rbi79",
-        "media_YDzqgj",
-        "media_mpxgFj",
-        "media_bXzULj"
-      ],
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -964,7 +867,6 @@
     "custom_single_image_grid_qG8yYa",
     "custom_testimonial_X6KUVi",
     "custom_article_page_ay4QiF",
-    "custom_faq_Ff38m7",
-    "custom_media_grid_Jxfndx"
+    "custom_faq_Ff38m7"
   ]
 }
