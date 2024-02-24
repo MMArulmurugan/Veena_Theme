@@ -72,19 +72,23 @@
                               <div class="product-card__option">
                                   <ul class="product-card__list">
                                       {% for option_value in product_option.values %}
-                                        <li data-value={{option_value}} class="product-card__color-dot  item-swatch" style="{% if product_option.selected_value == option_value %}border: 1px solid red;{% endif %}">
-                                          <input 
-                                              id="{{ current_variant.id | append: option_value }}"
-                                              type="radio" 
-                                              name="option-{{ product_option.name | handleize }}" 
-                                              value="{{ option_value }}"
-                                              
-                                              {% if product_option.selected_value == option_value %}checked{% endif %}
-                                          >
-                                          <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label>
-                                         </li>
+                                        
+                                          <li data-value={{option_value}} class="product-card__color-dot  item-swatch" style="{% if product_option.selected_value == option_value %}border: 1px solid red;{% endif %}">
+                                                <input 
+                                                    id="{{ current_variant.id | append: option_value }}"
+                                                    type="radio" 
+                                                    name="option-{{ product_option.name | handleize }}" 
+                                                    value="{{ option_value }}"
+                                                    
+                                                    {% if product_option.selected_value == option_value %}checked{% endif %}
+                                                >
+                                                  <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label>                                  
+                                          </li>
+                                          {% if current_variant.inventory_quantity != 0 %}
+                                          {% endif %} 
                                       {% endfor %}
                                   </ul>
+                                  
                               </div>
                           {% endif %}
                       {% endfor %}

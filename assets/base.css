@@ -3930,6 +3930,22 @@ justify-content:center;
       display:none;
   }
 }
-
+.product-variant-options__cross-line {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 12px;
+  transform: rotate(45deg);
+  border: none;
+  border-left: 1px solid rgba(var(--color-foreground));
+  opacity: .8;
+  border-radius: 0;
+  box-shadow: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
 
 /*---------------------------------------------------------product-card.css------------------------------------------------------------*/

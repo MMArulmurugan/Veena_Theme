@@ -107,10 +107,12 @@
         {{ value | slice: 0, 1 -}} 
         {{ label_unavailable }}
     {%  endif %}
+    {% if  optionName  == "color" %}
       <span {% if option_disabled %}
             class="product-variant-options__line-through"
         {% endif %}  >
       </span>
+    {%  endif %}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
