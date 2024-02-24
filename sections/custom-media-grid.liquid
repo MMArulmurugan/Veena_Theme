@@ -1,0 +1,281 @@
+{{ 'custom-media-grid.css' |  asset_url |  stylesheet_tag }}
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+   }
+{% endstyle %}
+
+
+{% if section.blocks.size > 0  %}
+<div class = "media-grid__main-container">  
+    <div class = "page-width ">   
+        <div class="media-grid--inner  padding-{{ section.id }}">
+            {% assign c = 0 %}
+            {% for block in section.blocks %}
+                <div class="media-grid--item  custom-border-radius " style="--column-span: {{ block.settings.column_span }}; --row-span: {{ block.settings.row_span }}; --column-span--mobile: {{ block.settings.column_span_mobile }};">
+                    <div class="media-grid--bg ">    
+                        <img class="" src="{{ block.settings.image | image_url }}" width="" height=""  >
+                    </div>
+                    <div class="media-grid--inner media-grid--content {{ block.settings.alignment_position }}">
+                        <div class= "custom-media-grid__text-alignment-{{block.id}}">
+                            {% if block.settings.subheading %}
+                                <h5 class="custom-media-grid__subheading_color-{{block.id}}">{{ block.settings.subheading }}</h5>
+                        {% endif %}
+                         <h1>{{ c }}</h1>
+                         {% assign c=  1 %}
+                        {% if block.settings.heading  %}
+                                <h4 class="h3 custom-media-grid__heading-text-{{block.id}}">{{ block.settings.heading }}</h4>
+                        {%  endif %}
+                        
+                        {% if block.settings.description %}
+                                <p class = "p custom-media-grid__description_text_color-{{block.id}}">{{ block.settings.description }}</p>
+                        {% endif %}
+    
+                        {% if block.settings.button_label != blank %}
+                            <a
+                            class="button custom-button-secondary"
+                            href="{{block.settings.button_link }}"
+                            >
+                            {{ block.settings.button_label }}
+                            </a>
+                        {% endif %}
+                        </div>    
+                    </div>
+                </div>
+                <style>
+                    .custom-media-grid__text-alignment-{{block.id}}{
+                        text-align: {{ block.settings.text_alignment }};
+                    }
+                    .custom-media-grid__subheading_color-{{block.id}}{
+                        color: {{block.settings.subheading_color}};
+                    }
+                    .custom-media-grid__heading-text-{{block.id}}{
+                    color: {{block.settings.heading_text_color}};
+                    }
+                    .custom-media-grid__description_text_color-{{block.id}}{
+                        color: {{block.settings.description_text_color}};
+                    }
+                    @media only screen and (max-width: 750px) {
+                        .custom-media-grid__text-alignment-{{block.id}}{
+                            text-align: {{ block.settings.text_alignment_mobile }};
+                        }
+                    }
+                    
+                </style> 
+            {% else %}
+                    <div class="media media--landscape custom-border-radius">
+                        {{ 'detailed-apparel-1' | placeholder_svg_tag }}
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom Media Grid",
+  "settings": [
+      {
+        "type": "header",
+        "content": "Adjust Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+      }
+  ],
+  "blocks": [
+    {
+      "type": "media",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Select or upload the image for this media item"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Sub-Heading"
+        },
+        {
+            "type": "color",
+            "id": "subheading_color",
+            "label": "Subheading Text color",
+            "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "heading_text_color",
+            "label": "Heading Text color",
+            "default": "#000000"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "color",
+            "id": "description_text_color",
+            "label": "Description Text color",
+            "default": "#000000"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "Explore More"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+        },
+         {
+          "type": "text",
+          "id": "column_span",
+          "label": "Column Span",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "row_span",
+          "label": "Row Span",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "column_span_mobile",
+          "label": "Column Span Mobile",
+          "default": "1"
+        },
+        {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text Alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "Right",
+                "label": "Right"
+              }
+            ],
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment_mobile",
+            "label": "Text Alignment (Mobile)",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "Right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+        {
+            "type": "select",
+            "id": "alignment_position",
+            "label": "Desktop content position",
+            "options": [
+              {
+                "value": "align-start justify-start",
+                "label": "Top left"
+              },
+              {
+                "value": "align-start justify-center",
+                "label": "Top center"
+              },
+              {
+                "value": "align-start justify-end",
+                "label": "Top right"
+              },
+              {
+                "value": "align-center justify-start",
+                "label": "Middle left"
+              },
+              {
+                "value": "align-center justify-center",
+                "label": "Middle center"
+              },
+              {
+                "value": "align-center justify-end",
+                "label": "Middle right"
+              },
+              {
+                "value": "align-end justify-start",
+                "label": "Bottom left"
+              },
+              {
+                "value": "align-end justify-center",
+                "label": "Bottom center"
+              },
+              {
+                "value": "align-end justify-end",
+                "label": "Bottom end"
+              }
+            ],
+            "default": "align-center justify-center"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Media Grid"
+    }
+  ]
+}
+{% endschema %}
