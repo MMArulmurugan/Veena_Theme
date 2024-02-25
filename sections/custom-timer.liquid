@@ -17,42 +17,42 @@
 
 <div class="custom-timer padding-{{ section.id }}">
     <div class="page-width">
-        <div class="grid grid--1-col grid--2-col-desktop">
-            <div class="grid__item custom-timer__text-wrapper">
+        <div class="custom-timer__wrapper">
+            <div class="custom-timer__text-wrapper">
                 {% if section.settings.heading  %}
                   <h2 class = "h1x">{{ section.settings.heading }}</h2>
                 {% endif %}
                 {% if section.settings.description  %}
-                   <p class = "custom-timer__description">{{ section.settings.description }}</p>
+                   <span class = "custom-timer__description">{{ section.settings.description }}</span>
                 {% endif %}
                 {% if section.settings.button_label  %}
                     <a
-                        class="button custom-button-secondary_color"
+                        class="button custom-button-secondary_color custom-timer__button"
                         href="{{section.settings.button_link }}"
                         >
                         {{ section.settings.button_label }}
                     </a>
                 {% endif %}
             </div>   
-            <div class="grid__item custom-timer__time-wrapper">
+            <div class="custom-timer__time-wrapper">
                 <div class = "custom-timer__card custom-border-radius">
                     <span class = "h1 custom-timer__time" id="days" >00</span>
-                    <span class = "h4">Days</span>
+                    <span class = "h5 custom-timer__stamp">Days</span>
                 </div>
-                <span class = "h1 custom-timer__colon">:</span>
+                <span class = "h2 custom-timer__colon">:</span>
                 <div class = "custom-timer__card custom-border-radius">
                     <h2 class = "h1 custom-timer__time" id="hours">00</h2>
-                    <span class = "h4">Hours</span>
+                    <span class = "h5 custom-timer__stamp">Hours</span>
                 </div>
-                <span class = "h1 custom-timer__colon">:</span>
+                <span class = "h2 custom-timer__colon">:</span>
                 <div class = "custom-timer__card custom-border-radius">
                     <span class = "h1 custom-timer__time" id="minutes">00</span>
-                    <span class = "h4">Mins</span>
+                    <span class = "h5 custom-timer__stamp">Mins</span>
                 </div>
-                <span class = "h1 custom-timer__colon">:</span>
+                <span class = "h2 custom-timer__colon">:</span>
                 <div class = "custom-timer__card custom-border-radius">
                     <span class = "h1 custom-timer__time" id="seconds">00</span>
-                    <span class = "h4">Sec</span>
+                    <span class = "h5 custom-timer__stamp">Sec</span>
                 </div>
             </div>     
              

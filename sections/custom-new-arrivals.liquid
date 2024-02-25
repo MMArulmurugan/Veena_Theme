@@ -38,16 +38,17 @@
       {% endif %}
 
       {% if section.settings.section_button_text %}
-        <a
-          class="button custom-button-secondary"
-          {% if section.settings.section_button_link == blank %}
-            role="link" aria-disabled="true"
-          {% else %}
-            href="{{ section.settings.section_button_link }}"
-          {% endif %}
-        >
-          {{ section.settings.section_button_text }}
-        </a>
+        <div>
+          <a
+            class="button custom-button-secondary"
+            {% if section.settings.section_button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.section_button_link }}"
+            {% endif %}
+          >
+            {{ section.settings.section_button_text }}
+          </a></div>
       {% endif %}
     </div>
 
@@ -67,11 +68,11 @@
             </ul>
           {% endif %}
           {% if section.settings.sidebar_heading %}
-            <div class="h2 richtext  new-arrivals__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
+            <div class="h2 new-arrivals__sidebar__heading ">{{ section.settings.sidebar_heading }}</div>
           {% endif %}
           {% if section.settings.sidebar_button_text %}
             <a
-              class="custom-button-primary align-left"
+              class="button custom-button-primary align-left"
               href="{{section.settings.sidebar_button_link }}"
             >
               {{ section.settings.sidebar_button_text }}

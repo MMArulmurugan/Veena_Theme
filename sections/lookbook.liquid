@@ -88,14 +88,14 @@
                                 </div>
                                 <div class = "lookbook__content">                                  
                                     {% if block.settings.block_title_text %}
-                                        <div class = "h2">{{ block.settings.block_title_text }}</div>
+                                        <h3 class = "h2 lookbook__heading">{{ block.settings.block_title_text }}</h3>
                                     {% endif %}    
                                     {% if block.settings.block_description_text  %}
-                                        <p>{{ block.settings.block_description_text }}</p>
+                                        <p class = "lookbook__description">{{ block.settings.block_description_text }}</p>
                                     {% endif %}  
                                     {% if block.settings.block_button_text %}
                                         <a
-                                            class="button custom-button-secondary_color"
+                                            class="button custom-button-secondary_color lookbook__button"
                                             href="{{block.settings.block_button_link }}"
                                             >
                                             {{ block.settings.block_button_text }}

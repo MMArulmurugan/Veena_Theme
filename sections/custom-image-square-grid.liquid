@@ -34,14 +34,14 @@
                               </div>
                           {% endif %}
                           <div class="custom-image-square-grid__position_absolute custom-image-square-grid__text-alignment-{{block.id}}">
-                              <div class="custom-image-square-grid__text-alignment-{{block.id}}">
+                              <div class="custom-image-square-grid__text-alignment-{{block.id}} custom-image-square-grid__padding">
                                   {% if block.settings.pre_heading  != blank %}
                                       <ul class="pre-heading custom-image-square-grid__pre-heading">
                                           <li>{{ block.settings.pre_heading }}</li>
                                       </ul> 
                                   {% endif %}                                                                   
                                   {% if block.settings.heading_text != blank %}
-                                      <div class="h3 richtext hl custom-image-square-grid__heading custom-image-square-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
+                                      <h3 class="h2c richtext hl custom-image-square-grid__heading custom-image-square-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h3>
                                   {% endif %} 
                                   {% if block.settings.button_label != blank %}
                                       <a

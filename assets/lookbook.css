@@ -59,8 +59,33 @@
 .lookbook__product-title:hover{
     color:#D03C3F;
 }
+.lookbook__heading{
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    line-height: 31.2px;
+    margin-bottom: 5px;
+}
+.lookbook__description{
+    font-size:18px;
+    letter-spacing: 0.3px;
+}
+.lookbook__button{
+    margin-top:10px;
+}
+
 @media only screen and (max-width: 750px){
     .lookbook__small{
         margin-bottom: 25px;
+    }
+    .lookbook__heading{
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        line-height: 23.4px;
+        margin-bottom: 5px;
+    }
+    .lookbook__description{
+        font-size:14px;
     }
 }
