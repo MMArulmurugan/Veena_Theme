@@ -1288,6 +1288,9 @@ img {
 .media--landscape {
   padding-bottom: 50.6%;
 }
+.media--landscape-single {
+  padding-bottom: 98.6%;
+}
 
 .media--cropped {
   padding-bottom: 56%;
@@ -1331,6 +1334,9 @@ img {
 
   .custom-image-potrait {
     padding-bottom: 110%;
+  }
+  .media--landscape-single {
+    padding-bottom: 33.6%;
   }
 }
 
@@ -4261,11 +4267,9 @@ details-disclosure > details {
   top: 50%;
   left: 50%;
   width: 15px;
-  height: 2px; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  transform: translate(-50%, -50%) rotate(-45deg); 
-
-  
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /*---------------------------------------------------------product-card.css------------------------------------------------------------*/

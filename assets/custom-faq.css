@@ -7,8 +7,11 @@
 }
 .faq-section__description{
     color:#000000CC;
-    font-weight:500;
+    font-weight:400;
     margin:0px;
+    width: 45%;
+    font-size:16px;
+    letter-spacing: 0.3px;
 }
 .faq-section__block{
     border-bottom:1px solid #A2A2A4;
@@ -30,7 +33,19 @@
 .faq-section__block-answer{
     margin:0px;
     transition: all 0.5s ease;
+    padding-bottom: 8px;
+    font-size:16px;
 }
 .faq-section__block-container div:last-child{
     border-bottom-width:0px;
+}
+
+@media screen and (max-width: 750px){
+    .faq-section__description{
+        width: 95%;
+        font-size:12px;
+    }
+    .faq-section__block-answer{
+        font-size:12px;
+    }
 }

@@ -24,27 +24,27 @@
                         <div class = "position-relative custom-single-image-grid__wrapper custom-border-radius">
                             {% if section.settings.image%}    
                                 {% render 'image', 
-                                    class: 'media media--landscape custom-single-image-grid__image custom-border-radius',
+                                    class: 'media media--landscape-single custom-single-image-grid__image custom-border-radius',
                                     desktopImage: section.settings.image,
                                     mobileImage: section.settings.mobile_image
                                 %}
                                 <div class="position-absolute custom-single-image-grid__text-container {{ section.settings.alignment_position }}">
-                                    <div class="">
+                                    <div class="custom-single-image-grid__text-wrapper">
                                         {% if section.settings.pre_heading %}
-                                            <span class="custom-image-grid__pre-heading">
+                                            <span class="custom-single-image-grid__pre-heading">
                                                 {{ section.settings.pre_heading }}
                                             </span> 
                                         {% endif %}                                                                   
                                         {% if section.settings.heading %}
-                                            <div class="h2 richtext hl hl-white ">{{ section.settings.heading }}</div>
+                                            <div class="h2 custom-single-image-grid__main-heading">{{ section.settings.heading }}</div>
                                         {% endif %} 
                                         {% if section.settings.description %}
-                                            <p class=" richtext ">{{ section.settings.description}}</p>
+                                            <p class=" custom-single-image-grid__description ">{{ section.settings.description}}</p>
                                         {% endif %}                
         
                                         {% if section.settings.button_text  %}
                                             <a
-                                            class="custom-button-primary-transparent"
+                                            class="custom-button-primary-transparent custom-single-image-grid__button"
                                             href="{{section.settings.button_link }}"
                                             >
                                             {{section.settings.button_text }}
