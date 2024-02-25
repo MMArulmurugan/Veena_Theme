@@ -24,13 +24,13 @@
                     <div class="scrolling-banner__scrolling-item">
                         <div class="scrolling-banner__icon-wrapper">
                             {% if block.settings.scrolling_item_icon %}
-                                {{block.settings.scrolling_item_icon}}
+                                <a class = "scrolling-banner__link" href='{{block.settings.button_link}}'>{{block.settings.scrolling_item_icon}}</a>
                             {% else %}
                                 {% render 'icon-unavailable' %}
                             {% endif %}
                         </div>
                         <div class="scrolling-banner__scrolling-text">
-                            {{block.settings.scrolling_text}}
+                            <a class = "scrolling-banner__link" href='{{block.settings.button_link}}'>{{block.settings.scrolling_text}}</a>
                         </div>
                         {% if block.settings.button_link !=blank %}
                             {% if block.settings.display_button == "display-as-button" %}
@@ -41,11 +41,11 @@
                                     hoverTextColor: {{block.settings.button_hover_color}},
                                     backgroundColor: {{block.settings.button_background_color}}
                                     hoverColor: {{block.settings.button_hover_background_color}}, 
-                                    buttonLink: {{block.settings.button_url}},
+                                    buttonLink: {{block.settings.button_link}},
                                     buttonText: {{block.settings.button_text}}
                                 %}
                             {% elsif block.settings.display_button == "display-as-text" %}
-                                <a class="scrolling-banner__plain-button" href={{block.settings.button_url}}>
+                                <a class="scrolling-banner__plain-button" href="{{block.settings.button_link}}">
                                     <span>
                                         {{block.settings.button_text}}
                                     </span>

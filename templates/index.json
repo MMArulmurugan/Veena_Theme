@@ -266,9 +266,9 @@
             "button_text": "Button text",
             "button_color": "#000000",
             "button_background_color": "",
-            "button_hover_color": "",
-            "button_hover_background_color": "",
-            "button_link": ""
+            "button_hover_color": "#fff",
+            "button_hover_background_color": "#121212",
+            "button_link": "shopify:\/\/collections"
           }
         },
         "scrolling_item_GNBE6E": {
@@ -280,9 +280,9 @@
             "button_text": "GRAB THIS OFFER",
             "button_color": "#000000",
             "button_background_color": "",
-            "button_hover_color": "",
-            "button_hover_background_color": "",
-            "button_link": ""
+            "button_hover_color": "#fff",
+            "button_hover_background_color": "#121212",
+            "button_link": "shopify:\/\/collections"
           }
         },
         "scrolling_item_tQchm4": {
@@ -296,7 +296,7 @@
             "button_background_color": "",
             "button_hover_color": "",
             "button_hover_background_color": "",
-            "button_link": ""
+            "button_link": "shopify:\/\/collections"
           }
         }
       },

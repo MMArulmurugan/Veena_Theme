@@ -4035,6 +4035,7 @@ details-disclosure > details {
   letter-spacing: 0.3px;
   line-height: 28.8px;
   text-transform: capitalize;
+  cursor:pointer;
 }
 .custom-button-cart:after {
   content: "";
