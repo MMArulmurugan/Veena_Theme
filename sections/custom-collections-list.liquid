@@ -68,7 +68,10 @@
                         <div class="collections-list__content {{ section.settings.alignment_position }}">
                             <div class="{{ section.settings.text_alignment }}">      
                                 {% if block.settings.heading %}
-                                     <h2 class="h2 collections-list__heading"> {{ block.settings.heading }} </h2>
+                                     <h3 class="h2c collections-list__heading"> 
+                                     <a class="h2c collections-list__heading" href="{{ block.settings.section_button_link }} ">
+                                      {{ block.settings.heading }} </a>  
+                                     </h3>
                                 {% endif %}                                  
                                 {% if block.settings.section_button_text %}
                                     <a class="custom-button-primary-transparent" 
@@ -277,7 +280,7 @@
             "type": "text",
             "id": "section_button_text",
             "label": "Section button text",
-            "default": "View All"
+            "default": "Shop Now"
           },
           {
             "type": "url",

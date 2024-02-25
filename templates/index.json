@@ -100,7 +100,7 @@
             "pre_heading": "Women's",
             "heading_text": "<p>Women's Clothing Collection<\/p>",
             "heading_text_color": "#ffffff",
-            "button_label": "Explore More",
+            "button_label": "Explore",
             "button_link": "",
             "text_alignment": "center",
             "text_alignment_mobile": "center"
@@ -114,7 +114,7 @@
             "pre_heading": "Fashion",
             "heading_text": "<p>Women's Sustainable Style Hub<\/p>",
             "heading_text_color": "#ffffff",
-            "button_label": "Explore More",
+            "button_label": "Explore",
             "button_link": "",
             "text_alignment": "center",
             "text_alignment_mobile": "center"
@@ -138,9 +138,9 @@
           "settings": {
             "desktop_image": "shopify:\/\/shop_images\/6.jpg",
             "mobile_image": "shopify:\/\/shop_images\/6.jpg",
-            "heading": "Person Name",
-            "section_button_text": "View All",
-            "section_button_link": "",
+            "heading": "Accessories",
+            "section_button_text": "Shop Now",
+            "section_button_link": "#",
             "slide_animation": "loop"
           }
         },
@@ -149,9 +149,9 @@
           "settings": {
             "desktop_image": "shopify:\/\/shop_images\/4.jpg",
             "mobile_image": "shopify:\/\/shop_images\/4.jpg",
-            "heading": "Person Name",
-            "section_button_text": "View All",
-            "section_button_link": "",
+            "heading": "Men's Jacket",
+            "section_button_text": "Shop Now",
+            "section_button_link": "#",
             "slide_animation": "loop"
           }
         },
@@ -160,9 +160,9 @@
           "settings": {
             "desktop_image": "shopify:\/\/shop_images\/1.jpg",
             "mobile_image": "shopify:\/\/shop_images\/1.jpg",
-            "heading": "Person Name",
-            "section_button_text": "View All",
-            "section_button_link": "",
+            "heading": "Shoes",
+            "section_button_text": "Shop Now",
+            "section_button_link": "#",
             "slide_animation": "loop"
           }
         },
@@ -171,9 +171,9 @@
           "settings": {
             "desktop_image": "shopify:\/\/shop_images\/hand-bag-collection.jpg",
             "mobile_image": "shopify:\/\/shop_images\/hand-bag-collection.jpg",
-            "heading": "Person Name",
-            "section_button_text": "View All",
-            "section_button_link": "",
+            "heading": "Handbags",
+            "section_button_text": "Shop Now",
+            "section_button_link": "#",
             "slide_animation": "loop"
           }
         },
@@ -182,9 +182,9 @@
           "settings": {
             "desktop_image": "shopify:\/\/shop_images\/5.jpg",
             "mobile_image": "shopify:\/\/shop_images\/5.jpg",
-            "heading": "Person Name",
-            "section_button_text": "View All",
-            "section_button_link": "",
+            "heading": "Best Selling",
+            "section_button_text": "Shop Now",
+            "section_button_link": "#",
             "slide_animation": "loop"
           }
         },
@@ -193,9 +193,9 @@
           "settings": {
             "desktop_image": "shopify:\/\/shop_images\/8.jpg",
             "mobile_image": "shopify:\/\/shop_images\/8.jpg",
-            "heading": "Person Name",
-            "section_button_text": "View All",
-            "section_button_link": "",
+            "heading": "T shirt",
+            "section_button_text": "Shop Now",
+            "section_button_link": "#",
             "slide_animation": "loop"
           }
         }
@@ -211,7 +211,7 @@
       "settings": {
         "section_heading": "Captivating Collection",
         "section_button_text": "View All",
-        "section_button_link": "",
+        "section_button_link": "#",
         "slider_autoplay": false,
         "slide_dots": false,
         "slide_arrows": true,

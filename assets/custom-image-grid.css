@@ -8,6 +8,7 @@
 
 .custom-image-grid__position_relative {
     position: relative;
+    
 
  }
 .custom-image-grid__position_absolute {
@@ -19,6 +20,10 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+}
+.custom-image-grid__text-padding{
+    padding: 10px;
 }
 .custom-image-grid__image img{
     transition: transform 0.3s ease-in-out;

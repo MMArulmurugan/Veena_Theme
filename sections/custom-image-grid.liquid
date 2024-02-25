@@ -33,15 +33,15 @@
                                   {{ 'detailed-apparel-1' | placeholder_svg_tag }}
                               </div>
                           {% endif %}
-                          <div class="custom-image-grid__position_absolute custom-image-grid__text-alignment-{{block.id}}">
-                              <div class="custom-image-grid__text-alignment-{{block.id}}">
+                          <div class="custom-image-grid__position_absolute custom-image-grid__text-alignment-{{block.id}} custom-image-grid__text-padding" >
+                              <div class="custom-image-grid__text-alignment-{{block.id}} custom-image-grid__text-padding">
                                   {% if block.settings.pre_heading  != blank %}
                                       <ul class="pre-heading custom-image-grid__pre-heading">
                                           <li>{{ block.settings.pre_heading }}</li>
                                       </ul> 
                                   {% endif %}                                                                   
                                   {% if block.settings.heading_text != blank %}
-                                      <div class="h2 richtext hl custom-image-grid__heading custom-image-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</div>
+                                      <h3 class="richtext h1g custom-image-grid__heading custom-image-grid__heading-text-{{block.id}}">{{ block.settings.heading_text }}</h3>
                                   {% endif %} 
                                   {% if block.settings.button_label != blank %}
                                       <a
@@ -154,7 +154,7 @@
             "type": "text",
             "id": "button_label",
             "label": "Button label",
-            "default": "Explore More"
+            "default": "Explore"
           },
           {
             "type": "url",

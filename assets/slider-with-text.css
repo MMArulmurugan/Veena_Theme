@@ -15,6 +15,7 @@
 
 .slideshow-with-text__text-wrapper{
   width:40%;
+  padding: 20px 35px;
 }
 .slideshow-with-text__heading-link a{
   text-decoration: none;
@@ -103,16 +104,18 @@
   }
 
   .slideshow-with-text .splide__arrows .splide__arrow--prev{
-    left: 33%;
+    left: 30%;
   }
   .slideshow-with-text .splide__arrows .splide__arrow--next{
-    right: 33%;
+    right: 30%;
   }
   .slideshow-with-text .splide__pagination .is-active{
-    width: 15px;
+    width: 20px;
+    height: 8px;
   }
   .slideshow-with-text__text-wrapper{
-    width:70%;
+    width:80%;
+    padding: 10px;
   }
   .slideshow-with-text__pre-heading{
     font-size: 5px;
