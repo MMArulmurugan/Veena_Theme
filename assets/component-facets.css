@@ -1147,6 +1147,11 @@ input.mobile-facets__checkbox {
   .main-collection-product-grid__menu-container:hover a {
     color: #d03c3f;
   }
+  @media screen and (max-width: 750px){
+    .custom-parent-summary-details{
+      display:none;
+    }
+  }
 
   .facets-vertical .active-facets__button-wrapper {
     margin-bottom: 2rem;

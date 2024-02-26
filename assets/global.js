@@ -222,16 +222,15 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
-    
+
     const addButtonText = document.querySelector('[name="add"] > span');
     const price = document.getElementById(`price-${this.dataset.section}`);
-    // const qty = document.querySelector('[data-cart-quantity]').value;
-    // console.log(qty);
-    const currentPrice = price.querySelector('.price-item').textContent;
-    const finalPrice = value*parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''));
-    // console.log((parseInt(currentPrice.split("Rs. ")[1].split('.')[0].replace(/,/g, ''))));
-    addButtonText.textContent = window.variantStrings.addToCart + " Rs. " + finalPrice;
-
+    const currentPrice = price.querySelector(".price-item").textContent;
+    const finalPrice =
+      value *
+      parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
+    addButtonText.textContent =
+      window.variantStrings.addToCart + " Rs. " + finalPrice;
   }
 }
 
@@ -1328,9 +1327,9 @@ class VariantSelects extends HTMLElement {
         console.log(html.querySelector("#metafieldsVariant"));
         console.log(document.querySelector("#metafieldsVariant"));
 
-        document.querySelector("#metafieldsVariant").innerHTML =
-          html.querySelector("#metafieldsVariant").innerHTML;
-          
+        document.querySelector("#metafieldsVariant").innerHTML =html.querySelector("#metafieldsVariant").innerHTML;
+        document.querySelector("#metafieldsVariantShiping").innerHTML =html.querySelector("#metafieldsVariantShiping").innerHTML;
+
         const source = html.getElementById(
           `price-${
             this.dataset.originalSection
@@ -1452,7 +1451,7 @@ class VariantSelects extends HTMLElement {
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
     const price = document.getElementById(`price-${this.dataset.section}`);
-    const currentPrice= price.querySelector('.price-item').textContent;
+    const currentPrice = price.querySelector(".price-item").textContent;
 
     if (!addButton) return;
 
@@ -1461,7 +1460,8 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute("disabled");
-      addButtonText.textContent = window.variantStrings.addToCart + " " + currentPrice;
+      addButtonText.textContent =
+        window.variantStrings.addToCart + " " + currentPrice;
     }
 
     if (!modifyClass) return;

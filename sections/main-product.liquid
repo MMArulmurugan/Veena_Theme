@@ -181,7 +181,7 @@
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                   <h2 class = "h2">About the Product</h2>
-                  <div id ="metafieldsVariant">{{ product.description }}</div>
+                  <div id ="">{{ product.description }}</div>
                 </div>
               {%- endif -%}
 
@@ -201,7 +201,7 @@
                   </div>
                     </summary>
                     <p class ="product_details">
-                      <div id="variantMetafield">{{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}</div>
+                      <div id="metafieldsVariant">{{ product.selected_or_first_available_variant.metafields.custom.variant_description }}</div>
                     </p>
                   </details>
                 </div>
@@ -224,7 +224,7 @@
                   </div>
                     </summary>
                     <p>
-                      <div id="variantMetafield">{{ product.selected_or_first_available_variant.metafields.custom.variant_shipping | metafield_tag }}</div>
+                      <div id="metafieldsVariantShiping">{{ product.selected_or_first_available_variant.metafields.custom.variant_shipping }}</div>
                     </p>
                   </details>
                 </div>

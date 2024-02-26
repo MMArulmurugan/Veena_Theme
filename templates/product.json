@@ -36,7 +36,7 @@
           "type": "inventory",
           "settings": {
             "text_style": "body",
-            "inventory_threshold": 10,
+            "inventory_threshold": 100,
             "show_inventory_quantity": true
           }
         },
@@ -155,8 +155,7 @@
             "column_span": "1",
             "row_span": "1",
             "column_span_mobile": "1",
-            "overlay_color_rgb": "#fff",
-            "text_alignment": "left",
+            "text_alignment": "center",
             "text_alignment_mobile": "center",
             "alignment_position": "align-center justify-center"
           }
@@ -167,7 +166,9 @@
       ],
       "settings": {
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "first_grid_span": 2,
+        "second_grid_span": 2
       }
     },
     "related-products": {
