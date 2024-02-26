@@ -4348,3 +4348,33 @@ details-disclosure > details {
   }
 }
 /*---------------------------------------------------------product-card.css------------------------------------------------------------*/
+
+.scroll-line-animation a {
+  color: inherit;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.scroll-line-animation a:hover {
+  color: #d03c3f;
+}
+
+.scroll-line-animation a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: #d03c3f;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.scroll-line-animation a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}

@@ -23,7 +23,7 @@
   position: relative;
 }
 
-.slideshow-with-text__heading-link a::before {
+/* .slideshow-with-text__heading-link a::before {
   content: "";
   position: absolute;
   width: 0;
@@ -45,7 +45,7 @@
   font-weight: 400;
   letter-spacing: 0.3px;
   padding: 5px;
-}
+} */
 .slideshow-with-text__button:hover {
   color:red;
 }
