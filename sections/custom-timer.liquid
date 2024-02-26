@@ -15,6 +15,8 @@
    }
 {% endstyle %}
 
+{% assign date = section.settings.target_date %}
+
 <div class="custom-timer padding-{{ section.id }}">
     <div class="page-width">
         <div class="custom-timer__wrapper">
@@ -34,7 +36,7 @@
                     </a>
                 {% endif %}
             </div>   
-            <div class="custom-timer__time-wrapper">
+            <div data-target-date="{{ date }}" class="custom-timer__time-wrapper">
                 <div class = "custom-timer__card custom-border-radius">
                     <span class = "h1 custom-timer__time" id="days" >00</span>
                     <span class = "h5 custom-timer__stamp">Days</span>
@@ -88,6 +90,13 @@
           "type": "url",
           "id": "button_link",
           "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "target_date",
+          "label": "Target Date",
+          "default": "2024/08/21",
+          "info": "Enter the date and time you want the countdown to expire. Use the format YYYY/MM/DD"
         },
         {
           "type": "select",

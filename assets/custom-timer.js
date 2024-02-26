@@ -1,32 +1,16 @@
-var timer;
-let dayElement = document.getElementById("days");
-let hoursElement = document.getElementById("hours");
-let minutesElement = document.getElementById("minutes");
-let secondsElement = document.getElementById("seconds");
-var compareDate = new Date();
-compareDate.setDate(compareDate.getDate() + 183); 
-
-timer = setInterval(function() {
-  timeBetweenDates(compareDate);
+var targetDate = new Date(document.querySelector('.custom-timer__time-wrapper').dataset.targetDate).getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = targetDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById('days').innerText = formatTime(days);
+  document.getElementById('hours').innerText = formatTime(hours);
+  document.getElementById('minutes').innerText = formatTime(minutes);
+  document.getElementById('seconds').innerText = formatTime(seconds);
 }, 1000);
-
-function timeBetweenDates(toDate) {
-  var now = new Date();
-  var difference = toDate.getTime() - now.getTime();
-
-  if (difference <= 0) {
-    clearInterval(timer);
-  
-  } else {
-    
-    var seconds = Math.floor(difference / 1000) % 60;
-    var minutes = Math.floor(difference / (1000 * 60)) % 60;
-    var hours = Math.floor(difference / (1000 * 60 * 60)) % 24;
-    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-
-    dayElement.textContent = days;
-    hoursElement.textContent = hours;
-    minutesElement.textContent = minutes;
-    secondsElement.textContent = seconds;
-  }
+function formatTime(time) {
+  return time < 10 ? '0' + time : time;
 }
