@@ -33,6 +33,11 @@
   .slider.collection-list--1-items {
     padding-bottom: 0;
   }
+  .main-list-collections__heading {
+    font-size: 38px;
+    font-weight: 450;
+    line-height: 49.4px;
+  }
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
@@ -58,4 +63,14 @@
 
 .collection-list-view-all {
   margin-top: 2rem;
+}
+
+.breadcrum-list-collections {
+  margin-top: 15px;
+}
+.main-list-collections__heading {
+  font-size: 20px;
+  font-weight: 450;
+  line-height: 26px;
+  letter-spacing: 0.3px;
 }
