@@ -4035,7 +4035,7 @@ details-disclosure > details {
   letter-spacing: 0.3px;
   line-height: 28.8px;
   text-transform: capitalize;
-  cursor:pointer;
+  cursor: pointer;
 }
 .custom-button-cart:after {
   content: "";
@@ -4197,8 +4197,8 @@ details-disclosure > details {
 .image-hover-swap:hover .image-secondary-hidden {
   display: block;
 }
-.product_details_heading{
-  display:flex;
+.product_details_heading {
+  display: flex;
   align-items: center;
 }
 .image-hover-swap:hover .image-featured-hidden {
@@ -4276,7 +4276,7 @@ details-disclosure > details {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.product-card__quick-view-button{
+.product-card__quick-view-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -4291,38 +4291,37 @@ details-disclosure > details {
   font-size: 14px;
   text-decoration: none;
 }
-.product-card__quick-view-button:after{
-   content: '';
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 width: 100%;
-	 height: 100%;
-	 background-color: #000;
-	 border-radius: 10rem;
-	 z-index: -2;
+.product-card__quick-view-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 10rem;
+  z-index: -2;
 }
 .product-card__quick-view-button:before {
-	 content: '';
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 width: 0%;
-	 height: 100%;
-	 background-color: #d03c3f;
-	 transition: all 0.3s ease;
-	 border-radius: 10rem;
-	 z-index: -1;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #d03c3f;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
 }
- .product-card__quick-view-button:hover {
-	 color: #fff;
+.product-card__quick-view-button:hover {
+  color: #fff;
 }
- .product-card__quick-view-button:hover:before {
-	 width: 100%;
+.product-card__quick-view-button:hover:before {
+  width: 100%;
 }
 
-
-.product-card__secondary-image{
+.product-card__secondary-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -4334,17 +4333,17 @@ details-disclosure > details {
   transition: opacity 0.3s ease;
 }
 
-.product-card__image{
+.product-card__image {
   position: relative;
 }
 
-.product-card__image:hover .product-card__secondary-image{
+.product-card__image:hover .product-card__secondary-image {
   opacity: 1;
 }
 
-@media screen and (max-width: 750px){
-  .product-card__quick-view-button{
-    display:none;
+@media screen and (max-width: 750px) {
+  .product-card__quick-view-button {
+    display: none;
   }
 }
 /*---------------------------------------------------------product-card.css------------------------------------------------------------*/
@@ -4377,4 +4376,8 @@ details-disclosure > details {
 .scroll-line-animation a:hover::before {
   transform-origin: left;
   transform: scaleX(1);
+}
+
+.mm-recommendations__products {
+  margin-top: 15px;
 }
