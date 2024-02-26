@@ -1328,7 +1328,7 @@ class VariantSelects extends HTMLElement {
         console.log(document.querySelector("#metafieldsVariant"));
 
         document.querySelector("#metafieldsVariant").innerHTML =html.querySelector("#metafieldsVariant").innerHTML;
-        document.querySelector("#metafieldsVariantShiping").innerHTML =html.querySelector("#metafieldsVariantShiping").innerHTML;
+        document.querySelector("#Shipingmetafield").innerHTML =html.querySelector("#Shipingmetafield").innerHTML;
 
         const source = html.getElementById(
           `price-${
