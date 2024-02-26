@@ -4317,4 +4317,31 @@ details-disclosure > details {
  .product-card__quick-view-button:hover:before {
 	 width: 100%;
 }
+
+
+.product-card__secondary-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.product-card__image{
+  position: relative;
+}
+
+.product-card__image:hover .product-card__secondary-image{
+  opacity: 1;
+}
+
+@media screen and (max-width: 750px){
+  .product-card__quick-view-button{
+    display:none;
+  }
+}
 /*---------------------------------------------------------product-card.css------------------------------------------------------------*/

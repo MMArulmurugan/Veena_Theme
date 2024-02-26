@@ -17,11 +17,21 @@
     data-section-id="{{ section_id }}"
   >
     <a href="{{ product.url }}" class="product-card__link position-relative">
+
+      <div class="image-hover-swap product-card__image custom-border-radius">
+        {% render 'image',
+          desktopImage: featured_image,
+          class: 'media media--portrait'
+        %}
+        <div class="product-card__secondary-image">
+          {% render "image", desktopImage: secondary_image, class:"media media--portrait" %}
+        </div>
+      </div>
       
-      <div class="image-hover-swap">
+      {% comment %} <div class="image-hover-swap">
         {% render 'image' desktopImage:featured_image, class: "media media--portrait custom-border-radius media--transparent media--hover-effect image-featured-hidden" %}
         {% render 'image' desktopImage:secondary_image, class: "media media--portrait custom-border-radius media--transparent media--hover-effect image-secondary-hidden" %}
-      </div>
+      </div> {% endcomment %}
       
       {% if current_variant.inventory_quantity != 0 %}
         <div class="product-card__quick-view position-absolute">
