@@ -1121,7 +1121,29 @@ input.mobile-facets__checkbox {
   }
   .change-button {
     margin-left: 15px;
+    cursor: pointer;
   }
+  .change-button-selected{
+    opacity: 1;
+  }
+  .change-button-unselected{
+    opacity: 0.5;
+  }
+ 
+
+  .change-button button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: 0.3s ease;
+    margin-right: 10px;
+    vertical-align: middle;
+    min-width: 45px;
+    min-height: 45px;
+    text-align: center;
+    border-radius: 31px;
+  }
+
   .product-count-vertical {
     margin-left: 3.5rem;
     position: relative;
@@ -1147,9 +1169,9 @@ input.mobile-facets__checkbox {
   .main-collection-product-grid__menu-container:hover a {
     color: #d03c3f;
   }
-  @media screen and (max-width: 750px){
-    .custom-parent-summary-details{
-      display:none;
+  @media screen and (max-width: 750px) {
+    .custom-parent-summary-details {
+      display: none;
     }
   }
 
