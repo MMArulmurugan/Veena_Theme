@@ -30,10 +30,11 @@
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     
+    <div class = "breadcrum-margin-left">{% render 'breadcrumbs' %}</div>
     
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
         
-     
+      
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}   
         <aside
           aria-labelledby="verticalTitle"
@@ -41,7 +42,6 @@
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >  
-
         <div class="custom-parent-summary-details">
           {% for link in section.settings.menu.links %}
             {% if link.links != blank %}

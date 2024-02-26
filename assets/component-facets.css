@@ -1113,7 +1113,7 @@ input.mobile-facets__checkbox {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: #00000004;
+    background: #00000009;
     padding: 20px;
   }
   .facets-vertical-form__layout-icons {
@@ -1127,7 +1127,7 @@ input.mobile-facets__checkbox {
     position: relative;
   }
   .main-collection-product-grid__menu-container {
-    background: #00000004;
+    background: #00000009;
     padding: 8px 25px 8px 15px;
     margin-bottom: 10px;
     text-decoration: none;
