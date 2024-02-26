@@ -1092,7 +1092,9 @@ input.mobile-facets__checkbox {
   }
 
   .facets-vertical .facets-wrapper {
-    padding-right: 8rem;
+    padding-right: 3rem;
+    margin-top: 30px;
+    width: 35%;
   }
 
   .facets-vertical .facets-wrapper--no-filters {
@@ -1110,8 +1112,9 @@ input.mobile-facets__checkbox {
   .facets-vertical-form {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     background: #00000004;
-    padding: 10px;
+    padding: 20px;
   }
   .facets-vertical-form__layout-icons {
     flex-grow: 1;
