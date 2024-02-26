@@ -28,11 +28,6 @@
         </div>
       </div>
       
-      {% comment %} <div class="image-hover-swap">
-        {% render 'image' desktopImage:featured_image, class: "media media--portrait custom-border-radius media--transparent media--hover-effect image-featured-hidden" %}
-        {% render 'image' desktopImage:secondary_image, class: "media media--portrait custom-border-radius media--transparent media--hover-effect image-secondary-hidden" %}
-      </div> {% endcomment %}
-      
       {% if current_variant.inventory_quantity != 0 %}
         <div class="product-card__quick-view position-absolute">
           {% form 'product', product %}

@@ -4197,7 +4197,10 @@ details-disclosure > details {
 .image-hover-swap:hover .image-secondary-hidden {
   display: block;
 }
-
+.product_details_heading{
+  display:flex;
+  align-items: center;
+}
 .image-hover-swap:hover .image-featured-hidden {
   display: none;
 }

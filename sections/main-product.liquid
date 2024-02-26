@@ -180,9 +180,55 @@
             {%- when 'description' -%}
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  <div id ="metafieldsVariant">{{ product.selected_or_first_available_variant.metafields.custom.variant_description }}</div>
+                  <h2 class = "h2">About the Product</h2>
+                  <div id ="metafieldsVariant">{{ product.description }}</div>
                 </div>
               {%- endif -%}
+
+              {%- if product.selected_or_first_available_variant.metafields.custom.variant_description != blank -%}
+                <hr>
+                <div class="product_details_container">
+                  <details>
+                    <summary>
+                      <div class="product_details_heading">
+                      <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M7.63356 11.3048L7.5176 11.294C6.03849 11.1571 5.29894 11.0885 5.06402 10.5732C4.82911 10.0581 5.25496 9.43836 6.10668 8.19914L9.57517 3.15246C10.1378 2.33379 10.41921.92446 10.6618 2.01151C10.9044 2.09854 10.8718 2.59709 10.8065 3.5942L10.6098 6.60011C10.5504 7.50746 10.5207 7.96113 10.7767 8.26644C11.0327 8.57175 11.4773 8.61292 12.3664 8.69524L12.4824 8.70598C13.9615 8.84293 14.7011 8.91141 14.936 9.42665C15.1709 9.94194 14.745 10.5616 13.8933 11.8008L10.4248 16.8475C9.86215 17.6661 9.58082 18.0755 9.33819 17.9885C9.09556 17.9014 9.12819 17.4029 9.19346 16.4058L9.39021 13.3999C9.4496 12.4925 9.4793 12.0389 9.22331 11.7335C8.96733 11.4282 8.52274 11.3871 7.63356 11.3048Z"></path>
+                      </svg>
+                    <h2 class = "h2">Product Details</h2>
+                    <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                    </summary>
+                    <p class ="product_details">
+                      <div id="variantMetafield">{{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}</div>
+                    </p>
+                  </details>
+                </div>
+            {%- endif -%}
+
+            {%- if product.selected_or_first_available_variant.metafields.custom.variant_shipping != blank -%}
+              <hr>
+              <div class="product_details">
+                <details>
+                  <summary>
+                    <div class="product_details_heading">
+                      <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M18.5 1.5H1.5L1.5 18.5H18.5V1.5ZM1.5 0.5C0.947715 0.5 0.5 0.947715 0.5 1.5V18.5C0.5 19.0523 0.947715 19.5 1.5 19.5H18.5C19.0523 19.5 19.5 19.0523 19.5 18.5V1.5C19.5 0.947715 19.0523 0.5 18.5 0.5H1.5Z" fill-rule="evenodd"></path>
+                        <path d="M14.9975 6.09084C15.201 6.27746 15.2147 6.59375 15.0281 6.79728L8.91631 13.4627C8.82231 13.5652 8.68987 13.6239 8.55079 13.6247C8.41172 13.6256 8.27857 13.5684 8.18335 13.4671L4.99513 10.0731C4.80606 9.87179 4.81596 9.55536 5.01723 9.3663C5.21849 9.17723 5.53492 9.18713 5.72399 9.3884L8.54335 12.3897L14.291 6.12145C14.4776 5.91791 14.7939 5.90421 14.9975 6.09084Z"></path>
+                      </svg>
+                  <h2 class = "h2">Shipping And Return</h2>
+                  <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                  </svg>
+                </div>
+                  </summary>
+                  <p>
+                    <div id="variantMetafield">{{ product.selected_or_first_available_variant.metafields.custom.variant_shipping | metafield_tag }}</div>
+                  </p>
+                </details>
+              </div>
+          {%- endif -%}
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
