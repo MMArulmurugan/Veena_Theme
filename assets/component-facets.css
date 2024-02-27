@@ -78,6 +78,9 @@
 
 .facet-filters__field .select {
   width: auto;
+  background: white;
+  padding: 14px;
+  border-radius: 50px;
 }
 
 .facet-filters__field .select:after,
@@ -93,6 +96,8 @@
   min-width: auto;
   min-height: auto;
   transition: none;
+  background: white;
+  border-radius: 20px;
 }
 
 .facet-filters button {
@@ -112,7 +117,7 @@
 }
 
 .facet-filters__sort + .icon-caret {
-  right: 0;
+  right: 4;
 }
 
 @media screen and (forced-colors: active) {
@@ -349,11 +354,15 @@
   padding: 1rem 2rem 1rem 0;
   /* flex-grow: 1; */
   position: relative;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
   /* word-break: break-word; */
+}
+.fects-card__swatch-container-checked {
+  box-shadow: 0 0 0 3px white inset;
 }
 
 /* Hover, active, and focus states */
@@ -409,14 +418,20 @@
   background-color: rgb(var(--color-background));
   margin-right: 1.2rem;
   flex-shrink: 0;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .facet-checkbox .icon-checkmark {
   visibility: hidden;
   position: absolute;
-  left: 0.3rem;
+  left: 0.1rem;
   z-index: 5;
-  top: 1.4rem;
+  top: 1.7rem;
+  background: #000;
+  color: #fff;
+  width: 17px;
+  height: 17px;
 }
 
 .facet-checkbox > input[type="checkbox"]:checked ~ .icon-checkmark {
@@ -1123,13 +1138,12 @@ input.mobile-facets__checkbox {
     margin-left: 15px;
     cursor: pointer;
   }
-  .change-button-selected{
+  .change-button-selected {
     opacity: 1;
   }
-  .change-button-unselected{
+  .change-button-unselected {
     opacity: 0.5;
   }
- 
 
   .change-button button {
     background-color: transparent;
