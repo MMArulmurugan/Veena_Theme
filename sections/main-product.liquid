@@ -435,7 +435,19 @@
                   {%- endif -%}
                   </volume-pricing>
                 {%- endif -%}
-              </div>
+              </div> 
+              
+              <input type="text" id="firstNameInput" placeholder="Enter your first name"><br>
+
+                <button
+                  id = "custom-my-btn"
+                  data-product-id ="{{ product.selected_or_first_available_variant.id }}",
+                  data-quantity = "2",
+                  class="product-form__submit button custom-button-secondary_color"
+                >
+                  Add to cart 
+                </button>   
+
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -465,16 +477,7 @@
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}      
                
-                <input type="text" id="firstNameInput" placeholder="Enter your first name"><br>
-
-                <button
-                  id = "custom-my-btn"
-                  data-product-id ="{{ product.selected_or_first_available_variant.id }}",
-                  data-quantity = "2",
-                  class="product-form__submit button custom-button-secondary_color"
-                >
-                  Add to cart 2
-                </button>       
+                    
                  
               
                {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}

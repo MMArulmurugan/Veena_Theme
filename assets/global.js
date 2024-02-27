@@ -222,6 +222,9 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
+     
+    const customBtn = document.querySelector('#custom-my-btn')
+    customBtn.setAttribute('data-quantity', value);
 
     const addButtonText = document.querySelector('[name="add"] > span');
     const price = document.getElementById(`price-${this.dataset.section}`);
@@ -229,7 +232,7 @@ class QuantityInput extends HTMLElement {
     const finalPrice =
       value *
       parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
-    addButtonText.textContent =
+      addButtonText.textContent =
       window.variantStrings.addToCart + " Rs. " + finalPrice;
   }
 }
@@ -1328,6 +1331,9 @@ class VariantSelects extends HTMLElement {
         console.log(document.querySelector("#metafieldsVariant"));
           
         document.querySelector('#custom-my-btn').dataset.productId = html.querySelector('#custom-my-btn').dataset.productId;
+        const customBtn = document.querySelector('#custom-my-btn')
+        customBtn.setAttribute('data-variant-id', html.querySelector('#custom-my-btn').dataset.variantId)
+
         document.querySelector("#metafieldsVariant").innerHTML =html.querySelector("#metafieldsVariant").innerHTML;
         document.querySelector("#Shipingmetafield").innerHTML =html.querySelector("#Shipingmetafield").innerHTML;
 
