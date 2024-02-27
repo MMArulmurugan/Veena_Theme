@@ -1,3 +1,5 @@
+<script src="{{ "add-to-cart.js" | asset_url }}" defer></script>
+
 <section
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -461,12 +463,19 @@
 
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-            {%- when 'buy_buttons' -%}              
+            {%- when 'buy_buttons' -%}       
+
+                <add-to-cart
+                  id = "custom-my-btn"
+                  data-product-id ="{{ product.selected_or_first_available_variant.id }}",
+                  data-quantity = "2",
+                  class="product-form__submit button custom-button-secondary_color"
+                >
+                  Add to cart 2
+                </add-to-cart>       
               
                {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
-              
-
-                
+  
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
