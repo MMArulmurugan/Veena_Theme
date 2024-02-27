@@ -1326,7 +1326,8 @@ class VariantSelects extends HTMLElement {
 
         console.log(html.querySelector("#metafieldsVariant"));
         console.log(document.querySelector("#metafieldsVariant"));
-
+          
+        document.querySelector('#custom-my-btn').dataset.productId = html.querySelector('#custom-my-btn').dataset.productId;
         document.querySelector("#metafieldsVariant").innerHTML =html.querySelector("#metafieldsVariant").innerHTML;
         document.querySelector("#Shipingmetafield").innerHTML =html.querySelector("#Shipingmetafield").innerHTML;
 
