@@ -4163,7 +4163,8 @@ details-disclosure > details {
   margin: 3px;
 }
 .product-card__sold-out {
-  background: lightgray;
+  background: #757575;
+  color: white;
   margin: 3px;
 }
 .quick-view-button {
