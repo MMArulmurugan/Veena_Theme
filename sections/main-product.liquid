@@ -630,7 +630,7 @@
             {%- when 'voucher' -%}
 
               <div class="product_voucher_container product_voucher_background-{{block.id}}" id = "voucherContainer">
-                {%- if product.selected_or_first_available_variant.metafields.custom.discount != blank -%}
+                {%- if product.selected_or_first_available_variant.metafields.custom.discount_code != blank -%}
                   <div class = "product_voucher_content">
                     <h2 class = "product_voucher_heading product_voucher_heading-text-{{block.id}}">{{block.settings.voucher_heading}}</h2>
                     <div class = "product_voucher_box">
