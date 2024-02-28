@@ -226,6 +226,8 @@ class QuantityInput extends HTMLElement {
     const customBtn = document.querySelector('#custom-my-btn')
     customBtn.setAttribute('data-quantity', value);
 
+    
+
     const addButtonText = document.querySelector('[name="add"] > span');
     const price = document.getElementById(`price-${this.dataset.section}`);
     const currentPrice = price.querySelector(".price-item").textContent;
@@ -1334,6 +1336,7 @@ class VariantSelects extends HTMLElement {
         const customBtn = document.querySelector('#custom-my-btn')
         customBtn.setAttribute('data-variant-id', html.querySelector('#custom-my-btn').dataset.variantId)
 
+        document.querySelector("#voucherContainer").innerHTML =html.querySelector("#voucherContainer").innerHTML;
         document.querySelector("#metafieldsVariant").innerHTML =html.querySelector("#metafieldsVariant").innerHTML;
         document.querySelector("#Shipingmetafield").innerHTML =html.querySelector("#Shipingmetafield").innerHTML;
 
@@ -1563,3 +1566,17 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define("product-recommendations", ProductRecommendations);
+
+
+
+function copyCode() {
+  var voucherCodeText = document.getElementById("voucherCode").innerText;
+  var tempTextarea = document.createElement("textarea");
+  document.body.appendChild(tempTextarea);
+  tempTextarea.value = voucherCodeText;
+  tempTextarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempTextarea);
+  document.getElementById("copyCode").innerText = "COPIED!";
+
+}

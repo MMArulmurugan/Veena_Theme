@@ -4382,3 +4382,59 @@ details-disclosure > details {
 .mm-recommendations__products {
   margin-top: 15px;
 }
+.product_voucher_container{
+  display:flex;
+  padding: 20px 30px;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(135.9deg, rgb(109, 25, 252) 16.4%, rgb(125, 31, 165) 56.1%); */
+  border-radius: 30px;
+}
+.product_voucher_heading{
+  color: #ffffff;
+  font-weight: 400;
+}
+.product_voucher_box{
+  display:flex;
+  margin-top: 4px;
+}
+.product_voucher_dotted{
+  color: #fff;
+  border: 2px dashed #fff;
+  padding: 10px;
+  border-right: none;
+}
+.product_voucher_solid{
+  background:#fff;
+  color:#8E02C9;
+  padding: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.product_voucher_content{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product_voucher_container{
+  position: relative;
+}
+.voucher-dot{
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background: #ffffff;
+  color:#ffffff;
+  position: absolute;
+}
+.voucher-dot-one{
+  top:35%;
+  left:-4%;
+}
+.voucher-dot-two{
+  top:35%;
+  right: -4%;
+}

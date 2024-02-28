@@ -32,6 +32,14 @@
             "swatch_shape": "circle"
           }
         },
+        "voucher_YmxEwt": {
+          "type": "voucher",
+          "settings": {
+            "voucher_heading": "<p>Variant Specific Discount<\/p>",
+            "heading_text_color": "#fff",
+            "voucher_background": "linear-gradient(85deg, rgba(79, 69, 174, 1) 36%, rgba(140, 32, 189, 1) 88%, rgba(149, 14, 171, 1) 99%, rgba(82, 218, 236, 1) 100%)"
+          }
+        },
         "inventory_kLQxUV": {
           "type": "inventory",
           "settings": {
@@ -47,7 +55,6 @@
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "disabled": true,
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
@@ -89,6 +96,7 @@
         "title",
         "price",
         "variant_picker",
+        "voucher_YmxEwt",
         "inventory_kLQxUV",
         "quantity_selector",
         "buy_buttons",

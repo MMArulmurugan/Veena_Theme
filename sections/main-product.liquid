@@ -627,8 +627,31 @@
                   {%- endfor -%}
                 </div>
               {%- endunless -%}
+            {%- when 'voucher' -%}
 
-          {%- endcase -%}
+              <div class="product_voucher_container product_voucher_background-{{block.id}}" id = "voucherContainer">
+                {%- if product.selected_or_first_available_variant.metafields.custom.discount != blank -%}
+                  <div class = "product_voucher_content">
+                    <h2 class = "product_voucher_heading product_voucher_heading-text-{{block.id}}">{{block.settings.voucher_heading}}</h2>
+                    <div class = "product_voucher_box">
+                       <div class = "product_voucher_dotted" id="voucherCode">{{product.selected_or_first_available_variant.metafields.custom.discount_code}}</div>
+                       <div class = "product_voucher_solid" id="copyCode" onclick="copyCode()">COPY CODE</div>
+                    </div>
+                  </div>
+                  <div class = "voucher-dot-one voucher-dot">1</div>
+                  <div class = "voucher-dot-two voucher-dot">2</div>
+                {%- endif -%}
+                </div>
+                <style>
+                  .product_voucher_heading-text-{{block.id}}{
+                    color: {{block.settings.heading_text_color}};
+                  }  
+                  .product_voucher_background-{{block.id}}{
+                    background: {{block.settings.voucher_background}};
+                  }  
+                </style>  
+                
+            {%- endcase -%}
         {%- endfor -%}
         <a href="{{ product.url }}" class="link product__view-details animate-arrow">
           {{ 'products.product.view_full_details' | t }}
@@ -840,6 +863,32 @@
           "default": "body",
           "label": "t:sections.main-product.blocks.sku.settings.text_style.label"
         }
+      ]
+    },
+    {
+      "type": "voucher",
+      "name": "Voucher",
+      "limit": 1,
+      "settings": [
+          {
+            "type": "richtext",
+            "id": "voucher_heading",
+            "label": "voucher Heading",
+            "default": "<p>Variant Specific Discount</p>"
+          },
+          {
+            "type": "color",
+            "id": "heading_text_color",
+            "label": "Heading Text color",
+            "default": "#fff"
+          },
+          {
+            "type": "color_background",
+            "id": "voucher_background",
+            "label": "Voucher Background",
+            "default": "linear-gradient(135.9deg, rgb(109, 25, 252) 16.4%, rgb(125, 31, 165) 56.1%)"
+          }
+          
       ]
     },
     {
