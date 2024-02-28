@@ -4387,9 +4387,10 @@ details-disclosure > details {
   padding: 20px 30px;
   justify-content: center;
   align-items: center;
-  /* background: linear-gradient(135.9deg, rgb(109, 25, 252) 16.4%, rgb(125, 31, 165) 56.1%); */
   border-radius: 30px;
 }
+
+/*---------------------------------------------------prodcut-voucher------------------------------------ */
 .product_voucher_heading{
   color: #ffffff;
   font-weight: 400;
@@ -4429,6 +4430,7 @@ details-disclosure > details {
   background: #ffffff;
   color:#ffffff;
   position: absolute;
+  padding: 5px;
 }
 .voucher-dot-one{
   top:35%;
@@ -4438,3 +4440,4 @@ details-disclosure > details {
   top:35%;
   right: -4%;
 }
+/*---------------------------------------------------prodcut-voucher------------------------------------ */

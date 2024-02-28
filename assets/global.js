@@ -1567,7 +1567,7 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define("product-recommendations", ProductRecommendations);
 
-
+/*-----------------------------------------product-voucher----------------------------------------------- */
 
 function copyCode() {
   var voucherCodeText = document.getElementById("voucherCode").innerText;
@@ -1578,5 +1578,10 @@ function copyCode() {
   document.execCommand("copy");
   document.body.removeChild(tempTextarea);
   document.getElementById("copyCode").innerText = "COPIED!";
-
+  setTimeout(function() {
+    document.getElementById("copyCode").innerText = "COPY CODE";
+  }, 5000);
 }
+
+
+/*-----------------------------------------product-voucher----------------------------------------------- */
