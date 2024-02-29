@@ -4461,3 +4461,34 @@ details-disclosure > details {
   letter-spacing: normal;
   line-height:normal;
 }
+
+/*-----------------------------------------------free-shipping-----------------------------------*/
+
+.shipping-bar {
+  width: 100%;
+  border-radius: 2rem;
+  background: #F2F0FF;
+  padding: 0.75rem 2rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.cart-drawer__black {
+  color: #111314;
+}
+.shipping-bar .shipping-bar__container {
+  height: 1rem;
+  background: #fff;
+  border-radius: 1rem;
+  position: relative;
+  margin: 1.4rem 0 0.75rem;
+}
+.shipping-bar .shipping-bar__filled {
+  height: 100%;
+  border-radius: 1rem;
+  transition: all .75s ease-in-out;
+  background-color: #AFAFED;
+}
+.shipping-bar .shipping__icon {
+  position: absolute;
+  transition: all .75s ease-in-out;
+  transform: translate(-70%,-45%) rotate(30deg);
+}

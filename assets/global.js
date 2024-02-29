@@ -222,20 +222,21 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle("disabled", value >= max);
     }
-     
-    const customBtn = document.querySelector('#custom-my-btn')
-    customBtn.setAttribute('data-quantity', value);
+    if (document.querySelector("#custom-my-btn")) {
+      const customBtn = document.querySelector("#custom-my-btn");
+      customBtn.setAttribute("data-quantity", value);
+    }
 
-    
-
-    const addButtonText = document.querySelector('[name="add"] > span');
-    const price = document.getElementById(`price-${this.dataset.section}`);
-    const currentPrice = price.querySelector(".price-item").textContent;
-    const finalPrice =
-      value *
-      parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
+    if (document.querySelector('[name="add"] > span')) {
+      const addButtonText = document.querySelector('[name="add"] > span');
+      const price = document.getElementById(`price-${this.dataset.section}`);
+      const currentPrice = price.querySelector(".price-item").textContent;
+      const finalPrice =
+        value *
+        parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
       addButtonText.textContent =
-      window.variantStrings.addToCart + " Rs. " + finalPrice;
+        window.variantStrings.addToCart + " Rs. " + finalPrice;
+    }
   }
 }
 
@@ -1329,16 +1330,36 @@ class VariantSelects extends HTMLElement {
           `price-${this.dataset.section}`
         );
 
-        console.log(html.querySelector("#metafieldsVariant"));
-        console.log(document.querySelector("#metafieldsVariant"));
-          
-        document.querySelector('#custom-my-btn').dataset.productId = html.querySelector('#custom-my-btn').dataset.productId;
-        const customBtn = document.querySelector('#custom-my-btn')
-        customBtn.setAttribute('data-variant-id', html.querySelector('#custom-my-btn').dataset.variantId)
+        // console.log(html.querySelector("#metafieldsVariant"));
+        // console.log(document.querySelector("#metafieldsVariant"));
+        
+        if(document.querySelector("#custom-my-btn")){
 
-        document.querySelector("#voucherContainer").innerHTML =html.querySelector("#voucherContainer").innerHTML;
-        document.querySelector("#metafieldsVariant").innerHTML =html.querySelector("#metafieldsVariant").innerHTML;
-        document.querySelector("#Shipingmetafield").innerHTML =html.querySelector("#Shipingmetafield").innerHTML;
+          document.querySelector("#custom-my-btn").dataset.productId =
+            html.querySelector("#custom-my-btn").dataset.productId;
+          const customBtn = document.querySelector("#custom-my-btn");
+          customBtn.setAttribute(
+            "data-variant-id",
+            html.querySelector("#custom-my-btn").dataset.variantId
+          );
+        }
+        
+        if(document.querySelector("#voucherContainer")){
+
+          document.querySelector("#voucherContainer").innerHTML =
+            html.querySelector("#voucherContainer").innerHTML;
+        }
+
+        if(document.querySelector("#metafieldsVariant")){
+
+          document.querySelector("#metafieldsVariant").innerHTML =
+            html.querySelector("#metafieldsVariant").innerHTML;
+        }
+        
+        if(document.querySelector("#Shipingmetafield")){
+          document.querySelector("#Shipingmetafield").innerHTML =
+            html.querySelector("#Shipingmetafield").innerHTML;
+        }
 
         const source = html.getElementById(
           `price-${
@@ -1578,54 +1599,53 @@ function copyCode() {
   document.execCommand("copy");
   document.body.removeChild(tempTextarea);
   document.getElementById("copyCode").innerText = "COPIED!";
-  setTimeout(function() {
+  setTimeout(function () {
     document.getElementById("copyCode").innerText = "COPY CODE";
   }, 5000);
 }
 
-
-
 /*-------------------------------------custom-atc-------------------------------------------------------*/
+if (document.getElementById("custom-my-btn")) {
+  const btn = document.getElementById("custom-my-btn");
+  const firstNameInput = document.getElementById("firstNameInput");
 
+  const cartQnty = document
+    .querySelector(".quantity__input")
+    .getAttribute("data-cart-quantity");
+  console.log(cartQnty);
 
-const btn = document.getElementById('custom-my-btn');
-const firstNameInput = document.getElementById('firstNameInput');
+  btn.addEventListener("click", () => {
+    const cart = document.querySelector("cart-drawer");
+    const userFirstName = firstNameInput.value;
 
-const cartQnty = document.querySelector(".quantity__input").getAttribute('data-cart-quantity');
-console.log(cartQnty);
-
-
-btn.addEventListener('click', () => {
-  const cart = document.querySelector("cart-drawer");
-  const userFirstName = firstNameInput.value;
-
-  let formData = {
-    items: [
-      {
-        id: btn.dataset.productId,
-        quantity: btn.dataset.quantity,
-        properties: {
-          "First name": userFirstName,
-          "_Last Name": "Murugan"
+    let formData = {
+      items: [
+        {
+          id: btn.dataset.productId,
+          quantity: btn.dataset.quantity,
+          properties: {
+            "First name": userFirstName,
+            "_Last Name": "Murugan",
+          },
+          sections: cart.getSectionsToRender().map((section) => section.id),
         },
-        sections: cart.getSectionsToRender().map((section) => section.id),
-      },
-    ],
-  };
+      ],
+    };
 
-  fetch("/cart/add.js", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  })
-    .then((response) => {
-      console.log(response);
-      cart.open();
-      return response.json();
+    fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
+      .then((response) => {
+        console.log(response);
+        cart.open();
+        return response.json();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+}

@@ -135,7 +135,7 @@
         "padding_bottom": 12
       }
     },
-    "wizaah_recently_viewed_products_wXcYa9": {
+    "wizaah_recently_viewed_products_DrHRnF": {
       "type": "wizaah-recently-viewed-products",
       "settings": {
         "title": "Recently viewed",
@@ -250,7 +250,7 @@
   },
   "order": [
     "main",
-    "wizaah_recently_viewed_products_wXcYa9",
+    "wizaah_recently_viewed_products_DrHRnF",
     "custom_text_grid_7JBmwT",
     "custom_media_grid_UUj478",
     "product-recommendations",

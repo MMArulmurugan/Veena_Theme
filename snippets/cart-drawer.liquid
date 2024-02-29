@@ -503,6 +503,9 @@
             {%- endif -%}
           </small>
         </div>
+        {% assign value = cart.total_price | times : 100 | divided_by : 500 | money_without_trailing_zeros %}
+        {%  render 'free-shipping'  %}
+        {{ value }}
 
         <!-- CTAs -->
 
