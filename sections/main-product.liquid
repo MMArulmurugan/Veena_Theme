@@ -33,6 +33,35 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    {%for block in section.blocks %}
+    .product__inventory-bar-{{ block.id }}{
+      position: relative;
+      border-bottom: 2px solid #12121233;
+    }
+    .product__inventory-bar-{{ block.id }}::before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: {{ product.selected_or_first_available_variant.inventory_quantity}}%;
+      transition: all 0.3s ease;
+    }
+    .product__inventory-bar-{{ block.id }}::before{
+      {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
+        {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+              {%- if product.selected_or_first_available_variant.inventory_quantity
+                  <= block.settings.inventory_threshold
+              -%}
+              background-color: rgb(238,148,65);
+              {%- else -%}
+              background-color: rgb(62,214,96);
+              {%- endif -%}
+            {%- endif -%}
+        {% endif %}
+      }
+    {%endfor %}
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -134,7 +163,7 @@
               </div>
             {%- when 'inventory' -%}
               <p
-                class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+                class="product__inventory product__inventory-bar-{{ block.id }} no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                 {{ block.shopify_attributes }}
                 id="Inventory-{{ section.id }}"
                 role="status"

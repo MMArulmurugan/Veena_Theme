@@ -36,7 +36,7 @@
           "type": "voucher",
           "settings": {
             "voucher_heading": "<p>Variant Specific Discount<\/p>",
-            "heading_text_color": "#fff",
+            "heading_text_color": "#ffffff",
             "voucher_background": "linear-gradient(85deg, rgba(79, 69, 174, 1) 36%, rgba(140, 32, 189, 1) 88%, rgba(149, 14, 171, 1) 99%, rgba(82, 218, 236, 1) 100%)"
           }
         },
@@ -44,7 +44,7 @@
           "type": "inventory",
           "settings": {
             "text_style": "body",
-            "inventory_threshold": 0,
+            "inventory_threshold": 100,
             "show_inventory_quantity": true
           }
         },
