@@ -4382,8 +4382,8 @@ details-disclosure > details {
 .mm-recommendations__products {
   margin-top: 15px;
 }
-.product_voucher_container{
-  display:flex;
+.product_voucher_container {
+  display: flex;
   padding: 20px 30px;
   justify-content: center;
   align-items: center;
@@ -4391,59 +4391,73 @@ details-disclosure > details {
 }
 
 /*---------------------------------------------------prodcut-voucher-------------------------------------- */
-.product_voucher_heading{
+.product_voucher_heading {
   color: #ffffff;
   font-weight: 400;
-  text-align: center;  
+  text-align: center;
 }
-.product_voucher_box{
-  display:flex;
+.product_voucher_box {
+  display: flex;
   margin-top: 4px;
 }
-.product_voucher_dotted{
+.product_voucher_dotted {
   color: #fff;
   border: 2px dashed #fff;
   padding: 10px;
   border-right: none;
 }
-.product_voucher_solid{
-  background:#fff;
-  color:#8E02C9;
+.product_voucher_solid {
+  background: #fff;
+  color: #8e02c9;
   padding: 10px;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-.product_voucher_content{
-  display:flex;
+.product_voucher_content {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.product_voucher_container{
+.product_voucher_container {
   position: relative;
 }
-.voucher-dot{
+.voucher-dot {
   height: 40px;
   width: 40px;
   border-radius: 100%;
   background: #ffffff;
-  color:#ffffff;
+  color: #ffffff;
   position: absolute;
   padding: 5px;
 }
-.voucher-dot-one{
-  top:35%;
-  left:-4%;
+.voucher-dot-one {
+  top: 35%;
+  left: -4%;
 }
-.voucher-dot-two{
-  top:35%;
+.voucher-dot-two {
+  top: 35%;
   right: -4%;
 }
 /*------------------------------------------------------------------------------------------------------------ */
 
-
-.prdouct-form-qunatity-and-atc{
-  display:flex;
+.prdouct-form-qunatity-and-atc {
+  display: flex;
+}
+.recentlyviewed__container {
+  margin-top: 20px;
+}
+.main-product-cart-title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height:normal;
+}
+.main-product-cart-price{
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height:normal;
 }
