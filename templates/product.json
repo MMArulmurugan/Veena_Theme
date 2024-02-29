@@ -92,7 +92,7 @@
         "custom_liquid_Kfxkfj": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "HEY ----> {{ product.selected_or_first_available_variant.metafields.custom.variant_shipping }}"
+            "custom_liquid": ""
           }
         }
       },
