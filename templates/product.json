@@ -88,6 +88,12 @@
           "type": "description",
           "settings": {
           }
+        },
+        "custom_liquid_Kfxkfj": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "HEY ----> {{ product.selected_or_first_available_variant.metafields.custom.variant_shipping }}"
+          }
         }
       },
       "block_order": [
@@ -102,7 +108,8 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_pKUxGH",
-        "description"
+        "description",
+        "custom_liquid_Kfxkfj"
       ],
       "settings": {
         "enable_sticky_info": true,
