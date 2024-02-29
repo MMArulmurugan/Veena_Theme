@@ -4,9 +4,25 @@
       "type": "main-404",
       "settings": {
       }
+    },
+    "arul": {
+      "type": "custom-text-grid",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "arul2": {
+      "type": "custom-text-grid",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "arul",
+    "arul2"
   ]
 }
