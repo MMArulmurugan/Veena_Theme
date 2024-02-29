@@ -512,15 +512,13 @@
               {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
               {% render 'share-button',
                 block: block,
-                share_link: share_u
+                share_link: share_url
               %}
 
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}      
-                             
                {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
-  
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
@@ -642,20 +640,7 @@
               {% render 'icon-with-text',
                 block: block
               %}
-              {%  render 'custom-usp', product: product %}
               
-              {%- unless shop.enabled_payment_types == empty -%}
-                <span class="visuallyhidden">Supported payment methods</span>
-              
-                <div class = "main-product__checkout-icons custom-border-radius">
-                    <span>Secure checkout with</span>
-                  {%- for type in shop.enabled_payment_types -%}
-                    <span>
-                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                    </span>
-                  {%- endfor -%}
-                </div>
-              {%- endunless -%}
             {%- when 'voucher' -%}
 
               <div class="product_voucher_container product_voucher_background-{{block.id}}" id = "voucherContainer">
@@ -679,7 +664,21 @@
                     background: {{block.settings.voucher_background}};
                   }  
                 </style>  
-                
+            {%- when 'offers' -%}    
+                {%  render 'custom-offers', product: product %}
+            {%- when 'payments' -%}     
+              {%- unless shop.enabled_payment_types == empty -%}
+                <span class="visuallyhidden">Supported payment methods</span>
+              
+                <div class = "main-product__checkout-icons custom-border-radius">
+                    <span>Secure checkout with</span>
+                  {%- for type in shop.enabled_payment_types -%}
+                    <span>
+                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                    </span>
+                  {%- endfor -%}
+                </div>
+              {%- endunless -%}
             {%- endcase -%}
         {%- endfor -%}
         <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -919,6 +918,16 @@
           }
           
       ]
+    },
+    {
+      "type": "offers",
+      "name": "Available Offers",
+      "limit": 1
+    },
+    {
+      "type": "payments",
+      "name": "Payments",
+      "limit": 1
     },
     {
       "type": "inventory",

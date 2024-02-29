@@ -26,9 +26,9 @@
             {%- for product in search.results -%}
               {%- if product.id == id -%}        	  
                 <div class="grid__item">
-					{% comment %} {{ product.title }} //Replace it with the product card snippet {% endcomment %}
+					        {% comment %} {{ product.title }} //Replace it with the product card snippet {% endcomment %}
                     {% render 'product-card', product: product, section_id: section.id %}
-				</div>
+				        </div>
                 {%- break -%}
               {%- endif -%}
             {%- endfor -%}

@@ -8,12 +8,6 @@
           "settings": {
           }
         },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -40,6 +34,7 @@
         },
         "voucher_YmxEwt": {
           "type": "voucher",
+          "disabled": true,
           "settings": {
             "voucher_heading": "<p>Variant Specific Discount<\/p>",
             "heading_text_color": "#ffffff",
@@ -56,6 +51,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {
           }
         },
@@ -84,15 +80,30 @@
             "heading_4": "<strong>Help center 24\/7<\/strong>"
           }
         },
+        "offers_excaeq": {
+          "type": "offers",
+          "settings": {
+          }
+        },
+        "payments_pr3wBE": {
+          "type": "payments",
+          "settings": {
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
           }
         }
       },
       "block_order": [
         "judge_me_reviews_preview_badge_beQKYG",
-        "share",
         "vendor",
         "title",
         "price",
@@ -102,7 +113,10 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_pKUxGH",
-        "description"
+        "offers_excaeq",
+        "payments_pr3wBE",
+        "description",
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -120,13 +134,10 @@
         "padding_bottom": 12
       }
     },
-    "product-recommendations": {
-      "type": "marmeto-product-recommendations",
+    "wizaah_recently_viewed_products_wXcYa9": {
+      "type": "wizaah-recently-viewed-products",
       "settings": {
-        "enable_product_recommendations": true,
-        "title": "You may also like",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Recently viewed"
       }
     },
     "custom_text_grid_7JBmwT": {
@@ -189,6 +200,15 @@
         "second_grid_span": 2
       }
     },
+    "product-recommendations": {
+      "type": "marmeto-product-recommendations",
+      "settings": {
+        "enable_product_recommendations": true,
+        "title": "You may also like",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -223,21 +243,15 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "wizaah_recently_viewed_products_wXcYa9": {
-      "type": "wizaah-recently-viewed-products",
-      "settings": {
-        "title": "Recently viewed"
-      }
     }
   },
   "order": [
     "main",
-    "product-recommendations",
+    "wizaah_recently_viewed_products_wXcYa9",
     "custom_text_grid_7JBmwT",
     "custom_media_grid_UUj478",
+    "product-recommendations",
     "related-products",
-    "1708430391dd3a97c1",
-    "wizaah_recently_viewed_products_wXcYa9"
+    "1708430391dd3a97c1"
   ]
 }
