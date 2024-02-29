@@ -75,7 +75,7 @@ wizaah.RecentlyViewedProducts = (function () {
     try {
       localStorage.setItem(
         "mmRecentlyViewedProducts",
-        JSON.stringify(items.slice(0, 8))
+        JSON.stringify(items.slice(0, 4))
       );
     } catch (error) {}
   };
