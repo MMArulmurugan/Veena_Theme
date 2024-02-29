@@ -11,10 +11,18 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "arul2": {
+      "type": "custom-text-grid",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "main",
-    "arul"
+    "arul",
+    "arul2"
   ]
 }
