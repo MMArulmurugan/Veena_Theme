@@ -4390,10 +4390,11 @@ details-disclosure > details {
   border-radius: 30px;
 }
 
-/*---------------------------------------------------prodcut-voucher------------------------------------ */
+/*---------------------------------------------------prodcut-voucher-------------------------------------- */
 .product_voucher_heading{
   color: #ffffff;
   font-weight: 400;
+  text-align: center;  
 }
 .product_voucher_box{
   display:flex;

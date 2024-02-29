@@ -8,16 +8,28 @@
       margin-top: 2rem;
     }
   }
+ .main-error-page{
+   width: 40%;
+   margin-bottom: 30px;
+   text-align:center;
+   margin:auto;
+  }
+  .main-error-button{
+    margin-top: 30px; 
+  }
+  
 </style>
 
 <div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
+ 
   <h1 class="title">
-    {{ 'templates.404.title' | t }}
+    404 Page not found
   </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
+  <p class ="main-error-page">
+    The page you were looking for does not exist. Please make sure the web address is correct.
+  </p>
+
+  <a href="{{ routes.all_products_collection_url }}" class="button main-error-button">
     {{ 'general.continue_shopping' | t }}
   </a>
 </div>
