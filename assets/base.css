@@ -4467,12 +4467,15 @@ details-disclosure > details {
 .shipping-bar {
   width: 100%;
   border-radius: 2rem;
-  background: #F2F0FF;
+  background: transparent;
   padding: 0.75rem 2rem;
   margin: 1.5rem 0 0.5rem;
+  color:white;
 }
 .cart-drawer__black {
-  color: #111314;
+  color:white;
+  display:flex;
+  align-items: center;
 }
 .shipping-bar .shipping-bar__container {
   height: 1rem;
@@ -4485,10 +4488,22 @@ details-disclosure > details {
   height: 100%;
   border-radius: 1rem;
   transition: all .75s ease-in-out;
-  background-color: #AFAFED;
+  background-color: rgb(0, 217, 100);
 }
 .shipping-bar .shipping__icon {
   position: absolute;
   transition: all .75s ease-in-out;
   transform: translate(-70%,-45%) rotate(30deg);
+}
+.shopping-bar__text{
+  font-size: 14px;
+}
+@keyframes colorChange {
+  0% { color: green; }
+  50% { color: white; }
+  100% { color: green; }
+}
+
+.shopping-bar__text strong {
+  animation: colorChange 2s infinite;
 }
