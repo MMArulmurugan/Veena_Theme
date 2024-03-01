@@ -1912,6 +1912,7 @@ details[open] > .share-button__fallback {
   padding: 1.5rem;
   margin: var(--inputs-border-width);
   transition: box-shadow var(--duration-short) ease;
+  background: transparent;
 }
 
 .field__label,
@@ -3958,6 +3959,57 @@ details-disclosure > details {
 .custom-button-secondary_color:hover:before {
   width: 100%;
 }
+.custom-button-secondary_color-atc {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 10px 5px;
+  letter-spacing: 0.3px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  min-height: 44px;
+  width: 100%;
+  margin-top:auto;
+}
+.custom-button-secondary_color-atc:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.custom-button-secondary_color-atc:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #d03c3f;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.custom-button-secondary_color-atc:hover {
+  color: #fff;
+}
+.custom-button-secondary_color-atc:hover:before {
+  width: 100%;
+}
+
 
 .custom-button-primary-transparent {
   display: inline-block;
@@ -4598,4 +4650,9 @@ details-disclosure > details {
 }
 .cart-caption-size{
   font-size: 16px;
+}
+.custom-button-cart-atc{
+
+  height: 45px;
+  padding: 0;
 }

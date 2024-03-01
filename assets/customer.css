@@ -1,14 +1,15 @@
 .customer:not(.account):not(.order) {
   margin: 0 auto;
-  max-width: 33.4rem;
+  /* max-width: 33.4rem; */
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   text-align: center;
+  max-width: 50%;
 }
 
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
-    max-width: 47.8rem;
+    /* max-width: 47.8rem; */
   }
 }
 
@@ -210,7 +211,7 @@
 /* works around colspan phantom border issues */
 .customer thead::after,
 .customer tfoot::before {
-  content: ' ';
+  content: " ";
   height: 0.1rem;
   width: 100%;
   display: block;
@@ -317,7 +318,7 @@
 }
 
 .customer .pagination li [aria-current]::after {
-  content: '';
+  content: "";
   display: block;
   width: 2rem;
   height: 0.01rem;
@@ -335,7 +336,7 @@
   width: fit-content;
 }
 
-.login a[href='#recover'] {
+.login a[href="#recover"] {
   margin-left: 0;
   margin-right: 0;
 }
@@ -385,15 +386,18 @@
   margin-bottom: 0;
 }
 
-.activate button[name='decline'],
+.activate button[name="decline"],
 .addresses li > button,
 .addresses form button[type] {
-  background-color: rgba(var(--color-background), var(--alpha-button-background));
+  background-color: rgba(
+    var(--color-background),
+    var(--alpha-button-background)
+  );
   color: rgb(var(--color-link));
 }
 
 @media only screen and (min-width: 750px) {
-  .activate button[name='decline'] {
+  .activate button[name="decline"] {
     margin-top: inherit;
     margin-left: 1rem;
   }
@@ -673,8 +677,8 @@
   margin-right: 1rem;
 }
 
-label[for='AddressCountryNew'],
-label[for='AddressProvinceNew'] {
+label[for="AddressCountryNew"],
+label[for="AddressProvinceNew"] {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 0.6rem;
@@ -700,11 +704,11 @@ li[data-address] {
   margin-top: 5rem;
 }
 
-.addresses [aria-expanded='false'] ~ div[id] {
+.addresses [aria-expanded="false"] ~ div[id] {
   display: none;
 }
 
-.addresses [aria-expanded='true'] ~ div[id] {
+.addresses [aria-expanded="true"] ~ div[id] {
   display: block;
 }
 
@@ -728,7 +732,7 @@ li[data-address] > h2 {
   margin-bottom: 0;
 }
 
-.addresses input[type='checkbox'] {
+.addresses input[type="checkbox"] {
   margin-top: 2rem;
   margin-left: 0;
 }
@@ -752,4 +756,107 @@ li[data-address] > h2 {
 .addresses form > div:nth-of-type(7),
 .addresses form > div:nth-of-type(7) + div[id] {
   margin-top: 1.5rem;
+}
+
+.login-main-form {
+  width: 100%;
+}
+
+.login-form-wrapper {
+  background: rgb(245, 245, 245);
+  padding: 30px 120px;
+  border-radius: 16px;
+  width: 100%;
+  margin: auto;
+}
+.customer-login-button {
+  width: 100%;
+}
+.customer-login-button:hover {
+  background-color: #d03c3f;
+}
+.pwd_or_email-wrapper {
+  width: 100%;
+}
+.customer-create-ac-button a {
+  color: black;
+  text-decoration: none;
+}
+
+.customer-create-ac-button {
+  display: inline-block;
+  border-radius: 10rem;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  border: 1px solid black !important;
+  text-decoration: none;
+  padding: 5px 15px 5px 15px;
+  letter-spacing: 0.3px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  width: 100%;
+  background: transparent !important;
+  color: black;
+}
+.customer-create-ac-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.customer-create-ac-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #d03c3f;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+  color: white;
+}
+.customer-create-ac-button:hover {
+  color: white;
+}
+.customer-create-ac-button:hover:before {
+  width: 100%;
+}
+p.email_title {
+  display: flex;
+  align-items: center;
+}
+
+p.email_title:before {
+  margin: 0 15px 0 0;
+  content: "";
+  width: 10%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 50%;
+}
+
+p.email_title:after {
+  margin: 0 0 0 15px;
+  content: "";
+  width: 10%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 50%;
+}
+.forgot-password a{
+  text-decoration: none;
+}
+.forgot-password:hover a{
+  color:#d03c3f;
 }
