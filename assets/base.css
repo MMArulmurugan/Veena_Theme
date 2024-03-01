@@ -4574,3 +4574,28 @@ details-disclosure > details {
   display: flex;
   justify-content: center;
 }
+.cart-item-background{
+  background:rgb(245, 245, 245);
+  border-radius: 16px;
+  padding: 20px;
+}
+.cart-page-title{
+  font-size: 24px;
+  font-style :normal;
+  font-weight: 600;
+  height :31.1875px;
+  letter-spacing :0.3px;
+  line-height: 31.2px;
+}
+.cart__note-label{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  height: 18px;
+  letter-spacing: 0.3px;
+  line-height: 16px;
+  color:#000000;
+}
+.cart-caption-size{
+  font-size: 16px;
+}

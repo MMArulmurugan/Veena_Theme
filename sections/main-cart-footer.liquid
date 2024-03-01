@@ -36,8 +36,14 @@
           >{{ cart.note }}</textarea>
         </cart-note>
       {%- endif -%}
+       
+      <cart-note class="cart__note field">
+        <label for="Cart-note" class = "cart__note-label">Order special instructions</label>
+        <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="Order special instructions"></textarea>
+      </cart-note>
 
       <div class="cart__blocks">
+        
         {% for block in section.blocks %}
           {%- case block.type -%}
             {%- when '@app' -%}
@@ -73,6 +79,7 @@
                   {%- else -%}
                     {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
                   {%- endif -%}
+                  <div>{%  render 'free-shipping'  %}</div>
                 </small>
               </div>
             {%- else -%}
@@ -86,7 +93,7 @@
                 <button
                   type="submit"
                   id="checkout"
-                  class="cart__checkout-button button"
+                  class="cart__checkout-button button custom-button-secondary_color"
                   name="checkout"
                   {% if cart == empty %}
                     disabled
@@ -96,9 +103,9 @@
                   {{ 'sections.cart.checkout' | t }}
                 </button>
               </div>
-
+              
               {%- if additional_checkout_buttons -%}
-                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons  ">
                   {{ content_for_additional_checkout_buttons }}
                 </div>
               {%- endif -%}
