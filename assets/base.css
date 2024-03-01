@@ -2290,8 +2290,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .cart-count-bubble {
   position: absolute;
-  background-color: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
+  background-color: #d03c3f;;
+  color: white;
   height: 1.7rem;
   width: 1.7rem;
   border-radius: 100%;
@@ -4506,4 +4506,71 @@ details-disclosure > details {
 
 .shopping-bar__text strong {
   animation: colorChange 2s infinite;
+}
+
+.cta__wrapper{
+  display:flex;
+  justify-content: space-around;
+}
+.cart__ctas{
+  flex-grow:1;
+  margin-right:5px;
+}
+
+
+.cart-drawer-remove-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px ;
+  letter-spacing: 0.3px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+}
+.cart-drawer-remove-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d03c3f;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.cart-drawer-remove-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.cart-drawer-remove-button:hover {
+  color: #fff;
+}
+.cart-drawer-remove-button:hover:before {
+  width: 100%;
+}
+.cart-drawer-payment{
+  background:rgba(0, 0, 0, 0.04);
+  padding: 15px 0;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }

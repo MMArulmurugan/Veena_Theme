@@ -299,10 +299,11 @@
                               <cart-remove-button
                                 id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
+                                class = "cart-drawer-remove-button"
                               >
                                 <button
                                   type="button"
-                                  class="button button--tertiary cart-remove-button"
+                                  class="button button--tertiary cart-remove-button "
                                   aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                                   data-variant-id="{{ item.variant.id }}"
                                 >
@@ -481,32 +482,44 @@
             {%- endif -%}
           </small>
         </div>
-        {% assign value = cart.total_price | times : 100 | divided_by : 500 | money_without_trailing_zeros %}
-        
-        {{ value }}
 
         <!-- CTAs -->
 
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
-          <noscript>
-            <button type="submit" class="cart__update-button button button--secondary" form="CartDrawer-Form">
-              {{ 'sections.cart.update' | t }}
-            </button>
-          </noscript>
+        <div class="cta__wrapper">
+          <div class = "cart__ctas" >
+             <a href="/cart" class="full-unstyled-link custom-button-secondary"style="width: 100%;" >View Cart</a>
+          </div>
+          
+        
+          <div class="cart__ctas" {{ block.shopify_attributes }}>
+            <noscript>
+              <button type="submit" class="cart__update-button button button--secondary" form="CartDrawer-Form">
+                {{ 'sections.cart.update' | t }}
+              </button>
+            </noscript>
 
-          <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-          >
-            {{ 'sections.cart.checkout' | t }}
-          </button>
+            <button
+              type="submit"
+              id="CartDrawer-Checkout"
+              class="cart__checkout-button button custom-button-secondary"
+              name="checkout"
+              form="CartDrawer-Form"
+              {% if cart == empty %}
+                disabled
+              {% endif %}
+            >
+              {{ 'sections.cart.checkout' | t }}
+            </button>
+          </div>
         </div>
+
+      </div>
+      <div class= "cart-drawer-payment">
+        {%- for type in shop.enabled_payment_types -%}
+          <span>
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          </span>
+        {%- endfor -%}
       </div>
     </div>
   </div>
