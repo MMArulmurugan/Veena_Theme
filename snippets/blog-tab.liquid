@@ -23,19 +23,18 @@
     }
   </style>
 
-{% assign blog_tab = blog %}
 
-<ul class="blog-tab-list">
-    <li class="blocg-tab-button custom-button-secondary">
-        <a class="blog-tab-link" href="{{ blog.url }}">All Posts</a>
+  <ul class="blog-tab-list">
+    <li class="blocg-tab-button  {% if current_tags == blank %}custom-button-secondary_color {% else %}custom-button-secondary{% endif %}">
+      <a class="blog-tab-link" href="{{ blog.url }}">All Posts</a>
     </li>
-  {% for tag in blog_tab.tags %}
-    {% if tag contains 'category' %}
-      {% assign badge_text = tag | split: '_' | last %}
-        <li class="blog-tab-button custom-button-secondary">
-          <a class="blog-tab-link" href="{{ blog_tab.url }}/tagged/{{ tag | handleize }}">{{ badge_text }}</a>
-        </li>
-    {% endif %}
-  {% endfor %}
+    {% for tag in blog.all_tags %}
+      {% if tag contains 'category' %}
+        {% assign badge_text = tag | split: '_' | last %}
+          <li class="blocg-tab-button {% if current_tags contains tag %}custom-button-secondary_color{% else %}custom-button-secondary {% endif %}">
+            <a class="blog-tab-link" href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ badge_text }}</a>
+          </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
   
-</ul>

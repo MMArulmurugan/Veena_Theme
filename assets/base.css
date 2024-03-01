@@ -4496,7 +4496,7 @@ details-disclosure > details {
   transform: translate(-70%,-45%) rotate(30deg);
 }
 .shopping-bar__text{
-  font-size: 14px;
+  font-size: 16px;
 }
 @keyframes colorChange {
   0% { color: green; }

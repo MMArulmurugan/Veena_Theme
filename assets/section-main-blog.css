@@ -76,6 +76,24 @@
   display: inline-block;
   margin-right: 10px; 
   text-align:center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px 15px 5px 15px;
+  letter-spacing: 0.3px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  min-height: 44px;
+  min-width: 122px;
 }
 
 .blog-tab-link {
@@ -84,4 +102,7 @@
   color: #fff; 
   text-decoration: none;
   border-radius: 5px;
+}
+.is-active{
+  background: black;
 }
