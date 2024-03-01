@@ -45,7 +45,7 @@
      {% endif %} 
       
       <div class = "product-card_badge-container position-absolute">
-        {% for tag in product.tags %}
+          {% for tag in product.tags %}
             {% if tag contains 'New' %}
               {% assign badge_text = tag | split: '_' | last %}
             {% endif %}

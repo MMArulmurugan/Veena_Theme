@@ -1,0 +1,41 @@
+<style>
+    .blog-tab-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display:flex;
+      justify-content:center;
+      margin-top: 10px;
+    }
+  
+    .blocg-tab-button {
+      display: inline-block;
+      margin-right: 10px; 
+      text-align:center;
+    }
+  
+    .blog-tab-link {
+      display: block;
+      padding: 10px;
+      color: #fff; 
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+
+{% assign blog_tab = blog %}
+
+<ul class="blog-tab-list">
+    <li class="blocg-tab-button custom-button-secondary">
+        <a class="blog-tab-link" href="{{ blog.url }}">All Posts</a>
+    </li>
+  {% for tag in blog_tab.tags %}
+    {% if tag contains 'category' %}
+      {% assign badge_text = tag | split: '_' | last %}
+        <li class="blog-tab-button custom-button-secondary">
+          <a class="blog-tab-link" href="{{ blog_tab.url }}/tagged/{{ tag | handleize }}">{{ badge_text }}</a>
+        </li>
+    {% endif %}
+  {% endfor %}
+  
+</ul>

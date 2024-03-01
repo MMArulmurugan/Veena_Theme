@@ -16,6 +16,39 @@
   }
 {%- endstyle -%}
 
+<div class="page-width">{% render 'breadcrumbs' %}</div>
+
+<ul class="blog-tab-list" id="blogTabList">
+  <li class="blocg-tab-button custom-button-secondary">
+    <a class="blog-tab-link" href="{{ blog.url }}">All Posts</a>
+  </li>
+  {% for tag in blog.all_tags %}
+    {% if tag contains 'category' %}
+      {% assign badge_text = tag | split: '_' | last %}
+        <li class="blocg-tab-button custom-button-secondary">
+          <a class="blog-tab-link" href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ badge_text }}</a>
+        </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the current URL
+  var currentUrl = window.location.href;
+
+  // Find the corresponding tab link and apply the black background color
+  var tabLinks = document.querySelectorAll("#blogTabList a");
+  tabLinks.forEach(function(link) {
+    if (link.href === currentUrl) {
+      link.style.color = "black";
+      link.style.fontWeight = "600";
+    }
+  });
+});
+</script>
+
+{% comment %} {% render 'blog-tab', blog: blog %} {% endcomment %}
+
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">

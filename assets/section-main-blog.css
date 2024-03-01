@@ -59,3 +59,29 @@
     padding-bottom: 82.5rem;
   }
 }
+
+
+
+
+.blog-tab-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  justify-content:center;
+  margin-top: 10px;
+}
+
+.blocg-tab-button {
+  display: inline-block;
+  margin-right: 10px; 
+  text-align:center;
+}
+
+.blog-tab-link {
+  display: block;
+  padding: 10px;
+  color: #fff; 
+  text-decoration: none;
+  border-radius: 5px;
+}
