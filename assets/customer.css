@@ -26,7 +26,7 @@
 
 .customer button {
   margin: 4rem 0 1.5rem;
-  width : 100%;
+  width: 100%;
 }
 
 .customer ul {
@@ -56,7 +56,7 @@
 }
 
 .customer .field {
-  margin:  0 0 2rem 0;
+  margin: 0 0 2rem 0;
 }
 
 .customer .field:first-of-type {
@@ -118,7 +118,7 @@
 .customer thead th {
   font-size: 1.2rem;
   letter-spacing: 0.07rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .customer tbody td:first-of-type {
@@ -852,18 +852,18 @@ p.email_title:after {
   background: rgba(0, 0, 0, 0.2);
   width: 50%;
 }
-.forgot-password a{
+.forgot-password a {
   text-decoration: none;
-  font-size:16px;
+  font-size: 16px;
 }
-.forgot-password a:hover{
-  color:#d03c3f;
+.forgot-password a:hover {
+  color: #d03c3f;
 }
-.input-labels-text{
-  display:flex;
+.input-labels-text {
+  display: flex;
   font-weight: 600;
 }
-.customer__wrapper{
+.customer__wrapper {
   max-width: 60%;
   margin: 0 auto;
   padding: 30px 90px 30px 90px;
@@ -920,34 +920,105 @@ p.email_title:after {
 .customer-create-black-button:hover:before {
   width: 100%;
 }
-.main-account-container{
-  display:flex;
+.main-account-container {
+  display: flex;
   width: 100%;
 }
-.main-account-sidebar{
+.main-account-sidebar {
   width: 25%;
 }
-.main-account-sidebar-details{
+.main-account-sidebar-details {
   width: 75%;
   padding: 22px 28px 33px;
 }
 
-@media screen and (min-width: 1024px){}
-.account-page-subtitle-block {
-    padding: 10px 24px;
-    margin-bottom: 24px;
+@media screen and (min-width: 1024px) {
 }
-.account-page-subtitle-block{
+.account-page-subtitle-block {
+  padding: 10px 24px;
+  margin-bottom: 24px;
+}
+.account-page-subtitle-block {
   border-radius: 8px;
   border: 1px solid #d0bbba;
   padding: 10px 24px;
   margin-bottom: 24px;
 }
 
-.account-page-account-title{
+.account-page-account-title {
   padding-bottom: 18px;
 }
-.account-customer-fullname{
+.account-customer-fullname {
   padding-bottom: 14px;
   padding-top: 18px;
+}
+
+/*--------------------------------------------orders-page----------------------------------*/
+
+.main-orders-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+}
+.account-page-subtitle-order {
+  padding-top: 38px;
+  padding-bottom: 28px;
+}
+.main-orders-title {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.main-orders-table-header {
+  background: #d03c3f;
+  color: white;
+}
+/*--------------------------------------------addressess-page----------------------------------*/
+.customer-addressess_heading {
+  text-align: left;
+}
+.customer-addressess_add-button {
+  width: 35%;
+}
+.customer-addressess_add-button-text {
+  text-transform: uppercase;
+}
+.customer-addressess_address-list {
+  display: flex;
+}
+.customer-addressess_address-list li {
+  border: 1px solid #d03c3f;
+  margin-right: 10px;
+  width: 70.64%;
+  background: #fff;
+  padding: 20px 33px 20px 32px;
+  margin-top: 36px;
+  order: -1;
+  border-radius: 8px;
+  text-align: left;
+  display:flex;
+  flex-direction: column;
+}
+.customer-addressess_address-cart-button {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.customer-addressess_defult {
+  text-align: left !important;
+}
+.customer-addressess_address {
+ flex-grow:1;
+}
+.customer-addressess_edit-button{
+  background:#d03c3f !important;
+}
+.customer-addressess_container{
+  background: #fcfcfc;
+  padding: 28px 25px 25px;
+  border-radius: 16px;
 }

@@ -27,10 +27,7 @@
      
         <h1 class="account-page-title account-page-account-title">
           <span class="account-page-title-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 14 18" fill="none" class="svg-account-logo">
-              <path d="M7.13832 7.73089C9.35049 7.73089 11.1438 5.9983 11.1438 3.86105C11.1438 1.7238 9.35049 -0.00878906 7.13832 -0.00878906C4.92614 -0.00878906 3.13281 1.7238 3.13281 3.86105C3.13281 5.9983 4.92614 7.73089 7.13832 7.73089Z" fill="black"></path>
-              <path d="M7.13851 9.44238C3.48834 9.44238 0.529297 12.2157 0.529297 15.637C0.529297 16.4923 1.22266 17.1856 2.07796 17.1856H12.1991C13.0543 17.1856 13.7478 16.4923 13.7478 15.637C13.7478 12.2157 10.7887 9.44238 7.13851 9.44238Z" fill="black"></path>
-            </svg>
+            {% render 'custom-icon-account-page', icon-name : 'account-large' %}
           </span>
           My Account
         </h1>
@@ -40,12 +37,12 @@
         {% comment %} <h2> {{ customer.addresses | json }}</h2> {% endcomment %}
         
         <div class = "account-page-subtitle-block">
-           <h3>{{ customer.email | capitalize }}</h3>
+           <p>{{ customer.email | capitalize }}</p>
         </div>
 
         <div class = "account-page-subtitle-block">
-          <h3>{{ customer.email }}</h3>
-          <h3>{{ customer.country_name }}  {{ customer.default_address | format_address }}</h3>
+          <p>{{ customer.email }}</p>
+          <p>{{ customer.country_name }}  {{ customer.default_address | format_address }}</p>
        </div>
       
         <div class="">

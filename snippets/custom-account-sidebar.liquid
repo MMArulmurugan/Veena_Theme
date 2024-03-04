@@ -22,42 +22,42 @@
 <div class = "sidebar-wrapper">
     <a href = "/account" class = "button custom-button-secondary button-sidebar">
         <span>
-            {% render 'custom-icon-account' %}
+            {% render 'custom-icon-account-page', icon-name : 'account' %}
         </span>
         <span class = "sidebar-heading">Account Details</span>
     </a>
 
     <a href = "/pages/orders" class = "button custom-button-secondary button-sidebar">
         <span>
-            {% render 'custom-icon-orders' %}
+            {% render 'custom-icon-account-page', icon-name : 'orders' %}
         </span>
         <span class = "sidebar-heading">My Orders</span>
     </a>
 
     <a href = "/account/addresses" class = "button custom-button-secondary button-sidebar">
         <span>
-            {% render 'custom-icon-address' %}
+            {% render 'custom-icon-account-page', icon-name : 'address' %}
         </span>
         <span class = "sidebar-heading">View Address</span>
     </a>
 
     <a href = "#" class = "button custom-button-secondary button-sidebar">
         <span>
-            {%  render 'custom-icon-whishlist' %}
+            {% render 'custom-icon-account-page', icon-name : 'wishlist' %}
         </span>
         <span class = "sidebar-heading">Wishlist</span>
     </a>
 
     <a href = "#" class = "button custom-button-secondary button-sidebar">
         <span>
-            {%  render 'custom-icon-help' %}
+            {% render 'custom-icon-account-page', icon-name : 'need-help' %}
         </span>
         <span class = "sidebar-heading">Need Help?</span>
     </a>
 
     <a href = "#" class = "button custom-button-secondary button-sidebar">
         <span>
-            {%  render 'custom-icon-signout' %}
+            {% render 'custom-icon-account-page', icon-name : 'signout' %}
         </span>
         <span class = "sidebar-heading">Sign Out</span>
     </a>
