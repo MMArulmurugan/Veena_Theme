@@ -45,7 +45,7 @@
 
         <div class = "account-page-subtitle-block">
           <h3>{{ customer.email }}</h3>
-          <h3>{{ customer.country_name }}</h3>
+          <h3>{{ customer.country_name }}  {{ customer.default_address | format_address }}</h3>
        </div>
       
         <div class="">
@@ -68,7 +68,7 @@
 
 </div>
 
-<div class="customer account section-{{ section.id }}-padding">
+{% comment %} <div class="customer account section-{{ section.id }}-padding">
   <div>
     <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_logout_url }}">
@@ -202,7 +202,7 @@
       </a>
     </div>
   </div>
-</div> 
+</div>  {% endcomment %}
 
 {% schema %}
 {
