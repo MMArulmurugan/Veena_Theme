@@ -14,6 +14,60 @@
   }
 {%- endstyle -%}
 
+<div class="page-width "> {% render 'breadcrumbs' %} </div>
+
+<div class="page-width main-account-container section-{{ section.id }}-padding"> 
+
+   <div class = "main-account-sidebar">
+      {% render 'custom-account-sidebar' %}
+   </div>
+
+
+   <div class = "main-account-sidebar-details">
+     
+        <h1 class="account-page-title account-page-account-title">
+          <span class="account-page-title-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 14 18" fill="none" class="svg-account-logo">
+              <path d="M7.13832 7.73089C9.35049 7.73089 11.1438 5.9983 11.1438 3.86105C11.1438 1.7238 9.35049 -0.00878906 7.13832 -0.00878906C4.92614 -0.00878906 3.13281 1.7238 3.13281 3.86105C3.13281 5.9983 4.92614 7.73089 7.13832 7.73089Z" fill="black"></path>
+              <path d="M7.13851 9.44238C3.48834 9.44238 0.529297 12.2157 0.529297 15.637C0.529297 16.4923 1.22266 17.1856 2.07796 17.1856H12.1991C13.0543 17.1856 13.7478 16.4923 13.7478 15.637C13.7478 12.2157 10.7887 9.44238 7.13851 9.44238Z" fill="black"></path>
+            </svg>
+          </span>
+          My Account
+        </h1>
+        
+        <h2 class = "account-customer-fullname">{{ customer.first_name | upcase }} {{ customer.last_name | upcase }}</h2>
+
+        {% comment %} <h2> {{ customer.addresses | json }}</h2> {% endcomment %}
+        
+        <div class = "account-page-subtitle-block">
+           <h3>{{ customer.email | capitalize }}</h3>
+        </div>
+
+        <div class = "account-page-subtitle-block">
+          <h3>{{ customer.email }}</h3>
+          <h3>{{ customer.country_name }}</h3>
+       </div>
+      
+        <div class="">
+          <a href="">
+          <picture class="">
+            <source media="(max-width: 749px)" srcset="//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=375 375w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=550 550w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=750 750w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=1100 1100w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735 1372w" sizes="100vw">
+            
+            <source media="(min-width: 750px)" srcset="//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=375 375w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=550 550w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=750 750w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1100 1100w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1500 1500w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1780 1780w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=2000 2000w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=3000 3000w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=3840 3840w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693 4000w" sizes="100vw">
+            
+            <img src="//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1500" loading="lazy" width="4000" height="1400" alt="">
+          </picture>
+            
+          </a>
+        </div>
+
+
+
+     </div>
+
+
+</div>
+
 <div class="customer account section-{{ section.id }}-padding">
   <div>
     <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
@@ -148,7 +202,7 @@
       </a>
     </div>
   </div>
-</div>
+</div> 
 
 {% schema %}
 {

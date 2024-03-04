@@ -920,3 +920,34 @@ p.email_title:after {
 .customer-create-black-button:hover:before {
   width: 100%;
 }
+.main-account-container{
+  display:flex;
+  width: 100%;
+}
+.main-account-sidebar{
+  width: 25%;
+}
+.main-account-sidebar-details{
+  width: 75%;
+  padding: 22px 28px 33px;
+}
+
+@media screen and (min-width: 1024px){}
+.account-page-subtitle-block {
+    padding: 10px 24px;
+    margin-bottom: 24px;
+}
+.account-page-subtitle-block{
+  border-radius: 8px;
+  border: 1px solid #d0bbba;
+  padding: 10px 24px;
+  margin-bottom: 24px;
+}
+
+.account-page-account-title{
+  padding-bottom: 18px;
+}
+.account-customer-fullname{
+  padding-bottom: 14px;
+  padding-top: 18px;
+}

@@ -62,24 +62,37 @@
                     </div>
                 </div>
                 <style>
-                    .custom-media-grid__text-alignment-{{block.id}}{
-                        text-align: {{ block.settings.text_alignment }};
+                  .custom-media-grid__text-alignment-{{block.id}} {
+                    text-align: {{ block.settings.text_alignment }};
+                  }
+              
+                  {% if forloop.index <= 2 %}
+                    .custom-media-grid__subheading_color-{{block.id}} {
+                      color: white;
                     }
-                    .custom-media-grid__subheading_color-{{block.id}}{
-                        color: {{block.settings.subheading_color}};
+                    .custom-media-grid__heading-text-{{block.id}} {
+                      color: white;
                     }
-                    .custom-media-grid__heading-text-{{block.id}}{
-                    color: {{block.settings.heading_text_color}};
+                    .custom-media-grid__description_text_color-{{block.id}} {
+                      color: white;
                     }
-                    .custom-media-grid__description_text_color-{{block.id}}{
-                        color: {{block.settings.description_text_color}};
+                  {% else %}
+                    .custom-media-grid__subheading_color-{{block.id}} {
+                      color: {{ block.settings.subheading_color }};
                     }
-                    @media only screen and (max-width: 750px) {
-                        .custom-media-grid__text-alignment-{{block.id}}{
-                            text-align: {{ block.settings.text_alignment_mobile }};
-                        }
+                    .custom-media-grid__heading-text-{{block.id}} {
+                      color: {{ block.settings.heading_text_color }};
                     }
-                    
+                    .custom-media-grid__description_text_color-{{block.id}} {
+                      color: {{ block.settings.description_text_color }};
+                    }
+                  {% endif %}
+              
+                  @media only screen and (max-width: 750px) {
+                    .custom-media-grid__text-alignment-{{block.id}} {
+                      text-align: {{ block.settings.text_alignment_mobile }};
+                    }
+                  }
                 </style> 
             {% else %}
                     <div class="media media--landscape custom-border-radius">
@@ -211,7 +224,7 @@
           "type": "text",
           "id": "column_span_mobile",
           "label": "Column Span Mobile",
-          "default": "1"
+          "default": "2"
         },
         {
             "type": "select",
