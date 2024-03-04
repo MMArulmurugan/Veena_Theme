@@ -977,6 +977,46 @@ p.email_title:after {
   background: #d03c3f;
   color: white;
 }
+/*--------------------------------------------orders-page-details----------------------------------*/
+.customer-orders_container {
+  background: #fcfcfc;
+  padding: 28px 25px 25px;
+  border-radius: 16px;
+}
+.customer-details_header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+.customer-details_header a {
+  width: 15%;
+}
+.customer-details_heading{
+  width: 65%;
+  text-align: center;
+}
+.order-address-details-card{
+  border: 1px solid #d03c3f;
+  background: #fff;
+  padding: 20px 33px 20px 32px;
+  margin-top: 36px;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.order-view-button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.order-view-button a{
+  text-decoration: none;
+  margin-left:auto;
+}
 /*--------------------------------------------addressess-page----------------------------------*/
 .customer-addressess_heading {
   text-align: left;
@@ -987,20 +1027,16 @@ p.email_title:after {
 .customer-addressess_add-button-text {
   text-transform: uppercase;
 }
-.customer-addressess_address-list {
-  display: flex;
-}
+
 .customer-addressess_address-list li {
   border: 1px solid #d03c3f;
-  margin-right: 10px;
-  width: 70.64%;
   background: #fff;
   padding: 20px 33px 20px 32px;
   margin-top: 36px;
   order: -1;
   border-radius: 8px;
   text-align: left;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 .customer-addressess_address-cart-button {
@@ -1012,12 +1048,12 @@ p.email_title:after {
   text-align: left !important;
 }
 .customer-addressess_address {
- flex-grow:1;
+  flex-grow: 1;
 }
-.customer-addressess_edit-button{
-  background:#d03c3f !important;
+.customer-addressess_edit-button {
+  background: #d03c3f !important;
 }
-.customer-addressess_container{
+.customer-addressess_container {
   background: #fcfcfc;
   padding: 28px 25px 25px;
   border-radius: 16px;

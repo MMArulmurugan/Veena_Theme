@@ -49,6 +49,7 @@
                     <th id="ColumnFulfillment" scope="col" role="columnheader">
                        Action
                     </th>
+                    
                    
                   </tr>
                 </thead>
@@ -87,8 +88,18 @@
                         headers="RowOrder ColumnFulfillment"
                         role="cell"
                         data-label="{{ 'customer.orders.fulfillment_status' | t }}"
+                        class = "order-view-button"
                       >
-                        {{ order.fulfillment_status_label }}
+                        <div>{{ order.fulfillment_status_label }}</div>
+                        <span class ="order-view-button">
+                            <a
+                            href="{{ order.customer_url }}"
+                            aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
+                             class ="button custom-button-primary-transparent "
+                            >
+                            view
+                            </a>
+                        </span>
                       </td>
                       
                     </tr>

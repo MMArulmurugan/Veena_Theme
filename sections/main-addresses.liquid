@@ -179,9 +179,9 @@
           </div>
         </div>
 
-        <ul role="list" class ="customer-addressess_address-list">
+        <ul role="list" class ="customer-addressess_address-list grid grid--2-col grid--2-col-desktop">
           {%- for address in customer.addresses -%}
-            <li data-address>
+            <li class = "grid__item" data-address >
               {%- if address == customer.default_address -%}
                 <h2 class = "customer-addressess_defult">{{ 'customer.addresses.default' | t }}</h2>
               {%- endif -%}

@@ -4663,3 +4663,9 @@ details-disclosure > details {
   font-style: normal;
   font-weight: 600;
 }
+.anchor-text{
+  text-decoration: none !important;
+}
+.anchor-text:hover{
+  color:#d03c3f;
+}
