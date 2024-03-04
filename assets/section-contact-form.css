@@ -32,8 +32,31 @@
 
 @media screen and (min-width: 750px) {
   .contact__fields {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2rem;
+    grid-column-gap: 2rem; */
   }
+}
+
+
+.footer--social.footer__column {
+  display: flex;
+  text-align: center;
+  justify-content: start;
+}
+.footer__column {
+  width: 100%;
+}
+.list-social__link {
+  align-items: center;
+  display: flex;
+  padding-right: 1.1rem;
+  color: rgb(var(--color-foreground));
+}
+
+.field__label span{
+  color: #d03c3f;
+}
+.mandatory {
+  color: #d03c3f;
 }

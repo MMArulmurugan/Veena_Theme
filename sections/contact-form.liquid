@@ -15,125 +15,186 @@
 {%- endstyle -%}
 
 
+<div class = "page-width section-{{ section.id }}-padding">
+  <div class = "grid grid--2-col-desktop grid--1-col">
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {% render 'icon-success' %}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {% render 'icon-error' %}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
-        </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
-      {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
-        </div>
-        <div class="field field--with-error">
-          <input
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            class="field__input"
-            name="contact[email]"
-            spellcheck="false"
-            autocapitalize="off"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            aria-required="true"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
-            {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-          >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                {%- render 'icon-error' -%}
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
+    <div class = "grid__item">
+      
+      <div class="color-{{ section.settings.color_scheme }} gradient">
+        <div class="contact page-width page-width--narrow ">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- else -%}
+            <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
           {%- endif -%}
+          {%- liquid
+            assign contact_form_class = 'isolate'
+            if settings.animations_reveal_on_scroll
+              assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+            endif
+          -%}
+          {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+            {%- if form.posted_successfully? -%}
+              <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+                {% render 'icon-success' %}
+                {{ 'templates.contact.form.post_success' | t }}
+              </h2>
+            {%- elsif form.errors -%}
+              <div class="form__message">
+                <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                  {% render 'icon-error' %}
+                  {{ 'templates.contact.form.error_heading' | t }}
+                </h2>
+              </div>
+              <ul class="form-status-list caption-large" role="list">
+                <li>
+                  <a href="#ContactForm-email" class="link">
+                    {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}
+                  </a>
+                </li>
+              </ul>
+            {%- endif -%}
+            <div class="contact__fields">
+              <div class="field">
+                <input
+                  class="field__input"
+                  autocomplete="name"
+                  type="text"
+                  id="ContactForm-name"
+                  name="contact[{{ 'templates.contact.form.name' | t }}]"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  placeholder="{{ 'templates.contact.form.name' | t }}"
+                >
+                <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+              </div>
+              <div class="field field--with-error">
+                <input
+                  autocomplete="email"
+                  type="email"
+                  id="ContactForm-email"
+                  class="field__input"
+                  name="contact[email]"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  aria-required="true"
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="ContactForm-email-error"
+                  {% endif %}
+                  placeholder="{{ 'templates.contact.form.email' | t }}"
+                >
+                <label class="field__label" for="ContactForm-email">
+                  {{- 'templates.contact.form.email' | t }}
+                  <span aria-hidden="true">*</span></label
+                >
+                {%- if form.errors contains 'email' -%}
+                  <small class="contact__field-error" id="ContactForm-email-error">
+                    <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                    <span class="form__message">
+                      {%- render 'icon-error' -%}
+                      {{- form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email -}}
+                    </span>
+                  </small>
+                {%- endif -%}
+              </div>
+            </div>
+            <div class="field">
+              <input
+                type="tel"
+                id="ContactForm-phone"
+                class="field__input"
+                autocomplete="tel"
+                name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                pattern="[0-9\-]*"
+                value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                placeholder="{{ 'templates.contact.form.phone' | t }}"
+              >
+              <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+            </div>
+            <div class="field">
+              <textarea
+                rows="10"
+                id="ContactForm-body"
+                class="text-area field__input"
+                name="contact[{{ 'templates.contact.form.comment' | t }}]"
+                placeholder="{{ 'templates.contact.form.comment' | t }}"
+              >
+                {{- form.body -}}
+              </textarea>
+              <label class="form__label field__label" for="ContactForm-body">
+                {{- 'templates.contact.form.comment' | t -}}
+              </label>
+            </div>
+            <div class="contact__button">
+              <button type="submit" class="button custom-button-secondary">
+                {{ 'templates.contact.form.send' | t }}
+              </button>
+            </div>
+          {%- endform -%}
         </div>
       </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+    
+    </div>
+   
+     <div class="grid__item contact-us-details">
+        <div class="text-with-icon_card__info">
+          <div class="contacttxtmain"><h2>Got Questions?</h2><p>If you’d like to learn more about us and our products, contact us!</p></div>
+
+          <div class="contact-ihead"><h2>Contact Info</h2><div><div class="contact-info">
+                  <div><p>123 456 789</p><p>demo@demo.com</p></div>
+                </div></div>
+          </div>
+          <div class="contactfollowus"><h2>Follow us</h2>
+              <div class="footer__column footer--social"><ul class="list-unstyled list-social"><li class="list-social__item">
+            <a href="#" class="list-social__link ">
+              <span><svg class="icon icon-facebook" width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.11368 6.48631L7.84841 8.71368C7.83697 8.81714 7.7876 8.91269 7.70984 8.98189C7.63209 9.0511 7.53145 9.08904 7.42736 9.08841H5.11157V15.6989C5.11214 15.7779 5.08147 15.8538 5.02625 15.9102C4.97104 15.9666 4.89576 15.9989 4.81684 16H2.45684C2.41758 15.9994 2.37881 15.9912 2.34275 15.9756C2.30669 15.9601 2.27405 15.9376 2.24668 15.9095C2.21931 15.8813 2.19775 15.848 2.18324 15.8116C2.16873 15.7751 2.16155 15.7361 2.1621 15.6968L2.17474 9.08841H0.421052C0.309382 9.08841 0.202286 9.04405 0.123323 8.96509C0.0443604 8.88613 0 8.77903 0 8.66736V6.43999C0 6.32832 0.0443604 6.22123 0.123323 6.14227C0.202286 6.0633 0.309382 6.01894 0.421052 6.01894H2.16421V3.85894C2.16421 1.36 3.65052 0 5.82736 0H7.61052C7.72219 0 7.82928 0.0443604 7.90825 0.123323C7.98721 0.202286 8.03157 0.309382 8.03157 0.421052V2.29684C8.03157 2.40851 7.98721 2.51561 7.90825 2.59457C7.82928 2.67353 7.72219 2.71789 7.61052 2.71789H6.51789C5.33473 2.73684 5.11157 3.30315 5.11157 4.14947V6.01263H7.70315C7.76228 6.01364 7.82053 6.0271 7.8741 6.05212C7.92768 6.07714 7.97539 6.11317 8.01412 6.15786C8.05285 6.20254 8.08173 6.25489 8.09888 6.31148C8.11604 6.36807 8.12108 6.42764 8.11368 6.48631Z" fill="#011627"></path>
+            </svg>
+            </span>
+              <span class="visually-hidden">Facebook</span>
+            </a>
+            </li><li class="list-social__item">
+            <a href="#" class="list-social__link ">
+              <span><svg aria-hidden="true" focusable="false" class="icon icon-instagram" viewBox="0 0 18 18" height="18" width="18">
+            <path fill="currentColor" d="M8.77 1.58c2.34 0 2.62.01 3.54.05.86.04 1.32.18 1.63.3.41.17.7.35 1.01.66.3.3.5.6.65 1 .12.32.27.78.3 1.64.05.92.06 1.2.06 3.54s-.01 2.62-.05 3.54a4.79 4.79 0 01-.3 1.63c-.17.41-.35.7-.66 1.01-.3.3-.6.5-1.01.66-.31.12-.77.26-1.63.3-.92.04-1.2.05-3.54.05s-2.62 0-3.55-.05a4.79 4.79 0 01-1.62-.3c-.42-.16-.7-.35-1.01-.66-.31-.3-.5-.6-.66-1a4.87 4.87 0 01-.3-1.64c-.04-.92-.05-1.2-.05-3.54s0-2.62.05-3.54c.04-.86.18-1.32.3-1.63.16-.41.35-.7.66-1.01.3-.3.6-.5 1-.65.32-.12.78-.27 1.63-.3.93-.05 1.2-.06 3.55-.06zm0-1.58C6.39 0 6.09.01 5.15.05c-.93.04-1.57.2-2.13.4-.57.23-1.06.54-1.55 1.02C1 1.96.7 2.45.46 3.02c-.22.56-.37 1.2-.4 2.13C0 6.1 0 6.4 0 8.77s.01 2.68.05 3.61c.04.94.2 1.57.4 2.13.23.58.54 1.07 1.02 1.56.49.48.98.78 1.55 1.01.56.22 1.2.37 2.13.4.94.05 1.24.06 3.62.06 2.39 0 2.68-.01 3.62-.05.93-.04 1.57-.2 2.13-.41a4.27 4.27 0 001.55-1.01c.49-.49.79-.98 1.01-1.56.22-.55.37-1.19.41-2.13.04-.93.05-1.23.05-3.61 0-2.39 0-2.68-.05-3.62a6.47 6.47 0 00-.4-2.13 4.27 4.27 0 00-1.02-1.55A4.35 4.35 0 0014.52.46a6.43 6.43 0 00-2.13-.41A69 69 0 008.77 0z"></path>
+            <path fill="currentColor" d="M8.8 4a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 7.43a2.92 2.92 0 110-5.85 2.92 2.92 0 010 5.85zM13.43 5a1.05 1.05 0 100-2.1 1.05 1.05 0 000 2.1z"></path>
+            </svg>
+            </span>
+              <span class="visually-hidden">Instagram</span>
+            </a>
+            </li><li class="list-social__item">
+            <a href="#" class="list-social__link ">
+              <span><svg aria-hidden="true" focusable="false" class="icon icon-youtube" viewBox="0 0 100 70" height="18" width="18">
+            <path d="M98 11c2 7.7 2 24 2 24s0 16.3-2 24a12.5 12.5 0 01-9 9c-7.7 2-39 2-39 2s-31.3 0-39-2a12.5 12.5 0 01-9-9c-2-7.7-2-24-2-24s0-16.3 2-24c1.2-4.4 4.6-7.8 9-9 7.7-2 39-2 39-2s31.3 0 39 2c4.4 1.2 7.8 4.6 9 9zM40 50l26-15-26-15v30z" fill="currentColor"></path>
+            </svg>
+            </span>
+              <span class="visually-hidden">YouTube</span>
+            </a>
+            </li><li class="list-social__item">
+            <a href="#" class="list-social__link ">
+              <span><svg aria-hidden="true" focusable="false" class="icon icon-tiktok" width="16" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.02 0H11s-.17 3.82 4.13 4.1v2.95s-2.3.14-4.13-1.26l.03 6.1a5.52 5.52 0 11-5.51-5.52h.77V9.4a2.5 2.5 0 101.76 2.4L8.02 0z" fill="currentColor"></path>
+            </svg>
+            </span>
+              <span class="visually-hidden">TikTok</span>
+            </a>
+            </li></ul></div>
+            
+          </div>
+
+        </div>   
+     </div>
+  
   </div>
+
 </div>
+
+
 
 {% schema %}
 {

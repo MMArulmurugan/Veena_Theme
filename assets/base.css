@@ -151,7 +151,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 
   .page-width--narrow {
-    max-width: 72.6rem;
+    /* max-width: 72.6rem; */
     padding: 0;
   }
 
@@ -4655,4 +4655,11 @@ details-disclosure > details {
 
   height: 45px;
   padding: 0;
+}
+.h1c{
+  font-weight: 400;
+  margin-top:20px;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
 }
