@@ -26,7 +26,7 @@
 
 .customer button {
   margin: 4rem 0 1.5rem;
-  width: 100%;
+  width: 30%;
 }
 
 .customer ul {
@@ -1019,10 +1019,10 @@ p.email_title:after {
 }
 /*--------------------------------------------addressess-page----------------------------------*/
 .customer-addressess_heading {
-  text-align: left;
+  /* text-align: left; */
 }
 .customer-addressess_add-button {
-  width: 35%;
+  width: 100%;
 }
 .customer-addressess_add-button-text {
   text-transform: uppercase;

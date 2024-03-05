@@ -44,22 +44,16 @@
           <p>{{ customer.email }}</p>
           <p>{{ customer.country_name }}  {{ customer.default_address | format_address }}</p>
        </div>
+            
       
-        <div class="">
-          <a href="">
-          <picture class="">
-            <source media="(max-width: 749px)" srcset="//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=375 375w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=550 550w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=750 750w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735&amp;width=1100 1100w,//vanitywagon.in/cdn/shop/files/Group_1000002420.jpg?v=1704862735 1372w" sizes="100vw">
-            
-            <source media="(min-width: 750px)" srcset="//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=375 375w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=550 550w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=750 750w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1100 1100w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1500 1500w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1780 1780w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=2000 2000w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=3000 3000w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=3840 3840w,//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693 4000w" sizes="100vw">
-            
-            <img src="//vanitywagon.in/cdn/shop/files/Group_1000002412.jpg?v=1704862693&amp;width=1500" loading="lazy" width="4000" height="1400" alt="">
-          </picture>
-            
-          </a>
-        </div>
-
-
-
+          {% if section.settings.image%}    
+          <div>
+            {% render 'image', 
+                class: 'media media--landscape-single custom-single-image-grid__image ',
+                desktopImage: section.settings.image
+            %}
+          </div>
+        {% endif %}
      </div>
 
 
@@ -228,6 +222,11 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type" : "image_picker",
+      "id" : "image",
+      "label" : "Image"
     }
   ]
 }

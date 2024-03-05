@@ -4,7 +4,8 @@
       "type": "main-account",
       "settings": {
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "image": "shopify:\/\/shop_images\/Group_1000002412.jpg"
       }
     }
   },
