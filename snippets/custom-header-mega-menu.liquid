@@ -1,0 +1,237 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+    <ul class="list-menu list-menu--inline" role="list">
+      {%- for link in section.settings.menu.links -%}
+        <li>
+          {%- if link.links != blank -%}
+            <header-menu>
+              <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                <summary
+                  id="HeaderMenu-{{ link.handle }}"
+                  class="header__menu-item list-menu__item link focus-inset"
+                >
+                  <span
+                    {%- if link.child_active %}
+                      class="header__active-menu-item"
+                    {% endif %}
+                  >
+                    {{- link.title | escape -}}
+                  </span>
+                  {% render 'icon-caret' %}
+                </summary>
+                <div
+                  id="MegaMenu-Content-{{ forloop.index }}"
+                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                  tabindex="-1"
+                >
+                  <ul
+                    class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                    role="list"
+                  >
+                    {%- for childlink in link.links -%}
+                      <li>
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                        <hr>
+                        {%- if childlink.links != blank -%}
+                          <ul class="list-unstyled" role="list">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                <a
+                                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                  href="{{ grandchildlink.url }}"
+                                  class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                  {% if grandchildlink.current %}
+                                    aria-current="page"
+                                  {% endif %}
+                                >
+                                  {{ grandchildlink.title | escape }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                            
+                          </ul>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                     {% if link.title == "Trends" %}
+                      {% for block in section.blocks %}
+                        <div class="media media--portrait custom-border-radius">
+                         {% render 'image', desktopImage: block.settings.image, class:'media media--portrait' %}
+                        </div>
+                       {% endfor %}
+                     {% endif %} 
+                  </ul>
+                </div>
+              </details>
+            </header-menu>
+          {%- elsif link.title == "Men's" -%}
+
+            <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                <summary  id="HeaderMenu-{{ link.handle }}"
+                    class="header__menu-item list-menu__item link focus-inset"
+                >
+                    <span
+                        {%- if link.child_active %}
+                        class="header__active-menu-item"
+                        {% endif %}
+                    >
+                        {{- link.title | escape -}}
+                    </span>
+                    {% render 'icon-caret' %}
+                </summary>
+                <div id="MegaMenu-Content-{{ forloop.index }}"
+                    class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                    tabindex="-1">
+                    <div class = "grid grid--1-col grid--5-col-desktop">
+                        {% for product in section.settings.men_product_list %}                  
+                            <div class="grid__item custom-border-radius">
+                                {% render 'simple-product-card', product: product, section_id: section.id %}
+                            </div>                  
+                            {% else %}
+                            {% for i in (1..5) %}
+                                <div class="grid__item custom-border-radius">
+                                {{ 'product-' | append: i | placeholder_svg_tag }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}   
+                    </div>
+                </div>
+            </details>
+            </header-menu>
+
+          {%- elsif link.title == "Women's" -%}
+
+            <header-menu>
+                <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                    <summary  id="HeaderMenu-{{ link.handle }}"
+                        class="header__menu-item list-menu__item link focus-inset"
+                    >
+                        <span
+                            {%- if link.child_active %}
+                            class="header__active-menu-item"
+                            {% endif %}
+                        >
+                            {{- link.title | escape -}}
+                        </span>
+                        {% render 'icon-caret' %}
+                    </summary>
+                    <div id="MegaMenu-Content-{{ forloop.index }}"
+                        class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                        tabindex="-1">
+                        <div class = "grid grid--1-col grid--5-col-desktop">
+                            {% for product in section.settings.women_product_list %}                  
+                                <div class="grid__item custom-border-radius">
+                                    {% render 'simple-product-card', product: product, section_id: section.id %}
+                                </div>                  
+                                {% else %}
+                                {% for i in (1..5) %}
+                                    <div class="grid__item custom-border-radius">
+                                    {{ 'product-' | append: i | placeholder_svg_tag }}
+                                    </div>
+                                {% endfor %}
+                        {% endfor %}   
+                        </div>
+                    </div>
+                </details>
+            </header-menu>
+
+          {%- elsif link.title == "Blogs" -%}
+
+            <header-menu>
+                <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                    <summary  id="HeaderMenu-{{ link.handle }}"
+                        class="header__menu-item list-menu__item link focus-inset"
+                    >
+                        <span
+                            {%- if link.child_active %}
+                            class="header__active-menu-item"
+                            {% endif %}
+                        >
+                            {{- link.title | escape -}}
+                        </span>
+                        {% render 'icon-caret' %}
+                    </summary>
+                    <div id="MegaMenu-Content-{{ forloop.index }}"
+                        class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                        tabindex="-1">
+                        <div class = "grid grid--1-col grid--4-col-desktop">
+                            {% if section.settings.blog.articles %}               
+                                {% for article in section.settings.blog.articles %}
+                                    <div class="grid__item mega-menu__blog-wrapper custom-border-radius ">  
+                                                                
+                                        {% if article.image %}
+                                            <div class="media media--sqaure nav-blog-image custom-border-radius"> 
+                                                {% render "image", 
+                                                    desktopImage: article.image, 
+                                                    mobileImage: article.image,
+                                                    class : "media media--sqaure" %}
+                                            </div>
+                                        {% else %}   
+                                            <div class="custom-border-radius">  
+                                                {{ 'product-3' | placeholder_svg_tag }}
+                                            </div>
+                                        {% endif %}
+                                        <div class="">  
+                                            {% if article.image %}
+                                                <div><b>{{ article.created_at | date: '%B %d, %Y' }}</b></div>
+                                            {% endif %}
+                                            
+                                            {% if article.title %}
+                                                <a href="{{ article.url }}" class = "h4 custom-article__title">{{ article.title }} </a>
+                                            {% endif %}
+                                            
+                                        </div> 
+                                        
+                                    </div>
+                                {% endfor %} 
+                            {% else %}
+                                {% for i in (1..5) %}
+                                    <div class="grid__item">
+                                        {{ 'product-' | append: i | placeholder_svg_tag }}
+                                    </div> 
+                                {% endfor %}            
+                            {%- endif -%}          
+                        </div>
+                    </div>
+                </details>
+            </header-menu>
+
+          {%- else -%}
+            <a
+              id="HeaderMenu-{{ link.handle }}"
+              href="{{ link.url }}"
+              class="header__menu-item list-menu__item link link--text focus-inset"
+              {% if link.current %}
+                aria-current="page"
+              {% endif %}
+            >
+              <span
+                {%- if link.current %}
+                  class="header__active-menu-item"
+                {% endif %}
+              >
+                {{- link.title | escape -}}
+              </span>
+            </a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+  

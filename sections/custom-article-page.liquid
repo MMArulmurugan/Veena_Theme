@@ -54,7 +54,7 @@
       <section class="splide" aria-label="Testimonial Splide" >
         <div class="splide__track">
           <ul class="splide__list custom-article__unorded-list">
-             {% if section.settings.blog.articles %}               
+              {% if section.settings.blog.articles %}               
                 {% for article in section.settings.blog.articles %}
                     <li class="splide__slide custom-article__slide custom-border-radius ">                        
                         {% if article.image %}
@@ -100,13 +100,13 @@
                         
                     </li>
                 {% endfor %} 
-            {% else %}
-                {% for i in (1..5) %}
-                    <li class="splide__slide">
-                        {{ 'product-' | append: i | placeholder_svg_tag }}
-                    </li> 
-                {% endfor %}            
-            {%- endif -%}          
+              {% else %}
+                  {% for i in (1..5) %}
+                      <li class="splide__slide">
+                          {{ 'product-' | append: i | placeholder_svg_tag }}
+                      </li> 
+                  {% endfor %}            
+              {%- endif -%}          
           </ul>
         </div>
       </section>

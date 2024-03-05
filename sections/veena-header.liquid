@@ -200,7 +200,7 @@
         if section.settings.menu_type_desktop == 'dropdown'
           render 'header-dropdown-menu'
         elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
+          render 'custom-header-mega-menu'
         endif
       endif
     %}
@@ -533,6 +533,23 @@
       "label": "t:sections.header.settings.menu.label"
     },
     {
+        "type": "product_list",
+        "id": "men_product_list",
+        "label": "Products For Men",
+        "limit": 5
+    },
+    {
+        "type": "product_list",
+        "id": "women_product_list",
+        "label": "Products For Women",
+        "limit": 5
+    },
+    {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blog"
+    },
+    {
       "type": "select",
       "id": "menu_type_desktop",
       "options": [
@@ -679,6 +696,7 @@
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
     }
+    
   ],
   "blocks": [
     {

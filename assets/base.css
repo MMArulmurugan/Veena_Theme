@@ -3015,12 +3015,12 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  /* text-decoration: underline;
+  text-underline-offset: 0.3rem; */
 }
 
 details[open] > .header__menu-item {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 details[open]:hover > .header__menu-item {
@@ -4669,4 +4669,49 @@ details-disclosure > details {
 }
 .anchor-text:hover{
   color:#d03c3f;
+}
+
+/*----------------------------------------------header-menu-----------------------------------------*/
+
+details[open]>.header__menu-item .icon-caret {
+  transform: rotate(180deg);
+}
+.header__menu-item .icon-caret {
+  position: absolute;
+  right: 0;
+  transition: .3s ease;
+  margin-left: 5px;
+  width: 11px;
+  height: 11px;
+  overflow: hidden;
+  vertical-align: middle;
+  top: calc(50% - 0.5rem);
+}
+header.header svg.icon path, .predictive-search svg.icon path, .wbcategories .mmenu_mainicon svg.icon path {
+  fill: rgb(var(--color-foreground));
+  transition: all .3s;
+}
+.product-card_badge-blue{
+  background:rgb(18, 111, 211);
+  color: white;
+  font-weight: 600;
+}
+.simple-product-card__title {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  line-height: 23.4px;
+  color: black;
+}
+.simple-product-card__title:hover {
+  color: #d03c3f;
+}
+.simple-product-card__price-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+.simple-product-card__compareprice{
+  font-size: 14px;
 }
