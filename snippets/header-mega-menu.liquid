@@ -46,6 +46,7 @@
                       >
                         {{ childlink.title | escape }}
                       </a>
+                      <hr>
                       {%- if childlink.links != blank -%}
                         <ul class="list-unstyled" role="list">
                           {%- for grandchildlink in childlink.links -%}
@@ -62,11 +63,22 @@
                               </a>
                             </li>
                           {%- endfor -%}
+                          
                         </ul>
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
+                   {% if link.title == "Trends" %}
+                    {% for block in section.blocks %}
+                      <div class="media media--portrait custom-border-radius">
+                       {% render 'image', desktopImage: block.settings.image, class:'media media--portrait' %}
+                      </div>
+                     {% endfor %}
+                   {% endif %} 
                 </ul>
+
+                
+
               </div>
             </details>
           </header-menu>

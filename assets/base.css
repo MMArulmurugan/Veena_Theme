@@ -671,7 +671,7 @@ hr {
 
 @media screen and (min-width: 750px) {
   hr {
-    margin: 7rem 0;
+    margin: 2px 0;
   }
   .custom-hr {
     border: none;
@@ -3032,14 +3032,15 @@ details[open] > .header__menu-item .icon-caret {
 }
 
 .header__active-menu-item {
-  transition: text-decoration-thickness var(--duration-short) ease;
+  /* transition: text-decoration-thickness var(--duration-short) ease; */
   color: rgb(var(--color-foreground));
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  /* text-decoration: underline; */
+  /* text-underline-offset: 0.3rem; */
 }
 
 .header__menu-item:hover .header__active-menu-item {
-  text-decoration-thickness: 0.2rem;
+  /* text-decoration-thickness: 0.2rem; */
+  color:#d03c3f;
 }
 
 .header__submenu {
