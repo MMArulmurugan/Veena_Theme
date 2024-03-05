@@ -1,26 +1,7 @@
 {% assign pageUrl = canonical_url | split: "/" | last %}
 
-{% style %}
+{{ 'custom-account-sidebar.css' | asset_url | stylesheet_tag }}
 
-.sidebar-wrapper{
-  margin-top: 10px;
-}
-.button-sidebar{
-    width: 100%;
-    margin-bottom: 8px;
-    text-align: left;
-    display:flex;
-    justify-content:start;
-    padding-left:30px;
-    padding-top: 5px;
-    align-items:center;
-}
-.sidebar-heading{
-    margin-left: 5px;
-}
-
-
-{% endstyle %}
 
 <div class = "sidebar-wrapper">
     <a href = "/account" class = "button {% if pageUrl == "account" %}custom-button-secondary_color {% else %}custom-button-secondary{% endif %}  button-sidebar">
@@ -30,7 +11,7 @@
         <span class = "sidebar-heading">Account Details</span>
     </a>
 
-    <a href = "/pages/orders" class = "button {% if pageUrl == "orders" %}custom-button-secondary_color {% else %}custom-button-secondary{% endif %} button-sidebar" >
+    <a href = "/pages/orders" class = "button {% if pageUrl == "orders" %}custom-button-secondary_color {% elsif pageUrl == order.customer_url %} custom-button-secondary_color {% else %}custom-button-secondary{% endif %} button-sidebar" >
         <span>
             {% render 'custom-icon-account-page', icon-name : 'orders' %}
         </span>
