@@ -1,17 +1,19 @@
-.sidebar-wrapper{
-    margin-top: 10px;
-  }
-  .button-sidebar{
-      width: 100%;
-      margin-bottom: 8px;
-      text-align: left;
-      display:flex;
-      justify-content:start;
-      padding-left:30px;
-      padding-top: 5px;
-      align-items:center;
-  }
-  .sidebar-heading{
-      margin-left: 5px;
-  }
-  
+.sidebar-wrapper {
+  margin-top: 10px;
+}
+.button-sidebar {
+  width: 100%;
+  margin-bottom: 8px;
+  text-align: left;
+  display: flex;
+  justify-content: start;
+  padding-left: 30px;
+  padding-top: 5px;
+  align-items: center;
+}
+.sidebar-heading {
+  margin-left: 10px;
+}
+.sidebar-icon{
+    margin-top:5px;
+}

@@ -931,7 +931,18 @@ p.email_title:after {
   width: 75%;
   padding: 22px 28px 33px;
 }
-
+@media screen and (max-width: 750px){
+  .main-account-container{
+    flex-direction: column;
+  }
+  .main-account-sidebar {
+    width: 100%;
+  }
+  .main-account-sidebar-details {
+    width: 100%;
+    padding: 22px 28px 33px;
+  }
+}
 @media screen and (min-width: 1024px) {
 }
 .account-page-subtitle-block {
@@ -1038,6 +1049,25 @@ p.email_title:after {
   text-align: left;
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 750px){
+.customer-addressess_address-list li {
+  padding:5px;
+  width: 100%;
+}
+.customer:not(.account):not(.order){
+  max-width: 100%;
+}
+.customer-addressess_address-cart-button{
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.customer button {
+  margin: 1rem 0 0 0;
+  width: 80%;
+}
 }
 .customer-addressess_address-cart-button {
   display: flex;

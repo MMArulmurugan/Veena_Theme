@@ -179,7 +179,7 @@
           </div>
         </div>
 
-        <ul role="list" class ="customer-addressess_address-list grid grid--2-col grid--2-col-desktop">
+        <ul role="list" class ="customer-addressess_address-list grid grid--1-col grid--2-col-desktop">
           {%- for address in customer.addresses -%}
             <li class = "grid__item" data-address >
               {%- if address == customer.default_address -%}
@@ -410,7 +410,6 @@
       </div>
     {%- endpaginate -%}
     
-    {% comment %} <h2> {{ customer.addresses | json }}</h2> {% endcomment %}
         
    </div>  
 
