@@ -366,6 +366,62 @@
               "title": "Yellow",
               "color_code": "#ffff00"
             }
+          },
+          "color_settings_73qxXL": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "Sienna",
+              "color_code": "#a0522d"
+            }
+          },
+          "color_settings_KRzbLJ": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "Orange",
+              "color_code": "#ffa500"
+            }
+          },
+          "color_settings_JMMHVi": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "Peru",
+              "color_code": "#cd853f"
+            }
+          },
+          "color_settings_MB8Pyw": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "MidnightBlue",
+              "color_code": "#191970"
+            }
+          },
+          "color_settings_GyyPYb": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "MediumSeaGreen",
+              "color_code": "#3cb371"
+            }
+          },
+          "color_settings_4ApkN8": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "Orchid",
+              "color_code": "#da70d6"
+            }
+          },
+          "color_settings_mfRtwe": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "DarkOrange",
+              "color_code": "#ff8c00"
+            }
+          },
+          "color_settings_G6cctE": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "MediumPurple",
+              "color_code": "#9370db"
+            }
           }
         },
         "block_order": [
@@ -401,7 +457,15 @@
           "color_settings_8M8Aqc",
           "color_settings_BFUheV",
           "color_settings_g9gJbX",
-          "color_settings_tRn63M"
+          "color_settings_tRn63M",
+          "color_settings_73qxXL",
+          "color_settings_KRzbLJ",
+          "color_settings_JMMHVi",
+          "color_settings_MB8Pyw",
+          "color_settings_GyyPYb",
+          "color_settings_4ApkN8",
+          "color_settings_mfRtwe",
+          "color_settings_G6cctE"
         ],
         "settings": {
         }
