@@ -366,6 +366,13 @@
               "title": "Yellow",
               "color_code": "#ffff00"
             }
+          },
+          "color_settings_73qxXL": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "Sienna",
+              "color_code": "#a0522d"
+            }
           }
         },
         "block_order": [
@@ -401,7 +408,8 @@
           "color_settings_8M8Aqc",
           "color_settings_BFUheV",
           "color_settings_g9gJbX",
-          "color_settings_tRn63M"
+          "color_settings_tRn63M",
+          "color_settings_73qxXL"
         ],
         "settings": {
         }
