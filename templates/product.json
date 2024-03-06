@@ -63,6 +63,16 @@
             "show_gift_card_recipient": true
           }
         },
+        "pincode_KcznLY": {
+          "type": "pincode",
+          "settings": {
+            "pincode_heading": "Pincode Checker",
+            "pincode_placeholder_text": "Enter Your Pincode",
+            "pincode_button_text": "Check For Delivery",
+            "pincode_available_message": "We Deliver to this Location",
+            "pincode_unavailable_message": "Currently Unavailable in this Location"
+          }
+        },
         "icon_with_text_pKUxGH": {
           "type": "icon-with-text",
           "settings": {
@@ -113,6 +123,7 @@
         "inventory_kLQxUV",
         "quantity_selector",
         "buy_buttons",
+        "pincode_KcznLY",
         "icon_with_text_pKUxGH",
         "offers_excaeq",
         "payments_pr3wBE",

@@ -667,6 +667,8 @@
                 </style>  
             {%- when 'offers' -%}    
                 {%  render 'custom-offers', product: product %}
+            {% when 'pincode' %}    
+                {%  render 'pincode-checker', block:block %}
             {%- when 'payments' -%}     
               {%- unless shop.enabled_payment_types == empty -%}
                 <span class="visuallyhidden">Supported payment methods</span>
@@ -861,6 +863,43 @@
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1
+    },
+    {
+      "type": "pincode",
+      "name":"Pincode checker",
+      "limit": 1,
+      "settings":[
+        {
+          "type": "text",
+          "id":"pincode_heading",
+          "label":"Pincode Heading",
+          "default": "Pincode Checker"
+        },
+        {
+          "type": "text",
+          "id":"pincode_placeholder_text",
+          "label":"Pincode Placeholder",
+          "default": "Enter Your Pincode"
+        },
+        {
+          "type": "text",
+          "id":"pincode_button_text",
+          "label":"Button label",
+          "default": "Check For Delivery"
+        },
+         {
+          "type": "text",
+          "id":"pincode_available_message",
+          "label":"Pincode available message",
+          "default": "We Deliver to this Location"
+        },
+         {
+          "type": "text",
+          "id":"pincode_unavailable_message",
+          "label":"Pincode unavailable message",
+          "default": "Currently Unavailable in this Location"
+        }
+      ]
     },
     {
       "type": "price",

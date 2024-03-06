@@ -40,24 +40,29 @@
         "grid_items_6mJTU9": {
           "type": "grid-items",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Best_Selling.jpg"
+            "mega_menu_title": "Best Selling",
+            "image": "shopify:\/\/shop_images\/Best_Selling.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Best_Selling.jpg"
           }
         },
         "grid_items_qAn6tz": {
           "type": "grid-items",
           "settings": {
+            "mega_menu_title": "Bags",
             "image": "shopify:\/\/shop_images\/Bags.jpg"
           }
         },
         "grid_items_pC8QiJ": {
           "type": "grid-items",
           "settings": {
+            "mega_menu_title": "Jackets",
             "image": "shopify:\/\/shop_images\/Jackets.jpg"
           }
         },
         "grid_items_dk8X7q": {
           "type": "grid-items",
           "settings": {
+            "mega_menu_title": "T-shirts",
             "image": "shopify:\/\/shop_images\/T-shirts.jpg"
           }
         }
@@ -71,17 +76,6 @@
       "settings": {
         "logo_position": "middle-center",
         "menu": "veena",
-        "menu_type_desktop": "mega",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "",
-        "menu_color_scheme": "",
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20,
         "men_product_list": [
           "full-sleeve-high-neck-t-shirt",
           "mens-winter-hooded-jacket",
@@ -96,7 +90,18 @@
           "women-shirt-beige-dress",
           "womens-casual-sweaters"
         ],
-        "blog": "let-you-know-2"
+        "blog": "let-you-know-2",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "",
+        "menu_color_scheme": "",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "header": {
@@ -117,11 +122,21 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "new_header_MhCXE4": {
+      "type": "new-header",
+      "disabled": true,
+      "settings": {
+        "logo_image": "shopify:\/\/shop_images\/n_Veena.png",
+        "nav_list": "veena",
+        "show_icons": false
+      }
     }
   },
   "order": [
     "announcement-bar",
     "veena_header_7y3wkB",
-    "header"
+    "header",
+    "new_header_MhCXE4"
   ]
 }
