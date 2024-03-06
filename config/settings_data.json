@@ -387,6 +387,20 @@
               "title": "Peru",
               "color_code": "#cd853f"
             }
+          },
+          "color_settings_MB8Pyw": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "MidnightBlue",
+              "color_code": "#191970"
+            }
+          },
+          "color_settings_GyyPYb": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "",
+              "color_code": "#000000"
+            }
           }
         },
         "block_order": [
@@ -425,7 +439,9 @@
           "color_settings_tRn63M",
           "color_settings_73qxXL",
           "color_settings_KRzbLJ",
-          "color_settings_JMMHVi"
+          "color_settings_JMMHVi",
+          "color_settings_MB8Pyw",
+          "color_settings_GyyPYb"
         ],
         "settings": {
         }
