@@ -3,55 +3,55 @@
     "main": {
       "type": "custom-tab-collections",
       "blocks": {
-        "veena_collection_tckAMV": {
+        "veena_collection_fMz39j": {
           "type": "veena_collection",
           "settings": {
             "collection_name": "Accessories",
             "collection": "accessories"
           }
         },
-        "veena_collection_MxLADx": {
+        "veena_collection_dCf8wc": {
           "type": "veena_collection",
           "settings": {
-            "collection_name": "Bags",
-            "collection": "bags"
+            "collection_name": "Collections Name",
+            "collection": ""
           }
         },
-        "veena_collection_zRxyaF": {
+        "veena_collection_kJDw3T": {
           "type": "veena_collection",
           "settings": {
-            "collection_name": "Casual",
-            "collection": "casual"
+            "collection_name": "Collections Name",
+            "collection": ""
           }
         },
-        "veena_collection_eckLxc": {
+        "veena_collection_jTVQUy": {
           "type": "veena_collection",
           "settings": {
-            "collection_name": "Denim",
-            "collection": "denim"
+            "collection_name": "Collections Name",
+            "collection": ""
           }
         },
-        "veena_collection_bQdbCe": {
+        "veena_collection_YXjjCp": {
           "type": "veena_collection",
           "settings": {
-            "collection_name": "Shoes",
-            "collection": "shoes"
+            "collection_name": "Collections Name",
+            "collection": ""
           }
         }
       },
       "block_order": [
-        "veena_collection_tckAMV",
-        "veena_collection_MxLADx",
-        "veena_collection_zRxyaF",
-        "veena_collection_eckLxc",
-        "veena_collection_bQdbCe"
+        "veena_collection_fMz39j",
+        "veena_collection_dCf8wc",
+        "veena_collection_kJDw3T",
+        "veena_collection_jTVQUy",
+        "veena_collection_YXjjCp"
       ],
       "settings": {
         "heading": "Veena Collections",
         "slider_autoplay": true,
-        "slide_dots": false,
+        "slide_dots": true,
         "slide_arrows": true,
-        "infinite_scroll": false,
+        "infinite_scroll": true,
         "slider_autoplay_duration": 3,
         "product_list": [
 
