@@ -422,6 +422,13 @@
               "title": "MediumPurple",
               "color_code": "#9370db"
             }
+          },
+          "color_settings_CELWnf": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "White",
+              "color_code": "#ffffff"
+            }
           }
         },
         "block_order": [
@@ -465,7 +472,8 @@
           "color_settings_GyyPYb",
           "color_settings_4ApkN8",
           "color_settings_mfRtwe",
-          "color_settings_G6cctE"
+          "color_settings_G6cctE",
+          "color_settings_CELWnf"
         ],
         "settings": {
         }

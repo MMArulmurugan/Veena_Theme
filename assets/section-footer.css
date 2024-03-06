@@ -133,7 +133,13 @@
   width: 30%;
   margin-right: 3rem;
 }
-
+.footer__blocks-wrapper {
+  width: 70%;
+}
+.topbar_item{
+    display: flex;
+    justify-content: end;
+}
 .footer-block--newsletter:only-child {
   margin-top: 0;
 }
