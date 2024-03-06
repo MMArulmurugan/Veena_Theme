@@ -1,12 +1,67 @@
 {
-    "sections": {
-      "main": {
-        "type": "custom-tab-collections",
-        "settings": {
+  "sections": {
+    "main": {
+      "type": "custom-tab-collections",
+      "blocks": {
+        "veena_collection_tckAMV": {
+          "type": "veena_collection",
+          "settings": {
+            "collection_name": "Accessories",
+            "collection": "accessories"
+          }
+        },
+        "veena_collection_MxLADx": {
+          "type": "veena_collection",
+          "settings": {
+            "collection_name": "Bags",
+            "collection": "bags"
+          }
+        },
+        "veena_collection_zRxyaF": {
+          "type": "veena_collection",
+          "settings": {
+            "collection_name": "Casual",
+            "collection": "casual"
+          }
+        },
+        "veena_collection_eckLxc": {
+          "type": "veena_collection",
+          "settings": {
+            "collection_name": "Denim",
+            "collection": "denim"
+          }
+        },
+        "veena_collection_bQdbCe": {
+          "type": "veena_collection",
+          "settings": {
+            "collection_name": "Shoes",
+            "collection": "shoes"
+          }
         }
+      },
+      "block_order": [
+        "veena_collection_tckAMV",
+        "veena_collection_MxLADx",
+        "veena_collection_zRxyaF",
+        "veena_collection_eckLxc",
+        "veena_collection_bQdbCe"
+      ],
+      "settings": {
+        "heading": "Veena Collections",
+        "slider_autoplay": true,
+        "slide_dots": false,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slider_autoplay_duration": 3,
+        "product_list": [
+
+        ],
+        "padding_top": 36,
+        "padding_bottom": 36
       }
-    },
-    "order": [
-      "main"
-    ]
-  }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

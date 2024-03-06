@@ -1,1 +1,215 @@
-<h1>ubuyfvuywvcuwyvcwvcuy</h1>
+{{ "custom-tab-collections.css" | asset_url | stylesheet_tag }}
+
+
+{% style %}
+  .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | divided_by: 2  }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+
+    @media (min-width: 750px) {
+      .padding-{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+{% endstyle %}
+
+{% capture custom-tab-collections__slider-settings %}
+  {
+    "autoplay" : {{ section.settings.slider_autoplay }},
+    "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
+    "type" : "{{ section.settings.slide_animation }}",
+    "pagination": {{ section.settings.slide_dots }},
+    "gap": "20px",
+    "perPage": 5,
+    "arrows" : {{ section.settings.slide_arrows }},
+    "rewind" : {{ section.settings.infinite_scroll }},
+    "breakpoints" : {
+        "750" : {"perPage" : 2}
+    }
+  }
+{% endcapture %}
+
+
+<div class="custom-tab-collections padding-{{ section.id }}">
+    <div class="page-width">
+       <div class="custom-tab-collections_header-wrapper">
+          <div class="h1 custom-tab-collections__heading">{{ section.settings.heading }}</div>
+          <div class="custom-tab-collections_tabs custom-border-radius">
+             {% for block in section.blocks %}
+                <span class="custom-tab-collections_collection-name {% if forloop.first %}tab__active{% endif %}">{{ block.settings.collection_name }}</span>
+             {% endfor %}
+          </div>
+       </div>
+ 
+       {% for block in section.blocks %}
+          <div class="tab-slider {% unless forloop.first %}hidden{% endunless %}">
+             <splide-slider data-splide-options='{{ custom-tab-collections__slider-settings }}'>
+                <section class="splide" aria-label="Testimonial Splide">
+                   <div class="splide__track">
+                      <ul class="splide__list ">
+                         {% for product in block.settings.collection.products %}
+                            <li class="splide__slide custom-border-radius">
+                               {% render 'product-card', product: product, section_id: section.id %}
+                            </li>
+                         {% else %}
+                            {% for i in (1..4) %}
+                               <li class="splide__slide custom-border-radius">
+                                  {{ 'product-' | append: i | placeholder_svg_tag }}
+                               </li>
+                            {% endfor %}
+                         {% endfor %}
+                      </ul>
+                   </div>
+                </section>
+             </splide-slider>
+          </div>
+       {% endfor %}
+    </div>
+ </div>
+ 
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+       const tabs = document.querySelectorAll('.custom-tab-collections_collection-name');
+       const sliders = document.querySelectorAll('.tab-slider');
+ 
+       if (tabs.length > 0) {
+          // Set the first tab as active
+          tabs[0].classList.add('tab__active');
+ 
+          // Add click event listeners to tabs
+          tabs.forEach((tab, index) => {
+             tab.addEventListener('click', function () {
+                tabs.forEach((tab) => {
+                   tab.classList.remove('tab__active');
+                });
+ 
+                this.classList.add('tab__active');
+                showSlider(index);
+             });
+          });
+       }
+ 
+       function showSlider(index) {
+          sliders.forEach((slider, sliderIndex) => {
+             if (sliderIndex === index) {
+                slider.classList.remove('hidden');
+             } else {
+                slider.classList.add('hidden');
+             }
+          });
+       }
+    });
+ </script>
+ 
+
+
+{% schema %}
+  {
+    "name": "Veena Tab Collections",
+    "tag" : "section",
+    "settings": [
+      {
+        "type" : "text",
+        "id" : "heading",
+        "label" : "Heading",
+        "default" : "Veena Collections"
+      },
+      {
+        "type" : "header",
+        "content" : "Slider settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_autoplay",
+        "label": "Slide autoplay",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_dots",
+        "label": "Show slide dots",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_arrows",
+        "label": "Show slide arrows",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "infinite_scroll",
+        "label": "Infinite scroll",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "slider_autoplay_duration",
+        "label": "Slider autoplay duration",
+        "min" : 1,
+        "step":1,
+        "max" : 10,
+        "default": 3,
+        "unit": "sec"
+      },
+      {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Products",
+        "limit": 8
+      },
+      {
+      "type" : "header",
+      "content" : "Section padding settings"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Section padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Section padding bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+        {
+            "name": "Tabs",
+            "type": "veena_collection",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "collection_name",
+                    "label": "Collection Name",
+                    "default": "Collections Name"
+                },    
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                }
+                             
+            ]
+        }
+    ],
+    "presets" : [
+      {
+        "name" : "Tab Collections"
+      }
+    ]
+  }
+{% endschema %}
