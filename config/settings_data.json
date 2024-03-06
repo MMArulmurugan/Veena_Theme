@@ -401,6 +401,13 @@
               "title": "MediumSeaGreen",
               "color_code": "#3cb371"
             }
+          },
+          "color_settings_4ApkN8": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "Orchid",
+              "color_code": "#da70d6"
+            }
           }
         },
         "block_order": [
@@ -441,7 +448,8 @@
           "color_settings_KRzbLJ",
           "color_settings_JMMHVi",
           "color_settings_MB8Pyw",
-          "color_settings_GyyPYb"
+          "color_settings_GyyPYb",
+          "color_settings_4ApkN8"
         ],
         "settings": {
         }
