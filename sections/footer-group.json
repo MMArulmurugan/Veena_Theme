@@ -4,16 +4,62 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "link_list_cRgtbE": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "veena"
+          }
+        },
+        "link_list_RGgxBK": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Information",
+            "menu": "information"
+          }
+        },
+        "link_list_PVthWQ": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Extra",
+            "menu": "extra"
+          }
+        },
+        "link_list_a8Uji3": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact Info",
+            "menu": "footer"
+          }
+        },
+        "image_xUbpGA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/W_n_Veena.png",
+            "image_width": 315,
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_cRgtbE",
+        "link_list_RGgxBK",
+        "link_list_PVthWQ",
+        "link_list_a8Uji3",
+        "image_xUbpGA"
+      ],
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "<strong>SIGN UP TO OUR NEWSLETTER<\/strong>",
+        "newsletter_description": "<p>Visit the website offering the newsletter and follow their sign-up instructions<\/p>",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
-        "show_policy": false,
+        "show_policy": true,
         "margin_top": 0,
         "padding_top": 36,
         "padding_bottom": 36

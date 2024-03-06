@@ -8,7 +8,7 @@
 
 .footer__content-top {
   padding-bottom: 5rem;
-  display: block;
+  display: flex;
 }
 
 @media screen and (max-width: 749px) {
@@ -127,9 +127,11 @@
 
 .footer-block--newsletter {
   display: flex;
-  align-items: flex-end;
+  align-items: start;
   margin-top: 3rem;
   gap: 1rem;
+  width: 30%;
+  margin-right: 3rem;
 }
 
 .footer-block--newsletter:only-child {
@@ -176,8 +178,8 @@
 }
 
 .footer-block__newsletter {
-  text-align: center;
-  flex-grow: 1;
+  text-align: left;
+  /* flex-grow: 1; */
 }
 
 .newsletter-form__field-wrapper {
@@ -513,4 +515,11 @@
       padding-left: 3rem;
     }
   }
+}
+
+
+.footer__first-row-wrapper{
+  display:flex;
+  justify-content: space-between;
+  padding: 20px 0;
 }
