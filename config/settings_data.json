@@ -380,6 +380,13 @@
               "title": "Orange",
               "color_code": "#ffa500"
             }
+          },
+          "color_settings_GeciKi": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "",
+              "color_code": "#ffffff"
+            }
           }
         },
         "block_order": [
@@ -417,7 +424,8 @@
           "color_settings_g9gJbX",
           "color_settings_tRn63M",
           "color_settings_73qxXL",
-          "color_settings_KRzbLJ"
+          "color_settings_KRzbLJ",
+          "color_settings_GeciKi"
         ],
         "settings": {
         }
