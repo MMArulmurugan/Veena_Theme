@@ -408,6 +408,13 @@
               "title": "Orchid",
               "color_code": "#da70d6"
             }
+          },
+          "color_settings_mfRtwe": {
+            "type": "colorSettings",
+            "settings": {
+              "title": "DarkOrange",
+              "color_code": "#ff8c00"
+            }
           }
         },
         "block_order": [
@@ -449,7 +456,8 @@
           "color_settings_JMMHVi",
           "color_settings_MB8Pyw",
           "color_settings_GyyPYb",
-          "color_settings_4ApkN8"
+          "color_settings_4ApkN8",
+          "color_settings_mfRtwe"
         ],
         "settings": {
         }
