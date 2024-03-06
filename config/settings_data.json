@@ -381,11 +381,11 @@
               "color_code": "#ffa500"
             }
           },
-          "color_settings_GeciKi": {
+          "color_settings_JMMHVi": {
             "type": "colorSettings",
             "settings": {
-              "title": "",
-              "color_code": "#ffffff"
+              "title": "Peru",
+              "color_code": "#cd853f"
             }
           }
         },
@@ -425,7 +425,7 @@
           "color_settings_tRn63M",
           "color_settings_73qxXL",
           "color_settings_KRzbLJ",
-          "color_settings_GeciKi"
+          "color_settings_JMMHVi"
         ],
         "settings": {
         }
