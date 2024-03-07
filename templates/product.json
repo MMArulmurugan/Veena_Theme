@@ -146,6 +146,25 @@
         "padding_bottom": 12
       }
     },
+    "custom_bundle_RtUEbP": {
+      "type": "custom-bundle",
+      "blocks": {
+        "product_w3RWnH": {
+          "type": "product",
+          "repeater": "{{ product.metafields.custom.product_bundle.value }}",
+          "settings": {
+            "product": "mens-half-sleeve-t-shirt"
+          }
+        }
+      },
+      "block_order": [
+        "product_w3RWnH"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "wizaah_recently_viewed_products_DrHRnF": {
       "type": "wizaah-recently-viewed-products",
       "settings": {
@@ -261,6 +280,7 @@
   },
   "order": [
     "main",
+    "custom_bundle_RtUEbP",
     "wizaah_recently_viewed_products_DrHRnF",
     "custom_text_grid_7JBmwT",
     "custom_media_grid_UUj478",

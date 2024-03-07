@@ -1,4 +1,4 @@
-{{ 'custom-image-grid.css' |  asset_url |  stylesheet_tag }} 
+{% comment %} {{ 'custom-image-grid.css' |  asset_url |  stylesheet_tag }}  {% endcomment %}
 
 {% style %}
   .padding-{{ section.id }} {
@@ -12,14 +12,36 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
    }
+   .custom-bundle{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+   }
+   .custom-bundle-container{
+    border: 1px solid #d03c3f;
+    padding: 30px;
+    box-sizing:border-box;
+    width: 80%;
+   }
+   .custom-bundle_add-icon{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+   }
 {% endstyle %}
 
 {% if section.blocks.size > 0  %}
-    <div class="custom-image-grid padding-{{ section.id }}">
-        <div class="page-width">
-            <div class="grid grid--2-col grid--4-col-desktop">
+    <div class=" padding-{{ section.id }}">
+        <div class="page-width custom-bundle">
+            <div class="custom-bundle-container custom-border-radius grid grid--2-col grid--4-col-desktop">
                 {% for block in section.blocks %}
-                    {% render 'product-card', product: block.settings.product, section_id: section.id %}
+                    {% render 'custom-bundle-card', product: block.settings.product, section_id: section.id %}
+                    <div class = "custom-bundle_add-icon">
+                      {% unless forloop.last %}
+                        {% render 'custom-icon-account-page', icon-name : 'custom-plus' %}
+                      {% endunless %}
+                    </div>
                 {% endfor %} 
             </div>
         </div>
