@@ -230,12 +230,14 @@ class QuantityInput extends HTMLElement {
     if (document.querySelector('[name="add"] > span')) {
       const addButtonText = document.querySelector('[name="add"] > span');
       const price = document.getElementById(`price-${this.dataset.section}`);
-      const currentPrice = price.querySelector(".price-item").textContent;
-      const finalPrice =
-        value *
-        parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
-      addButtonText.textContent =
-        window.variantStrings.addToCart + " Rs. " + finalPrice;
+      if (price.querySelector(".price-item")){
+        const currentPrice = price.querySelector(".price-item").textContent;
+        const finalPrice =
+          value *
+          parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
+        addButtonText.textContent =
+          window.variantStrings.addToCart + " Rs. " + finalPrice;
+      }
     }
   }
 }
@@ -1482,17 +1484,20 @@ class VariantSelects extends HTMLElement {
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
     const price = document.getElementById(`price-${this.dataset.section}`);
-    const currentPrice = price.querySelector(".price-item").textContent;
+    if (price.querySelector(".price-item")){
 
-    if (!addButton) return;
-
-    if (disable) {
-      addButton.setAttribute("disabled", "disabled");
-      if (text) addButtonText.textContent = text;
-    } else {
-      addButton.removeAttribute("disabled");
-      addButtonText.textContent =
-        window.variantStrings.addToCart + " " + currentPrice;
+      const currentPrice = price.querySelector(".price-item").textContent;
+      
+          if (!addButton) return;
+      
+          if (disable) {
+            addButton.setAttribute("disabled", "disabled");
+            if (text) addButtonText.textContent = text;
+          } else {
+            addButton.removeAttribute("disabled");
+            addButtonText.textContent =
+              window.variantStrings.addToCart + " " + currentPrice;
+          }
     }
 
     if (!modifyClass) return;
