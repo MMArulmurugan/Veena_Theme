@@ -529,3 +529,7 @@
   justify-content: space-between;
   padding: 20px 0;
 }
+
+.topbar_item{
+  max-width:20%;
+}
