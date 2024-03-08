@@ -32,19 +32,27 @@
 .mega-menu[open] .mega-menu__content {
   opacity: 1;
   transform: translateY(0);
-  border-radius: 16px;
-  padding: 15px 30px;
+  padding: 9px;
   border: 1px solid rgba(0, 0, 0, 0.25);
-  margin: 5px 40px;
+  margin: 0px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display:flex;
 }
 
 .mega-menu__list {
   display: grid;
-  gap: 1.8rem 4rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 39px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   list-style: none;
+  width:70%;
 }
-
+.mega-menu__list-item {
+  padding: 16px;
+}
+.mega-menu__list > li:first-child {
+  background-color: #A67774; 
+  color:white !important;
+}
 .mega-menu__link {
   color: rgba(var(--color-foreground), 0.75);
   display: block;
@@ -54,13 +62,19 @@
   text-decoration: none;
   transition: text-decoration var(--duration-short) ease;
   word-wrap: break-word;
+  font-size: 16px;
+  Font:"Lato";
+  font-weight:400;
+  Line-height:24px;
 }
 
 .mega-menu__link--level-2 {
   font-weight: bold;
+  color: #000000;
+  text-decoration: underline;
 }
 .mega-menu__link--level-2:hover{
-  color: #d03c3f;
+  color: #895E59;
 }
 .header--top-center .mega-menu__list {
   display: flex;
@@ -78,7 +92,7 @@
 
 .mega-menu__link--active:hover {
   text-decoration-thickness: 0.2rem;
-  color: #d03c3f ;
+  color: #895E59;
 }
 
 .mega-menu .mega-menu__list--condensed {
@@ -90,4 +104,13 @@
 }
 .nav-blog-image{
   padding-bottom: 65%;
+}
+.mega-menu_image{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+.each-option-container{
+  display:flex;
 }

@@ -252,8 +252,11 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer .list-social {
-  justify-content: flex-start;
+  justify-content: center;
   margin-left: -1.25rem
+}
+.list-social__item{
+  border: 1px solid black;
 }
 
 .menu-drawer .list-social:empty {

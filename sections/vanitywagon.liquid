@@ -28,7 +28,7 @@
 <style>
   header-drawer {
     justify-self: start;
-    margin-left: 4rem;
+    margin-left: -1.2rem;
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -47,7 +47,6 @@
 
   .menu-drawer-container {
     display: flex;
-    margin-left: 4rem;
   }
 
   .list-menu {
@@ -57,8 +56,15 @@
   }
 
   .list-menu--inline {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    width: Fixed (1,324px);
+    height: Hug (19px);
+    top: 137px;
+    left: 58px;
+    
+
   }
 
   summary.list-menu__item {
@@ -88,7 +94,7 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    /* padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem; */
   }
 
   .section-header {
@@ -155,7 +161,7 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }}{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
@@ -201,7 +207,7 @@
         if section.settings.menu_type_desktop == 'dropdown'
           render 'header-dropdown-menu'
         elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
+          render 'vanitywagon-mega-menu' position : block.settings.image_position
         endif
       endif
     %}
@@ -294,7 +300,9 @@
           </localization-form>
         {%- endif -%}
       </div>
+
       {% render 'header-search', input_id: 'Search-In-Modal' %}
+      
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
@@ -310,6 +318,10 @@
           </span>
         </a>
       {%- endif -%}
+
+      {% if  section.settings.enable_favourite_selector %}
+        {% render 'custom-heart-icon' %}
+      {% endif %}
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -498,7 +510,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "vanitywagon header",
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
@@ -623,6 +635,12 @@
       "label": "t:sections.header.settings.enable_language_selector.label"
     },
     {
+        "type": "checkbox",
+        "id": "enable_favourite_selector",
+        "default": false,
+        "label": "Favourite selector"
+    },
+    {
       "type": "header",
       "content": "t:sections.header.settings.mobile_layout.content"
     },
@@ -684,7 +702,54 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+        "type": "mega_menu_image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "text",
+            "label": "Mega menu title",
+            "id": "mega_menu_title",
+            "info": "Mega menu is for this menu"
+          },
+          {
+          "type": "select",
+          "id": "image_position",
+          "label": "Choose image position",
+          "options": [
+            {
+              "value": "row-reverse",
+              "label": "left"
+            },
+            {
+              "value": "row",
+              "label": "right"
+            }
+          ],
+          "default": "row-reverse",
+          "label": "Select Image Position"
+        },
+
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Desktop Image Suggested Size 1240*550"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Image (Mobile)",
+            "info": "Mobile Image Suggested Size 450*450"
+        }
+        ]
     }
-  ]
+  ],
+  "presets": [
+    {
+    "name": "vanitywagon Header"
+    }
+]
 }
 {% endschema %}
