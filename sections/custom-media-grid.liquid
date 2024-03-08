@@ -32,7 +32,6 @@
                 {% assign columnSpan = section.settings.second_grid_span %}
                 {% assign rowSpan = defaultRowSpan %}
               {% endif %}
-
                 <div class="media-grid--item  custom-border-radius " style="--column-span: {{ columnSpan }}; --row-span: {{ rowSpan }}; --column-span--mobile: {{ block.settings.column_span_mobile }};">
                     <div class="media-grid--bg ">    
                         <img class="" src="{{ block.settings.image | image_url }}" width="" height=""  >
@@ -47,7 +46,7 @@
                         {%  endif %}
                         
                         {% if block.settings.description %}
-                                <p class = "p custom-media-grid__description_text_color-{{block.id}}">{{ block.settings.description }}</p>
+                                <p class = "p custom-media-grid__description_text_color-{{block.id}}" style = "color: white;">{{ block.settings.description }}</p>
                         {% endif %}
     
                         {% if block.settings.button_label != blank %}
@@ -74,6 +73,9 @@
                       color: white;
                     }
                     .custom-media-grid__description_text_color-{{block.id}} {
+                      color: white;
+                    }
+                    .custom-media-grid__description_text_color-{{block.id}} p span{
                       color: white;
                     }
                   {% else %}
@@ -195,7 +197,7 @@
             "type": "color",
             "id": "description_text_color",
             "label": "Description Text color",
-            "default": "#000000"
+            "default": "#fff"
         },
         {
             "type": "text",

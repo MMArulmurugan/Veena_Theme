@@ -146,25 +146,6 @@
         "padding_bottom": 12
       }
     },
-    "custom_bundle_RtUEbP": {
-      "type": "custom-bundle",
-      "blocks": {
-        "product_w3RWnH": {
-          "type": "product",
-          "repeater": "{{ product.metafields.custom.product_bundle.value }}",
-          "settings": {
-            "product": "mens-half-sleeve-t-shirt"
-          }
-        }
-      },
-      "block_order": [
-        "product_w3RWnH"
-      ],
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "wizaah_recently_viewed_products_DrHRnF": {
       "type": "wizaah-recently-viewed-products",
       "settings": {
@@ -207,11 +188,11 @@
           "settings": {
             "image": "{{ block.repeater.grid_image.value }}",
             "subheading": "{{ block.repeater.heading.value }}",
-            "subheading_color": "#000000",
+            "subheading_color": "#fff",
             "heading": "{{ block.repeater.pre_heading.value }}",
             "heading_text_color": "#000000",
             "description": "<p>{{ block.repeater.description | metafield_tag }}<\/p>",
-            "description_text_color": "#000000",
+            "description_text_color": "#fff",
             "button_label": "{{ block.repeater.button_text.value }}",
             "button_link": "",
             "column_span": "1",
@@ -280,7 +261,6 @@
   },
   "order": [
     "main",
-    "custom_bundle_RtUEbP",
     "wizaah_recently_viewed_products_DrHRnF",
     "custom_text_grid_7JBmwT",
     "custom_media_grid_UUj478",

@@ -163,54 +163,39 @@
               </div>
               <hr>
             {%- when 'inventory' -%}
-              <p
-                class="product__inventory product__inventory-bar-{{ block.id }} no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
-                {{ block.shopify_attributes }}
-                id="Inventory-{{ section.id }}"
-                role="status"
-              >
-                {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-                  {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
-                    {%- if product.selected_or_first_available_variant.inventory_quantity <= block.settings.inventory_threshold -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
-                      </svg>
-                      {%- if block.settings.show_inventory_quantity -%}
-                        {{- 'products.product.inventory_low_stock_show_count' | t: quantity: product.selected_or_first_available_variant.inventory_quantity -}}
-                      {%- else -%}
-                        {{- 'products.product.inventory_low_stock' | t -}}
-                      {%- endif -%}
-                    {%- else -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                      </svg>
-                      {%- if block.settings.show_inventory_quantity -%}
-                        {{- 'products.product.inventory_in_stock_show_count' | t: quantity: product.selected_or_first_available_variant.inventory_quantity -}}
-                      {%- else -%}
-                          {{- 'products.product.inventory_in_stock' | t -}}
-                      {%- endif -%}
-                    {%- endif -%}
-                  {%- else -%}
-                    {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                      </svg>
-                      {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
-                    {%- else -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
-                      </svg>
-                      {{- 'products.product.inventory_out_of_stock' | t -}}
-                    {%- endif -%}
-                  {%- endif -%}
-                {%- endif -%}
-              </p>
-              <div>
-                <div class = "inventory-bar-{{ block.id }}"></div>
+              <div class="stock-progress" id="Inventory-{{ section.id }}">
+                {%  style  %} 
+                  .stock-progress__bar{
+                    height: 5px;
+                    border-radius: 30px;
+                    background-color: rgb(245, 245, 245);
+                    position:relative;
+                    margin-top:10px;
+                  }
+                  .stock-progress__indicator{
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    height:100%;
+                    border-radius:30px;
+                    width:{{ product.selected_or_first_available_variant.inventory_quantity |  divided_by: 2 }}%;
+                    transition:all 0.25s ease-in-out;
+                  }
+                {% endstyle %}
+                {% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
+                  <li class="stock-progress__message" style="color: {% if product.selected_or_first_available_variant.inventory_quantity > 10 %} green {% else %} red {% endif %};">
+                    In stock (<span>{{ product.selected_or_first_available_variant.inventory_quantity }}</span> units), ready to be shipped.
+                  </li>
+                  <div class="stock-progress__bar">
+                    <div class="stock-progress__indicator" style="background-color: {% if product.selected_or_first_available_variant.inventory_quantity > 10 %} green {% else %} red {% endif %};">
+                    </div>
+                  </div>
+                  {% else %}
+                  <li class="stock-progress__message" style="color:red;">
+                    Out of stock
+                  </li>
+                {% endif %}
+                
               </div>
             {%- when 'description' -%}
               {%- if product.description != blank -%}
