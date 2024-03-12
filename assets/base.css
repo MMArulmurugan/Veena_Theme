@@ -4766,3 +4766,33 @@ header.header svg.icon path,
 .product-bundle-wrapper{
   display:flex;
 }
+
+.custom-bundle{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+ }
+ .custom-bundle-container{
+  border: 1px solid #d03c3f;
+  padding: 30px 5px;
+  box-sizing:border-box;
+  width: 90%;
+  margin-top:25px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content:center;
+  align-items:center;
+ }
+ .bundle-product-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap: 10px;
+ }
+ .custom-bundle_add-icon{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+ }

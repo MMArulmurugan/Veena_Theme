@@ -20,7 +20,7 @@
   
   <product-card 
     class="product-card"
-    data-product-handle="{{ product.url | within: collection }}" 
+    data-product-handle="{{ product.handle }}" 
     data-section-id="{{ section_id }}"
   >
     <a href="{{ product.url }}" class="product-card__link position-relative">
@@ -38,7 +38,7 @@
       {% if current_variant.inventory_quantity != 0 %}
         <div class="product-card__quick-view position-absolute">
           {% form 'product', product %}
-            <input type="checkbox" name="addToCart" class="addToCartCheckbox" value="{{ current_variant.id }}">
+            <input type="checkbox" name="addToCart" class="addToCartCheckbox" data-product-id="{{ current_variant.id }}" value="{{ current_variant.id }}">
           {% endform %}
         </div>
      {% endif %} 

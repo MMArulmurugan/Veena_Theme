@@ -1654,3 +1654,33 @@ if (document.getElementById("custom-my-btn")) {
       });
   });
 }
+/*-----------------------------------------------bundler------------------------------------------*/
+
+
+var selectedProducts = [];
+
+document.addEventListener("DOMContentLoaded", function() {
+  var addToCartButton = document.querySelector('.addToCartButton');
+  
+  if (addToCartButton) {
+    addToCartButton.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      var checkboxes = document.querySelectorAll('.addToCartCheckbox:checked');
+
+      checkboxes.forEach(function(checkbox) {
+        selectedProducts.push(checkbox.value);
+      });
+
+      // Now 'selectedProducts' contains the IDs of the selected products.
+      // You can use this array to perform further actions, like adding to the cart.
+      console.log(selectedProducts);
+
+      // Update the value of the hidden input with the selected product IDs.
+      document.querySelector('input[name="id"]').value = selectedProducts.join(',');
+
+      // Perform additional actions, such as submitting the form.
+      document.querySelector('form').submit();
+    });
+  }
+});
