@@ -655,6 +655,115 @@
                 </style>  
             {%- when 'offers' -%}    
                 {%  render 'custom-offers', product: product %}
+            {% when 'bundler' %}
+              {% style %}
+              .padding-{{ section.id }} {
+                padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+                padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+              }
+            
+              @media only screen and (min-width: 750px) {
+                .padding-{{ section.id }} {
+                  padding-top: {{ section.settings.padding_top }}px;
+                  padding-bottom: {{ section.settings.padding_bottom }}px;
+                }
+               }
+               .custom-bundle{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+               }
+               .custom-bundle-container{
+                border: 1px solid #d03c3f;
+                padding: 30px 5px;
+                box-sizing:border-box;
+                width: 90%;
+                margin-top:25px;
+                display:flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content:center;
+                align-items:center;
+               }
+               .bundle-product-container{
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;
+                  gap: 10px;
+               }
+               .custom-bundle_add-icon{
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+               }
+            {% endstyle %}
+                
+                {%  if product.metafields.custom.bundle.value %}
+
+                  <div class=" padding-{{ section.id }}">
+                    <h3 class = "page-width ">{{ block.settings.bundle_heading }}</h3>
+                      <div class=" custom-bundle">
+                          <div class="custom-bundle-container custom-border-radius  ">
+                              <div class = "bundle-product-container">
+                                  {% for product in product.metafields.custom.bundle.value %}
+                                    {% render 'custom-bundle-card',
+                                      product: product,                    
+                                      section_id: section.id
+                                      %}  
+                                    <div class = "custom-bundle_add-icon">
+                                      {% unless forloop.last %}
+                                        {% render 'custom-icon-account-page', icon-name : 'custom-plus' %}
+                                      {% endunless %}
+                                    </div>
+                                {% endfor %} 
+                              </div>
+                              <div>
+                                {% form 'product', product %}
+                                  <input type="hidden" name="id" value="{{  }}">
+                                  <button type="submit" class="button custom-button-secondary addToCartButton">
+                                    Add to cart
+                                  </button>
+                                
+                                {% endform %}
+                              <div>
+                          </div>
+              
+                      </div>
+                  </div>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      var addToCartButton = document.querySelector('.addToCartButton');
+                      
+                      if (addToCartButton) {
+                        addToCartButton.addEventListener('click', function(event) {
+                          event.preventDefault();
+                  
+                          var selectedProducts = [];
+                          var checkboxes = document.querySelectorAll('.addToCartCheckbox:checked');
+                  
+                          checkboxes.forEach(function(checkbox) {
+                            selectedProducts.push(checkbox.value);
+                          });
+                  
+                          // Now 'selectedProducts' contains the IDs of the selected products.
+                          // You can use this array to perform further actions, like adding to the cart.
+                          console.log(selectedProducts);
+                  
+                          // Update the value of the hidden input with the selected product IDs.
+                          document.querySelector('input[name="id"]').value = selectedProducts.join(',');
+                  
+                          // Perform additional actions, such as submitting the form.
+                          document.querySelector('form').submit();
+                        });
+                      }
+                    });
+                  </script>
+                  
+
+                {% endif %}  
+                
+
             {% when 'pincode' %}    
                 {%  render 'pincode-checker', block:block %}
             {%- when 'payments' -%}     
@@ -953,9 +1062,41 @@
       "limit": 1
     },
     {
-      "type":"bundler",
-      "name":"bundler",
-      "limit":1
+      "type": "bundler",
+      "name":"Product Bundles",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "bundle_heading",
+          "label": "Bundle Heading",
+          "default": "Frequently bought together"
+        },
+        {
+          "type": "header",
+          "content": "Adjust Bundler padding"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 36
+        }
+      ]
     },
     {
       "type": "payments",

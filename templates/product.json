@@ -65,6 +65,7 @@
         },
         "pincode_KcznLY": {
           "type": "pincode",
+          "disabled": true,
           "settings": {
             "pincode_heading": "Pincode Checker",
             "pincode_placeholder_text": "Enter Your Pincode",
@@ -111,6 +112,14 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "bundler_BeAw6b": {
+          "type": "bundler",
+          "settings": {
+            "bundle_heading": "Frequently bought  together",
+            "padding_top": 36,
+            "padding_bottom": 36
+          }
         }
       },
       "block_order": [
@@ -128,7 +137,8 @@
         "offers_excaeq",
         "payments_pr3wBE",
         "description",
-        "share"
+        "share",
+        "bundler_BeAw6b"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -188,11 +198,11 @@
           "settings": {
             "image": "{{ block.repeater.grid_image.value }}",
             "subheading": "{{ block.repeater.heading.value }}",
-            "subheading_color": "#fff",
+            "subheading_color": "#ffffff",
             "heading": "{{ block.repeater.pre_heading.value }}",
             "heading_text_color": "#000000",
             "description": "<p>{{ block.repeater.description | metafield_tag }}<\/p>",
-            "description_text_color": "#fff",
+            "description_text_color": "#ffffff",
             "button_label": "{{ block.repeater.button_text.value }}",
             "button_link": "",
             "column_span": "1",
