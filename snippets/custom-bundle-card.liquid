@@ -5,24 +5,9 @@
   %}
 
   
-  {% style %}
-  .bundle-product-card__title{
-    font-size: 8px;
-  }
-  .bundle-product-card__price-amount{
-    font-size: 8px;
-  }
-  .bundle-product-card__compareprice{
-    font-size: 8px;
-  }
+ 
   
-  {% endstyle %}
-  
-  <product-card 
-    class="product-card"
-    data-product-handle="{{ product.handle }}" 
-    data-section-id="{{ section_id }}"
-  >
+<div>
     <a href="{{ product.url }}" class="product-card__link position-relative">
 
       <div class="image-hover-swap product-card__image custom-border-radius">
@@ -34,18 +19,10 @@
           {% render "image", desktopImage: secondary_image, class:"media media--portrait" %}
         </div>
       </div>
-      
-      {% if current_variant.inventory_quantity != 0 %}
-        <div class="product-card__quick-view position-absolute">
-          {% form 'product', product %}
-            <input type="checkbox" name="addToCart" class="addToCartCheckbox" data-product-id="{{ current_variant.id }}" value="{{ current_variant.id }}">
-          {% endform %}
-        </div>
-     {% endif %} 
-      
+            
     </a>
   
-    <div class="product-card__info">
+    <div class="bundle-product-card__info">
        
         <a href="{{ product.url }}" class="product-card__title bundle-product-card__title">{{ product.title }}</a>     
   
@@ -64,9 +41,8 @@
       
     </div>
   
-    <script>
-      {{ product.variants | json }}
-    </script>
-  </product-card>
+  </div>
+  
+
 
   

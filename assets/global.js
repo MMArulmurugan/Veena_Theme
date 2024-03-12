@@ -1657,30 +1657,48 @@ if (document.getElementById("custom-my-btn")) {
 /*-----------------------------------------------bundler------------------------------------------*/
 
 
-var selectedProducts = [];
+let cart =
+    document.querySelector("cart-notification") ||
+    document.querySelector("cart-drawer");
 
-document.addEventListener("DOMContentLoaded", function() {
-  var addToCartButton = document.querySelector('.addToCartButton');
-  
-  if (addToCartButton) {
-    addToCartButton.addEventListener('click', function(event) {
-      event.preventDefault();
-
-      var checkboxes = document.querySelectorAll('.addToCartCheckbox:checked');
-
-      checkboxes.forEach(function(checkbox) {
-        selectedProducts.push(checkbox.value);
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('add-to-cart-btn').addEventListener('click', function () {
+      var selectedProducts = [];
+      document.querySelectorAll('.bundle-checkbox:checked').forEach(function (checkbox) {
+      console.log(checkbox.dataset.productId);
+        if (checkbox.value) {
+          selectedProducts.push({
+            id: checkbox.dataset.productId,
+            quantity: 1,
+          });
+        }
       });
 
-      // Now 'selectedProducts' contains the IDs of the selected products.
-      // You can use this array to perform further actions, like adding to the cart.
-      console.log(selectedProducts);
-
-      // Update the value of the hidden input with the selected product IDs.
-      document.querySelector('input[name="id"]').value = selectedProducts.join(',');
-
-      // Perform additional actions, such as submitting the form.
-      document.querySelector('form').submit();
+      if (selectedProducts.length > 0) {
+        let formData = {
+          items: selectedProducts,
+          sections: cart.getSectionsToRender().map((section) => section.id),
+        };
+        console.log('formdata',formData);
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            cart.renderContents(data);
+          })
+          .catch((error) => {
+            console.log('Error:', error);
+          });
+      }
     });
-  }
-});
+  });
+
+/*------------------------------------------------------------------------------------------- */
+
