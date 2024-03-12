@@ -4796,7 +4796,7 @@ header.header svg.icon path,
  }
  .custom-bundle-container{
   border: 1px solid #d03c3f;
-  padding: 30px 5px;
+  padding: 15px 5px;
   box-sizing:border-box;
   width: 90%;
   margin-top:25px;
@@ -4827,6 +4827,11 @@ header.header svg.icon path,
   right: 0;
   padding: 10px;
 }
+.bundles__small{
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
 @media screen and (max-width: 750px){
   .bundles__small{
     flex-direction: column;
@@ -4842,7 +4847,7 @@ header.header svg.icon path,
   letter-spacing: 0.4px;
   line-height: 8.4px;
   color: black;
-  margin-bottom: 3px;
+  margin-bottom: 5px 0px;
 }
 .bundle-product-card__price-amount{
   font-size: 8px;
