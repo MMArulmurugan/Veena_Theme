@@ -4786,7 +4786,7 @@ header.header svg.icon path,
   border: 1px solid #d03c3f;
   padding: 30px 5px;
   box-sizing:border-box;
-  width: 90%;
+  width: 100%;
   margin-top:25px;
   display:flex;
   flex-direction: column;
@@ -4841,19 +4841,19 @@ header.header svg.icon path,
 }
 
 .bundle-product-card__title{
-  font-size: 10px;
+  font-size: 12px;
   text-decoration: none;
   font-weight: bold;
   letter-spacing: 0.4px;
-  line-height: 8.4px;
+  line-height: 10.4px;
   color: black;
-  margin-bottom: 5px 0px;
+  margin: 5px 0px;
 }
 .bundle-product-card__price-amount{
-  font-size: 8px;
+  font-size: 10px;
   font-size: 700;
 }
 .bundle-product-card__compareprice{
-  font-size: 8px;
+  font-size: 9px;
   font-size: 700;
 }
