@@ -230,11 +230,13 @@ class QuantityInput extends HTMLElement {
     if (document.querySelector('[name="add"] > span')) {
       const addButtonText = document.querySelector('[name="add"] > span');
       const price = document.getElementById(`price-${this.dataset.section}`);
-      if (price.querySelector(".price-item")){
+      if (price) {
         const currentPrice = price.querySelector(".price-item").textContent;
         const finalPrice =
           value *
-          parseInt(currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, ""));
+          parseInt(
+            currentPrice.split("Rs. ")[1].split(".")[0].replace(/,/g, "")
+          );
         addButtonText.textContent =
           window.variantStrings.addToCart + " Rs. " + finalPrice;
       }
@@ -1316,7 +1318,9 @@ class VariantSelects extends HTMLElement {
       : this.dataset.section;
 
     let mainProductId = document.querySelector("#add-to-cart-btn");
-    mainProductId.dataset.mainProduct = requestedVariantId;
+    if (mainProductId) {
+      mainProductId.dataset.mainProduct = requestedVariantId;
+    }
 
     fetch(
       `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
@@ -1337,9 +1341,8 @@ class VariantSelects extends HTMLElement {
 
         // console.log(html.querySelector("#metafieldsVariant"));
         // console.log(document.querySelector("#metafieldsVariant"));
-        
-        if(document.querySelector("#custom-my-btn")){
 
+        if (document.querySelector("#custom-my-btn")) {
           document.querySelector("#custom-my-btn").dataset.productId =
             html.querySelector("#custom-my-btn").dataset.productId;
           const customBtn = document.querySelector("#custom-my-btn");
@@ -1348,20 +1351,18 @@ class VariantSelects extends HTMLElement {
             html.querySelector("#custom-my-btn").dataset.variantId
           );
         }
-        
-        if(document.querySelector("#voucherContainer")){
 
+        if (document.querySelector("#voucherContainer")) {
           document.querySelector("#voucherContainer").innerHTML =
             html.querySelector("#voucherContainer").innerHTML;
         }
 
-        if(document.querySelector("#metafieldsVariant")){
-
+        if (document.querySelector("#metafieldsVariant")) {
           document.querySelector("#metafieldsVariant").innerHTML =
             html.querySelector("#metafieldsVariant").innerHTML;
         }
-        
-        if(document.querySelector("#Shipingmetafield")){
+
+        if (document.querySelector("#Shipingmetafield")) {
           document.querySelector("#Shipingmetafield").innerHTML =
             html.querySelector("#Shipingmetafield").innerHTML;
         }
@@ -1487,20 +1488,19 @@ class VariantSelects extends HTMLElement {
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
     const price = document.getElementById(`price-${this.dataset.section}`);
-    if (price.querySelector(".price-item")){
-
+    if (price.querySelector(".price-item")) {
       const currentPrice = price.querySelector(".price-item").textContent;
-      
-          if (!addButton) return;
-      
-          if (disable) {
-            addButton.setAttribute("disabled", "disabled");
-            if (text) addButtonText.textContent = text;
-          } else {
-            addButton.removeAttribute("disabled");
-            addButtonText.textContent =
-              window.variantStrings.addToCart + " " + currentPrice;
-          }
+
+      if (!addButton) return;
+
+      if (disable) {
+        addButton.setAttribute("disabled", "disabled");
+        if (text) addButtonText.textContent = text;
+      } else {
+        addButton.removeAttribute("disabled");
+        addButtonText.textContent =
+          window.variantStrings.addToCart + " " + currentPrice;
+      }
     }
 
     if (!modifyClass) return;
@@ -1659,53 +1659,57 @@ if (document.getElementById("custom-my-btn")) {
 }
 /*-----------------------------------------------bundler------------------------------------------*/
 
-
 let cart =
-    document.querySelector("cart-notification") ||
-    document.querySelector("cart-drawer");
+  document.querySelector("cart-notification") ||
+  document.querySelector("cart-drawer");
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('add-to-cart-btn').addEventListener('click', function () {
-      var selectedProducts = [];
-      document.querySelectorAll('.bundle-checkbox:checked').forEach(function (checkbox) {
-      console.log(checkbox.dataset.productId);
-        if (checkbox.value) {
-          selectedProducts.push({
-            id: checkbox.dataset.productId,
-            quantity: 1,
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("add-to-cart-btn")) {
+    document
+      .getElementById("add-to-cart-btn")
+      .addEventListener("click", function () {
+        var selectedProducts = [];
+        document
+          .querySelectorAll(".bundle-checkbox:checked")
+          .forEach(function (checkbox) {
+            console.log(checkbox.dataset.productId);
+            if (checkbox.value) {
+              selectedProducts.push({
+                id: checkbox.dataset.productId,
+                quantity: 1,
+              });
+            }
           });
+        let customAddtoCartButton = document.querySelector("#add-to-cart-btn");
+        let mainProductId = customAddtoCartButton.dataset.mainProduct;
+        let mainProductQty = customAddtoCartButton.dataset.mainProductQuantity;
+        selectedProducts.push({ id: mainProductId, quantity: mainProductQty });
+
+        if (selectedProducts.length > 0) {
+          let formData = {
+            items: selectedProducts,
+            sections: cart.getSectionsToRender().map((section) => section.id),
+          };
+          console.log("formdata", formData);
+          fetch("/cart/add.js", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              cart.renderContents(data);
+            })
+            .catch((error) => {
+              console.log("Error:", error);
+            });
         }
       });
-      let customAddtoCartButton = document.querySelector("#add-to-cart-btn");
-      let mainProductId = customAddtoCartButton.dataset.mainProduct;
-      let mainProductQty = customAddtoCartButton.dataset.mainProductQuantity;
-      selectedProducts.push({id: mainProductId, quantity: mainProductQty});
-
-      if (selectedProducts.length > 0) {
-        let formData = {
-          items: selectedProducts,
-          sections: cart.getSectionsToRender().map((section) => section.id),
-        };
-        console.log('formdata',formData);
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        })
-          .then((response) => {
-            return response.json()
-          })
-          .then((data) => {
-            cart.renderContents(data);
-          })
-          .catch((error) => {
-            console.log('Error:', error);
-          });
-      }
-    });
-  });
+  }
+});
 
 /*------------------------------------------------------------------------------------------- */
-

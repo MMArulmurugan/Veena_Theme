@@ -23,6 +23,47 @@
     </a>
   
     <div class="bundle-product-card__info">
+
+      <div class="product-card__form">
+        {% form 'product', product %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">          
+            {% if product.options_with_values %}
+                <div class="product-card__options">
+                    {% for product_option in product.options_with_values %}
+                        {% if product_option.name == "Color" %}
+                            <div class="product-card__option">
+                                <ul class="product-card__list">
+                                  {% for option_value in product_option.values %}
+                                    {% assign isOptionOutOfStock = false %}
+                                    
+                                    {% if current_variant.inventory_quantity == 0 and product_option.selected_value == option_value %}
+                                        {% assign isOptionOutOfStock = true %}
+                                    {% endif %}
+                                    
+                                    <li data-value={{ option_value }} class="product-card__color-dot item-swatch{% if isOptionOutOfStock %} out-of-stock{% endif %}" style="{% if product_option.selected_value == option_value %}border: 1px solid red;{% endif %}">
+                                        <input 
+                                            id="{{ current_variant.id | append: option_value }}"
+                                            type="radio" 
+                                            name="option-{{ product_option.name | handleize }}" 
+                                            value="{{ option_value }}"
+                                            {% if product_option.selected_value == option_value %}checked{% endif %}
+                                        >
+                                        <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label> 
+                                        {% if isOptionOutOfStock %}
+                                            <div class="product-variant-options__cross-line"></div>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>                                  
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        
+        {% endform %}
+      </div>
        
         <a href="{{ product.url }}" class="product-card__title bundle-product-card__title">{{ product.title }}</a>     
   
