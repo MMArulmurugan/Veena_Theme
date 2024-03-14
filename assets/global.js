@@ -1315,6 +1315,9 @@ class VariantSelects extends HTMLElement {
       ? this.dataset.originalSection
       : this.dataset.section;
 
+    let mainProductId = document.querySelector("#add-to-cart-btn");
+    mainProductId.dataset.mainProduct = requestedVariantId;
+
     fetch(
       `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
         this.dataset.originalSection
@@ -1673,6 +1676,10 @@ let cart =
           });
         }
       });
+      let customAddtoCartButton = document.querySelector("#add-to-cart-btn");
+      let mainProductId = customAddtoCartButton.dataset.mainProduct;
+      let mainProductQty = customAddtoCartButton.dataset.mainProductQuantity;
+      selectedProducts.push({id: mainProductId, quantity: mainProductQty});
 
       if (selectedProducts.length > 0) {
         let formData = {

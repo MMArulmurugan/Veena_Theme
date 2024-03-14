@@ -15,7 +15,7 @@
         {% endfor %}
     </div>
     <div>
-       <span id="add-to-cart-btn" class="button custom-button-secondary">Add to Cart</span>
+       <span id="add-to-cart-btn" class="button custom-button-secondary" data-main-product = "{{ product.selected_or_first_available_variant.id }}" data-main-product-quantity = "{{ cart_qty }}" >Add to Cart</span>
     </div>
       
 </div>
