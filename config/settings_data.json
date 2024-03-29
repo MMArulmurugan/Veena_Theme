@@ -1,7 +1,7 @@
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/Vanity-Wagon-Logo_144x63_9097a765-4379-494b-a4f2-903c601e6a88.png",
-    "logo_width": 100,
+    "logo": "shopify:\/\/shop_images\/n_Veena.png",
+    "logo_width": 90,
     "favicon": "shopify:\/\/shop_images\/Favicon.png",
     "type_header_font": "harmonia_sans_n7",
     "heading_scale": 100,
@@ -542,17 +542,6 @@
           "text": "#ffffff",
           "button": "#ffffff",
           "button_label": "#334fb4",
-          "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
-        }
-      },
-      "scheme-d49b3053-b466-48fc-b136-ae786d4c0e3e": {
-        "settings": {
-          "background": "#bc9891",
-          "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#ffffff",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }

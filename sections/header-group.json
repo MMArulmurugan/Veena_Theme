@@ -8,19 +8,27 @@
         "announcement_cGFW8w": {
           "type": "announcement",
           "settings": {
-            "text": "5 Years & More | 20% - 70% Off | Use Code: MORE",
+            "text": "Qualify for complimentary shipping on orders totaling $50 or more.",
             "link": "shopify:\/\/collections"
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Flash Sale Alert: Save Big for the Next 24 Hours!",
+            "link": "#"
           }
         }
       },
       "block_order": [
-        "announcement_cGFW8w"
+        "announcement_cGFW8w",
+        "announcement-bar-0"
       ],
       "settings": {
-        "color_scheme": "scheme-d49b3053-b466-48fc-b136-ae786d4c0e3e",
+        "color_scheme": "scheme-5",
         "show_line_separator": true,
         "show_social": false,
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "enable_country_selector": false,
         "enable_language_selector": false
@@ -65,7 +73,6 @@
         "grid_items_pC8QiJ",
         "grid_items_dk8X7q"
       ],
-      "disabled": true,
       "settings": {
         "logo_position": "middle-center",
         "menu": "veena",
@@ -116,37 +123,13 @@
         "padding_bottom": 20
       }
     },
-    "vanitywagon_NT6KYA": {
-      "type": "vanitywagon",
-      "blocks": {
-        "mega_menu_image_6mQpL6": {
-          "type": "mega_menu_image",
-          "settings": {
-            "mega_menu_title": "SKIN CARE",
-            "image_position": "row",
-            "image": "shopify:\/\/shop_images\/6f6dce855cd110bb5815d390945d8afe.png",
-            "image_mobile": "shopify:\/\/shop_images\/6f6dce855cd110bb5815d390945d8afe.png"
-          }
-        }
-      },
-      "block_order": [
-        "mega_menu_image_6mQpL6"
-      ],
+    "new_header_MhCXE4": {
+      "type": "new-header",
+      "disabled": true,
       "settings": {
-        "logo_position": "top-left",
-        "menu": "vanitywagon",
-        "menu_type_desktop": "mega",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "",
-        "menu_color_scheme": "",
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "enable_favourite_selector": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 0
+        "logo_image": "shopify:\/\/shop_images\/n_Veena.png",
+        "nav_list": "veena",
+        "show_icons": false
       }
     }
   },
@@ -154,6 +137,6 @@
     "announcement-bar",
     "veena_header_7y3wkB",
     "header",
-    "vanitywagon_NT6KYA"
+    "new_header_MhCXE4"
   ]
 }
