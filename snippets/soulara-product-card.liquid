@@ -1,0 +1,420 @@
+{% liquid
+    assign current_variant = product.selected_or_first_available_variant
+    assign featured_image = current_variant.image | default: product.featured_image
+    assign secondary_image = product.images[1] | default: product.featured_image
+    assign discountAmount = current_variant.compare_at_price | minus: current_variant.price
+    assign discountPercentage = discountAmount | times: 100 | divided_by: current_variant.compare_at_price
+  %}
+  <script src="{{ 'new-product.js' | asset_url }}" defer="defer"></script>
+  
+  {% style %}
+  
+  {% endstyle %}
+  
+  {% comment %} <product-card 
+    class="product-card"
+    data-product-handle="{{ product.handle}}" 
+    data-section-id="{{ section_id }}"
+  >
+    <a href="{{ product.url }}" class="product-card__link position-relative">
+
+      <div class="image-hover-swap product-card__image custom-border-radius">
+        {% render 'image',
+          desktopImage: featured_image,
+          class: 'media media--portrait'
+        %}
+        <div class="product-card__secondary-image">
+          {% render "image", desktopImage: secondary_image, class:"media media--portrait" %}
+        </div>
+      </div>
+      
+      
+      
+      <div class = "product-card_badge-container position-absolute">
+          {% for tag in product.tags %}
+            {% if tag contains 'New' %}
+              {% assign badge_text = tag | split: '_' | last %}
+            {% endif %}
+          {% endfor %}
+          {% if badge_text != blank %}
+            <span class="badge product-card_badge ">
+              {{ badge_text }}
+            </span>
+          {% endif %}
+          {% if current_variant.inventory_quantity == 0 %}
+            <span class="product-card__sold-out badge ">sold out</span> 
+          {% endif %}
+          {% if discountPercentage %}
+            <span class="product-card__dicound badge ">{{ discountPercentage}}% off</span> 
+           {% endif %} 
+      </div>
+
+    </a>
+  
+    <div class="product-card__info">
+
+        <div class="product-card__form">
+          {% form 'product', product %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">          
+              {% if product.options_with_values %}
+                  <div class="product-card__options">
+                      {% for product_option in product.options_with_values %}
+                          {% if product_option.name == "Color" %}
+                              <div class="product-card__option">
+                                  <ul class="product-card__list">
+                                    {% for option_value in product_option.values %}
+                                      {% assign isOptionOutOfStock = false %}
+                                      
+                                      {% if current_variant.inventory_quantity == 0 and product_option.selected_value == option_value %}
+                                          {% assign isOptionOutOfStock = true %}
+                                      {% endif %}
+                                      
+                                      <li data-value={{ option_value }} class="product-card__color-dot item-swatch{% if isOptionOutOfStock %} out-of-stock{% endif %}" style="{% if product_option.selected_value == option_value %}border: 1px solid red;{% endif %}">
+                                          <input 
+                                              id="{{ current_variant.id | append: option_value }}"
+                                              type="radio" 
+                                              name="option-{{ product_option.name | handleize }}" 
+                                              value="{{ option_value }}"
+                                              {% if product_option.selected_value == option_value %}checked{% endif %}
+                                          >
+                                          <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label> 
+                                          {% if isOptionOutOfStock %}
+                                              <div class="product-variant-options__cross-line"></div>
+                                          {% endif %}
+                                      </li>
+                                  {% endfor %}
+                                  </ul>                                  
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </div>
+              {% endif %}
+
+          
+          {% endform %}
+        </div>
+
+        
+        <span class = "product-card__vendor">{{ product.vendor }}</span>
+
+        <div class='jdgm-widget jdgm-preview-badge'>
+          {{ product.metafields.judgeme.badge }}
+        </div> 
+
+        <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>     
+  
+        <div class="product-card__prices">
+          {% if product.price_varies %}
+            <span class="product-card__price-amount"> From {{ product.price_min | money_with_currency }}</span>
+          {% else %}
+            <span class="product-card__price-amount">  {{ product.price | money_with_currency }}</span>   
+          {% endif %}                
+
+          {% if current_variant.compare_at_price > current_variant.price %}
+          <s class="product-card__compareprice">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+          {% endif %}
+        </div>
+       
+        {% if current_variant.inventory_quantity > 10 and current_variant.inventory_quantity <= 50 %}
+          <span class = "product-card__stock product-card__max-stock">{{ current_variant.inventory_quantity }}  in stock</span>
+        {% elsif current_variant.inventory_quantity < 10 and current_variant.inventory_quantity > 1 %} 
+          <span class = "product-card__stock product-card__min-stock">Only {{ current_variant.inventory_quantity }}  units left</span>
+        {% endif %}  
+
+        {% if current_variant.inventory_quantity != 0 %}
+            <div class="product-card__quick-view ">
+                {% form 'product', product %}
+                  <input type="hidden" name="id" value="{{ current_variant.id }}">
+                  <button type="submit" class="button product-card__quick-view-button custom-button-cart">
+                    Add to cart
+                </button>
+                <button type="submit"  class="custom-button-cart product-card__new-mobile-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" viewBox="0 0 576 512">
+                    <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
+                </button>
+                {% endform %}
+            </div>
+            
+
+            <quantity-popover>
+                <div class="variant-item__quantity-wrapper qty-cnt quantity-popover-wrapper{% unless has_popover %} variant-item__quantity-wrapper--no-info{% endunless %}" id="quantityPopover">
+                  <label class="visually-hidden" for="Quantity-{{ variant.id }}">
+                    {{ 'products.product.quantity.label' | t }}
+                  </label>
+                  <div class="quantity-popover-container{% if is_available and has_popover %} quantity-popover-container--hover{% endif %}{% if cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
+                    {%- if has_qty_rules or has_vol_pricing -%}
+                      <button
+                        type="button"
+                        aria-expanded="false"
+                        class="quantity-popover__info-button quantity-popover__info-button--icon-only button button--tertiary small-hide medium-hide no-js-hidden"
+                      >
+                        {% render 'icon-info' %}
+                      </button>
+                    {%- endif -%}
+                    {%- if variant.available == false or quantity_rule_soldout -%}
+                      <span class="variant-item__sold-out"> {{ 'products.product.sold_out' | t }} </span>
+                    {%- else -%}
+                      {% comment %} TODO: Remove theme check {% endcomment %}
+                      {% # theme-check-disable %}
+                      {% assign cart_qty = cart | item_count_for_variant: variant.id %}
+                      {% # theme-check-enable %}
+                      {% render 'quantity-input', variant: variant %}
+                    {%- endif -%}
+                  </div>
+                  {%- if cart_qty > 0 -%}
+                    <quick-order-list-remove-button
+                      id="Remove-{{ variant.id }}"
+                      data-index="{{ variant.id }}"
+                    >
+                      <a
+                        href="{{ item.url_to_remove }}"
+                        class="button button--tertiary"
+                        aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                      >
+                        {% render 'icon-remove' %}
+                      </a>
+                    </quick-order-list-remove-button>
+                  {%- endif -%}
+                </div>
+                {%- if has_popover -%}
+                  <button
+                    type="button"
+                    class="quantity-popover__info-button quantity-popover__info-button--icon-with-label button button--tertiary large-up-hide"
+                    aria-expanded="false"
+                  >
+                    {% render 'icon-info' %}
+                    <span>
+                      {%- if has_vol_pricing -%}
+                        {{ 'products.product.volume_pricing.note' | t }}
+                      {%- elsif has_qty_rules -%}
+                        {{ 'products.product.quantity.note' | t }}
+                      {%- endif -%}
+                    </span>
+                  </button>
+                {%- endif -%}
+                {%- if has_vol_pricing or has_qty_rules -%}
+                  <div
+                    class="global-settings-popup quantity-popover__info"
+                    tabindex="-1"
+                    hidden
+                  >
+                    {%- if has_qty_rules == false -%}
+                      <span class="volume-pricing-label caption">{{ 'products.product.volume_pricing.title' | t }}</span>
+                    {%- endif -%}
+                    <div class="quantity__rules caption no-js-hidden">
+                      {%- if variant.quantity_rule.increment > 1 -%}
+                        <span class="divider">
+                          {{- 'products.product.quantity.multiples_of' | t: quantity: variant.quantity_rule.increment -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if variant.quantity_rule.min > 1 -%}
+                        <span class="divider">
+                          {{- 'products.product.quantity.minimum_of' | t: quantity: variant.quantity_rule.min -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if variant.quantity_rule.max != null -%}
+                        <span class="divider">
+                          {{- 'products.product.quantity.maximum_of' | t: quantity: variant.quantity_rule.max -}}
+                        </span>
+                      {%- endif -%}
+                    </div>
+                    <button
+                      class="button-close button button--tertiary large-up-hide"
+                      type="button"
+                      aria-label="{{ 'accessibility.close' | t }}"
+                    >
+                      {%- render 'icon-close' -%}
+                    </button>
+                    {%- if variant.quantity_price_breaks.size > 0 -%}
+                      <volume-pricing class="parent-display">
+                        <ul class="list-unstyled">
+                          <li>
+                            <span>{{ variant.quantity_rule.min }}+</span>
+                            {%- assign price = variant.price | money_with_currency -%}
+                            <span>{{ 'sections.quick_order_list.each' | t: money: price }}</span>
+                          </li>
+                          {%- for price_break in variant.quantity_price_breaks -%}
+                            <li>
+                              <span>
+                                {{- price_break.minimum_quantity -}}
+                                <span aria-hidden="true">+</span></span
+                              >
+                              {%- assign price = price_break.price | money_with_currency -%}
+                              <span> {{ 'sections.quick_order_list.each' | t: money: price }}</span>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </volume-pricing>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+                <div
+                  class="variant-item__error large-up-hide"
+                  id="Quick-order-list-item-error-mobile-{{ variant.id }}"
+                  role="alert"
+                >
+                  <small class="variant-item__error-text"></small>
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    class="icon icon-error"
+                    viewBox="0 0 13 13"
+                  >
+                    <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                    <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                    <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                    <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                  </svg>
+                </div>
+            </quantity-popover>
+            
+        {% endif %} 
+        
+       
+    </div>
+  
+    <script>  
+      {{ product.variants | json }} 
+       
+    </script>
+  </product-card> {% endcomment %}
+
+  <product-cart-element class="product-card2" data-section-id="template--16239867592871__like" data-product-url="/products/frittata-w-roast-veg-tomato-1">
+    <div class="productMain_container">
+
+        <a href="{{ product.url }}" class="product-card__link position-relative">
+
+            <div class="image-hover-swap product-card__image custom-border-radius">
+              {% render 'image',
+                desktopImage: featured_image,
+                class: 'media media--portrait'
+              %}
+              <div class="product-card__secondary-image">
+                {% render "image", desktopImage: secondary_image, class:"media media--portrait" %}
+              </div>
+            </div>
+            
+            
+            
+            <div class = "product-card_badge-container position-absolute">
+                {% for tag in product.tags %}
+                  {% if tag contains 'New' %}
+                    {% assign badge_text = tag | split: '_' | last %}
+                  {% endif %}
+                {% endfor %}
+                {% if badge_text != blank %}
+                  <span class="badge product-card_badge ">
+                    {{ badge_text }}
+                  </span>
+                {% endif %}
+                {% if current_variant.inventory_quantity == 0 %}
+                  <span class="product-card__sold-out badge ">sold out</span> 
+                {% endif %}
+                {% if discountPercentage %}
+                  <span class="product-card__dicound badge ">{{ discountPercentage}}% off</span> 
+                 {% endif %} 
+            </div>
+      
+        </a>
+
+
+     <div class="product-card__info">
+        <div class="product-card__form">
+            {% form 'product', product %}
+              <input type="hidden" name="id" value="{{ current_variant.id }}">          
+                {% if product.options_with_values %}
+                    <div class="product-card__options">
+                        {% for product_option in product.options_with_values %}
+                            {% if product_option.name == "Color" %}
+                                <div class="product-card__option">
+                                    <ul class="product-card__list">
+                                      {% for option_value in product_option.values %}
+                                        {% assign isOptionOutOfStock = false %}
+                                        
+                                        {% if current_variant.inventory_quantity == 0 and product_option.selected_value == option_value %}
+                                            {% assign isOptionOutOfStock = true %}
+                                        {% endif %}
+                                        
+                                        <li data-value={{ option_value }} class="product-card__color-dot item-swatch{% if isOptionOutOfStock %} out-of-stock{% endif %}" style="{% if product_option.selected_value == option_value %}border: 1px solid red;{% endif %}">
+                                            <input 
+                                                id="{{ current_variant.id | append: option_value }}"
+                                                type="radio" 
+                                                name="option-{{ product_option.name | handleize }}" 
+                                                value="{{ option_value }}"
+                                                {% if product_option.selected_value == option_value %}checked{% endif %}
+                                            >
+                                            <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}"></label> 
+                                            {% if isOptionOutOfStock %}
+                                                <div class="product-variant-options__cross-line"></div>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                    </ul>                                  
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+  
+            
+            {% endform %}
+
+        </div>
+  
+          
+          <span class = "product-card__vendor">{{ product.vendor }}</span>
+  
+          <div class='jdgm-widget jdgm-preview-badge'>
+            {{ product.metafields.judgeme.badge }}
+          </div> 
+  
+          <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>     
+    
+          <div class="product-card__prices">
+            {% if product.price_varies %}
+              <span class="product-card__price-amount"> From {{ product.price_min | money_with_currency }}</span>
+            {% else %}
+              <span class="product-card__price-amount">  {{ product.price | money_with_currency }}</span>   
+            {% endif %}                
+  
+            {% if current_variant.compare_at_price > current_variant.price %}
+            <s class="product-card__compareprice">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+            {% endif %}
+          </div>
+         
+          {% if current_variant.inventory_quantity > 10 and current_variant.inventory_quantity <= 50 %}
+            <span class = "product-card__stock product-card__max-stock">{{ current_variant.inventory_quantity }}  in stock</span>
+          {% elsif current_variant.inventory_quantity < 10 and current_variant.inventory_quantity > 1 %} 
+            <span class = "product-card__stock product-card__min-stock">Only {{ current_variant.inventory_quantity }}  units left</span>
+          {% endif %}  
+
+        
+          {% if current_variant.inventory_quantity != 0 %}
+                <form method="post" action="/cart/add" id="product_form_7787533435047" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data"><input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
+
+                <input type="hidden" name="product-id" value="7787533435047"><input type="hidden" name="section-id" value="template--16239867592871__like"></form>
+                <div class="button_container">
+                    <div class="my-btn custom-buy-btn custom-button-secondary">
+                        add to cart
+                    </div>
+                </div>
+
+                <div class="quantity-container button custom-button-secondary hidden-qty">
+                    <span id="decrease" autocomplete="off" class="quantity-btn">-</span>
+                    <span id="quantity-value">1</span>
+                    <span id="increase" autocomplete="off" class="quantity-btn">+</span>
+                </div>
+          {% endif %}
+
+       
+            
+        </div>
+    </div>
+
+    <script>
+      {{ product.variants | json }}
+    </script>
+</product-cart-element>
+
+

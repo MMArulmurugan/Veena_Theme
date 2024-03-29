@@ -1,0 +1,12 @@
+{
+    "sections": {
+      "main": {
+        "type": "custom-timeline-page",
+        "settings": {
+        }
+      }
+    },
+    "order": [
+      "main"
+    ]
+  }

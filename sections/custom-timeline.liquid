@@ -1,0 +1,169 @@
+{{ 'custom-timeline.css' |  asset_url |  stylesheet_tag }} 
+
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+{% capture custom-timeline__slider-settings %}
+{
+  "type" : "{{ section.settings.slide_animation }}",
+  "perPage": 1,
+  "pagination": {{ section.settings.show_pagination }},
+  "perMove": 1,
+  "autoplay": {{ section.settings.autoplay }} ,    
+  "interval": {{ section.settings.autoplay_duration }},
+  "arrows" : {{  section.settings.slide_arrows }},
+  "rewind" : {{ section.settings.infinite_scroll }}
+}
+{% endcapture %}
+
+<div class="custom-timeline padding-{{ section.id }}">
+    <div class="page-width">
+        <splide-slider data-splide-options = '{{ custom-timeline__slider-settings }}'>      
+            <section class="splide " aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                    <ul class="splide__list ">
+                        {% if section.blocks.size > 0  %}  
+                            {% for block in section.blocks %}
+                                <li class="splide__slide ">
+                                    <div>
+                                        <h2>{{ block.settings.timeline_year }}</h2>
+                                        <p>{{ block.settings.timeline_description }}</p>
+                                    </div>
+                                </li>       
+                            {% endfor %} 
+                        {% endif %}  
+                    </ul>
+                </div>
+            </section>
+        </splide-slider>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom Timeline",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_arrows",
+      "label": "Show slide arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_scroll",
+      "label": "Infinite Scroll",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "slide_animation",
+      "label": "Slide animation",
+      "options": [
+        {
+          "value": "loop",
+          "label": "Loop"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "default": 5000
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Timeline",
+      "type": "slide",
+      "settings": [
+        {
+            "type": "number",
+            "id": "timeline_year",
+            "label": "Year",
+            "default": 2011
+        },
+        {
+            "type": "richtext",
+            "id": "timeline_description",
+            "label": "Description",
+            "default": "<p> Forays into Home Appliances Business</p>"
+        }
+          
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Timeline"
+    }
+  ]
+}
+{% endschema %}

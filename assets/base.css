@@ -4857,3 +4857,27 @@ header.header svg.icon path,
   font-size: 9px;
   font-size: 700;
 }
+.custom-buy-btn{
+  width: 100%;
+}
+.quantity-container{
+  display:flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.button_container{
+  width: 100%;
+}
+.my-btn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d03c3f;
+  color: #fff;
+  border-radius: 24px;
+  cursor:pointer;
+}
+.hidden-qty{
+  display:none;
+}
