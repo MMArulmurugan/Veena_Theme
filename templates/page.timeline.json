@@ -1,14 +1,127 @@
 {
   "sections": {
     "main": {
-      "type": "main-page",
+      "type": "custom-timeline-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+      }
+    },
+    "custom_timeline_WkPAyt": {
+      "type": "custom-timeline",
+      "blocks": {
+        "slide_KJpCWB": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 1939,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_b64MfE": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 1954,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_iYJiUP": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 1990,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_RPUr94": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2008,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_twyTqV": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2011,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_LFXyTz": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2014,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_6yikMw": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2015,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_BjUdmX": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2016,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_QddyBf": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2017,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_Kiaj8K": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2018,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_emqhVe": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2019,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        },
+        "slide_Pdab4C": {
+          "type": "slide",
+          "settings": {
+            "timeline_year": 2020,
+            "timeline_description": "<p> Forays into Home Appliances Business<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_KJpCWB",
+        "slide_b64MfE",
+        "slide_iYJiUP",
+        "slide_RPUr94",
+        "slide_twyTqV",
+        "slide_LFXyTz",
+        "slide_6yikMw",
+        "slide_BjUdmX",
+        "slide_QddyBf",
+        "slide_Kiaj8K",
+        "slide_emqhVe",
+        "slide_Pdab4C"
+      ],
+      "settings": {
+        "autoplay": false,
+        "show_pagination": false,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slide_animation": "slide",
+        "autoplay_duration": 5000,
+        "timeline_last_description": "<p>Orient Electric makes its way into the list of 2020 Fortune India 500 - India's Largest Corporations. The recognition validates the robustness of company's business model and is reflective of its ambitious growth journey as a standalone company..<\/p>",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_timeline_WkPAyt"
   ]
 }

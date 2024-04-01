@@ -18,38 +18,65 @@
 {% capture custom-timeline__slider-settings %}
 {
   "type" : "{{ section.settings.slide_animation }}",
-  "perPage": 1,
+  "perPage": 8,
   "pagination": {{ section.settings.show_pagination }},
   "perMove": 1,
-  "autoplay": {{ section.settings.autoplay }} ,    
+  "autoplay": {{ section.settings.autoplay }},    
   "interval": {{ section.settings.autoplay_duration }},
   "arrows" : {{  section.settings.slide_arrows }},
   "rewind" : {{ section.settings.infinite_scroll }}
 }
 {% endcapture %}
 
+
 <div class="custom-timeline padding-{{ section.id }}">
     <div class="page-width">
-        <splide-slider data-splide-options = '{{ custom-timeline__slider-settings }}'>      
-            <section class="splide " aria-label="Splide Basic HTML Example">
+        <splide-slider data-splide-options='{{ custom-timeline__slider-settings }}'>      
+            <section class="splide" aria-label="Splide Basic HTML Example">
                 <div class="splide__track">
-                    <ul class="splide__list ">
+                    <ul class="splide__list">
                         {% if section.blocks.size > 0  %}  
                             {% for block in section.blocks %}
-                                <li class="splide__slide ">
-                                    <div>
-                                        <h2>{{ block.settings.timeline_year }}</h2>
-                                        <p>{{ block.settings.timeline_description }}</p>
-                                    </div>
-                                </li>       
+                                {% if forloop.last %}
+                                    {% assign last_block = block %}
+                                    <li class="splide__slide">
+                                      <div class = "custom-timeline--last-year">
+                                          <h2 class = "custom-timeline--last-year">{{ block.settings.timeline_year }}</h2>
+                                          <p>{{ block.settings.timeline_description }}</p>
+                                      </div>
+                                    </li>
+                                  {% else %}
+                                    <li class="splide__slide">
+                                      <div class ="custom-timeline--years">
+                                          <h2 class="custom-timeline--year">{{ block.settings.timeline_year }}</h2>
+                                          <p>{{ block.settings.timeline_description }}</p>
+                                      </div>
+                                    </li>  
+                                {% endif %}
                             {% endfor %} 
-                        {% endif %}  
+                        {% endif %}
                     </ul>
                 </div>
             </section>
         </splide-slider>
     </div>
+    {% if last_block %}
+      <div class = "page-width custom-timeline--last-block-content">
+          <div class="custom-timeline--last-block-year ">
+            <h1 class="custom-timeline--year-last">{{ last_block.settings.timeline_year }}</h1>
+            <h3 class ="custom-timeline--year-last-note">{{ last_block.settings.timeline_description }}</h3>
+          </div>
+          <div class="custom-timeline--last-block-description ">
+            <p>{{ section.settings.timeline_last_description }}</p>
+          </div>
+      </div> 
+    {% endif %}
 </div>
+
+<style>
+  
+</style>
+
 
 
 {% schema %}
@@ -113,6 +140,12 @@
       "unit": "ms",
       "label": "Autoplay Duration",
       "default": 5000
+    },
+    {
+      "type": "richtext",
+      "id": "timeline_last_description",
+      "label": "Last Year Description",
+      "default": "<p>Orient Electric makes its way into the list of 2020 Fortune India 500 - India's Largest Corporations. The recognition validates the robustness of company's business model and is reflective of its ambitious growth journey as a standalone company..</p>"
     },
     {
       "type": "header",
