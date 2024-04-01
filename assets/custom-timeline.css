@@ -1,20 +1,28 @@
+* {
+    font-family: "Roboto";
+}
 .custom-timeline{
-    background:rgb(61, 60, 60);
+    background-color: rgb(55, 55, 55);
     color:rgb(145, 145, 145);
 }
-.custom-timeline {
-    position: relative;
-    overflow: hidden;
-    background-image: url('https://www.orientelectric.com/theme/Orient/img/bg-aboutslider-nav.png');
-    background-repeat: repeat-x;
-    background-position: center 20%;
+
+@media screen and (min-width:768px){
+    .custom-timeline {
+        position: relative;
+        overflow: hidden;
+        background-image: url('https://www.orientelectric.com/theme/Orient/img/bg-aboutslider-nav.png');
+        background-repeat: repeat-x;
+        background-position: center 25%;
+        
+    }
 }
-.page-width {
+
+.custom-timeline .page-width {
     position: relative;
     z-index: 1;
 }
 
-.splide {
+.custom-timeline .splide {
     z-index: 2;
 }
 
@@ -29,35 +37,8 @@
 {
     color:rgb(232, 90, 41);
 }
-.custom-timeline--year-last{
-    color:rgb(232, 90, 41);
-    font-size: 102px;
-    font-weight: bold;
-    height: 84px;
-    line-height: 84px;
-}
-.custom-timeline--year-last-note{
-    color:rgb(232, 90, 41);
-    font-size: 20px;
-    font-weight: bold;
-    height: 128px;
-    line-height: 22px;
-}
-.custom-timeline--last-block-content{
-    display:flex;
-    margin-top: 25px;
-}
-.custom-timeline--last-block-year{
-    width: 40%;
-}
-
-.custom-timeline--last-block-description{
-    font-size: 16px;
-    font-weight: 300;
-    height: 78px;
-    line-height: 26px;
-    margin-bottom: 20px;
-    color:rgb(153, 153, 153);
+.custom-timeline--years{
+    cursor: pointer;
 }
 
 .custom-timeline .splide__arrow--next {
@@ -78,13 +59,121 @@
     padding: 5px 0;
 }
 .custom-timeline .splide__arrow--next:hover {
-    background: rgb(122, 122, 122);
+    background: rgb(55, 55, 55);
 }
 .custom-timeline .splide__arrow--prev:hover {
-    background: rgb(122, 122, 122);
+    background: rgb(55, 55, 55);
 }
   
 .custom-timeline .splide__arrow--prev:disabled,
 .custom-timeline .splide__arrow--next:disabled {
     display: none;
+}
+.custom-timeline .splide__arrow {
+    top: 5px; 
+}
+
+
+.custom-timeline .splide__slide:nth-child(even) {
+    .custom-timeline--years{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+}
+
+.margin-top{
+  margin-top: 9%;
+}
+
+
+@media screen and (min-width:1024px){
+  .margin-top{
+    margin-top: 7%;
+  }
+}
+
+@media screen and (min-width:1440px){
+  .margin-top{
+    margin-top: 8.6%;
+  }
+}
+
+.custom-timeline--main-slider{
+    margin-top: 30px; 
+}
+.custom-timeline--main-slider .splide__slide{
+    display:flex;
+}
+
+.main-slider__timeline-text-wrapper {
+    color: #e85a29;
+    width: 30%;
+  }
+  
+  .main-slider__timeline-text-wrapper h2 {
+    color: #e85a29;
+    font-weight: 400;
+    font-size: 102px;
+    line-height: 84px;
+  }
+  
+  .main-slider__timeline-text-wrapper div {
+      width: 225px;
+      font-size: 20px;
+      line-height: 22px;
+      color: #e85a29;
+      text-transform: uppercase;
+      font-family: bold;
+      font-weight: 400;
+  }
+  .main-slider__timeline-description {
+    font-size: 16px;
+    color: #999;
+    font-weight: 300;
+    line-height: 26px;
+    padding-left: 28px;
+    width: 70%;
+  }
+  .main-slider__timeline-text-wrapper p{
+    text-align: left;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width:768px){
+    .custom-timeline--thumbnail-slider{
+      display:none;
+    }
+    .custom-timeline--main-slider .splide__slide {
+      flex-direction:column;
+      justify-content: center;
+    }
+  .main-slider__timeline-text-wrapper{
+    text-align: center;
+  }
+  .main-slider__timeline-text-wrapper p{
+    text-align: center;
+    font-size: 20px;
+  }
+  .main-slider__timeline-text-wrapper {
+    color: #e85a29;
+    width: 100%;
+  }
+  .main-slider__timeline-description{
+    width: 100%;
+    text-align: center;
+  }
+ 
+}
+
+@media screen and (min-width:768px){
+    .custom-timeline--main-slider .splide__arrow--prev,
+    .custom-timeline--main-slider .splide__arrow--next {
+        display: none;
+    }
+}
+.custom-timeline .splide__slide img{
+    width: 50px;
+    height: auto;
 }

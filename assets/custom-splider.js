@@ -9,7 +9,8 @@ class SplideSlider extends HTMLElement {
     }
   
     mountSplider() {
-      new Splide(this.splideEl, this.options).mount();
+      let splide =  new Splide(this.splideEl, this.options);
+      splide.mount();
     }
   }
   
