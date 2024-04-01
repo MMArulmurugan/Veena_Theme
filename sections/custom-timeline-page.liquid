@@ -1,4 +1,6 @@
 {% comment %} {{ 'custom-timeline.css' |  asset_url |  stylesheet_tag }} 
+<script src="{{ 'custom-my-splider.js' | asset_url }}" defer="defer"></script>
+
 
 {% style %}
   .padding-{{ section.id }} {
@@ -12,329 +14,232 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-
-
-  * {
-  font-family: "Roboto";
-}
-
-.timeline-wrapper {
-  display: flex;  
-  flex-direction: column;
-  background-color: rgb(55, 55, 55);
-  padding: 10% 5px;
-}
-
-
-.timeline-background-wrapper {
-  background-image: url("https://www.orientelectric.com/theme/Orient/img/bg-aboutslider-nav.png");
-  height: 20px;
-  position: relative ;
-  max-width:var(--page-width);
-}
-
-
-#thumbnail-slider .splide__slide:nth-child(even) {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.splide__track--nav > .splide__list > .splide__slide, .splide__track--nav > .splide__list > .splide__slide.is-active {
-  border: none;
-}
-
-.timeline-logo {
-  width: 35px;
-  height: 25px;
-}
-
-#main-slider {
-  padding: 0 30px;
-  margin-top: 150px;
-}
-
-.main-slider__timeline-text-wrapper {
-  color: #e85a29;
-}
-
-.main-slider__timeline-text-wrapper h2 {
-  color: #e85a29;
-  font-weight: 400;
-  font-size: 102px;
-  line-height: 84px;
-}
-
-.main-slider__timeline-text-wrapper div {
-    width: 225px;
-    font-size: 20px;
-    line-height: 22px;
-    color: #e85a29;
-    text-transform: uppercase;
-    font-family: bold;
-    font-weight: 400;
-}
-
-.main-slider__timeline-description {
-  font-size: 16px;
-  color: #999;
-  font-weight: 300;
-  line-height: 26px;
-}
-
-#thumbnail-slider {
-  top: -8px;
-  position: absolute;
-  width:100%
-}
-
-#thumbnail-slider .splide__track--nav > .splide__list > .splide__slide.is-active {
-  color: #e85a29;
-}
-
-#thumbnail-slider .splide__track--nav > .splide__list > .splide__slide{
-  color:#919191;
-}
-
-#main-slider .splide__slide {
-  display: flex;
-  gap: 40px;
-}
-
-#thumbnail-slider .splide__track{
-  top: -122px;
-}
-
-.margin-top{
-  margin-top: 9%;
-}
-
-@media screen and (max-width:768px){
-  .timeline-background-wrapper{
-    display:none;
-  }
-  #main-slider .splide__slide {
-    flex-direction:column;
-}
-}
-
-@media screen and (min-width:1024px){
-  .margin-top{
-    margin-top: 10%;
-  }
-}
-
-@media screen and (min-width:1440px){
-  .margin-top{
-    margin-top: 8.6%;
-  }
-}
-
-.thumbnail-slider__timeline-description h2{
-  color: inherit;
-}
 {% endstyle %}
 
+{% capture custom-timeline__thumbnail-slider-settings %}
+{
+  "type" : "{{ section.settings.slide_animation }}",
+  "perPage": "{{ section.settings.slides_per_page }}",
+  "pagination": {{ section.settings.show_pagination }},
+  "perMove": "{{ section.settings.slides_per_move }}",
+  "autoplay": {{ section.settings.autoplay }},    
+  "interval": {{ section.settings.autoplay_duration }},
+  "arrows" : {{  section.settings.slide_arrows }},
+  "rewind" : {{ section.settings.infinite_scroll }},
+  "id": "thumbnail-slider"
+}
+{% endcapture %}
 
-<div class="section-timeline-{{ section.id }}">
-  <div class="timeline-wrapper">
-    <div class="timeline-background-wrapper">
-      <div id="thumbnail-slider" class="splide">
-        <div class="splide__track">
-          <ul class="splide__list">
-            {% for block in section.blocks %}
-              <li class="splide__slide {% cycle 'margin-top', 'odd' as row_class %}">
-                <img class="timeline-logo" src="https://www.orientelectric.com/theme/Orient/img/bg-as-tn.png" alt="timeline" height="30" width="30" />
-                <div class="thumbnail-slider__timeline-description">
-                    <h2>{{ block.settings.timeline_year }}</h2>
-                    <div>{{ block.settings.timeline_text }}</div>
+{% capture custom-timeline__main-slider-settings %}
+{
+  "type" : "{{ section.settings.slide_animation }}",
+  "perPage": 1,
+  "pagination": {{ section.settings.show_pagination }},
+  "perMove": "{{ section.settings.slides_per_move }}",
+  "autoplay": {{ section.settings.autoplay }},    
+  "interval": {{ section.settings.autoplay_duration }},
+  "arrows" : {{  section.settings.slide_arrows }},
+  "rewind" : {{ section.settings.infinite_scroll }},
+  "id": "main-slider"
+}
+{% endcapture %}
+
+
+<div class="custom-timeline padding-{{ section.id }}">
+    <div class="page-width">
+        <splide-slider-two class = "custom-timeline--thumbnail-slider" data-splide-options='{{ custom-timeline__thumbnail-slider-settings }}'>      
+            <section   class="splide" aria-label="Splide Basic HTML Example">
+                <div class="splide__track ">
+                    <ul class="splide__list">
+                        {% if section.blocks.size > 0  %}  
+                            {% for block in section.blocks %}
+                              <li class="splide__slide {% cycle 'margin-top', 'odd' as row_class %}">
+                                <div class ="custom-timeline--years">
+                                  <img class="timeline-logo" src="{{ section.settings.year_pointer | image_url }}" alt="timeline" height="30" width="30" />
+              
+                                  <div class="thumbnail-slider__timeline-description">
+                                    <h2 class="custom-timeline--year">{{ block.settings.timeline_year }}</h2>
+                                    <p>{{ block.settings.timeline_description }}</p>
+                                  </div>                 
+                                </div>
+                              </li>  
+                            {% endfor %} 
+                        {% endif %}
+                    </ul>
                 </div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
+            </section>
+        </splide-slider-two>
+
+        <splide-slider-two class = "custom-timeline--main-slider" data-splide-options='{{ custom-timeline__main-slider-settings }}'>      
+            <section   class="splide custom-timeline--main-slider" aria-label="Splide Basic HTML Example">
+                <div class="splide__track ">
+                    <ul class="splide__list">
+                        {% if section.blocks.size > 0  %}  
+                            {% for block in section.blocks %}                
+                              <li class="splide__slide">
+                                <div class="main-slider__timeline-text-wrapper">
+                                    <h2><strong>{{ block.settings.timeline_year }}</strong></h2>
+                                    <p class = "main-slidr__time-text">{{ block.settings.timeline_description }}</p>
+                                </div>
+                                <div class="main-slider__timeline-description">{{ block.settings.timeline_year_description }}</div>
+                              </li>
+                            {% endfor %} 
+                        {% endif %}
+                    </ul>
+                </div>
+            </section>
+        </splide-slider-two>
     </div>
-    <div id="main-slider" class="splide">
-      <div class="splide__track">
-        <ul class="splide__list">
-          {% for block in section.blocks %}
-            <li class="splide__slide">
-              <div class="main-slider__timeline-text-wrapper">
-                  <h2><strong>{{ block.settings.timeline_year }}</strong></h2>
-                  <div>{{ block.settings.timeline_text }}</div>
-              </div>
-              <div class="main-slider__timeline-description">{{ block.settings.timeline_description }}</div>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
-
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var main = new Splide('#main-slider', {
-      type: 'slide',
-      pagination: false,
-      arrows: false,
-      perPage: 1,
-      breakpoints: {
-        768: {
-          arrows:true
-        }
-      }
-    });
 
-    var thumbnails = new Splide('#thumbnail-slider', {
-      fixedWidth: 200,
-      fixedHeight: 150,
-      isNavigation: true,
-      gap: 10,
-      pagination: false,
-      dragMinThreshold: {
-        mouse: 4,
-        touch: 10
-      },
-      breakpoints: {
-        768: {
-          fixedWidth: 66,
-          fixedHeight: 38
-        }
-      }
-    });
-
-    main.sync(thumbnails);
-    main.mount();
-    thumbnails.mount();
-  });
 </script>
+
 
 {% schema %}
 {
-  "name": "timeline",
+  "name": "Custom Timeline",
   "tag": "section",
   "settings": [
     {
-        "type": "header",
-        "content": "Slideshow options"
+      "type": "header",
+      "content": "Slider Options"
     },
     {
-        "type": "checkbox",
-        "id": "enable_autoplay",
-        "label": "Enable autoplay",
-        "default": false
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
     },
     {
-        "type": "checkbox",
-        "id": "enable_dots",
-        "label": "Enable dots",
-        "default": false
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Pagination",
+      "default": true
     },
     {
-        "type": "checkbox",
-        "id": "rewind_slides",
-        "label": "Enable rewind",
-        "default": false
+      "type": "checkbox",
+      "id": "slide_arrows",
+      "label": "Show slide arrows",
+      "default": true
     },
     {
-        "type": "checkbox",
-        "id": "enable_arrows",
-        "label": "Enable arrows",
-        "default": true
+      "type": "checkbox",
+      "id": "infinite_scroll",
+      "label": "Infinite Scroll",
+      "default": true
     },
     {
-        "type": "select",
-        "id": "slide_animation",
-        "label": "Slider animation",
-        "options": [
-            {
-                "value": "fade",
-                "label": "Fade"
-            },
-            {
-                "value": "loop",
-                "label": "Loop"
-            },
-            {
-                "value": "slide",
-                "label": "Slide"
-            }
-        ],
-        "default": "loop"
-    },
-    {
-        "type": "range",
-        "id": "slides_per_page",
-        "label": "Slides per page",
-        "min": 1,
-        "max": 12,
-        "default": 1
-    },
-    {
-        "type": "range",
-        "id": "slides_per_move",
-        "label": "Slides per move",
-        "min": 1,
-        "max": 12,
-        "default": 1
-    },
-    {
-        "type": "header",
-        "content": "Section padding details"
+      "type": "select",
+      "id": "slide_animation",
+      "label": "Slide animation",
+      "options": [
+        {
+          "value": "loop",
+          "label": "Loop"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        }
+      ]
     },
     {
       "type": "range",
-      "label": "Padding top",
+      "id": "autoplay_duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Autoplay Duration",
+      "default": 5000
+    },
+    {
+      "type": "range",
+      "id": "slides_per_page",
+      "label": "Slides per page",
+      "min": 1,
+      "max": 12,
+      "default": 1
+  },
+  {
+      "type": "range",
+      "id": "slides_per_move",
+      "label": "Slides per move",
+      "min": 1,
+      "max": 12,
+      "default": 1
+  },
+  {
+    "type": "image_picker",
+    "id": "year_pointer",
+    "label": "Year Pointer Image"
+  },
+  {
+    "type": "image_picker",
+    "id": "year_pointer_hover",
+    "label": "Year Pointer hover Image"
+  },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
       "id": "padding_top",
-      "default": 20,
-      "min": 1,
+      "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "px"
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
     },
     {
       "type": "range",
-      "label": "Padding bottom",
       "id": "padding_bottom",
-      "default": 20,
-      "min": 1,
+      "min": 0,
       "max": 100,
       "step": 1,
-      "unit": "px"
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
     }
   ],
   "blocks": [
     {
-      "type": "timeline_item",
-      "name": "Timeline item",
+      "name": "Timeline",
+      "type": "slide",
       "settings": [
         {
-          "type": "text",
-          "label": "Timeline year",
-          "id": "timeline_year",
-          "default": "Year"
+            "type": "number",
+            "id": "timeline_year",
+            "label": "Year",
+            "default": 2011
         },
         {
-          "type": "text",
-          "label": "Timeline text",
-          "id": "timeline_text",
-          "default": "Your timeline text goes here"
+            "type": "richtext",
+            "id": "timeline_description",
+            "label": "Description",
+            "default": "<p> Forays into Home Appliances Business</p>"
         },
         {
           "type": "text",
           "label": "Timeline description",
-          "id": "timeline_description",
+          "id": "timeline_year_description",
           "default": "Your timeline description goes here"
         }
+          
       ]
     }
   ],
   "presets": [
     {
-      "name": "Timeline"
+      "name": "Custom my Timeline"
     }
   ]
 }
