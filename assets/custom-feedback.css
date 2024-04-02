@@ -144,3 +144,11 @@
     box-shadow: 0 4px 30px rgba(0,0,0,.05);
   }
   
+
+.custom-feedback--button[disabled] {
+    cursor: not-allowed; 
+}
+
+.custom-feedback--button:not([disabled]) {
+    cursor: pointer;
+}
