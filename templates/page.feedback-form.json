@@ -6,9 +6,17 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "custom_feedback_fwwY3A": {
+      "type": "custom-feedback",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_feedback_fwwY3A"
   ]
 }
