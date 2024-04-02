@@ -126,7 +126,7 @@
         "show_pagination": false,
         "slide_arrows": true,
         "infinite_scroll": false,
-        "slide_animation": "loop",
+        "slide_animation": "slide",
         "autoplay_duration": 5000,
         "slides_per_page": 8,
         "slides_per_move": 1,
