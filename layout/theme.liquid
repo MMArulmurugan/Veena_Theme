@@ -35,6 +35,9 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {{ 'marmeto-filter.css' | asset_url | stylesheet_tag: preload: true }}
+    <script src="{{ 'marmeto-filter.js' | asset_url }}" defer="defer"></script>
+    
     {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src = '{{ 'splide.min.js' | asset_url }}' defer ></script>
     <script src ="{{ "custom-splider.js" |  asset_url }}" defer></script>
@@ -300,7 +303,7 @@
     {% sections 'header-group' %}
     
     {% sections 'new-header' %}
-    {{ 'marmeto-filter.css' | asset_url | stylesheet_tag: preload: true }}
+    
     {% comment %} <div class = "breadcrum-margin-left">{% render 'breadcrumbs' %}</div> {% endcomment %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
