@@ -49,10 +49,12 @@
         "link_list_a8Uji3",
         "image_xUbpGA"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
         "newsletter_heading": "<strong>SIGN UP TO OUR NEWSLETTER<\/strong>",
+        "newsletter_description": "<p>Description<\/p>",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
