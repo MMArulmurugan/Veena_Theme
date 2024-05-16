@@ -38,6 +38,11 @@
     {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src = '{{ 'splide.min.js' | asset_url }}' defer ></script>
     <script src ="{{ "custom-splider.js" |  asset_url }}" defer></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js" defer></script>
+
   
     <script src="{{ 'product-card.js' | asset_url }}" defer></script>
     {{ content_for_header }}

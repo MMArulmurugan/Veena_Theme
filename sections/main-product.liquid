@@ -132,6 +132,22 @@
                   </h2>
                 </a>
               </div>
+            {%  when "color_family_test" %}
+                <div>
+                    <h2 class="h3">color family</h2>
+
+                    {% assign colorField = product.metafields.custom.color_flame.value %}
+                    {% comment %} {{ colorField | json }} {% endcomment %}
+                  <div>
+                    {% for item in colorField %}
+                      {{ item.main_color  }}                    
+                    {% endfor %}
+                  </div>  
+                  {% for item in colorField %}
+                    {{ item.sub_color  }}                    
+                  {% endfor %}
+
+                </div>   
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price',
@@ -956,6 +972,11 @@
     {
       "type": "offers",
       "name": "Available Offers",
+      "limit": 1
+    },
+    {
+      "type": "color_family_test",
+      "name": "Color Family",
       "limit": 1
     },
     {
