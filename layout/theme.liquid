@@ -35,6 +35,9 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {{ 'marmeto-filter.css' | asset_url | stylesheet_tag: preload: true }}
+    <script src="{{ 'marmeto-filter.js' | asset_url }}" defer></script>
+    
     {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src = '{{ 'splide.min.js' | asset_url }}' defer ></script>
     <script src ="{{ "custom-splider.js" |  asset_url }}" defer></script>
