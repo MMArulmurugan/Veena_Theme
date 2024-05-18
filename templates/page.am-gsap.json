@@ -1,6 +1,13 @@
 {
   "layout": false,
   "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
     "custom_gsap_KP68g3": {
       "type": "custom-gsap",
       "settings": {
@@ -10,6 +17,7 @@
     }
   },
   "order": [
+    "main",
     "custom_gsap_KP68g3"
   ]
 }
